@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Frigate</title>
+<meta name="description" content="Frigate expliqué simplement : où l'installer, caméras compatibles, 5 usages concrets, note de confiance et comparatif avec Ring, Google Home Premium et Synology.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°02 · Frigate">
+<meta property="og:description" content="Installation, caméras compatibles, 5 usages concrets, note de confiance et comparatif, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/frigate.png">
+<meta property="og:url" content="https://repopop.github.io/frigate/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Frigate">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°02</div>
+        <h1>Fri<span>gate</span></h1>
+        <p class="tag">Ta vidéosurveillance intelligente, 100 % chez toi. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ 33 000+ étoiles</span>
+          <span class="chip">Version 0.18</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Frigate enregistre tes caméras et repère par IA les <span class="k">personnes, voitures et animaux</span>, sur ton propre matériel. Il s'installe avec Docker, de trois façons.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M11 12h6"/></svg></span>
+        <h3>Sur un mini-PC</h3>
+        <p>Un mini-PC Intel récent suffit : sa puce graphique intégrée fait tourner l'IA (OpenVINO) sans rien acheter de plus.</p>
+        <span class="pill ok">Tout reste chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur un NAS ou un serveur</h3>
+        <p>Dans Docker, sur un NAS ou un serveur maison. Prévois un disque dédié : les vidéos prennent vite de la place.</p>
+        <span class="pill ok">Tout reste chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <h3>Dans Home Assistant</h3>
+        <p>En module complémentaire de Home Assistant OS : quelques clics, puis les alertes pilotent tes lumières et tes notifications.</p>
+        <span class="pill ok">Tout reste chez toi</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (licence MIT).</b> Frigate+ est un abonnement facultatif (50 $/an) pour des modèles d'IA plus précis ; tout fonctionne sans.</span></li>
+        <li><span class="dot r">!</span><span><b>Il faut des caméras compatibles :</b> des caméras IP qui envoient un flux vidéo réseau (RTSP), idéalement en H.264. Les caméras fermées qui ne passent que par leur appli (Ring, Nest…) ne fournissent pas ce flux.</span></li>
+        <li><span class="dot y">IA</span><span><b>Matériel pour l'IA :</b> un processeur Intel récent avec puce graphique intégrée suffit (OpenVINO), sinon un module Hailo. La clé Google Coral n'est plus conseillée pour une nouvelle installation.</span></li>
+        <li><span class="dot y">Go</span><span><b>Mémoire :</b> 4 Go de RAM minimum, 8 Go si tu actives la reconnaissance des visages et des plaques.</span></li>
+        <li><span class="dot g">⌕</span><span><b>Recherche par description :</b> elle existe, mais le modèle par défaut ne comprend que l'anglais. Le modèle multilingue demande une carte graphique.</span></li>
+        <li><span class="dot r">§</span><span><b>La loi (CNIL) :</b> tu ne filmes que ta propriété. Pas la rue (même pour surveiller ta voiture garée devant), pas le jardin ni l'entrée des voisins.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ne plus être réveillé pour un chat</h3></div>
+        <p>Les alertes ne partent que pour une <b>personne</b> (ou une voiture, si tu veux). Le chat, les ombres et les branches qui bougent sont ignorés.</p>
+        <div class="flow"><span>Mouvement</span><i>→</i><span>IA</span><i>→</i><span>Personne ?</span><i>→</i><span>Alerte</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Surveiller seulement ton allée</h3></div>
+        <p>Dessine une zone directement sur l'image, dans l'interface : Frigate ne t'alerte que si quelqu'un entre dedans. Un masque cache ce qui ne doit pas compter.</p>
+        <div class="tools"><span class="tool">Zones</span><span class="tool">Masques</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Allumer la lumière quand quelqu'un arrive</h3></div>
+        <p>Avec Home Assistant : une personne détectée la nuit dans l'allée, la lumière extérieure s'allume et tu reçois la photo sur ton téléphone.</p>
+        <div class="tools"><span class="tool">Home Assistant</span><span class="tool">Notification</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Retrouver un passage en quelques secondes</h3></div>
+        <p>Le livreur est passé quand ? Filtre par caméra, par type (personne, voiture, animal) et par heure, puis fais défiler la frise.</p>
+        <div class="tools"><span class="tool">Revue</span><span class="tool">Explorer</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Reconnaître la voiture de la famille</h3></div>
+        <p>Plaques et visages sont reconnus depuis la version 0.16 : « la voiture de Papa est arrivée ». Uniquement sur ta propriété, et en prévenant les proches concernés.</p>
+        <div class="tools"><span class="tool">Plaques</span><span class="tool">Visages</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Fiable pour surveiller ta maison</h3>
+          <p>À condition d'avoir des caméras compatibles et un peu de temps pour la configuration.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Versions 0.17 et 0.18 sorties en 2026, avec des correctifs réguliers entre les deux.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 33 000 étoiles : la référence open source de la vidéosurveillance avec IA, très utilisée avec Home Assistant.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Tout tourne en local, sans compte. Seules les images que tu choisis d'envoyer à Frigate+ quittent la maison.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Logiciel gratuit sous licence MIT, financé par l'abonnement facultatif Frigate+ et les dons. Le nom et le logo restent des marques de Frigate, Inc.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Lancé en 2019 et très répandu, mais toujours en version 0.x : chaque grande version change un peu la configuration. Sauvegarde avant de mettre à jour.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub et dans la documentation officielle le 8 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Frigate</h3><div class="cp"><b>Gratuit</b><small>Frigate+ facultatif : 50 $/an</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Mini-PC, NAS, Home Assistant</span></div>
+        <p>Bon pour : Des alertes fiables, sans abonnement, avec tes caméras IP</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ring Home</h3><div class="cp"><b>3,99 à 19,99 €/mois</b><small>Basic : 1 appareil · Standard (9,99 €) : tous</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Ring (Amazon)</span><span class="on">Caméras Ring uniquement</span></div>
+        <p>Bon pour : Du tout-prêt, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Home Premium</h3><div class="cp"><b>10 à 18 €/mois</b><small>ex-Nest Aware · Standard ou Advanced</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Google</span><span class="on">Caméras Nest et Google</span></div>
+        <p>Bon pour : Une maison déjà équipée Google Nest</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Synology Surveillance Station</h3><div class="cp"><b>Inclus avec le NAS</b><small>2 caméras offertes, puis ≈ 60 € par caméra</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">NAS Synology</span></div>
+        <p>Bon pour : Un NAS Synology déjà en place et peu de caméras</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>FRIGATE</b><span>si tu veux des alertes intelligentes sans abonnement et que tes vidéos restent chez toi.</span></li>
+        <li><b>RING / NEST</b><span>si tu veux du tout-prêt et que l'abonnement mensuel ne te gêne pas.</span></li>
+        <li><b>SYNOLOGY</b><span>si tu as déjà un NAS Synology et une ou deux caméras.</span></li>
+      </ul>
+      <p class="warnline">Quel que soit l'outil : ta caméra ne filme que ta propriété. Pas la rue, pas chez les voisins (règle de la CNIL).</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins de 40 secondes, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°02 · Frigate · informations vérifiées le 8 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/blakeblackshear/frigate">dépôt GitHub blakeblackshear/frigate</a> · <a href="https://docs.frigate.video/">documentation officielle</a> · <a href="https://www.cnil.fr/fr/la-videosurveillance-videoprotection-chez-soi">CNIL : la vidéosurveillance chez soi</a></span>
+  </footer>
+</main>
+</body>
+</html>
