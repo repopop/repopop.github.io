@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Uptime Kuma</title>
+<meta name="description" content="Uptime Kuma expliqué simplement : options d'installation, types de surveillance, alertes, limites, confiance et comparaison avec UptimeRobot et Better Stack.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°06 · Uptime Kuma">
+<meta property="og:description" content="Surveille tes services depuis chez toi : installation, limites et alternatives détaillées.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/uptime-kuma.png">
+<meta property="og:url" content="https://repopop.github.io/uptime-kuma/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Uptime Kuma">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°06</div>
+        <h1>Uptime <span>Kuma</span></h1>
+        <p class="tag">Repère les pannes avant tes clients avec Uptime Kuma.</p>
+        <div class="chips">
+          <span class="chip">★ 93 000+ étoiles</span>
+          <span class="chip">Version 2.5.9</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Uptime Kuma vérifie régulièrement si tes sites et services répondent. Tu peux créer des alertes et des pages de statut sur ton instance auto-hébergée. Le logiciel est gratuit ; tu choisis la machine, le réseau et les sauvegardes.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker Compose</h3>
+        <p>Récupère le compose.yaml officiel, lance Docker Compose et garde le dossier de données sur un disque local.</p>
+        <span class="pill ok">La voie la plus simple</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Commande Docker</h3>
+        <p>Démarre le conteneur avec un volume persistant et le port 3001 publié. Limite l'accès réseau si l'interface reste privée.</p>
+        <span class="pill ok">Un conteneur à lancer</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Installation sans Docker</h3>
+        <p>Clone le dépôt puis utilise Node.js, Git et PM2. Le README documente Linux et Windows, mais cette voie demande plus de réglages.</p>
+        <span class="pill mid">Pour utilisateurs techniques</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Logiciel gratuit sous licence MIT.</b> Aucun abonnement Uptime Kuma requis. Tu fournis la machine, l'électricité, le réseau et le temps de maintenance.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Le tableau de bord tourne sur ton serveur.</b> Les données locales sont conservées dans le volume /app/data. Les canaux externes ne reçoivent que les notifications que tu configures.</span></li>
+        <li><span class="dot r">!</span><span><b>Une panne de ton serveur peut aussi couper les alertes.</b> Si Kuma partage la machine, l'alimentation ou la connexion du service surveillé, une panne générale peut neutraliser le contrôleur avec la cible. Pour les services critiques, ajoute une surveillance externe.</span></li>
+        <li><span class="dot y">↔</span><span><b>Docker et stockage local sont à privilégier.</b> Le dépôt recommande Docker. Le README prévient que les systèmes de fichiers NFS ne sont pas pris en charge pour les données ; utilise un volume ou un dossier local.</span></li>
+        <li><span class="dot y">!</span><span><b>Pense à sauvegarder et mettre à jour.</b> Les historiques et réglages sont dans les données persistantes. Sauvegarde ce volume avant une mise à niveau et suis les instructions de migration de la version 2.</span></li>
+        <li><span class="dot y">!</span><span><b>L'accès distant doit être protégé.</b> L'interface écoute sur le port 3001. Si tu la rends accessible depuis Internet, configure correctement le proxy, le chiffrement et les accès ; une page de statut publique peut exposer les services choisis.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Surveiller un site web</h3></div>
+        <p>Vérifie qu'une page HTTP ou HTTPS répond et consulte son historique de disponibilité.</p>
+        <div class="tools"><span class="tool">HTTP</span><span class="tool">Historique</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Tester un port ou une machine</h3></div>
+        <p>Contrôle une adresse réseau avec TCP ou Ping pour repérer une indisponibilité.</p>
+        <div class="flow"><span>Machine</span><i>→</i><span>Vérification</span><i>→</i><span>Alerte</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Vérifier un conteneur Docker</h3></div>
+        <p>Ajoute un contrôle de conteneur pour savoir si le service que tu héberges tourne toujours.</p>
+        <div class="tools"><span class="tool">Docker</span><span class="tool">Conteneur</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Recevoir une alerte</h3></div>
+        <p>Relie un canal pris en charge, comme e-mail ou Discord, puis choisis les événements qui déclenchent un message.</p>
+        <div class="flow"><span>Panne</span><i>→</i><span>Notification</span><i>→</i><span>Réaction</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Informer avec une page de statut</h3></div>
+        <p>Regroupe les contrôles utiles sur une page publique et indique l'état actuel de tes services.</p>
+        <div class="tools"><span class="tool">Services</span><span class="tool">Page de statut</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Puissant et simple, à surveiller soi-même</h3>
+          <p>Un projet très suivi, libre et lisible ; comme l'instance est chez toi, sa disponibilité dépend aussi de ta machine et de ton réseau.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>La page officielle des releases publie la version 2.5.5 en septembre 2026, avec des correctifs et améliorations réguliers.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le dépôt officiel compte environ 93 400 étoiles à la date de vérification, au-dessus du seuil annoncé dans la vidéo.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Les données résident dans le volume local de l'instance ; les alertes partent ensuite vers les services externes que tu configures.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le logiciel est sous licence MIT et ne demande pas d'abonnement ; la machine, le réseau et la maintenance restent à ta charge.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Le projet est largement utilisé et propose des contrôles variés, mais une instance auto-hébergée ne remplace pas une sonde indépendante.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, dans le README et les guides du projet le 9 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Uptime Kuma</h3><div class="cp"><b>Gratuit</b><small>Logiciel MIT sans abonnement ; machine, électricité et maintenance à ta charge</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton serveur ou NAS</span><span class="on">Web, Docker, Linux et Windows</span></div>
+        <p>Bon pour : Garder les alertes et le tableau de bord sous son contrôle</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>UptimeRobot</h3><div class="cp"><b>Gratuit ou dès 13 $/mois</b><small>Offre gratuite : 50 contrôles à intervalle de 5 min ; Solo affiché à 13 $/mois en paiement mensuel ou 12 $/mois avec facturation annuelle</small></div></div>
+        <div class="cm"><span class="lvl m">Sur l'infrastructure cloud UptimeRobot</span><span class="on">Service web hébergé et applications mobiles</span></div>
+        <p>Bon pour : Démarrer sans installer de serveur et recevoir des contrôles externes</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Better Stack</h3><div class="cp"><b>Gratuit pour projets personnels</b><small>Offre gratuite : 10 contrôles et heartbeats, 1 page de statut ; l'offre payante d'astreinte commence à 34 $/mois ou 29 $ par mois avec facturation annuelle</small></div></div>
+        <div class="cm"><span class="lvl m">Dans le cloud Better Stack</span><span class="on">Service web hébergé avec alertes Slack et e-mail</span></div>
+        <p>Bon pour : Réunir surveillance, page de statut et fonctions d'incident</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>UPTIME KUMA</b><span>si tu veux surveiller tes services chez toi et gérer toi-même l'outil.</span></li>
+        <li><b>UPTIMEROBOT</b><span>si tu préfères des vérifications hébergées, avec un palier gratuit et des offres payantes.</span></li>
+        <li><b>BETTER STACK</b><span>si tu veux associer surveillance hébergée, page de statut et gestion d'incidents.</span></li>
+      </ul>
+      <p class="warnline">Pour surveiller une panne de courant, de réseau ou du serveur lui-même, garde aussi une sonde externe indépendante.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins de 40 secondes, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°06 · Uptime Kuma · informations vérifiées le 9 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/louislam/uptime-kuma">dépôt GitHub Uptime Kuma (étoiles et licence)</a> · <a href="https://github.com/louislam/uptime-kuma#readme">README officiel Uptime Kuma (fonctions et installation)</a> · <a href="https://github.com/louislam/uptime-kuma/releases">releases officielles (version 2.5.5)</a> · <a href="https://raw.githubusercontent.com/louislam/uptime-kuma/master/compose.yaml">compose.yaml officiel</a> · <a href="https://github.com/louislam/uptime-kuma/wiki/%F0%9F%94%A7-How-to-Install">guide officiel d'installation</a> · <a href="https://github.com/louislam/uptime-kuma/wiki/Migration-From-v1-To-v2">guide officiel de migration v1 vers v2</a> · <a href="https://github.com/louislam/uptime-kuma/wiki/Environment-Variables">variables officielles et répertoire des données</a> · <a href="https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg">logo officiel Uptime Kuma</a> · <a href="https://uptimerobot.com/pricing/">tarifs officiels UptimeRobot</a> · <a href="https://betterstack.com/pricing">tarifs officiels Better Stack</a></span>
+  </footer>
+</main>
+</body>
+</html>
