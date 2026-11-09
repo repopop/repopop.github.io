@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Immich</title>
+<meta name="description" content="Immich expliqué simplement : installation, matériel, intelligence artificielle, usages, confidentialité et alternatives à Google Photos.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°05 · Immich">
+<meta property="og:description" content="Sauvegarde mobile, reconnaissance des visages, recherche IA et OCR : le guide Immich en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/immich.png">
+<meta property="og:url" content="https://repopop.github.io/immich/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Immich">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°05</div>
+        <h1>Immich</h1>
+        <p class="tag">Ta photothèque privée, sauvegardée et recherchable chez toi. Le guide en français.</p>
+        <div class="chips">
+          <span class="chip">★ 118 000+ étoiles</span>
+          <span class="chip">Version 3.3.6</span>
+          <span class="chip">Gratuit · auto-hébergé · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Immich est une solution de sauvegarde et de gestion de photos et vidéos auto-hébergée. Elle remplace une photothèque cloud par ton propre serveur, avec applications mobiles et interface web. L'IA tourne via un service machine learning séparé ; les modèles peuvent être téléchargés au premier lancement. Trois façons de l'installer :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur un mini-PC ou serveur Linux</h3>
+        <p>Docker Compose est la méthode officielle recommandée. Prévois au minimum 6 Go de RAM et 2 cœurs CPU ; 8 Go et 4 cœurs sont recommandés.</p>
+        <span class="pill ok">Installation officielle</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur un NAS compatible Docker</h3>
+        <p>Possible si le NAS prend en charge Docker/Container Manager et dispose de ressources suffisantes. Suis le guide adapté au modèle ; les guides NAS tiers ne sont pas maintenus officiellement par Immich.</p>
+        <span class="pill mid">Selon le modèle</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur Kubernetes</h3>
+        <p>Immich propose une voie d'installation Kubernetes via son chart Helm officiel. C'est plutôt destiné aux utilisateurs déjà à l'aise avec les clusters.</p>
+        <span class="pill ok">Chart officiel</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (AGPL-3.0).</b> Aucun abonnement Immich obligatoire pour l'auto-hébergement. L'AGPL impose notamment des obligations de mise à disposition du code modifié lorsque tu proposes à des utilisateurs une version modifiée via le réseau.</span></li>
+        <li><span class="dot y">!</span><span><b>Ce n'est pas une sauvegarde secondaire magique.</b> Immich stocke les originaux dans ton espace configuré, mais tu dois organiser une vraie sauvegarde séparée des fichiers et de la base PostgreSQL. Ne garde pas Immich comme unique copie.</span></li>
+        <li><span class="dot y">↔</span><span><b>L'IA demande des ressources.</b> Le serveur machine learning traite détection des visages, recherche CLIP et OCR. L'import initial peut solliciter fortement CPU et RAM ; tu peux réduire la concurrence ou désactiver certains traitements.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tes originaux restent sur ton infrastructure.</b> Le stockage principal est défini par UPLOAD_LOCATION et la base par DB_DATA_LOCATION. L'installation est auto-hébergée, mais l'accès distant, les sauvegardes et la sécurité réseau restent à ta charge.</span></li>
+        <li><span class="dot y">AI</span><span><b>Recherche par sens, pas par tags générés.</b> CLIP compare l'image et ta requête textuelle pour retrouver un contenu proche. Immich ne fabrique pas pour autant une légende ou une description lisible pour chaque photo.</span></li>
+        <li><span class="dot y">!</span><span><b>L'OCR doit être traité et indexé.</b> La recherche OCR retrouve le texte présent dans les images après traitement. Les résultats dépendent de la qualité, de la langue et de la lisibilité du texte.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Sauvegarder les photos du téléphone</h3></div>
+        <p>L'application mobile envoie automatiquement les nouveaux clichés vers ton serveur Immich, selon les paramètres de sauvegarde.</p>
+        <div class="flow"><span>Téléphone</span><i>→</i><span>Sauvegarde Immich</span><i>→</i><span>Serveur perso</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Retrouver les photos d'une personne</h3></div>
+        <p>La reconnaissance faciale détecte les visages, regroupe ceux qui se ressemblent et te laisse nommer les personnes. Des regroupements peuvent nécessiter une correction manuelle.</p>
+        <div class="tools"><span class="tool">Visages</span><span class="tool">Personnes</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Chercher une scène en langage naturel</h3></div>
+        <p>Avec la recherche contextuelle CLIP, essaie une description comme « chien sur la plage » sans avoir à ajouter ces mots comme tags.</p>
+        <div class="flow"><span>Ta description</span><i>→</i><span>Modèle CLIP</span><i>→</i><span>Photos correspondantes</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Retrouver un document photographié</h3></div>
+        <p>L'OCR extrait le texte visible dans une image ; tu peux ensuite rechercher un mot imprimé sur une capture ou un document photographié.</p>
+        <div class="tools"><span class="tool">OCR</span><span class="tool">Recherche texte</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Partager des albums</h3></div>
+        <p>Crée des albums et partage des sélections avec les proches, tout en conservant la bibliothèque principale sur ton installation.</p>
+        <div class="tools"><span class="tool">Albums</span><span class="tool">Partage</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Une alternative puissante, mais à administrer</h3>
+          <p>Immich est très complet et activement développé. La confiance dépend aussi de ta capacité à maintenir le serveur et à sauvegarder les données.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le dépôt est mis à jour régulièrement ; la version stable v3.3.6 est publiée le 4 novembre 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 118 000 étoiles GitHub au contrôle du 9 novembre 2026, avec un écosystème de guides et de contributions.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Les originaux et la base sont stockés sur ton infrastructure. En contrepartie, tu dois sécuriser l'accès distant et gérer des sauvegardes indépendantes.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le logiciel est gratuit sous AGPL-3.0 et s'auto-héberge ; pas d'abonnement cloud Immich obligatoire pour le cœur du produit.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Fonctionnalités avancées et documentation fournie, mais projet en évolution rapide : mises à jour, compatibilité et restauration demandent de la rigueur.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur le dépôt GitHub et dans la documentation officielle le 9 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Immich</h3><div class="cp"><b>Gratuit</b><small>Logiciel gratuit ; prévoir serveur, disques et électricité.</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Serveur Linux, mini-PC, NAS compatible, Kubernetes</span></div>
+        <p>Bon pour : Une photothèque complète auto-hébergée, avec recherche IA.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>PhotoPrism Community</h3><div class="cp"><b>Gratuit</b><small>Édition communautaire auto-hébergée ; Essentials 2 €/mois et Plus à partir de 6 €/mois, facturation annuelle.</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Serveur auto-hébergé, Docker</span></div>
+        <p>Bon pour : Une alternative auto-hébergée avec gestion de bibliothèque et édition payante.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Photos / Google One</h3><div class="cp"><b>15 Go gratuits</b><small>Google One 100 Go : 1,99 €/mois sur App Store France ; les tarifs peuvent varier selon canal et offre.</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud Google</span><span class="on">Android, iOS, Web</span></div>
+        <p>Bon pour : La simplicité sans administrer de serveur.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Apple Photos / iCloud+</h3><div class="cp"><b>5 Go gratuits</b><small>50 Go : 0,99 €/mois · 200 Go : 2,99 €/mois · 2 To : 9,99 €/mois.</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud Apple</span><span class="on">iPhone, iPad, Mac, Web</span></div>
+        <p>Bon pour : La synchronisation fluide dans l'écosystème Apple.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>IMMICH</b><span>si tu veux retrouver l'expérience Google Photos, avec tes photos hébergées chez toi et une recherche IA puissante.</span></li>
+        <li><b>PHOTOPRISM</b><span>si tu veux une autre bibliothèque auto-hébergée et que ses éditions te conviennent.</span></li>
+        <li><b>GOOGLE PHOTOS</b><span>si tu privilégies la simplicité et acceptes le stockage cloud et l'abonnement au-delà du quota gratuit.</span></li>
+        <li><b>ICLOUD+</b><span>si tu es déjà dans l'écosystème Apple et veux une synchronisation transparente.</span></li>
+      </ul>
+      <p class="warnline">Auto-hébergé ne veut pas dire sauvegardé : prévois une copie indépendante des originaux et de la base.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins de 40 secondes, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°05 · Immich · informations vérifiées le 9 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/immich-app/immich">Dépôt GitHub Immich (étoiles, licence, releases)</a> · <a href="https://github.com/immich-app/immich#readme">README officiel Immich</a> · <a href="https://docs.immich.app/install/docker-compose/">Documentation officielle — installation Docker Compose</a> · <a href="https://docs.immich.app/install/requirements/">Documentation officielle — prérequis matériels</a> · <a href="https://docs.immich.app/features/facial-recognition/">Documentation officielle — reconnaissance faciale</a> · <a href="https://docs.immich.app/features/searching/">Documentation officielle — recherche contextuelle, filtres et OCR</a> · <a href="https://docs.immich.app/FAQ/">FAQ officielle — fonctionnement de CLIP et machine learning</a> · <a href="https://docs.immich.app/administration/backup-and-restore/">Documentation officielle — sauvegarde et restauration</a> · <a href="https://www.photoprism.app/editions/">PhotoPrism — tarifs et éditions</a> · <a href="https://www.apple.com/fr/icloud/">Apple France — tarifs iCloud+</a> · <a href="https://support.google.com/googleone/answer/9004013?hl=fr">Google One — forfaits de stockage</a> · <a href="https://apps.apple.com/fr/app/google-one/id1451784328">Google One — achats intégrés App Store France</a></span>
+  </footer>
+</main>
+</body>
+</html>
