@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Jellyfin</title>
+<meta name="description" content="Jellyfin expliqué simplement : crée ta médiathèque personnelle, ajoute des profils, installe le serveur et compare les alternatives.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°05 · Jellyfin">
+<meta property="og:description" content="Ta médiathèque de films, séries et musiques, avec profils du foyer.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/jellyfin.png">
+<meta property="og:url" content="https://repopop.github.io/jellyfin/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Jellyfin">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°05</div>
+        <h1>Jellyfin</h1>
+        <p class="tag">Ta plateforme média personnelle, sur tes appareils, sans abonnement Jellyfin.</p>
+        <div class="chips">
+          <span class="chip">★ 59 000+ étoiles</span>
+          <span class="chip">Version 12.4</span>
+          <span class="chip">Gratuit, matériel à ta charge · licence GPL-2.0-only</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Jellyfin rassemble les films, séries et musiques que tu possèdes dans des bibliothèques accessibles depuis des clients compatibles. Crée des profils, règle les accès de chacun et héberge le serveur sur une machine que tu choisis.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Ordinateur ou mini-PC</h3>
+        <p>Installe le serveur sur Windows, macOS ou Linux, puis ajoute les dossiers de médias.</p>
+        <span class="pill ok">Simple pour débuter</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker sur un serveur</h3>
+        <p>Déploie Jellyfin en conteneur sur une machine compatible. Il faut gérer les mises à jour et les sauvegardes.</p>
+        <span class="pill mid">Un peu technique</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>NAS compatible</h3>
+        <p>Vérifie le modèle, l’architecture et la puissance nécessaire, surtout si tes appareils ont besoin de transcodage.</p>
+        <span class="pill mid">Vérifie la compatibilité</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Logiciel gratuit sous GPL-2.0.</b> Pas de licence premium ni de fonctions réservées. Le matériel, le stockage et l’électricité restent à ta charge.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tes médias restent sur la machine choisie.</b> Le serveur est auto-hébergé. Pour y accéder à distance, tu dois configurer le réseau et protéger les connexions.</span></li>
+        <li><span class="dot y">!</span><span><b>Tous les appareils ne lisent pas tous les formats.</b> Si un appareil ne prend pas en charge le format, Jellyfin peut transcoder le média pour lui. La conversion peut demander beaucoup de ressources à ton serveur.</span></li>
+        <li><span class="dot y">↔</span><span><b>Un profil par proche, avec accès réglables.</b> Les comptes Jellyfin sont locaux. Tu peux autoriser ou restreindre l’accès de chaque personne aux bibliothèques.</span></li>
+        <li><span class="dot r">!</span><span><b>À toi de gérer les sauvegardes.</b> Le projet recommande une sauvegarde complète avant une mise à niveau ; garde aussi une copie de tes fichiers média.</span></li>
+        <li><span class="dot y">!</span><span><b>Jellyfin ne fournit aucun film.</b> Le projet fournit le serveur et les applis. Tu dois posséder tes médias et respecter les droits applicables.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Rassembler tes films</h3></div>
+        <p>Classe tes dossiers en bibliothèques et parcours les affiches et fiches depuis les appareils compatibles.</p>
+        <div class="tools"><span class="tool">Films</span><span class="tool">Bibliothèque</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Suivre les séries</h3></div>
+        <p>Parcours tes épisodes dans une bibliothèque dédiée, sur les appareils compatibles.</p>
+        <div class="tools"><span class="tool">Séries</span><span class="tool">Épisodes</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Donner un profil à chacun</h3></div>
+        <p>Crée un compte local par personne et choisis les bibliothèques auxquelles elle accède.</p>
+        <div class="flow"><span>Profil</span><i>→</i><span>Membre</span><i>→</i><span>Accès</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Lire sur plusieurs écrans</h3></div>
+        <p>Connecte un client Jellyfin compatible pour regarder sur télé, mobile ou navigateur.</p>
+        <div class="flow"><span>Serveur</span><i>→</i><span>Client</span><i>→</i><span>Écran</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Transcoder un format</h3></div>
+        <p>Quand un appareil ne lit pas directement le média, le serveur peut le convertir à la volée ; cela sollicite ses ressources.</p>
+        <div class="flow"><span>Média</span><i>→</i><span>Conversion</span><i>→</i><span>Lecture</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Complet, avec un serveur à gérer</h3>
+          <p>Projet établi et sans abonnement, qui demande de maintenir ta machine et de vérifier la lecture sur tes appareils.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>La page des releases affiche la version stable 12.4 publiée en octobre 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le dépôt officiel compte environ 59 000 étoiles sur GitHub à la date de vérification.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Les médias sont hébergés sur la machine choisie ; l’accès distant et la sécurité réseau restent à configurer.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le README indique aucune licence premium ni coût logiciel imposé ; le projet est communautaire.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Serveur multiplateforme et clients nombreux, mais compatibilité et transcodage peuvent demander des réglages.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub et dans la documentation officielle le 9 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Jellyfin</h3><div class="cp"><b>Gratuit</b><small>Logiciel gratuit ; matériel, stockage et électricité à ta charge</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton serveur</span><span class="on">Serveur Windows, macOS, Linux et clients variés</span></div>
+        <p>Bon pour : Garder le contrôle et éviter un abonnement serveur</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Plex</h3><div class="cp"><b>Gratuit + options payantes</b><small>Réseau local gratuit ; Plex Pass : 6,99 $/mois, 69,99 $/an ou 749,99 $ à vie (USD affichés)</small></div></div>
+        <div class="cm"><span class="lvl n">Compte et services Plex ; médias sur le serveur choisi</span><span class="on">Serveur et applis multi-appareils</span></div>
+        <p>Bon pour : Une installation guidée et des applis grand public</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Emby</h3><div class="cp"><b>Gratuit + Premiere</b><small>Premiere : 4,99 $/mois, 54 $/an ou 119 $ à vie (USD affichés)</small></div></div>
+        <div class="cm"><span class="lvl m">Serveur auto-hébergé ; médias sur ta machine</span><span class="on">Serveur et applis multi-appareils</span></div>
+        <p>Bon pour : Un serveur personnel avec des options premium</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>JELLYFIN</b><span>si tu veux héberger ta collection et éviter les options premium.</span></li>
+        <li><b>PLEX</b><span>si tu veux une expérience prête à l’emploi et acceptes ses offres payantes.</span></li>
+        <li><b>EMBY</b><span>si tu veux un serveur personnel avec une formule Premiere.</span></li>
+      </ul>
+      <p class="warnline">Vérifie les droits sur tes médias et sécurise l’accès réseau si tu te connectes depuis l’extérieur.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins de 40 secondes, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°05 · Jellyfin · informations vérifiées le 9 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/jellyfin/jellyfin#readme">README officiel Jellyfin</a> · <a href="https://github.com/jellyfin/jellyfin">dépôt GitHub Jellyfin (étoiles et licence)</a> · <a href="https://github.com/jellyfin/jellyfin/releases">releases Jellyfin (version stable)</a> · <a href="https://jellyfin.org/docs/">documentation officielle Jellyfin</a> · <a href="https://jellyfin.org/docs/general/installation/">installation officielle</a> · <a href="https://jellyfin.org/docs/general/clients/">clients officiels et compatibilité</a> · <a href="https://jellyfin.org/docs/general/server/libraries/">bibliothèques médias</a> · <a href="https://jellyfin.org/docs/general/server/users/">utilisateurs et données de connexion</a> · <a href="https://www.plex.tv/plans/">tarifs officiels Plex</a> · <a href="https://www.emby.tv/premiere.html">tarifs officiels Emby Premiere</a></span>
+  </footer>
+</main>
+</body>
+</html>
