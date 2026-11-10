@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · PiKVM</title>
+<meta name="description" content="PiKVM expliqué simplement : matériel requis, installations, usages, précautions et alternatives KVM IP.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°07 · PiKVM">
+<meta property="og:description" content="Accède au BIOS et réinstalle une machine à distance : matériel, montage et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/pikvm.png">
+<meta property="og:url" content="https://repopop.github.io/pikvm/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de PiKVM">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°07</div>
+        <h1>PiKVM</h1>
+        <p class="tag">Prends le contrôle d'une machine à distance, même avant le démarrage.</p>
+        <div class="chips">
+          <span class="chip">★ 10 000+ étoiles</span>
+          <span class="chip">Version Rolling release</span>
+          <span class="chip">Gratuit ; matériel et assemblage à prévoir · licence GPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">PiKVM transforme un Raspberry Pi et du matériel vidéo/USB en console KVM sur IP. Depuis un navigateur, vois l'écran et contrôle clavier et souris, y compris dans le BIOS et avant que le système d'exploitation fonctionne.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4v4H7zM15 10h2"/></svg></span>
+        <h3>DIY V2 avec Raspberry Pi 4</h3>
+        <p>Le guide officiel recommande le Raspberry Pi 4 pour son montage DIY V2. Prévois une capture HDMI, les câbles USB appropriés, une carte microSD et, pour le contrôle d'alimentation, l'adaptateur ATX compatible.</p>
+        <span class="pill mid">À assembler</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>PiKVM V4 Mini prêt à l'emploi</h3>
+        <p>Un appareil officiel assemblé évite le montage. Relevé le 10 novembre 2026 : 225 £ TTC chez The Pi Hut ; stock, prix et taxes varient selon le revendeur et le pays.</p>
+        <span class="pill ok">Le plus simple</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4v4H7zM15 10h2"/></svg></span>
+        <h3>DIY V2 avec Raspberry Pi Zero 2 W</h3>
+        <p>Une option plus compacte listée par la documentation. Le réseau sans fil peut être moins robuste qu'une connexion Ethernet pour une console de secours ; vérifie capture et câblage dans le guide officiel.</p>
+        <span class="pill mid">Compact, à vérifier</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Le logiciel est libre sous GPL-3.0.</b> Aucun abonnement logiciel PiKVM requis. En DIY, tu achètes Raspberry Pi, carte de capture, câbles et composants ; les appareils assemblés sont payants.</span></li>
+        <li><span class="dot g">⌂</span><span><b>La machine distante n'a pas besoin d'un agent logiciel.</b> PiKVM reçoit la vidéo HDMI et émule clavier/souris via USB. Il peut afficher le démarrage et le BIOS avant que l'OS soit disponible.</span></li>
+        <li><span class="dot y">!</span><span><b>HDMI seul ne suffit pas.</b> Il faut une sortie vidéo compatible, une capture HDMI et une liaison USB vers la machine. Le contrôle de l'alimentation demande aussi le câblage ATX approprié.</span></li>
+        <li><span class="dot y">↔</span><span><b>Toutes les versions n'ont pas les mêmes fonctions.</b> Les performances vidéo, l'émulation de stockage et les composants requis varient selon Raspberry Pi et la plateforme choisie. Suis le guide matériel correspondant.</span></li>
+        <li><span class="dot r">!</span><span><b>Protège strictement l'accès à PiKVM.</b> La console donne un contrôle profond, jusqu'au BIOS et au démarrage sur image. Garde l'interface derrière un réseau privé ou VPN, configure l'authentification et évite son exposition directe à Internet.</span></li>
+        <li><span class="dot y">!</span><span><b>Déverrouiller une session dépend du système.</b> PiKVM peut envoyer des frappes au clavier comme si tu étais devant la machine ; il ne contourne pas les mots de passe ni les protections d'accès.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Dépanner un serveur qui ne démarre plus</h3></div>
+        <p>Observe les messages d'erreur et interagis même si l'OS est bloqué ou absent.</p>
+        <div class="tools"><span class="tool">HDMI</span><span class="tool">Navigateur</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ouvrir le BIOS ou l'UEFI</h3></div>
+        <p>Appuie à distance sur les touches nécessaires pour consulter ou modifier le firmware.</p>
+        <div class="flow"><span>Clavier distant</span><i>→</i><span>BIOS</span><i>→</i><span>Machine</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Réinstaller un système</h3></div>
+        <p>Monte une image comme support virtuel pour lancer l'installation ou la réparation.</p>
+        <div class="tools"><span class="tool">Image disque</span><span class="tool">USB virtuel</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Contrôler clavier et souris</h3></div>
+        <p>Envoie les actions depuis le navigateur sans installer d'agent sur la machine contrôlée.</p>
+        <div class="tools"><span class="tool">Clavier</span><span class="tool">Souris</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Gérer le bouton d'alimentation</h3></div>
+        <p>Avec l'adaptateur ATX compatible et le câblage correct, pilote les fonctions d'alimentation de la carte mère.</p>
+        <div class="flow"><span>PiKVM</span><i>→</i><span>ATX</span><i>→</i><span>Serveur</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Une porte de secours puissante, à sécuriser</h3>
+          <p>Le projet est ouvert et documenté. La console contrôle le démarrage de la machine ; son réseau et son authentification méritent une configuration soigneuse.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Plus de 2 000 commits sur le dépôt principal et un logiciel maintenu en version continue ; la date du dernier commit est relevée sur GitHub à la génération du kit.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>GitHub affichait environ 10,4 k étoiles pour pikvm/pikvm lors de la vérification ; la vidéo arrondit prudemment à plus de 10 000.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>La capture et l'émulation sont faites par le matériel local ; le projet ne nécessite pas de service cloud obligatoire. L'exposition réseau est à configurer avec prudence.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Le logiciel est sous GPL-3.0 et gratuit ; l'équipe propose aussi des appareils assemblés et reçoit des dons.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Le Handbook couvre plusieurs plateformes et les appareils prêts à l'emploi ; un montage DIY demande toutefois de vérifier les composants et leur compatibilité.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le Handbook et les guides PiKVM officiels le 10 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>PiKVM DIY</h3><div class="cp"><b>Logiciel gratuit</b><small>GPL-3.0 ; matériel, capture HDMI, câbles et temps de montage à prévoir</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton matériel et ton réseau</span><span class="on">Raspberry Pi, navigateur web</span></div>
+        <p>Bon pour : Construire une console matérielle et garder le contrôle chez soi</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>PiKVM V4 Mini</h3><div class="cp"><b>225 £ TTC</b><small>Prix affiché par The Pi Hut au 10 novembre 2026 ; revendeur, disponibilité, taxes et pays modifient le total</small></div></div>
+        <div class="cm"><span class="lvl m">Appareil local sur ton réseau</span><span class="on">Matériel assemblé, navigateur web</span></div>
+        <p>Bon pour : Utiliser PiKVM sans assembler les composants</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>TinyPilot Voyager 3</h3><div class="cp"><b>399 € TTC</b><small>Prix affiché par Welectron au 10 novembre 2026 ; appareil assemblé et garantie de 12 mois indiquée par le revendeur</small></div></div>
+        <div class="cm"><span class="lvl n">Appareil local sur ton réseau</span><span class="on">Matériel dédié, interface HTML5</span></div>
+        <p>Bon pour : Choisir un KVM commercial assemblé avec garantie revendeur</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>PIKVM DIY</b><span>si tu aimes monter ton matériel et veux une console ouverte à garder chez toi.</span></li>
+        <li><b>PIKVM V4 MINI</b><span>si tu veux les fonctions PiKVM dans un appareil assemblé prêt à brancher.</span></li>
+        <li><b>TINYPILOT VOYAGER 3</b><span>si tu préfères un produit commercial avec garantie de revendeur et acceptes un prix matériel supérieur.</span></li>
+      </ul>
+      <p class="warnline">Un KVM sur IP contrôle la machine dès son démarrage : protège l'accès avec un réseau privé, une authentification forte et des mises à jour.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins de 40 secondes, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°07 · PiKVM · informations vérifiées le 10 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/pikvm/pikvm">Dépôt PiKVM : description, fonctionnalités, licence et activité</a> · <a href="https://docs.pikvm.org/">Handbook officiel PiKVM</a> · <a href="https://docs.pikvm.org/v2/">Guide DIY V2 et compatibilité Raspberry Pi</a> · <a href="https://docs.pikvm.org/v4/">Guide officiel PiKVM V4</a> · <a href="https://thepihut.com/products/pikvm-v4-mini">PiKVM V4 Mini : prix et contenu chez The Pi Hut</a> · <a href="https://pikvm.org/about/">Présentation officielle PiKVM et données</a> · <a href="https://www.welectron.com/TinyPilot-Voyager-3-KVM-Standard">Prix et caractéristiques TinyPilot Voyager 3 chez Welectron</a></span>
+  </footer>
+</main>
+</body>
+</html>
