@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · AdGuard Home</title>
+<meta name="description" content="AdGuard Home expliqué simplement : où l'installer, 5 usages concrets (télé, contrôle parental, journal), limites du blocage DNS, note de confiance et comparatif avec Pi-hole et NextDNS.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°08 · AdGuard Home">
+<meta property="og:description" content="Filtre pubs et pisteurs avec ton propre DNS : matériel, réglages, limites et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/adguardhome.png">
+<meta property="og:url" content="https://repopop.github.io/adguardhome/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de AdGuard Home">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°08</div>
+        <h1>AdGuard<span>Home</span></h1>
+        <p class="tag">Bloque pubs et pisteurs sur tous les appareils de la maison, même la télé. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ plus de 38 000 étoiles</span>
+          <span class="chip">Licence GPL-3.0</span>
+          <span class="chip">Gratuit</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">AdGuard Home est un <span class="k">serveur DNS</span> que tu installes chez toi. Chaque appareil qui l'utilise lui demande l'adresse des sites ; s'il s'agit d'un domaine de pub ou de pistage, il répond « introuvable » et rien ne se charge. Règle-le une fois dans ta box (ou ton routeur) et <span class="k">tous les appareils du Wi-Fi</span> sont filtrés, la télé comprise, sans rien installer dessus. Il faut un appareil allumé en permanence. Trois façons de l'installer :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4v4H7zM15 10h2"/></svg></span>
+        <h3>Raspberry Pi ou mini-PC</h3>
+        <p>Script d'installation officiel pour Linux, macOS et FreeBSD (aussi Windows en téléchargement). Un Raspberry Pi suffit largement. Assistant de configuration dans le navigateur sur le port 3000.</p>
+        <span class="pill ok">Installation directe</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker</h3>
+        <p>Image Docker officielle. Prévois des volumes persistants pour la configuration et les données, et vérifie les ports DNS et interface web avant de démarrer.</p>
+        <span class="pill mid">Ports à régler</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Snap ou NAS</h3>
+        <p>Paquet Snap pour Linux. Sur un NAS, passe par Docker (Synology, QNAP…), en réglant les ports pour libérer le 53.</p>
+        <span class="pill mid">Selon ton NAS</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Le logiciel est gratuit et sous GPL-3.0.</b> Pas d'abonnement requis. Le matériel, l'électricité et le temps de configuration restent à ta charge.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Les journaux et statistiques restent sur ton installation.</b> La politique indique que les journaux DNS restent sur l'appareil. Les requêtes autorisées partent vers ton DNS amont ; si tu actives les contrôles de sécurité web, ils peuvent envoyer un préfixe de quatre caractères du hash du domaine.</span></li>
+        <li><span class="dot y">↔</span><span><b>Le filtrage concerne les domaines DNS.</b> Il ne supprime pas forcément les pubs intégrées au contenu d'une appli ou d'une vidéo ; des domaines partagés entre contenu et publicité compliquent aussi le blocage.</span></li>
+        <li><span class="dot y">!</span><span><b>Le port 53 peut déjà être utilisé.</b> Le DNS écoute habituellement sur le port 53. Un autre service peut l'occuper ; il faut aussi les droits nécessaires et, selon le système, configurer le pare-feu.</span></li>
+        <li><span class="dot y">!</span><span><b>Tes appareils doivent utiliser ce DNS.</b> Le plus simple : mets l'adresse d'AdGuard Home comme DNS dans les réglages de ta box. Sinon, change le DNS appareil par appareil. Hors de chez toi (4G/5G), le téléphone n'est plus filtré, sauf si tu passes par un VPN ou le DNS chiffré d'AdGuard Home.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Une maison sans pubs, même la télé</h3></div>
+        <p>Règle le DNS une fois dans ta box : téléphones, ordis, tablettes et télé connectée sont filtrés, sans appli à installer sur chacun.</p>
+        <div class="flow"><span>Ta box</span><i>→</i><span>AdGuard Home</span><i>→</i><span>Tous tes appareils</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Voir ce que ta télé contacte</h3></div>
+        <p>Le journal des requêtes montre en direct quels sites chaque appareil appelle. Tu découvres vite que ta télé ou ta box TV parle à des serveurs de mesure d'audience.</p>
+        <div class="tools"><span class="tool">Journal</span><span class="tool">Par appareil</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Protéger les enfants</h3></div>
+        <p>Active le contrôle parental et force la recherche sécurisée (Google, Bing, YouTube…) seulement pour les appareils des enfants grâce aux réglages par appareil.</p>
+        <div class="tools"><span class="tool">Parental</span><span class="tool">Recherche sûre</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Bloquer hameçonnage et malwares</h3></div>
+        <p>La protection de navigation bloque les domaines connus pour l'hameçonnage ou les logiciels malveillants, sur tout le réseau.</p>
+        <div class="tools"><span class="tool">Sécurité</span><span class="tool">Listes</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Réparer un site cassé en un clic</h3></div>
+        <p>Un site ne marche plus ? Retrouve le domaine bloqué dans le journal et autorise-le en un clic : la règle s'applique à toute la maison.</p>
+        <div class="tools"><span class="tool">Autoriser</span><span class="tool">Règle</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Fiable, à bien régler</h3>
+          <p>Le logiciel est libre et actif. Il conserve le journal sur ton installation, mais les requêtes autorisées doivent toujours atteindre un DNS amont et le filtrage par domaine a des limites.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>La version stable 0.107.80 a été publiée le 3 novembre 2026 ; le dépôt reste actif et publie aussi une branche bêta distincte.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>38 323 étoiles sur GitHub le 10 novembre 2026 ; c'est l'une des deux références du blocage DNS chez soi, avec Pi-hole.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Les journaux restent sur l'appareil selon la politique officielle. Les requêtes autorisées sont transmises au DNS amont choisi ; ce fournisseur voit donc ces requêtes.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Logiciel libre sous GPL-3.0, sans abonnement. Il faut néanmoins fournir et alimenter un ordinateur ou un serveur.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Documentation, interface web, paquets, image Docker et versions stables existent ; l'installation DNS demande de configurer ports et appareils.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur le dépôt GitHub, les notes de version et la documentation officielle le 12 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>AdGuard Home</h3><div class="cp"><b>Gratuit</b><small>Logiciel GPL-3.0 ; appareil et électricité à prévoir. Requêtes traitées localement puis transmises au DNS amont configuré.</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi, sur ton serveur DNS amont</span><span class="on">Linux, Windows, macOS, Docker, Snap</span></div>
+        <p>Bon pour : Garder les listes, règles et journaux sous ton contrôle</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Pi-hole</h3><div class="cp"><b>Gratuit</b><small>Logiciel libre ; Raspberry Pi ou ordinateur requis. Chiffrement DNS et contrôle parental demandent des réglages ou outils en plus.</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi, sur ton matériel</span><span class="on">Linux, Raspberry Pi, Docker, VM, NAS</span></div>
+        <p>Bon pour : Une alternative locale connue avec tableau de bord et filtres DNS</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>NextDNS</h3><div class="cp"><b>Gratuit jusqu'à 300 000 requêtes/mois ; Pro £1,79/mois ou £17,90/an</b><small>Tarifs affichés par le site officiel le 10 novembre 2026 en livres sterling ; Pro supprime la limite mensuelle. Les requêtes sont traitées par le service DNS cloud NextDNS.</small></div></div>
+        <div class="cm"><span class="lvl n">Dans le cloud NextDNS</span><span class="on">Routeur, ordinateurs et mobiles</span></div>
+        <p>Bon pour : Un DNS filtrant géré en ligne, sans serveur à maintenir chez soi</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>ADGUARD HOME</b><span>si tu veux héberger un filtre DNS chez toi et garder la main sur ses listes et ses règles.</span></li>
+        <li><b>PI-HOLE</b><span>si tu préfères l'alternative communautaire connue, également gratuite et locale.</span></li>
+        <li><b>NEXTDNS</b><span>si tu veux éviter de maintenir un serveur et acceptes que les requêtes passent par un service cloud.</span></li>
+      </ul>
+      <p class="warnline">Le DNS ne bloque pas toutes les publicités. Une appli ou une vidéo peut servir ses pubs depuis les mêmes domaines que son contenu ; sur iPhone, le DNS du Wi-Fi ne s'applique pas au réseau mobile.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°08 · AdGuard Home · informations vérifiées le 12 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/AdguardTeam/AdGuardHome">Dépôt GitHub AdGuard Home : étoiles, licence et description</a> · <a href="https://github.com/AdguardTeam/AdGuardHome/releases">Versions stables et préversions AdGuard Home</a> · <a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Getting-Started">Guide officiel : installation, ports et configuration des appareils</a> · <a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Docker">Image Docker officielle et volumes persistants</a> · <a href="https://adguard.com/en/privacy/home.html">Politique de confidentialité AdGuard Home : journaux et requêtes</a> · <a href="https://docs.pi-hole.net/">Documentation Pi-hole : fonctionnement, matériel et DNS</a> · <a href="https://nextdns.io/pricing">Tarifs officiels NextDNS</a> · <a href="https://nextdns.io/privacy">Politique de confidentialité NextDNS</a> · <a href="https://github.com/AdguardTeam/AdGuardHome#comparison">Fonctionnalités et comparatif avec Pi-hole (README)</a></span>
+  </footer>
+</main>
+</body>
+</html>
