@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · VoiceStudio</title>
+<meta name="description" content="VoiceStudio expliqué simplement : installation, usages, note de confiance et comparatif avec ElevenLabs, Murf et Applio.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°10 · VoiceStudio">
+<meta property="og:description" content="Clonage de voix, doublage et dictée en local et gratuits : installation, usages et alternatives à ElevenLabs.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/voicestudio.png">
+<meta property="og:url" content="https://repopop.github.io/voicestudio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de VoiceStudio">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°10</div>
+        <h1>Voice<span>Studio</span></h1>
+        <p class="tag">Clone ta voix, double tes vidéos et dicte tes textes : comme ElevenLabs, mais sur ton PC.</p>
+        <div class="chips">
+          <span class="chip">★ 109 000+ étoiles</span>
+          <span class="chip">Version 0.5.8</span>
+          <span class="chip">Gratuit · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">VoiceStudio se présente comme l'alternative open source et 100 % locale à ElevenLabs. Il clone une voix à partir d'un enregistrement propre, crée une voix à partir d'une description, double des vidéos dans une autre langue, fait la dictée, la transcription et les livres audio, dans 646 langues. Le moteur par défaut s'appuie sur OmniVoice (k2-fsa), et des dizaines d'autres modèles s'ajoutent depuis le gestionnaire de modèles. Les voix de RepoPop sont générées avec VoiceStudio.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC ou ton Mac</h3>
+        <p>Windows 10/11 (une commande PowerShell ou un installateur .exe), Mac Apple Silicon (Homebrew ou DMG), Linux (AUR, DEB, Snap, AppImage). Une carte NVIDIA ou un Mac Apple Silicon va beaucoup plus vite ; sans carte graphique, ça marche sur le processeur, plus lentement.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Dans Docker (serveur, NAS)</h3>
+        <p>Images CPU, NVIDIA CUDA et AMD ROCm. L'exemple officiel écoute seulement sur 127.0.0.1:3900 et demande une clé d'API. Pratique pour l'API locale et les automatisations ; sans carte graphique, un NAS sera lent.</p>
+        <span class="pill mid">Pour automatiser</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Sur ton téléphone</h3>
+        <p>Android 10+ et iOS/iPadOS 17+, sur l'appareil et hors ligne une fois les modèles téléchargés. Versions marquées « aperçu » : à tester, pas encore pour travailler.</p>
+        <span class="pill mid">En aperçu</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et sans compte.</b> Licence AGPL-3.0, aucune inscription. Une offre Pro (code fermé, compte obligatoire) existe en option : licence commerciale pour le travail client, plusieurs appareils, calcul sur d'autres cartes graphiques.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tes voix restent chez toi.</b> Tout tourne sur ta machine. Le logiciel demande avant de télécharger chaque modèle. L'offre Cloud annoncée n'est pas encore disponible.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Clone seulement une voix qui t'appartient.</b> Le README interdit le clonage sans accord, l'usurpation de voix et les arnaques : clone ta voix, ou celle de quelqu'un qui t'a donné sa permission.</span></li>
+        <li><span class="dot y">!</span><span><b>Chaque modèle a sa licence.</b> Les modèles, les voix et les fichiers produits ont leur propre licence, affichée dans le gestionnaire de modèles : vérifie-la avant un usage commercial.</span></li>
+        <li><span class="dot y">⏱</span><span><b>La carte graphique change tout.</b> NVIDIA (CUDA) ou Mac Apple Silicon conseillés. AMD sous Windows : expérimental, seulement certaines Radeon RX 6000. Mac Intel : interface limitée, reliée à un autre ordinateur.</span></li>
+        <li><span class="dot y">↔</span><span><b>Projet jeune qui bouge vite.</b> Lancé au printemps 2026 et devenu viral en quelques mois. Les versions 0.5.3 et plus anciennes demandent d'installer la nouvelle application à part.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Faire lire tes textes avec ta voix</h3></div>
+        <p>Un enregistrement propre de ta voix, ton texte, et c'est ta voix qui le lit : fini les dix prises pour une voix off.</p>
+        <div class="flow"><span>Extrait de ta voix</span><i>→</i><span>Ton texte</span><i>→</i><span>Audio</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Doubler une vidéo dans une autre langue</h3></div>
+        <p>VoiceStudio traduit et double la vidéo, avec une parole calée sur le rythme de l'original.</p>
+        <div class="flow"><span>Vidéo FR</span><i>→</i><span>Traduction</span><i>→</i><span>Vidéo EN</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Dicter au lieu de taper</h3></div>
+        <p>Un petit widget flottant transcrit ce que tu dis, en local, dans n'importe quelle appli.</p>
+        <div class="tools"><span class="tool">Dictée</span><span class="tool">Transcription</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Créer un livre audio ou une histoire</h3></div>
+        <p>Narration de longs textes et file d'attente de tâches : tu lances, il travaille pendant que tu fais autre chose.</p>
+        <div class="tools"><span class="tool">Narration</span><span class="tool">File d'attente</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Brancher tes automatisations</h3></div>
+        <p>API locale, serveur MCP, ligne de commande et dossiers surveillés : c'est comme ça que les voix de RepoPop sont générées.</p>
+        <div class="tools"><span class="tool">API locale</span><span class="tool">MCP</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Énorme succès, gratuit et local, mais encore jeune</h3>
+          <p>Projet sous AGPL-3.0, très actif et très suivi, qui tourne sans compte sur ta machine. À surveiller : sa jeunesse, l'offre Pro fermée à côté de la version libre, et les licences propres à chaque modèle.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Près de 7 500 commits sur la branche principale et des mises à jour en continu.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>GitHub affichait environ 107 600 étoiles et 11 900 forks lors de la vérification ; la vidéo arrondit à plus de 100 000.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Tout tourne en local, sans compte ; les modèles ne se téléchargent qu'après ton accord.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Gratuit sous AGPL-3.0, mais une offre Pro fermée et payante vend la licence commerciale pour le travail client ; les modèles ont leurs propres licences.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Lancé en 2026 : applis mobiles en aperçu, AMD et Windows sur ARM expérimentaux, changement d'application après la 0.5.3.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel et des articles publiés le 13 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>VoiceStudio</h3><div class="cp"><b>Gratuit</b><small>AGPL-3.0, sans compte ; offre Pro payante en option (prix sur le site)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC (ou ton téléphone, en aperçu)</span><span class="on">Windows, macOS, Linux, Docker</span></div>
+        <p>Bon pour : Cloner ta voix, doubler et dicter sans abonnement</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ElevenLabs</h3><div class="cp"><b>6 à 99 $/mois</b><small>Gratuit 10 000 crédits sans usage commercial ; Starter 6 $ (clonage instantané), Creator 22 $ (clonage pro), Pro 99 $ ; TVA en plus</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'ElevenLabs</span><span class="on">Navigateur, API, applis</span></div>
+        <p>Bon pour : La meilleure qualité, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Murf AI</h3><div class="cp"><b>29 $/mois</b><small>Creator : 29 $/mois, ou 19 $/mois en annuel, environ 2 h de voix par mois ; offre gratuite sans téléchargement</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Murf</span><span class="on">Navigateur, API</span></div>
+        <p>Bon pour : Voix off prêtes à l'emploi pour vidéos et formations</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Applio</h3><div class="cp"><b>Gratuit</b><small>Licence MIT, sans compte</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : Transformer un enregistrement dans une autre voix (RVC)</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>VOICESTUDIO</b><span>si tu veux tout faire chez toi (voix, doublage, dictée), sans compte ni crédits.</span></li>
+        <li><b>ELEVENLABS</b><span>si tu veux la qualité maximale sans carte graphique, et acceptes l'abonnement.</span></li>
+        <li><b>APPLIO</b><span>si tu veux surtout transformer ta voix enregistrée en une autre.</span></li>
+      </ul>
+      <p class="warnline">Cloner la voix de quelqu'un sans son accord est interdit par VoiceStudio et peut être illégal : utilise ta voix ou une voix autorisée.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°10 · VoiceStudio · informations vérifiées le 13 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/debpalash/VoiceStudio">Dépôt GitHub debpalash/VoiceStudio</a> · <a href="https://elevenlabs.io/pricing">Prix ElevenLabs</a> · <a href="https://murf.ai/pricing">Prix Murf AI</a> · <a href="https://github.com/IAHispano/Applio">Dépôt GitHub IAHispano/Applio</a> · <a href="https://www.star-history.com/debpalash/voicestudio">Historique des étoiles (star-history)</a></span>
+  </footer>
+</main>
+</body>
+</html>
