@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · LocalSend</title>
+<meta name="description" content="LocalSend expliqué simplement : où l'installer, usages, note de confiance et comparatif avec AirDrop, Quick Share, PairDrop et WeTransfer.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°14 · LocalSend">
+<meta property="og:description" content="Envoie photos et fichiers entre iPhone, Android, PC et Mac, par ton wifi, sans compte ni cloud : où l'installer, limites, usages et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/localsend.png">
+<meta property="og:url" content="https://repopop.github.io/localsend/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de LocalSend">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°14</div>
+        <h1>Local<span>Send</span></h1>
+        <p class="tag">Un AirDrop gratuit et open source qui marche entre tous tes appareils : Windows, Mac, Linux, Android et iPhone, sans compte ni internet.</p>
+        <div class="chips">
+          <span class="chip">★ 98 000+ étoiles</span>
+          <span class="chip">Version 1.18.2</span>
+          <span class="chip">Gratuit · licence Apache 2.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">LocalSend est une appli <b>gratuite et open source</b> pour envoyer des fichiers, des dossiers et du texte entre des appareils proches, <b>par ton réseau local</b> (ton wifi). Elle marche sur Windows, Mac, Linux, Android et iPhone : c'est l'équivalent d'AirDrop entre des appareils de marques différentes. Pas de compte, pas de serveur, pas besoin d'internet : les appareils se trouvent tout seuls sur le même réseau, et les échanges sont <b>chiffrés en HTTPS</b>. Il faut simplement installer l'appli sur chaque appareil (sauf avec le <span class="k">partage par lien</span>, qui s'ouvre dans un navigateur).</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Sur ton téléphone</h3>
+        <p>Depuis l'App Store (iPhone, iOS 13 ou plus), le Play Store ou F-Droid (Android 7 ou plus), ou Amazon (Fire OS). Le projet conseille de passer par un store.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton ordi</h3>
+        <p>Windows 10 ou plus (winget, Scoop, Chocolatey, installeur ou version portable), macOS 11 ou plus (App Store ou Homebrew), Linux (Flathub, Snap, AUR, DEB, AppImage…).</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Sans l'appli, par lien</h3>
+        <p>Celui qui envoie choisit « Partage par lien » : il obtient une adresse et un QR code. L'autre ouvre le lien dans son navigateur, sur le même réseau, et télécharge les fichiers un par un.</p>
+        <span class="pill mid">Dépannage</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence Apache 2.0.</b> Le site du projet annonce : ni pub, ni pistage, ni frais cachés. Le développement vit de dons.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Rien ne sort de chez toi.</b> Les fichiers passent directement d'un appareil à l'autre sur ton réseau local, chiffrés en HTTPS (certificat créé sur chaque appareil). Aucun serveur tiers ni compte.</span></li>
+        <li><span class="dot y">↔</span><span><b>Même réseau obligatoire.</b> Les deux appareils doivent être sur le même wifi (ou réseau local). Pas d'envoi à distance par internet : pour ça, il faut un service en ligne.</span></li>
+        <li><span class="dot y">!</span><span><b>S'il ne trouve pas l'autre appareil.</b> Sous Windows, mets ton réseau en « privé ». Autorise le port 53317 (TCP et UDP) dans le pare-feu, désactive l'isolation des appareils du routeur (souvent active sur les wifi invités) et autorise le réseau local dans ton VPN.</span></li>
+        <li><span class="dot y">!</span><span><b>Pas de mise à jour automatique.</b> Installée depuis le site (EXE, DMG, APK…), l'appli ne se met pas à jour toute seule : préfère un store ou un gestionnaire de paquets.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Enregistrement rapide : seulement chez toi.</b> Cette option accepte les fichiers sans te demander. Pratique entre tes appareils, à éviter sur un wifi public ; tu peux aussi exiger un code PIN pour recevoir.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Tes vidéos de l'iPhone vers ton PC</h3></div>
+        <p>Tu ouvres LocalSend des deux côtés, ton PC apparaît, tu le touches : les fichiers arrivent dans Téléchargements, sans câble ni cloud.</p>
+        <div class="flow"><span>iPhone</span><i>→</i><span>Wifi</span><i>→</i><span>PC</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Envoyer à un ami qui n'a pas l'appli</h3></div>
+        <p>Partage par lien ou QR code : il ouvre l'adresse dans son navigateur, sur le même wifi, et télécharge les fichiers.</p>
+        <div class="tools"><span class="tool">Lien</span><span class="tool">QR code</span><span class="tool">Navigateur</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Rapatrier tes captures d'écran</h3></div>
+        <p>Avec l'enregistrement rapide entre tes propres appareils, les fichiers arrivent sur le PC sans clic de confirmation.</p>
+        <div class="flow"><span>Captures</span><i>→</i><span>Enregistrement rapide</span><i>→</i><span>Dossier</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Copier un texte ou un lien</h3></div>
+        <p>Un lien, un mot de passe Wi-Fi ou un bout de texte du téléphone vers l'ordi, sans passer par une messagerie.</p>
+        <div class="tools"><span class="tool">Texte</span><span class="tool">Lien</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Partager un dossier entier au bureau</h3></div>
+        <p>Un dossier de documents envoyé à un ou plusieurs collègues sur le même réseau, sans clé USB ni boîte mail.</p>
+        <div class="tools"><span class="tool">Dossiers</span><span class="tool">Plusieurs destinataires</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Très populaire, actif et respectueux de tes données</h3>
+          <p>Projet sous licence Apache 2.0 depuis 2022, très suivi, mis à jour régulièrement, qui échange directement entre tes appareils sans serveur ni compte. À savoir : il faut être sur le même réseau, et le pare-feu bloque parfois la détection.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Dernière version 1.18.2 (21 août 2026), avec une première version en ligne de commande et la réception par lien en août 2026 ; commits encore en novembre 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>GitHub affichait 98 936 étoiles et environ 5 700 forks le 14 novembre 2026 ; traductions faites par la communauté.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Échange direct sur le réseau local, chiffré en HTTPS, sans serveur tiers ni compte ; PIN en option pour recevoir ou partager par lien.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit et open source, sans pub annoncée ; financé par des dons, sans offre payante.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Version 1.x stable depuis plusieurs années, sur 5 systèmes ; la détection dépend parfois du réglage du pare-feu ou du routeur.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel, le site localsend.org et le journal des versions le 14 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>LocalSend</h3><div class="cp"><b>Gratuit</b><small>Licence Apache 2.0, sans pub ni abonnement</small></div></div>
+        <div class="cm"><span class="lvl y">D'appareil à appareil, sur ton réseau local</span><span class="on">Windows, Mac, Linux, Android, iPhone</span></div>
+        <p>Bon pour : Tout envoyer entre des appareils de marques différentes</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>AirDrop</h3><div class="cp"><b>Gratuit</b><small>Inclus dans les appareils Apple</small></div></div>
+        <div class="cm"><span class="lvl y">D'appareil à appareil</span><span class="on">iPhone, iPad, Mac ; certains Android via Quick Share</span></div>
+        <p>Bon pour : Les foyers tout Apple</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Quick Share</h3><div class="cp"><b>Gratuit</b><small>Inclus dans Android ; appli Windows de Google</small></div></div>
+        <div class="cm"><span class="lvl y">D'appareil à appareil</span><span class="on">Android, Windows ; échange avec AirDrop sur une partie des Android récents (depuis 2026)</span></div>
+        <p>Bon pour : Android vers PC Windows, sans rien installer côté téléphone</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>PairDrop</h3><div class="cp"><b>Gratuit</b><small>Open source (GPL-3.0), hébergeable chez toi</small></div></div>
+        <div class="cm"><span class="lvl m">Pair à pair dans le navigateur ; serveur de mise en relation</span><span class="on">Tout navigateur récent</span></div>
+        <p>Bon pour : Envoyer sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>WeTransfer</h3><div class="cp"><b>0 à 23 €/mois</b><small>Gratuit : 3 Go ou 10 transferts par mois, liens de 3 jours ; Starter 8 €/mois ; Ultimate 23 €/mois</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de l'entreprise</span><span class="on">Navigateur, applis</span></div>
+        <p>Bon pour : Envoyer à distance, à quelqu'un hors de chez toi</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>LOCALSEND</b><span>si tu mélanges iPhone, Android, PC et Mac à la maison ou au bureau.</span></li>
+        <li><b>AIRDROP</b><span>si tout chez toi est Apple.</span></li>
+        <li><b>WETRANSFER</b><span>si le destinataire n'est pas sur le même réseau que toi.</span></li>
+      </ul>
+      <p class="warnline">LocalSend ne marche que sur le même réseau local : pour envoyer à quelqu'un au loin, il faut un service en ligne.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°14 · LocalSend · informations vérifiées le 14 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/localsend/localsend">Dépôt GitHub localsend/localsend</a> · <a href="https://localsend.org">Site officiel localsend.org (FAQ)</a> · <a href="https://localsend.org/changelog">Journal des versions LocalSend</a> · <a href="https://wiki.archlinux.org/title/LocalSend">LocalSend sur le wiki Arch Linux (partage par lien, PIN)</a> · <a href="https://www.macrumors.com/2026/06/02/google-airdrop-support-more-android-phones/">Quick Share compatible AirDrop sur plus d'Android (MacRumors, juin 2026)</a> · <a href="https://github.com/schlagmichdoch/PairDrop">PairDrop</a> · <a href="https://www.leptidigital.fr/logiciels/wetransfer/">Tarifs WeTransfer vérifiés le 22 octobre 2026 (Leptidigital)</a> · <a href="https://www.clubic.com/actualite-624424-transfernow-ou-wetransfer-lequel-choisir-en-2026.html">Offre gratuite WeTransfer 2026 (Clubic)</a></span>
+  </footer>
+</main>
+</body>
+</html>
