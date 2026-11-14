@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · REA</title>
+<meta name="description" content="REA (Reverse Engineer Anything) expliqué simplement : installation, usages, note de confiance et comparatif avec Ghidra, IDA Pro et Binary Ninja.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°12 · REA">
+<meta property="og:description" content="La rétro-ingénierie confiée à ton agent IA, gratuite et open source : installation, usages, limites et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/rea.png">
+<meta property="og:url" content="https://repopop.github.io/rea/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de REA">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°12</div>
+        <h1>RE<span>A</span></h1>
+        <p class="tag">Ton agent IA décortique un programme, une appli ou un site, et t'explique comment il marche, preuves à l'appui.</p>
+        <div class="chips">
+          <span class="chip">★ 457 000+ étoiles</span>
+          <span class="chip">Version rea-agents-6.9.0</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">REA, pour <b>Reverse Engineer Anything</b>, est un serveur MCP et un outil en ligne de commande. Il branche ton agent IA (Claude Code, Codex, Cursor, Gemini CLI…) sur de vrais outils de rétro-ingénierie : programmes natifs (pseudo-code, assembleur, chaînes, symboles), applis JavaScript et Electron, applis Android, .NET, Go, Rust, WASM, sites web, captures réseau et comportement des processus. Tu demandes en français comment marche une fonction ; l'agent appelle REA, qui renvoie ses trouvailles avec les preuves et les limites. Le README annonce plus de vingt types de cibles.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC, avec ton agent</h3>
+        <p>npx rea-agents setup, puis relance ton agent : REA s'inscrit dans Claude Code, Codex, Cursor, Gemini CLI… Il montre les changements, demande ton accord et sauvegarde ta configuration avant. Il faut Node.js 22 ou plus récent. macOS et Linux sont les plus complets ; sous Windows, une partie des fonctions seulement (Ghidra y est expérimental).</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>En ligne de commande seule</h3>
+        <p>npm install --global rea-agents, puis rea --help : les mêmes analyses, sans agent, pour les scripts. Mise à jour avec rea update.</p>
+        <span class="pill mid">Pour scripter</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Linux et Docker pour l'avancé</h3>
+        <p>Certaines fonctions sont réservées à Linux (captures TShark, plantages avec pwntools, signaux sigrok) ; la création d'environnements d'entraînement à partir d'applis de bureau demande Linux (amd64 ou arm64) et Docker.</p>
+        <span class="pill mid">Usages avancés</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence MIT.</b> Le code de REA est sous licence MIT. Les composants tiers gardent leur propre licence (liste dans THIRD_PARTY_NOTICES.md).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Seulement ce que tu as le droit d'étudier.</b> REA est prévu pour la recherche légale, la sécurité, l'interopérabilité, la préservation et les logiciels que tu possèdes ou que tu es autorisé à analyser. Il refuse d'aider à contourner des DRM, tricher, casser une licence ou copier du code propriétaire. La loi et la licence du logiciel étudié peuvent aussi l'interdire.</span></li>
+        <li><span class="dot y">!</span><span><b>Il faut un décompileur pour aller au fond.</b> Pour les programmes natifs, REA pilote Ghidra (gratuit), IDA, Hopper ou Kuna déjà installés : il n'installe ni Ghidra ni IDA, et ne fournit aucune licence. Les applis JavaScript, Electron et .NET s'analysent sans.</span></li>
+        <li><span class="dot y">↔</span><span><b>Ton IA voit les résultats.</b> L'analyse tourne sur ta machine, mais le fournisseur du modèle de ton agent reçoit les résultats des outils, selon sa propre politique de données.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Méfie-toi des copies.</b> Télécharge REA seulement depuis le dépôt morluto/rea, le site rea.tools ou le paquet npm rea-agents : le README prévient que des copies circulent.</span></li>
+        <li><span class="dot y">⏱</span><span><b>Projet jeune qui bouge vite.</b> Créé en avril 2026, mises à jour très fréquentes. Certaines nouveautés du dépôt ne sont pas encore dans la dernière version npm ; les gros programmes peuvent demander un délai de démarrage plus long.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Comprendre un vieux logiciel maison</h3></div>
+        <p>Le développeur est parti, le code aussi : ton agent retrouve la fonction qui calcule et t'explique la formule, avant de le remplacer.</p>
+        <div class="flow"><span>Vieux programme</span><i>→</i><span>REA + agent</span><i>→</i><span>Formule expliquée</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Voir comment une appli Electron fait une fonction</h3></div>
+        <p>Modules, imports, routes et échanges internes (IPC) : la démo officielle suit le copier-coller de Notion jusqu'au cœur de l'appli.</p>
+        <div class="tools"><span class="tool">Modules</span><span class="tool">IPC</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Inspecter une appli Android</h3></div>
+        <p>Un fichier APK, ou un téléphone branché : ressources, code décompilé et applis Flutter.</p>
+        <div class="flow"><span>APK</span><i>→</i><span>Décompilation</span><i>→</i><span>Explication</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Analyser un site ou une capture réseau</h3></div>
+        <p>Navigation enregistrée, captures HAR ou paquets : qui appelle quoi, et avec quelles données.</p>
+        <div class="tools"><span class="tool">Site web</span><span class="tool">Capture réseau</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Réécrire une fonction et la tester</h3></div>
+        <p>Sur le jeu DX-Ball, REA a reconstruit du code C qui passe 3 205 tests face au programme d'origine.</p>
+        <div class="flow"><span>Programme</span><i>→</i><span>Code C</span><i>→</i><span>Tests ✓</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Énorme succès, gratuit et puissant, mais encore jeune</h3>
+          <p>Projet sous MIT, extrêmement suivi et mis à jour en continu. À surveiller : sa jeunesse, les fonctions réservées à Linux, et le fait que ton fournisseur d'IA voit les résultats des analyses.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 7 300 commits et des versions très fréquentes ; le README demande de mettre à jour souvent.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>GitHub affichait environ 455 300 étoiles et 111 800 forks lors de la vérification ; la vidéo arrondit à plus de 450 000.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>L'analyse tourne en local, mais les résultats passent par le modèle de ton agent (Claude, OpenAI…).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit sous MIT, sans compte ; pour aller au fond des programmes natifs, IDA ou Hopper restent payants (Ghidra est gratuit).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Créé en avril 2026 : fonctions inégales selon le système, Ghidra sous Windows expérimental, npm parfois en retard sur le dépôt.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel et des articles publiés le 13 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>REA</h3><div class="cp"><b>Gratuit</b><small>Licence MIT ; décompileur à part (Ghidra gratuit, IDA ou Hopper payants)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ta machine (résultats envoyés au modèle de ton agent)</span><span class="on">macOS, Linux, Windows (selon les fonctions)</span></div>
+        <p>Bon pour : Faire enquêter ton agent IA, en français</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ghidra</h3><div class="cp"><b>Gratuit</b><small>Open source (Apache 2.0), publié par la NSA</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ta machine</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : Décompiler toi-même, sans payer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>IDA Pro</h3><div class="cp"><b>dès 1 099 €/an</b><small>Abonnement annuel (IDA Pro Essential, décompileurs en ligne) ; IDA Home dès 365 $/an pour un usage non commercial</small></div></div>
+        <div class="cm"><span class="lvl m">Sur ta machine (décompileurs en ligne selon l'offre)</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : La référence des professionnels</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Binary Ninja</h3><div class="cp"><b>199 $</b><small>Licence à vie avec 1 an de mises à jour : Non-Commercial 199 $, Commercial 1 799 $ ; version gratuite limitée</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ta machine</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : Une interface moderne, achetée une fois</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>REA</b><span>si tu veux qu'un agent IA mène l'enquête et t'explique, gratuitement.</span></li>
+        <li><b>GHIDRA</b><span>si tu veux décompiler toi-même, sans payer (et à brancher sur REA).</span></li>
+        <li><b>IDA PRO</b><span>si c'est ton métier et que l'abonnement est pris en charge.</span></li>
+      </ul>
+      <p class="warnline">La rétro-ingénierie n'est permise que sur des logiciels que tu possèdes ou que tu as le droit d'étudier : vérifie la licence du logiciel et la loi avant de commencer.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°12 · REA · informations vérifiées le 13 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/morluto/rea">Dépôt GitHub morluto/rea</a> · <a href="https://github.com/morluto/rea/blob/main/DISCLAIMER.md">Avertissement d'usage (DISCLAIMER.md)</a> · <a href="https://www.dsebastien.net/rea-reverse-engineer-anything/">Article de Sébastien Dubois sur REA</a> · <a href="https://hex-rays.com/pricing">Prix IDA Pro (Hex-Rays)</a> · <a href="https://binary.ninja/purchase/">Prix Binary Ninja</a> · <a href="https://ghidra-sre.org">Ghidra</a></span>
+  </footer>
+</main>
+</body>
+</html>
