@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Upscayl</title>
+<meta name="description" content="Upscayl expliqué simplement : où l'installer, usages, note de confiance et comparatif avec Topaz Gigapixel, Let's Enhance et Photoshop.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°15 · Upscayl">
+<meta property="og:description" content="L'agrandisseur d'images par IA gratuit et open source, sur Windows, Mac et Linux : où l'installer, limites, usages et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/upscayl.png">
+<meta property="og:url" content="https://repopop.github.io/upscayl/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Upscayl">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°15</div>
+        <h1>Up<span>scayl</span></h1>
+        <p class="tag">Une appli gratuite et open source qui agrandit tes images pixelisées avec l'IA, directement sur ton ordi : pas de crédits, pas de filigrane.</p>
+        <div class="chips">
+          <span class="chip">★ 52 000+ étoiles</span>
+          <span class="chip">Version 2.15.0</span>
+          <span class="chip">Gratuit · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Upscayl est une appli <b>gratuite et open source</b> (licence AGPL-3.0) qui agrandit les images en basse résolution ou pixelisées grâce à l'IA (modèles <span class="k">Real-ESRGAN</span>, <span class="k">Remacri</span>, <span class="k">Ultrasharp</span>, <span class="k">High Fidelity</span>…). Elle s'installe sur ton ordi et le calcul se fait <b>sur ta carte graphique</b> : la version bureau marche hors connexion et tes images restent chez toi. Elle agrandit jusqu'à <b>4 fois par passe</b> ; au-delà, l'image est seulement redimensionnée (sauf avec « Double Upscayl », qui fait deux passes). Attention : elle <b>ne corrige pas une photo floue</b> ou mal mise au point.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Windows 10 et plus</h3>
+        <p>Installeur .exe dans les versions publiées sur GitHub (ou sur le site officiel). Il faut une carte graphique compatible Vulkan.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Mac (macOS 12 et plus)</h3>
+        <p>Mac App Store, fichier .dmg sur GitHub ou Homebrew : brew install --cask upscayl.</p>
+        <span class="pill ok">Facile</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Linux</h3>
+        <p>Flathub, AppImage, Snap, AUR (upscayl-bin) ou paquets DEB/RPM des versions publiées. Même condition : une carte graphique compatible Vulkan.</p>
+        <span class="pill ok">Au choix</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence AGPL-3.0.</b> Pas de crédits, pas de filigrane, pas de compte. Le projet vit de dons et de sponsors.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tes images restent chez toi.</b> L'appli bureau calcule tout sur ta carte graphique et marche sans connexion. Les tests publiés le confirment ; il n'existe pas d'audit indépendant.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Il faut une carte graphique Vulkan.</b> Le README prévient : beaucoup de puces graphiques intégrées ne marchent pas. Sans carte compatible, l'appli peut échouer ou être très lente.</span></li>
+        <li><span class="dot y">!</span><span><b>Pixelisée, oui ; floue, non.</b> D'après la FAQ, Upscayl n'enlève pas le flou et ne refait pas la mise au point : l'IA invente des détails plausibles, pas ceux qui manquaient vraiment.</span></li>
+        <li><span class="dot y">↔</span><span><b>4× par passe.</b> Au-delà de 4×, l'image est seulement redimensionnée, sauf avec « Double Upscayl » (deux passes, plus lent et plus gourmand).</span></li>
+        <li><span class="dot y">☁</span><span><b>Upscayl Cloud est une autre offre.</b> Le site propose aussi un service en ligne payant, à crédits, qui ne repose pas sur la même technologie. L'appli bureau, elle, reste gratuite et open source.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ressortir une vieille photo de famille</h3></div>
+        <p>Une photo toute petite et pixelisée devient 4 fois plus grande, assez pour un fond d'écran ou un tirage de taille raisonnable.</p>
+        <div class="flow"><span>Vieille photo</span><i>→</i><span>Ultrasharp</span><i>→</i><span>4× plus grande</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Améliorer des photos produit</h3></div>
+        <p>Agrandir les images de fournisseurs trop petites pour une boutique en ligne, sans payer de crédits par image.</p>
+        <div class="tools"><span class="tool">Lot d'images</span><span class="tool">PNG / JPG / WEBP</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Agrandir une image générée par IA</h3></div>
+        <p>Une image générée trop petite pour l'impression ou un fond d'écran : un passage dans Upscayl la rend utilisable en grand format.</p>
+        <div class="flow"><span>Image IA</span><i>→</i><span>Remacri</span><i>→</i><span>Grand format</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Traiter tout un dossier</h3></div>
+        <p>Le mode « Batch Upscayl » agrandit un dossier entier d'un coup : tu lances et tu reviens plus tard.</p>
+        <div class="tools"><span class="tool">Batch Upscayl</span><span class="tool">Dossier de sortie</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Pour les bricoleurs</h3></div>
+        <p>L'outil en ligne de commande upscayl-ncnn et des modèles personnalisés (dépôt custom-models) pour aller plus loin.</p>
+        <div class="tools"><span class="tool">upscayl-ncnn</span><span class="tool">Modèles perso</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Gratuit, local et très populaire, à condition d'avoir la bonne carte graphique</h3>
+          <p>Projet AGPL très suivi, qui garde tes images sur ton ordi. À savoir : il faut une carte graphique compatible Vulkan, et l'IA ne fait pas de miracle sur une photo floue.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Version 2.15 publiée en janvier 2026 (nouvelle interface, plusieurs langues, nouveau modèle).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>GitHub affichait environ 51 300 étoiles et 2 700 forks ; modèles personnalisés partagés par la communauté.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>L'appli bureau tourne hors connexion, d'après les tests publiés ; pas d'audit indépendant.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Appli gratuite sous AGPL, financée par dons et sponsors ; une offre Cloud payante existe à côté.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Appli stable sur Windows, Mac et Linux ; limitée par le matériel (carte Vulkan obligatoire).</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel, la FAQ et des tests publiés le 14 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Upscayl</h3><div class="cp"><b>Gratuit</b><small>Licence AGPL-3.0, sans crédits ni filigrane</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordi</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Agrandir sans payer, en local</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Topaz Gigapixel</h3><div class="cp"><b>149 $/an</b><small>Abonnement uniquement depuis 2025 (149 $/an payé d'avance, hors taxes) ; version Pro plus chère</small></div></div>
+        <div class="cm"><span class="lvl m">Sur ton ordi, ou dans le cloud de Topaz</span><span class="on">Windows, Mac</span></div>
+        <p>Bon pour : Les pros qui veulent le meilleur rendu</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Let's Enhance</h3><div class="cp"><b>9 à 12 $/mois</b><small>100 crédits/mois (1 image = 1 crédit) ; 10 crédits gratuits pour essayer</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de l'éditeur</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Sans carte graphique, très grands formats</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Upscayl Cloud</h3><div class="cp"><b>À crédits</b><small>Offre en ligne payante du même projet, avec essai gratuit</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'Upscayl</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Les ordis sans carte graphique compatible</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>UPSCAYL</b><span>si tu as une carte graphique récente et que tu veux agrandir tes images gratuitement, sans rien envoyer en ligne.</span></li>
+        <li><b>TOPAZ GIGAPIXEL</b><span>si c'est ton métier et que l'abonnement se rentabilise.</span></li>
+        <li><b>LET'S ENHANCE</b><span>si ton ordi n'a pas de carte graphique et que tu traites peu d'images.</span></li>
+      </ul>
+      <p class="warnline">Aucun agrandisseur ne rattrape une photo vraiment floue : l'IA ajoute des détails plausibles, pas les vrais.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°15 · Upscayl · informations vérifiées le 14 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/upscayl/upscayl">Dépôt GitHub upscayl/upscayl (README et FAQ)</a> · <a href="https://alternativeto.net/software/upscayl/news">Upscayl 2.15 (AlternativeTo, janvier 2026)</a> · <a href="https://github.com/orgs/upscayl/discussions/500">Discussion « Ce qu'est Upscayl Cloud » (GitHub)</a> · <a href="https://www.makeuseof.com/free-tool-upscale-old-photos-without-paying">Test : fonctionnement hors ligne (MakeUseOf)</a> · <a href="https://docs.topazlabs.com/sales-account-licensing/before-you-buy/app-and-collection-options">Tarifs Topaz (documentation officielle)</a> · <a href="https://letsenhance.io/fr/pricing">Tarifs Let's Enhance</a></span>
+  </footer>
+</main>
+</body>
+</html>
