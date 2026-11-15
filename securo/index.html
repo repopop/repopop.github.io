@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Securo</title>
+<meta name="description" content="Securo expliqué simplement : où l'installer, synchro bancaire, usages, note de confiance et comparatif avec Finary, Bankin', Firefly III et Actual Budget.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°23 · Securo">
+<meta property="og:description" content="Un gestionnaire de finances gratuit, chez toi : synchro avec les banques européennes, dépenses classées, valeur nette et échéancier de tes prêts. Où l'installer, pièges, usages et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/securo.png">
+<meta property="og:url" content="https://repopop.github.io/securo/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Securo">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°23</div>
+        <h1>Sec<span>uro</span></h1>
+        <p class="tag">Ton gestionnaire de finances gratuit et open source, installé chez toi : comptes synchronisés, dépenses classées, patrimoine et crédits suivis, sans confier tes données bancaires à une entreprise.</p>
+        <div class="chips">
+          <span class="chip">★ 4 000+ étoiles</span>
+          <span class="chip">Version 0.18.0</span>
+          <span class="chip">Gratuit · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Securo est un <b>gestionnaire de finances personnelles gratuit et open source</b> que tu installes <b>sur ta propre machine</b> (un NAS, un mini PC, ton PC) avec Docker. Tu l'ouvres dans ton navigateur : il regroupe tes comptes, importe tes relevés ou se <b>synchronise avec tes banques</b> (en option), classe tes dépenses avec tes règles, suit tes budgets, ton <b>patrimoine</b> (valeur nette) et tes <b>prêts</b> avec leur échéancier. L'interface existe <b>en français</b>. Tes données restent dans ta base de données, chez toi.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur ton NAS</h3>
+        <p>Avec Docker (Container Manager sur Synology, Unraid…). Securo tourne en plusieurs conteneurs : appli, base PostgreSQL, Redis et tâches de fond. Il existe aussi un modèle Unraid non officiel.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M11 12h6"/></svg></span>
+        <h3>Sur un mini PC ou un serveur Linux</h3>
+        <p>Une commande d'installation pour Linux et macOS : elle utilise Docker ou Podman, et installe Docker s'il manque. Idéal pour garder la synchro bancaire allumée en permanence.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC Windows</h3>
+        <p>Avec Docker Desktop : tu récupères le dépôt puis tu lances docker compose. Pratique pour tester, mais la synchro automatique s'arrête quand le PC est éteint.</p>
+        <span class="pill mid">Pour tester</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence AGPL-3.0.</b> Pas d'offre payante ni d'abonnement : le projet vit des dons (Buy Me a Coffee). Toutes les options (synchro bancaire, IA, plugins) sont désactivées par défaut et gratuites côté Securo.</span></li>
+        <li><span class="dot y">↔</span><span><b>Synchro bancaire : passe par Enable Banking.</b> Pour l'Europe (~2 500 banques), Securo utilise Enable Banking, un agrégateur agréé DSP2 : il faut créer un compte chez eux. L'offre gratuite demande de lier tes comptes à l'avance dans leur portail, et le mode production exige HTTPS. Sinon, importe tes relevés OFX, QIF, CAMT ou CSV.</span></li>
+        <li><span class="dot y">!</span><span><b>Certaines banques limitent la synchro.</b> La réglementation européenne permet aux banques de limiter l'accès automatique à 4 fois par jour : le projet conseille alors une synchro toutes les 6 heures. Certaines banques peuvent aussi refuser la connexion ou demander de renouveler ton accord régulièrement.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Prêts et patrimoine : à renseigner une fois.</b> Pour l'échéancier d'un prêt, saisis le montant emprunté, le taux, la durée et la date de la 1re échéance. Securo calcule l'échéance, la part d'intérêts et de capital, la date de fin, et te dit si tu es en avance ou en retard. Tu peux recaler le capital restant dû sur le relevé de ta banque.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Projet tout jeune.</b> Version 0.18 (novembre 2026) et beaucoup de mises à jour chaque semaine : fais des sauvegardes de la base PostgreSQL avant de mettre à jour.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Ne l'expose pas sur Internet sans protection.</b> Ce sont tes comptes bancaires : garde-le derrière un VPN (Tailscale, WireGuard) ou un proxy HTTPS, et active la double authentification ou les passkeys proposées par Securo.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ton budget du mois, sans tableur</h3></div>
+        <p>Les transactions arrivent de ta banque, tes règles les rangent (courses, essence, loisirs), et tu compares avec ton budget par catégorie.</p>
+        <div class="flow"><span>Synchro banque</span><i>→</i><span>Règles</span><i>→</i><span>Budget du mois</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ta valeur nette, mois après mois</h3></div>
+        <p>Comptes, placements, maison, voiture… moins tes crédits : le rapport Valeur nette montre ce que tu possèdes et ce que tu dois, et son évolution.</p>
+        <div class="flow"><span>Ce que tu possèdes</span><i>→</i><span>− ce que tu dois</span><i>→</i><span>Valeur nette</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Suivre ton crédit auto ou immobilier</h3></div>
+        <p>Un compte « Prêt » avec les conditions du contrat : prochaine échéance, capital restant dû, intérêts totaux, échéancier complet et date de fin.</p>
+        <div class="tools"><span class="tool">Échéancier</span><span class="tool">Capital restant dû</span><span class="tool">Avance / retard</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Ta maison et la dette qui va avec</h3></div>
+        <p>Rattache ton prêt immobilier à ton bien : Securo affiche sa valeur, la dette restante et ce qui t'appartient vraiment.</p>
+        <div class="tools"><span class="tool">Immobilier</span><span class="tool">Prêts liés</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Épargner pour un projet</h3></div>
+        <p>Crée un objectif (vacances, apport, voiture) avec un montant et une date : Securo suit ta progression.</p>
+        <div class="tools"><span class="tool">Objectifs</span><span class="tool">Progression</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,0 sur 10" style="background:conic-gradient(#16C47F 0 80%,#E7E2F2 80% 100%)"><div>8,0<small>/10</small></div></div>
+        <div>
+          <h3>Tout jeune, très actif, déjà très complet</h3>
+          <p>Projet lancé en 2026, qui approche déjà les 4 000 étoiles, avec des mises à jour presque tous les jours. Tes données restent chez toi ; seule la synchro bancaire, si tu l'actives, passe par un agrégateur. À savoir : il est encore en version 0.x.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Version 0.18.0 le 6 novembre 2026 ; plusieurs commits par jour, encore le 15 novembre 2026 (échéancier des prêts ajouté le 28 octobre 2026).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Environ 3 800 étoiles et 490 forks sur GitHub le 15 novembre 2026 (4 116 selon openalternative.co), serveur Discord, interface traduite en 18 langues dont le français.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Base de données sur ton serveur ; la synchro bancaire (Enable Banking) et l'IA, si tu choisis un fournisseur en ligne, envoient des données à un tiers. Tout est désactivé par défaut.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit et open source (AGPL-3.0), financé par des dons ; aucune offre payante publiée, mais une petite équipe derrière.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Moins d'un an d'existence et version 0.x : très complet mais encore beaucoup de corrections chaque semaine ; sauvegardes conseillées.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel et le code source du projet le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Securo</h3><div class="cp"><b>Gratuit</b><small>Licence AGPL-3.0, sans abonnement (le coût de ton NAS ou mini PC ; compte Enable Banking pour la synchro)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton serveur, chez toi</span><span class="on">Navigateur (s'installe comme une appli), Docker</span></div>
+        <p>Bon pour : Budget, patrimoine et crédits au même endroit, en français</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Firefly III</h3><div class="cp"><b>Gratuit</b><small>Logiciel open source à installer toi-même ; synchro bancaire par un outil d'import séparé</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton serveur, chez toi</span><span class="on">Navigateur, Docker</span></div>
+        <p>Bon pour : Une comptabilité perso très détaillée</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Actual Budget</h3><div class="cp"><b>Gratuit</b><small>Logiciel open source, local ou sur ton serveur</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC ou ton serveur</span><span class="on">Navigateur, Windows, Mac, Linux</span></div>
+        <p>Bon pour : Un budget par enveloppes, simple et rapide</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Finary</h3><div class="cp"><b>0 à 149,99 €/an</b><small>Version gratuite limitée ; Plus 149,99 €/an (ou 19,99 €/mois) ; Pro 349,99 €/an</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Finary</span><span class="on">Navigateur, Android, iPhone</span></div>
+        <p>Bon pour : Le suivi d'investissements français (PEA, assurance-vie), sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Bankin'</h3><div class="cp"><b>0 à 39,99 €/an</b><small>Version gratuite ; Plus 4,99 €/mois ou 39,99 €/an ; Pro 99,99 €/an</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Bankin'</span><span class="on">Navigateur, Android, iPhone</span></div>
+        <p>Bon pour : Un budget simple sur téléphone, sans serveur</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>SECURO</b><span>si tu as un NAS ou un mini PC et que tu veux budget, patrimoine et crédits au même endroit, sans confier tes comptes à une entreprise.</span></li>
+        <li><b>FINARY</b><span>si tu suis surtout des placements français et que tu préfères une appli toute prête.</span></li>
+        <li><b>ACTUAL BUDGET</b><span>si tu veux juste un budget par enveloppes, léger et sans synchro.</span></li>
+      </ul>
+      <p class="warnline">Ce sont tes comptes bancaires : garde Securo derrière un VPN ou un HTTPS bien configuré, active la double authentification et sauvegarde la base avant chaque mise à jour.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°23 · Securo · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/securo-finance/securo">Dépôt GitHub securo-finance/securo (README)</a> · <a href="https://github.com/securo-finance/securo/blob/main/backend/app/services/loan_schedule.py">Code source : échéancier des prêts (loan_schedule.py)</a> · <a href="https://github.com/securo-finance/securo/blob/main/docs/automatic-bank-sync.md">Synchro automatique et limite DSP2 (docs du dépôt)</a> · <a href="https://docs.usesecuro.com/">Documentation officielle Securo</a> · <a href="https://openalternative.co/securo">Securo sur openalternative.co (étoiles, âge du projet)</a> · <a href="https://apps.apple.com/FR/app/id1569413444">Tarifs Finary (App Store)</a> · <a href="https://apps.apple.com/fr/app/id447040033">Tarifs Bankin' (App Store)</a></span>
+  </footer>
+</main>
+</body>
+</html>
