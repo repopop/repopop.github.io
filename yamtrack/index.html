@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Yamtrack</title>
+<meta name="description" content="Yamtrack expliqué simplement : où l'installer, branchement Jellyfin et Plex, usages, note de confiance et comparatif avec Trakt, Simkl, Sofa Time et Floppy.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°27 · Yamtrack">
+<meta property="og:description" content="Un traqueur de médias gratuit, chez toi : films, séries, animés, livres et jeux, épisodes cochés tout seuls depuis Jellyfin, calendrier des sorties et import Trakt. Où l'installer, pièges, usages et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/yamtrack.png">
+<meta property="og:url" content="https://repopop.github.io/yamtrack/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Yamtrack">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°27</div>
+        <h1>Yam<span>track</span></h1>
+        <p class="tag">Ton carnet de suivi gratuit et open source, installé chez toi : films, séries, animés, mangas, livres et jeux au même endroit, cochés tout seuls depuis Jellyfin ou Plex, sans abonnement.</p>
+        <div class="chips">
+          <span class="chip">★ 3 000+ étoiles</span>
+          <span class="chip">Version 0.26.3</span>
+          <span class="chip">Gratuit · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Yamtrack est un <b>traqueur de médias gratuit et open source</b> que tu installes <b>sur ta propre machine</b> (un NAS, un mini PC, ton PC) avec Docker. Tu l'ouvres dans ton navigateur et tu y suis <b>films, séries (saison par saison, épisode par épisode), animés, mangas, livres, BD, jeux vidéo et jeux de société</b> : statut, note, progression, revisionnages, notes perso et historique. Branché sur <b>Jellyfin, Plex ou Emby</b>, il enregistre tout seul ce que tu regardes. L'interface est <b>en anglais</b>. Tes données restent dans ta base de données, chez toi.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur ton NAS</h3>
+        <p>Avec Docker (Container Manager sur Synology, Unraid, TrueNAS…). Deux conteneurs : Yamtrack et Redis. Modèles prêts à l'emploi sur Unraid, TrueNAS, Umbrel et YunoHost.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M11 12h6"/></svg></span>
+        <h3>Sur un mini PC ou un serveur Linux</h3>
+        <p>Tu télécharges le docker-compose.yml du dépôt, tu remplis les variables (dont SECRET) et tu lances docker compose up -d. Base SQLite par défaut, PostgreSQL possible pour plusieurs utilisateurs.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC Windows</h3>
+        <p>Avec Docker Desktop. Pratique pour tester, mais Jellyfin ou Plex ne peuvent pas cocher tes épisodes quand le PC est éteint.</p>
+        <span class="pill mid">Pour tester</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence AGPL-3.0.</b> Aucune offre payante ni limite : le projet vit des dons (Ko-fi). Des hébergeurs le proposent aussi tout prêt (ElfHosted, Hostinger, DINAO en France) si tu ne veux pas l'installer toi-même.</span></li>
+        <li><span class="dot y">⇄</span><span><b>Jellyfin, Plex, Emby : un réglage au départ.</b> Chaque utilisateur a sa propre adresse de webhook, avec les instructions, dans la page Integrations. Pour Jellyfin, installe d'abord le plugin Webhook (dépôt officiel) et colles-y cette adresse. Ensuite, tout ce que tu regardes est enregistré automatiquement.</span></li>
+        <li><span class="dot g">✓</span><span><b>Clés API fournies par défaut.</b> Yamtrack marche tout de suite avec des clés partagées pour ses sources (TMDB pour films et séries, MyAnimeList, IGDB pour les jeux…). Si les recherches ou imports butent sur des limites, ajoute tes propres clés gratuites. L'import Steam demande ta clé API Steam.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Redis obligatoire.</b> Yamtrack a besoin d'un serveur Redis à côté (tâches de fond, imports, notifications) : le docker-compose officiel l'inclut, mais sur Unraid il faut l'installer à part.</span></li>
+        <li><span class="dot g">!</span><span><b>Notifs et agenda : à activer.</b> Les alertes de sortie passent par Apprise (Telegram, Discord, ntfy, e-mail…) : colle l'adresse de ton service dans les réglages. Le calendrier des sorties s'ajoute à Google Agenda ou Apple Calendar par un lien iCal, à garder secret comme un mot de passe.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Ne l'expose pas sans protection.</b> Pour y accéder hors de chez toi, passe par un VPN (Tailscale, WireGuard) ou un proxy HTTPS, et désactive les inscriptions (REGISTRATION=False) une fois tes comptes créés.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Tes séries, épisode par épisode</h3></div>
+        <p>Chaque saison est suivie à part : tu vois où tu en es, ce qu'il reste, et tu notes chaque épisode si tu veux.</p>
+        <div class="flow"><span>Série</span><i>→</i><span>Saison</span><i>→</i><span>Épisode coché</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Cochés tout seuls depuis Jellyfin ou Plex</h3></div>
+        <p>Tu finis un film ou un épisode sur ton serveur média : Yamtrack le reçoit par webhook et le marque comme vu, sans rien saisir.</p>
+        <div class="flow"><span>Tu regardes</span><i>→</i><span>Webhook</span><i>→</i><span>Coché</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Ne rater aucune nouvelle saison</h3></div>
+        <p>Le calendrier liste les sorties de ce que tu suis ; abonne ton agenda au lien iCal et reçois une notif sur Telegram ou ntfy le jour J.</p>
+        <div class="tools"><span class="tool">Calendrier</span><span class="tool">Lien iCal</span><span class="tool">Apprise</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Quitter Trakt sans perdre ton historique</h3></div>
+        <p>Importe ton historique depuis Trakt, Simkl, MyAnimeList, AniList ou Kitsu (avec import automatique régulier en option), puis exporte tout en CSV quand tu veux.</p>
+        <div class="flow"><span>Trakt / Simkl</span><i>→</i><span>Import</span><i>→</i><span>Ton historique</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Livres, jeux et jeux de société aussi</h3></div>
+        <p>Suis ta pile de lecture, tes jeux vidéo et tes parties de jeux de société au même endroit, et crée des fiches perso pour ce qu'aucune base ne connaît.</p>
+        <div class="tools"><span class="tool">Livres</span><span class="tool">Jeux</span><span class="tool">Fiches perso</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Le plus suivi des traqueurs à installer chez soi</h3>
+          <p>Environ 3 700 étoiles, proposé en un clic par de nombreux hébergeurs et magasins d'applis pour serveur. Tout reste chez toi, gratuit et sans limite. À savoir : encore en version 0.x, et la dernière version date de mai 2026.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Dernière version 0.25.3 le 25 mai 2026 (0.25.0 en février, 0.25.1 et 0.25.2 en avril) ; environ 2 800 commits sur la branche dev.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 3 700 étoiles et 359 forks sur GitHub le 15 novembre 2026, des forks actifs (Floppy) et des modèles prêts sur Unraid, TrueNAS, Umbrel, YunoHost, Hostinger, ElfHosted et DINAO.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Ta base de données reste sur ton serveur ; Yamtrack contacte seulement les sources d'infos (TMDB, MyAnimeList, IGDB…) pour les titres et les affiches.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit et open source (AGPL-3.0), financé par des dons (Ko-fi) ; un mainteneur principal, FuzzyGrim, avec des contributeurs.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Version 0.25, Docker, SQLite ou PostgreSQL, multi-comptes et connexion OIDC : solide pour un usage perso, mais toujours en 0.x ; sauvegarde la base avant de mettre à jour.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel, la documentation et les notes de version le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Yamtrack</h3><div class="cp"><b>Gratuit</b><small>Licence AGPL-3.0, sans abonnement ni limite (le coût de ton NAS ou mini PC)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton serveur, chez toi</span><span class="on">Navigateur (s'installe comme une appli), Docker</span></div>
+        <p>Bon pour : Films, séries, animés, livres et jeux au même endroit, branché sur Jellyfin ou Plex</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Floppy</h3><div class="cp"><b>Gratuit</b><small>Fork de Yamtrack, AGPL-3.0, développé par une personne avec des outils d'IA</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton serveur, chez toi</span><span class="on">Navigateur, Docker</span></div>
+        <p>Bon pour : Ajouter musique, podcasts et récaps annuels, si tu acceptes un projet plus jeune</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Trakt</h3><div class="cp"><b>0 à 60 $/an</b><small>Gratuit avec limites (liste à voir et listes perso plafonnées) ; VIP 60 $/an ou 6 $/mois</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Trakt</span><span class="on">Navigateur, Android, iPhone, Android TV</span></div>
+        <p>Bon pour : Films et séries, avec une énorme communauté et beaucoup d'applis compatibles</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Simkl</h3><div class="cp"><b>0 à ~70 $/an</b><small>Gratuit avec pubs ; PRO et VIP payants (VIP 34,99 $ tous les 6 mois), PRO offert si tu l'utilises 20 jours par mois</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Simkl</span><span class="on">Navigateur, Android, iPhone</span></div>
+        <p>Bon pour : Films, séries et animés, sans serveur</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Sofa Time</h3><div class="cp"><b>0 à 7,99 $</b><small>Gratuit ; Premium 5,99 $ ou 7,99 $ à vie (achats intégrés)</small></div></div>
+        <div class="cm"><span class="lvl n">Sur ton iPhone (synchro Trakt ou Simkl possible)</span><span class="on">iPhone, iPad</span></div>
+        <p>Bon pour : Une jolie appli iPhone pour les séries et les films</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>YAMTRACK</b><span>si tu as un NAS ou un serveur Jellyfin/Plex et que tu veux tout suivre au même endroit, sans abonnement ni limite.</span></li>
+        <li><b>TRAKT</b><span>si tu veux juste suivre films et séries sur ton téléphone, sans rien installer, et que les limites gratuites te suffisent.</span></li>
+        <li><b>FLOPPY</b><span>si tu veux aussi la musique, les podcasts et des récaps, et que tu acceptes un projet plus jeune.</span></li>
+      </ul>
+      <p class="warnline">Garde Yamtrack derrière un VPN ou un HTTPS bien configuré, désactive les inscriptions après avoir créé tes comptes et traite les liens webhook et calendrier comme des mots de passe.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°27 · Yamtrack · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/FuzzyGrim/Yamtrack">Dépôt GitHub FuzzyGrim/Yamtrack (README)</a> · <a href="https://fuzzygrim.github.io/Yamtrack/release/env-variables/">Documentation : variables d'environnement (clé TMDB fournie, Redis)</a> · <a href="https://releasealert.dev/github/FuzzyGrim/Yamtrack">Historique des versions (v0.25.3 du 25 mai 2026)</a> · <a href="https://docs.elfhosted.com/app/yamtrack/">ElfHosted : webhooks Jellyfin/Plex/Emby, calendrier iCal, clés partagées</a> · <a href="https://github.com/dannyvfilms/Floppy">Floppy, fork de Yamtrack</a> · <a href="https://forums.trakt.tv/t/updating-trakt-limits-for-2026/101592">Trakt : limites 2026 (forum officiel)</a> · <a href="https://alternativeto.net/news/2025/2/trakt-tv-has-set-stricter-limits-for-free-users-and-raised-vip-subscription-prices-by-100-">Trakt : prix du VIP doublé en 2025 (AlternativeTo)</a> · <a href="https://docs.simkl.org/how-to-use-simkl/member-profile-and-settings/billing-faq">Simkl : formules et facturation</a> · <a href="https://apps.apple.com/app/id1491037404">Sofa Time (App Store)</a> · <a href="https://dinao.com/conteneur/yamtrack">DINAO : Yamtrack hébergé en France</a></span>
+  </footer>
+</main>
+</body>
+</html>
