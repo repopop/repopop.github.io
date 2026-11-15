@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Claude SEO</title>
+<meta name="description" content="Claude SEO expliqué simplement : ce que vérifie l'audit, comment l'installer dans Claude Code, ce qui part chez Claude, usages, note de confiance et comparatif avec Semrush, Ahrefs, Screaming Frog et Google Search Console.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°26 · Claude SEO">
+<meta property="og:description" content="Tape /seo audit avec l'adresse de ton site : technique, contenu, images, SEO local et visibilité dans les IA, puis un plan d'action classé par priorité. Gratuit avec Claude Code.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/claude-seo.png">
+<meta property="og:url" content="https://repopop.github.io/claude-seo/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Claude SEO">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°26</div>
+        <h1>Claude <span>SEO</span></h1>
+        <p class="tag">Un plugin gratuit pour Claude Code : tu donnes l'adresse de ton site, jusqu'à 17 agents l'analysent en même temps, et tu repars avec un plan d'action trié par urgence.</p>
+        <div class="chips">
+          <span class="chip">★ 29 000+ étoiles</span>
+          <span class="chip">Version 2.6.2</span>
+          <span class="chip">Gratuit (avec Claude Code) · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Le <b>SEO</b>, c'est tout ce qui aide ton site à sortir dans Google : des pages rapides, bien décrites, faciles à explorer, avec un contenu utile. <b>Claude SEO</b> est un plugin pour <b>Claude Code</b>, l'agent d'Anthropic qui travaille dans un terminal. Tu tapes <b>/seo audit</b> suivi de l'adresse de ton site : Claude repère le type de site (boutique, site local, blog…), puis jusqu'à <b>17 agents spécialisés</b> l'analysent en même temps (technique, contenu, images, données structurées, vitesse, SEO local, visibilité dans les IA). En <b>10 à 15 minutes</b>, tu obtiens un <b>plan d'action classé par priorité</b>, et chaque conseil explique pourquoi il compte et comment vérifier que la correction a marché. Les rapports sont enregistrés sur ton ordinateur (Markdown, et PDF en option).</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Plugin Claude Code</h3>
+        <p>Dans Claude Code : /plugin marketplace add AgriciDaniel/claude-seo, puis /plugin install claude-seo@agricidaniel-claude-seo, puis /seo setup (prépare Python et un navigateur Chromium isolés).</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Installation manuelle</h3>
+        <p>Clone le dépôt, lis le script, puis lance install.sh (Mac, Linux) ou install.ps1 (Windows). Demande Claude Code 1.0.33 ou plus récent et Python 3.11 à 3.14.</p>
+        <span class="pill ok">Pour vérifier avant</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Appli Claude (web, mobile)</h3>
+        <p>Pas prévu pour l'appli Claude classique : le plugin a besoin de Claude Code, de Python et d'un navigateur local pour analyser les pages.</p>
+        <span class="pill no">Non prévu</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">€</span><span><b>Gratuit, mais pas sans Claude.</b> Le plugin est gratuit (licence MIT, sans limite de sites). Il faut Claude Code, donc une offre Claude payante (Pro dès 20 $ par mois). Un audit complet consomme plus de ton quota qu'une seule page, car plusieurs agents tournent sur Opus.</span></li>
+        <li><span class="dot y">↔</span><span><b>Tes pages passent par Claude.</b> L'analyse et les rapports restent sur ton ordinateur, sans pistage. Mais, comme tout travail dans Claude Code, le contenu des pages analysées est envoyé à Claude (Anthropic).</span></li>
+        <li><span class="dot g">✓</span><span><b>Aucune clé obligatoire.</b> Tout marche sans compte externe. Tu peux brancher gratuitement les API Google (Search Console, PageSpeed, CrUX, GA4) avec /seo google setup pour avoir de vraies données de trafic ; tes clés restent chez toi.</span></li>
+        <li><span class="dot y">!</span><span><b>Sans Google, des estimations.</b> Sans les API Google, la vitesse (Core Web Vitals) est une estimation de labo et l'indexation est déduite. Le contenu qui ne s'affiche qu'après un clic ou un défilement peut fausser certains résultats.</span></li>
+        <li><span class="dot y">!</span><span><b>Extensions en option.</b> Certaines extensions (SE Ranking, Profound, Ahrefs, DataForSEO…) se connectent à des services payants avec ton propre compte. Les intégrations de la communauté ne sont pas vérifiées par le projet.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Un conseil reste un conseil.</b> L'audit dit quoi corriger, il ne garantit pas une place dans Google. Vérifie les changements importants avant de les mettre en ligne, surtout sur un site qui marche déjà.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Faire l'audit complet de ton site</h3></div>
+        <p>Une commande, et tu obtiens la liste des problèmes (pages lentes, images lourdes, descriptions manquantes, liens cassés…) triée du plus urgent au moins urgent.</p>
+        <div class="flow"><span>/seo audit</span><i>→</i><span>17 agents</span><i>→</i><span>Plan d'action</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Soigner ta présence locale</h3></div>
+        <p>Pour un commerce ou un artisan : /seo local vérifie la cohérence de ton nom, adresse et téléphone, ta fiche d'établissement et les signaux qui comptent dans Google Maps.</p>
+        <div class="tools"><span class="tool">/seo local</span><span class="tool">/seo maps</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Être cité par les IA</h3></div>
+        <p>/seo geo regarde si ChatGPT, Perplexity ou les aperçus IA de Google peuvent facilement reprendre et citer tes pages, et ce qu'il faut changer pour ça.</p>
+        <div class="flow"><span>Ta page</span><i>→</i><span>/seo geo</span><i>→</i><span>Plus citable</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Écrire tes balises Schema</h3></div>
+        <p>/seo schema repère les données structurées de ta page, signale les erreurs et écrit le code JSON-LD prêt à coller (commerce, article, produit, FAQ…).</p>
+        <div class="tools"><span class="tool">Trouver</span><span class="tool">Valider</span><span class="tool">Générer</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Suivre ton site dans le temps</h3></div>
+        <p>/seo drift enregistre une photo de ton site, puis compare après chaque mise à jour pour repérer ce qui a cassé (balises, titres, vitesse).</p>
+        <div class="flow"><span>Photo de départ</span><i>→</i><span>Mise à jour</span><i>→</i><span>Comparaison</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Très suivi et très actif, mais encore jeune</h3>
+          <p>Le projet a été lancé en février 2026 par Agrici Daniel et a dépassé 29 000 étoiles en neuf mois. Il est mis à jour presque chaque jour et couvert par des milliers de tests automatiques. Ses résultats affichés (trafic de son propre site) sont publiés par l'auteur lui-même.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 540 commits sur la branche principale, dernière modification le 15 novembre 2026, version 2.6.2 ; une quinzaine de tickets ouverts seulement.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 29 200 étoiles et 3 700 forks sur GitHub en novembre 2026 ; une communauté gratuite et une communauté payante sur Skool.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Rapports enregistrés chez toi, aucun pistage, aucun appel à un service tiers sans extension ; mais le contenu des pages analysées passe par Claude.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Version publique gratuite sous licence MIT ; une version privée avec les nouveautés en avant-première est réservée aux membres payants de la communauté de l'auteur, et Claude Code est payant.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Neuf mois d'existence et des changements très fréquents ; l'auteur publie ses propres chiffres de résultats, sans étude indépendante.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README, la politique de confidentialité (PRIVACY.md) et le code du dépôt le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude SEO</h3><div class="cp"><b>Gratuit</b><small>Plugin gratuit ; Claude Code demande une offre Claude payante (Pro dès 20 $/mois)</small></div></div>
+        <div class="cm"><span class="lvl m">Analyse et rapports sur ton PC ; contenu des pages envoyé à Claude</span><span class="on">Claude Code (Windows, Mac, Linux)</span></div>
+        <p>Bon pour : Un audit complet en un quart d'heure, avec un plan d'action clair</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Semrush</h3><div class="cp"><b>Dès 139,95 $/mois</b><small>Pro 139,95 $/mois, Guru 249,95 $/mois, Business 499,95 $/mois (paiement mensuel)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Semrush</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Suivre ses positions, ses mots-clés et ses concurrents au quotidien</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ahrefs</h3><div class="cp"><b>Dès 29 $/mois</b><small>Starter 29 $/mois (crédits limités), Lite 129 $/mois ; Ahrefs Webmaster Tools gratuit pour tes propres sites</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'Ahrefs</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Les liens entrants (backlinks) et l'analyse des concurrents</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Screaming Frog SEO Spider</h3><div class="cp"><b>Gratuit / 245 €/an</b><small>Gratuit jusqu'à 500 adresses par exploration ; licence 245 € par an et par utilisateur</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Explorer un site page par page pour l'audit technique</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Search Console</h3><div class="cp"><b>Gratuit</b><small>Gratuit pour les sites dont tu prouves la propriété</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Google</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Voir ton vrai trafic Google et les pages indexées</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE SEO</b><span>si tu as déjà Claude Code et veux un audit complet, expliqué et classé par priorité, sans abonnement de plus.</span></li>
+        <li><b>SEMRUSH OU AHREFS</b><span>si tu suis tes positions et tes concurrents tous les jours : leurs bases de mots-clés et de liens restent hors de portée d'un audit.</span></li>
+        <li><b>SCREAMING FROG + SEARCH CONSOLE</b><span>si tu veux un duo gratuit sans IA pour un petit site.</span></li>
+      </ul>
+      <p class="warnline">Le contenu des pages analysées est envoyé à Claude : n'audite pas de pages privées ou réservées à des clients connectés sans réfléchir à ce que tu partages.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°26 · Claude SEO · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/AgriciDaniel/claude-seo">dépôt GitHub AgriciDaniel/claude-seo</a> · <a href="https://github.com/AgriciDaniel/claude-seo/blob/main/PRIVACY.md">Claude SEO : politique de confidentialité (PRIVACY.md)</a> · <a href="https://www.presse-citron.net/seo/outils/avis-semrush/tarifs/">Presse-citron : tarifs Semrush</a> · <a href="https://hackceleration.com/labs/compare/semrush-vs-ahref">Hackceleration : Semrush vs Ahrefs 2026</a> · <a href="https://www.screamingfrog.co.uk/seo-spider/pricing/">Screaming Frog : tarifs du SEO Spider</a> · <a href="https://lucasfonseque.fr/referencement-naturel-seo/outils-seo/screaming-frog-avis/screaming-frog-prix/">Lucas Fonseque : prix de Screaming Frog en 2026</a> · <a href="https://search.google.com/search-console/about">Google Search Console</a></span>
+  </footer>
+</main>
+</body>
+</html>
