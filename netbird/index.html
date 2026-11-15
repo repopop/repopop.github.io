@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · NetBird</title>
+<meta name="description" content="NetBird expliqué simplement : installation, usages, note de confiance et comparatif avec Tailscale, Headscale, ZeroTier et Cloudflare.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°24 · NetBird">
+<meta property="og:description" content="Un réseau privé chiffré (WireGuard) entièrement open source, serveur compris : héberge NetBird chez toi et choisis qui accède à quoi. Installation, pièges et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/netbird.png">
+<meta property="og:url" content="https://repopop.github.io/netbird/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de NetBird">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°24</div>
+        <h1>Net<span>Bird</span></h1>
+        <p class="tag">Le réseau privé open source de A à Z, serveur compris : tu relies tes appareils comme avec Tailscale, mais c'est toi qui héberges tout et qui décides qui accède à quoi.</p>
+        <div class="chips">
+          <span class="chip">★ 31 000+ étoiles</span>
+          <span class="chip">Version 0.83.1</span>
+          <span class="chip">Gratuit chez toi · licence BSD-3 (client) + AGPLv3 (serveur)</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">NetBird relie tes appareils (PC, téléphone, NAS, serveurs) dans un <b>réseau privé chiffré</b> avec <b>WireGuard</b>. Les appareils se parlent <b>directement</b> quand c'est possible ; sinon, un <b>relais</b> prend le relais sans pouvoir lire le trafic. La différence avec Tailscale : le <b>serveur central</b> (liste des appareils, utilisateurs, règles d'accès) est <b>open source</b> et tu peux l'<b>héberger toi-même</b>. Tu gères tout depuis un <b>tableau de bord</b> web : groupes, règles « qui peut joindre quoi », DNS privé, routes vers ton réseau local. Plus sécurisé que Tailscale ? Pas forcément : le chiffrement est le même, tu gagnes en <b>contrôle</b>, mais la sécurité du serveur devient ton affaire.</p>
+
+    <div class="where">
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>NetBird Cloud (le plus simple)</h3>
+        <p>Tu crées un compte (Google, Microsoft, GitHub ou e-mail) et NetBird héberge le serveur central pour toi. Gratuit jusqu'à 5 utilisateurs et 100 machines. Pratique pour tester avant d'héberger.</p>
+        <span class="pill ok">Pour tester</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur ton serveur ou un petit VPS</h3>
+        <p>Le script officiel installe tout avec Docker en quelques minutes : il faut une machine Linux (1 processeur, 2 Go de mémoire), un nom de domaine, et les ports 80 et 443 (TCP) et 3478 (UDP) joignables depuis Internet. Un VPS à quelques euros par mois suffit.</p>
+        <span class="pill mid">Le vrai intérêt</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Sur tes appareils</h3>
+        <p>Applis Windows, Mac, Linux, iPhone, Android, Android TV et Apple TV ; paquets pour Synology, TrueNAS, pfSense, OPNsense, MikroTik, OpenWRT, Proxmox et Raspberry Pi. Sous Linux : curl -fsSL https://pkgs.netbird.io/install.sh | sh, puis netbird up.</p>
+        <span class="pill ok">Officiel</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et sans limite chez toi.</b> La Community Edition auto-hébergée n'a aucune limite d'utilisateurs ni d'appareils, et inclut SSO, MFA, règles d'accès et vérification des appareils. Le cloud est gratuit jusqu'à 5 utilisateurs et 100 machines, puis payant par utilisateur (Team, Business).</span></li>
+        <li><span class="dot y">⌂</span><span><b>Ton serveur doit être joignable.</b> Le serveur central a besoin d'un nom de domaine et de ports ouverts (80 et 443 en TCP, 3478 en UDP). Derrière une box, il faut donc rediriger ces ports, ou plus simplement louer un petit VPS. Tes appareils, eux, n'ont aucun port à ouvrir.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Héberger, c'est s'en occuper.</b> Mises à jour, sauvegardes et protection du serveur sont pour toi. Si ce serveur tombe, les nouvelles connexions et les changements de règles attendent son retour. La haute disponibilité (plusieurs serveurs) est réservée à la licence entreprise.</span></li>
+        <li><span class="dot g">↔</span><span><b>Connexion directe et chiffrée.</b> Les clés privées restent sur tes appareils et le trafic est chiffré de bout en bout (WireGuard). Quand une connexion directe est impossible (box capricieuse, 4G), un relais chiffré prend le relais. Option résistante aux ordinateurs quantiques : Rosenpass.</span></li>
+        <li><span class="dot y">!</span><span><b>Deux licences.</b> Le client est sous licence BSD-3 ; le serveur (management, signal, relais) sous AGPLv3. Quelques fonctions (plusieurs fournisseurs d'identité à la fois, synchronisation SCIM, haute disponibilité) restent réservées au cloud ou à la licence entreprise.</span></li>
+        <li><span class="dot y">↻</span><span><b>Et Tailscale, alors ?</b> Tailscale reste plus mûr et plus simple, et son option Tailnet Lock empêche son serveur d'ajouter un appareil sans ton accord. NetBird vaut le coup si tu veux ne dépendre de personne et garder tout le code ouvert.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ton Jellyfin pour tes potes, et rien d'autre</h3></div>
+        <p>Tu crées un groupe « Amis » et une règle vers ton serveur Jellyfin : tes amis regardent tes films, sans voir ton NAS ni tes caméras.</p>
+        <div class="flow"><span>Groupe Amis</span><i>→</i><span>Règle</span><i>→</i><span>Jellyfin</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ton homelab depuis n'importe où</h3></div>
+        <p>Home Assistant, Immich, ton tableau de bord : tout reste privé, mais tu l'ouvres de partout depuis ton téléphone, avec un nom simple grâce au DNS privé.</p>
+        <div class="flow"><span>Téléphone</span><i>→</i><span>NetBird</span><i>→</i><span>Ton serveur</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Tout ton réseau local, sans appli partout</h3></div>
+        <p>Un seul appareil chez toi sert de passerelle (route réseau) : ton imprimante, tes caméras ou ta box deviennent joignables sans installer NetBird dessus.</p>
+        <div class="tools"><span class="tool">Routes réseau</span><span class="tool">Passerelle</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>SSH et bureau à distance dans le navigateur</h3></div>
+        <p>Depuis le tableau de bord, tu ouvres un terminal SSH ou un bureau à distance (RDP) sur une machine du réseau, avec des règles d'accès centralisées.</p>
+        <div class="tools"><span class="tool">SSH</span><span class="tool">RDP</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Le VPN de ta petite entreprise</h3></div>
+        <p>Connexion avec les comptes de l'équipe (Google, Microsoft ou ton propre fournisseur d'identité), double authentification, groupes par métier et vérification que chaque poste est à jour avant d'entrer.</p>
+        <div class="tools"><span class="tool">SSO</span><span class="tool">MFA</span><span class="tool">Vérification des appareils</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Libre de A à Z, à héberger avec soin</h3>
+          <p>Lancé sur GitHub en 2021 par une équipe berlinoise, NetBird est devenu l'alternative open source la plus complète à Tailscale, serveur compris. L'entreprise est financée (série A de 10 millions de dollars en janvier 2026) et compte des clients comme Sport Alliance, netgo ou Signicat. Parmi ses premiers investisseurs : le champion du monde de football Mario Götze.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Version 0.81.4 publiée le 24 octobre 2026 ; nouvelles versions plusieurs fois par mois.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>GitHub affichait environ 30 200 étoiles et 1 800 forks le 15 novembre 2026 ; communauté active sur Slack, Discord et GitHub Discussions.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Tout peut tourner chez toi, serveur compris, avec un code entièrement ouvert ; trafic chiffré de bout en bout. Des mesures d'usage anonymes existent mais se désactivent.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Startup financée qui vit du cloud payant et des licences entreprise ; la version auto-hébergée reste gratuite et sans limite, mais quelques fonctions avancées sont réservées aux offres payantes.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Cinq ans d'existence et des clients en entreprise, mais toujours en versions 0.x, avec des changements fréquents (fournisseur d'identité intégré depuis la 0.62).</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub (dépôt et versions), la documentation officielle (auto-hébergement, licences, tarifs) et la presse spécialisée le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>NetBird</h3><div class="cp"><b>Gratuit chez toi</b><small>Auto-hébergé gratuit, sans limite ; cloud gratuit 5 utilisateurs / 100 machines, Team dès 5 $ par utilisateur et par mois</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (ton serveur ou un VPS), ou cloud NetBird</span><span class="on">Windows, Mac, Linux, iPhone, Android, Synology, TrueNAS, routeurs, Docker</span></div>
+        <p>Bon pour : Tout héberger toi-même, serveur compris, avec des règles d'accès fines</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Tailscale</h3><div class="cp"><b>Gratuit en perso</b><small>Personal : 6 utilisateurs, appareils illimités, usage non commercial ; Standard 8 $ par utilisateur et par mois</small></div></div>
+        <div class="cm"><span class="lvl m">Trafic direct et chiffré ; serveur de coordination chez Tailscale (non libre)</span><span class="on">Windows, Mac, Linux, iPhone, Android, Synology, QNAP, Docker</span></div>
+        <p>Bon pour : Tout relier en 2 minutes, sans serveur à gérer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Headscale</h3><div class="cp"><b>Gratuit</b><small>Open source (BSD-3) : remplace le serveur de Tailscale, à héberger toi-même ; utilise les applis Tailscale</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (ton serveur ou un VPS)</span><span class="on">Serveur Linux ou Docker ; applis Tailscale côté appareils</span></div>
+        <p>Bon pour : Garder les applis Tailscale sans dépendre de leur serveur</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ZeroTier</h3><div class="cp"><b>Gratuit, 10 appareils</b><small>Personal : 10 appareils, 1 réseau ; Essential 18 $/mois (10 appareils, puis 2 $ par appareil)</small></div></div>
+        <div class="cm"><span class="lvl m">Trafic chiffré entre tes appareils ; gestion chez ZeroTier</span><span class="on">Windows, Mac, Linux, iPhone, Android</span></div>
+        <p>Bon pour : Un petit réseau perso de moins de 10 appareils</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Cloudflare Zero Trust</h3><div class="cp"><b>Gratuit, 50 utilisateurs</b><small>Gratuit jusqu'à 50 utilisateurs ; environ 7 $ par utilisateur et par mois au-delà</small></div></div>
+        <div class="cm"><span class="lvl n">Le trafic passe par le réseau de Cloudflare</span><span class="on">Windows, Mac, Linux, iPhone, Android</span></div>
+        <p>Bon pour : Ouvrir des services web à des proches, sans serveur à gérer</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>NETBIRD</b><span>si tu veux un réseau privé façon Tailscale qui ne dépend de personne, serveur compris.</span></li>
+        <li><b>TAILSCALE</b><span>si tu veux la solution la plus simple et la plus mûre, sans serveur à entretenir.</span></li>
+        <li><b>HEADSCALE</b><span>si tu tiens aux applis Tailscale mais veux héberger la coordination.</span></li>
+      </ul>
+      <p class="warnline">Héberger le serveur NetBird, c'est en assumer la sécurité : mets-le à jour et sauvegarde-le régulièrement.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°24 · NetBird · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/netbirdio/netbird">Dépôt GitHub netbirdio/netbird</a> · <a href="https://github.com/netbirdio/netbird/releases">Versions NetBird (GitHub)</a> · <a href="https://docs.netbird.io/selfhosted/selfhosted-quickstart">Démarrage rapide auto-hébergé (doc NetBird)</a> · <a href="https://docs.netbird.io/selfhosted/identity-providers/local">Utilisateurs locaux, fournisseur d'identité intégré (doc NetBird)</a> · <a href="https://docs.netbird.io/selfhosted/enterprise">Licence entreprise et Community Edition (doc NetBird)</a> · <a href="https://docs.netbird.io/how-to/plans-and-billing">Plans et facturation (doc NetBird)</a> · <a href="https://netbird.io/pricing">Tarifs NetBird</a> · <a href="https://sifted.eu/articles/celeb-investors">Sifted : Mario Götze, investisseur de NetBird</a> · <a href="https://thesaasnews.com/news/netbird-raises-1-1-million-in-pre-seed-round">Tour de pré-amorçage de 1,1 M€ (2023)</a> · <a href="https://www.startbase.com/news/netbird-sichert-10-millionen-series-a-finanzierung/">Série A de 10 M$ (janvier 2026)</a> · <a href="https://tailscale.com/pricing/">Tarifs Tailscale</a> · <a href="https://github.com/juanfont/headscale">Headscale (README)</a> · <a href="https://www.zerotier.com/pricing">Tarifs ZeroTier</a> · <a href="https://www.cloudflare.com/plans/zero-trust-services/">Tarifs Cloudflare Zero Trust</a></span>
+  </footer>
+</main>
+</body>
+</html>
