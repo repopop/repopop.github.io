@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Reactive Resume</title>
+<meta name="description" content="Reactive Resume expliqué simplement : où l'utiliser (site gratuit ou chez toi avec Docker), ce qu'il sait faire, ce qu'il garde de tes données, usages, note de confiance et comparatif avec Zety, Canva, CVDesignR et FlowCV.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°28 · Reactive Resume">
+<meta property="og:description" content="Crée ton CV, compare-le à une annonce, télécharge-le en PDF ou Word et suis tes candidatures. Gratuit, open source, sans pub ni pistage.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/reactive-resume.png">
+<meta property="og:url" content="https://repopop.github.io/reactive-resume/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Reactive Resume">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°28</div>
+        <h1>Reactive <span>Resume</span></h1>
+        <p class="tag">Un créateur de CV gratuit pour de vrai : modèles, aperçu en direct, mots-clés de l'annonce et suivi des candidatures, téléchargement compris, sans pub ni abonnement caché.</p>
+        <div class="chips">
+          <span class="chip">★ 45 000+ étoiles</span>
+          <span class="chip">Version 6.1.1</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>Reactive Resume</b> est un créateur de CV gratuit et open source. Tu crées un compte, tu importes ton ancien CV (PDF, profil LinkedIn exporté, JSON) ou tu pars de zéro, et tu vois la page finale changer <b>en direct</b> pendant que tu écris. Tu télécharges ton CV en <b>PDF, Word, Markdown ou JSON</b>, ou tu le partages avec un lien public. Le même outil fait aussi les <b>lettres de motivation</b>, vérifie que les <b>logiciels de recrutement</b> lisent bien ton CV, le compare aux <b>mots-clés d'une annonce</b> et range tes <b>candidatures</b>. Le projet annonce : pas de pistage, pas de pub, pas d'offre payante.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Sur le site officiel</h3>
+        <p>Le plus simple : rxresu.me, dans ton navigateur (interface en français), avec un compte gratuit. Applis iPhone et Android aussi disponibles. Tes CV sont stockés sur le serveur du projet.</p>
+        <span class="pill ok">Gratuit, sans rien installer</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Chez toi avec Docker</h3>
+        <p>Sur un PC, un serveur, un NAS (Synology, UGREEN) ou un Raspberry Pi 4 ou plus récent (64 bits) : l'appli et une base PostgreSQL, 1 Go de mémoire minimum (2 Go conseillés), port 3000.</p>
+        <span class="pill ok">Tout reste chez toi</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Chez un hébergeur</h3>
+        <p>Installation en un clic chez Hostinger (payant, dès 6,49 $ par mois selon le README), ou sur Vercel, Cloudflare Workers ou Kubernetes pour les plus à l'aise.</p>
+        <span class="pill mid">Hébergement payant</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, téléchargement compris.</b> Licence MIT, sans offre payante : PDF, Word (DOCX), Markdown et JSON sont inclus, sans filigrane ni essai qui se transforme en abonnement.</span></li>
+        <li><span class="dot y">↔</span><span><b>Sur le site, tes CV sont sur leur serveur.</b> Sur rxresu.me, ton compte, tes CV et tes candidatures sont stockés par le projet (opéré par Amruth Pillai). Pas de pub ni de pistage annoncés ; tu peux exporter tes données ou supprimer ton compte. Pour tout garder chez toi, héberge-le.</span></li>
+        <li><span class="dot g">✓</span><span><b>L'IA est facultative.</b> Import PDF lisible, LinkedIn et JSON, vérification du CV et mots-clés de l'annonce marchent sans IA (dans ton navigateur). L'assistant, l'import Word et la relecture utilisent un fournisseur que tu branches toi-même (OpenAI, Anthropic, Gemini, Ollama…), avec ses propres coûts.</span></li>
+        <li><span class="dot y">!</span><span><b>Les mots-clés ne font pas tout.</b> La comparaison avec l'annonce est une comparaison de mots, pas un jugement : n'ajoute un mot-clé que s'il est vrai. Et aucun outil ne peut garantir comment un recruteur ou son logiciel lira ton CV.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Héberger, c'est aussi entretenir.</b> Chez toi, il faut un nom de domaine et du HTTPS pour l'ouvrir à l'extérieur, un serveur mail pour les mots de passe oubliés, des sauvegardes de la base, et penser à fermer les inscriptions.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Attention aux liens publics.</b> Un CV partagé en lien public est visible par toute personne qui a le lien : protège-le par mot de passe si besoin, et ne mets jamais ton adresse complète ou des documents d'identité dans un CV.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Refaire ton CV en une soirée</h3></div>
+        <p>Tu importes ton ancien CV en PDF : les rubriques se remplissent. Tu changes de modèle (18 au choix, dont des modèles simples pour les logiciels de recrutement) et la page suit en direct.</p>
+        <div class="flow"><span>Ancien CV.pdf</span><i>→</i><span>Import</span><i>→</i><span>Nouveau modèle</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Coller à une annonce</h3></div>
+        <p>Tu colles l'annonce : l'onglet « Correspondance » montre les mots-clés déjà présents et ceux qui manquent, et tu fais une copie du CV adaptée à ce poste.</p>
+        <div class="flow"><span>Annonce</span><i>→</i><span>Mots-clés</span><i>→</i><span>CV adapté</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Écrire ta lettre de motivation</h3></div>
+        <p>Une lettre reliée à ton CV garde le même style et tes coordonnées ; avec un fournisseur d'IA branché, l'assistant peut en proposer un brouillon à partir du CV et de l'annonce.</p>
+        <div class="tools"><span class="tool">Lettre</span><span class="tool">Même style</span><span class="tool">Brouillon IA</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Suivre toutes tes candidatures</h3></div>
+        <p>Un tableau de « Sauvegardée » à « Offre », avec les contacts, les relances, les entretiens dans un calendrier et le CV envoyé à chaque entreprise.</p>
+        <div class="flow"><span>Sauvegardée</span><i>→</i><span>Entretien</span><i>→</i><span>Offre</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Partager ton CV par un lien</h3></div>
+        <p>Un lien public vers ton CV, protégé par mot de passe si tu veux, avec le nombre de vues et de téléchargements : pratique dans une signature de mail ou sur LinkedIn.</p>
+        <div class="tools"><span class="tool">Lien public</span><span class="tool">Mot de passe</span><span class="tool">Statistiques</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Gratuit, sans pub et solide depuis 2020</h3>
+          <p>Lancé en 2020 par Amruth Pillai comme projet passion, Reactive Resume en est à sa version 6. Son créateur annonçait en janvier 2026 près d'un million d'utilisateurs. Le projet vit de dons et de sponsors, et repose surtout sur une seule personne.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 7 100 commits, version 6.1.1 en novembre 2026, seulement 18 tickets ouverts sur GitHub.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 45 600 étoiles et 4 900 forks ; près d'un million d'utilisateurs annoncés par le créateur ; interface traduite dans plus de 50 langues par la communauté.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Ni pub ni pistage, export et suppression du compte possibles, auto-hébergement complet ; mais sur le site officiel, tes CV sont stockés sur le serveur du projet.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Aucune offre payante : financé par des dons, des sponsors (Vultr, Hostinger, Vercel…) et des liens d'affiliation vers des hébergeurs. Dépend surtout d'un seul développeur.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Six ans d'existence et six versions majeures ; la version 6 de 2026 a beaucoup changé l'outil (migration à prévoir quand tu l'héberges).</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README, la documentation officielle (docs.rxresu.me) et la politique de confidentialité le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Reactive Resume</h3><div class="cp"><b>Gratuit</b><small>Aucune offre payante ; IA facultative avec ton propre fournisseur ; hébergement chez toi à tes frais</small></div></div>
+        <div class="cm"><span class="lvl m">Serveur du projet sur rxresu.me, ou chez toi</span><span class="on">Navigateur, iPhone, Android, Docker</span></div>
+        <p>Bon pour : Un vrai CV PDF ou Word gratuit, des lettres et le suivi des candidatures</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Zety</h3><div class="cp"><b>Essai puis 25,95 $ / 4 sem.</b><small>Création gratuite mais seul le TXT est gratuit ; PDF et Word via un essai à bas prix (environ 2 à 3 $) qui se renouvelle à environ 25,95 $ toutes les 4 semaines</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Zety</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Être guidé phrase par phrase, si tu acceptes l'abonnement</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Canva</h3><div class="cp"><b>Gratuit / Pro 12 €/mois</b><small>PDF gratuit ; Pro à 12 € par mois ou 110 € par an pour les modèles et éléments premium</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Canva</span><span class="on">Navigateur, appli</span></div>
+        <p>Bon pour : Des CV très graphiques (moins lisibles par les logiciels de recrutement)</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>CVDesignR</h3><div class="cp"><b>Gratuit / Premium 9,99 €/mois</b><small>CV de base exportable en PDF gratuitement ; Premium à 9,99 € par mois pour l'IA et des modèles avancés</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de CVDesignR</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Un outil français, partenaire de France Travail</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Docs</h3><div class="cp"><b>Gratuit</b><small>Avec un compte Google, modèles de CV inclus</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Google</span><span class="on">Navigateur, appli</span></div>
+        <p>Bon pour : Un CV simple, sans vérification ni suivi des candidatures</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>REACTIVE RESUME</b><span>si tu veux un CV propre, téléchargeable gratuitement en PDF ou Word, avec les mots-clés de l'annonce et le suivi de tes candidatures, sans pub.</span></li>
+        <li><b>CANVA</b><span>si tu veux un CV très visuel et que la lecture par les logiciels de recrutement compte moins.</span></li>
+        <li><b>ZETY ET CIE</b><span>seulement si tu veux être guidé et que tu résilies l'essai à temps : sinon, c'est un abonnement toutes les 4 semaines.</span></li>
+      </ul>
+      <p class="warnline">Sur les sites de CV avec essai à quelques euros, lis les conditions avant de payer : l'essai devient souvent un abonnement renouvelé automatiquement toutes les 4 semaines.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°28 · Reactive Resume · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/reactive-resume/reactive-resume">dépôt GitHub reactive-resume/reactive-resume</a> · <a href="https://docs.rxresu.me">documentation officielle de Reactive Resume</a> · <a href="https://www.producthunt.com/p/reactive-resume/reactive-resume-v5-2">Reactive Resume v5 sur Product Hunt (près d'un million d'utilisateurs)</a> · <a href="https://resufit.com/fr/blog/7-createurs-de-cv-vraiment-gratuits-guide-complet-pour-tous-les-niveaux-dexperience/">ResuFit : créateurs de CV gratuits et pièges freemium (tarifs vérifiés juin 2026)</a> · <a href="https://resufit.com/fr/blog/zety-avis-prix-est-ce-que-ca-vaut-le-coup/">ResuFit : avis et prix de Zety</a> · <a href="https://francefg.fr/photoshop/canva-pro-vs-gratuit-comparatif/">Canva Pro vs gratuit : prix relevés en octobre 2026</a> · <a href="https://cvdesignr.com/en/premium">CVDesignR Premium</a></span>
+  </footer>
+</main>
+</body>
+</html>
