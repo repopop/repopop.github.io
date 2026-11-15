@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Security Audit</title>
+<meta name="description" content="Security Audit de Cloudflare expliqué simplement : comment l'installer, usages, limites, note de confiance et comparatif avec /security-review, Semgrep, Snyk et GitHub Code Security.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°19 · Security Audit">
+<meta property="og:description" content="Une skill open source de Cloudflare qui audite la sécurité de ton code avec ton agent IA, en six étapes, avec contre-vérification de chaque faille. Installation, limites, usages et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/security-audit-skill.png">
+<meta property="og:url" content="https://repopop.github.io/security-audit-skill/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Security Audit">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°19</div>
+        <h1>Security <span>Audit</span></h1>
+        <p class="tag">La skill gratuite et open source de Cloudflare qui transforme ton agent de code en auditeur de sécurité : des agents chassent les failles, d'autres les contre-vérifient, et tu reçois un rapport avec les failles confirmées.</p>
+        <div class="chips">
+          <span class="chip">★ 72 000+ étoiles</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Security Audit est une <b>skill</b> : un ensemble d'instructions que ton <b>agent de code</b> (Claude Code ou un autre agent capable de lancer des sous-agents) suit pour <b>auditer la sécurité d'un dépôt</b>. L'audit passe par <b>six étapes</b> : reconnaissance de l'architecture, chasse aux failles par des agents isolés, <b>contre-vérification de chaque faille par un agent neuf</b> qui essaie de la réfuter, résultats structurés, nouvelle vérification indépendante, puis rapport (<b>REPORT.md</b>). Chaque faille finit « confirmée », « à vérifier » ou « rejetée ». Cloudflare l'a publiée le 18 juin 2026 : c'est la version de départ de son outil interne de recherche de failles.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Dans ton agent de code</h3>
+        <p>Une commande : npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit (ajoute --global pour tous tes projets). Puis demande « security audit this codebase » ou « audite ce code ».</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC</h3>
+        <p>Il faut Node.js (pour les deux validateurs sans dépendance) et un agent dont le modèle gère les outils et les sous-agents en parallèle. Rapports écrits par défaut dans ~/security-audit-skill/&lt;dépôt&gt;/run-&lt;N&gt;.</p>
+        <span class="pill ok">Requis</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Avec un bac à sable</h3>
+        <p>Pour qu'il exécute le code audité, il faut un bac à sable imposé par le système (réseau coupé, environnement nettoyé, ressources limitées). Sans lui, il n'exécute rien et laisse les pistes « à vérifier ».</p>
+        <span class="pill mid">Conseillé</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence MIT.</b> Utilisable aussi pour un projet commercial. Aucun compte Cloudflare n'est demandé.</span></li>
+        <li><span class="dot y">!</span><span><b>Tu paies l'usage de ton agent.</b> Un audit complet lance beaucoup de sous-agents et consomme beaucoup de ton forfait ou de ton crédit API. Commence par un dossier sensible ou par le profil « quick ».</span></li>
+        <li><span class="dot r">⚠</span><span><b>Ton code est lu par le modèle de ton agent.</b> La skill n'envoie rien elle-même, mais ton agent transmet le code au fournisseur du modèle (Anthropic, OpenAI…). Vérifie que tu as le droit de le partager.</span></li>
+        <li><span class="dot y">↻</span><span><b>Relance-le plusieurs fois.</b> Selon Cloudflare, une seule passe trouve environ la moitié des failles que trouvent plusieurs passes. Les relances reprennent le travail précédent et revérifient le code modifié.</span></li>
+        <li><span class="dot r">!</span><span><b>Ce n'est pas un test d'intrusion complet.</b> Il lit le code source seulement : ni ta configuration, ni ton infrastructure, ni ton site en ligne. Relis chaque faille et teste chaque correctif avant de le déployer.</span></li>
+        <li><span class="dot g">✓</span><span><b>Né chez Cloudflare.</b> Partie d'environ 450 lignes, cette skill est devenue en six semaines l'outil qui scanne 128 dépôts de Cloudflare en continu ; il a fait ressortir 7 245 failles à traiter (blog Cloudflare, juin 2026).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Vérifier ton appli avant de la mettre en ligne</h3></div>
+        <p>Demande un audit complet : tu obtiens REPORT.md avec les failles confirmées, le détail de chacune et la liste de ce qui reste à vérifier.</p>
+        <div class="flow"><span>Ton code</span><i>→</i><span>Audit en 6 étapes</span><i>→</i><span>REPORT.md</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Contrôler du code écrit par l'IA</h3></div>
+        <p>Ton agent a écrit la connexion, le paiement ou l'envoi de fichiers ? Fais-le auditer par d'autres agents, qui ne valident pas leur propre travail.</p>
+        <div class="tools"><span class="tool">Ton agent</span><span class="tool">Sous-agents</span><span class="tool">Contre-vérification</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Auditer un seul dossier sensible</h3></div>
+        <p>« Find security vulnerabilities in ./src » : l'audit se concentre sur un dossier, plus rapide et moins coûteux.</p>
+        <div class="flow"><span>./src</span><i>→</i><span>Audit ciblé</span><i>→</i><span>Rapport</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Poser une question de sécurité</h3></div>
+        <p>Une simple question (« ma connexion est-elle sûre ? ») passe en mode conseil : une réponse argumentée, sans lancer tout l'audit ni écrire de rapport.</p>
+        <div class="tools"><span class="tool">Mode conseil</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Refaire l'audit après des changements</h3></div>
+        <p>Les audits suivants reprennent les résultats précédents, revérifient le code modifié et ne comptent pas un vieux travail comme acquis.</p>
+        <div class="flow"><span>run-1</span><i>→</i><span>Code modifié</span><i>→</i><span>run-2</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,0 sur 10" style="background:conic-gradient(#16C47F 0 80%,#E7E2F2 80% 100%)"><div>8,0<small>/10</small></div></div>
+        <div>
+          <h3>Né chez Cloudflare, jeune mais très suivi</h3>
+          <p>Publiée en juin 2026 par l'équipe de recherche en sécurité de Cloudflare, la skill est la base de son outil interne de recherche de failles. Le dépôt est récent et contient peu de commits, mais il est très suivi. Les failles trouvées doivent toujours être relues par un humain.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Dépôt publié le 18 juin 2026, avec peu de commits (14 visibles sur GitHub) ; Cloudflare annonce que son outil complet suivra.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 72 000 étoiles et environ 4 100 forks sur GitHub en novembre 2026 ; nombreux articles et guides en anglais et en français.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>La skill n'envoie rien elle-même et écrit ses rapports en local ; ton code passe toutefois par le fournisseur du modèle de ton agent.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Gratuite, licence MIT, publiée par Cloudflare ; aucun compte ni abonnement Cloudflare n'est demandé.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Méthode éprouvée chez Cloudflare (128 dépôts scannés), mais la version publique a moins de six mois et Cloudflare ne publie pas de taux de fausses alertes.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README officiel, le blog Cloudflare et la presse spécialisée le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Security Audit (Cloudflare)</h3><div class="cp"><b>Gratuit</b><small>Licence MIT ; tu paies seulement l'usage de ton agent (forfait ou crédit API)</small></div></div>
+        <div class="cm"><span class="lvl m">Sur ton PC ; le code est lu par le modèle de ton agent</span><span class="on">Agents de code avec sous-agents (Claude Code…), Node.js</span></div>
+        <p>Bon pour : Un audit complet et contre-vérifié de tout un dépôt</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>/security-review (Claude Code)</h3><div class="cp"><b>Inclus</b><small>Commande intégrée à Claude Code, avec les offres payantes (Pro, Max) ou l'API</small></div></div>
+        <div class="cm"><span class="lvl m">Sur ton PC ; le code est lu par Anthropic</span><span class="on">Claude Code, GitHub Actions</span></div>
+        <p>Bon pour : Une revue rapide de tes derniers changements avant un commit</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Semgrep</h3><div class="cp"><b>0 à 30 $/mois</b><small>Gratuit jusqu'à 10 contributeurs ; Teams à partir de 30 $ par contributeur et par mois</small></div></div>
+        <div class="cm"><span class="lvl m">Analyse en local ou sur la plateforme Semgrep</span><span class="on">Ligne de commande, CI, GitHub, GitLab, éditeurs</span></div>
+        <p>Bon pour : Une analyse automatique à chaque commit, avec des règles</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Snyk</h3><div class="cp"><b>0 à 25 $/mois</b><small>Gratuit avec un nombre de tests limité ; Team à 25 $ par développeur et par mois</small></div></div>
+        <div class="cm"><span class="lvl n">Plateforme Snyk</span><span class="on">Ligne de commande, éditeurs, GitHub, GitLab</span></div>
+        <p>Bon pour : Surveiller le code et les dépendances d'une équipe</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>GitHub Code Security</h3><div class="cp"><b>30 $/mois</b><small>30 $ par mois et par contributeur actif (CodeQL, Copilot Autofix)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de GitHub</span><span class="on">Dépôts GitHub</span></div>
+        <p>Bon pour : Les équipes déjà sur GitHub qui veulent des corrections proposées</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>SECURITY AUDIT</b><span>si tu codes avec un agent IA et veux un audit approfondi, gratuit, où chaque faille est contre-vérifiée.</span></li>
+        <li><b>/SECURITY-REVIEW</b><span>si tu veux juste vérifier vite tes derniers changements dans Claude Code.</span></li>
+        <li><b>SEMGREP OU GITHUB CODE SECURITY</b><span>si ton équipe veut une analyse automatique à chaque commit.</span></li>
+      </ul>
+      <p class="warnline">Aucun outil ne remplace une relecture humaine : vérifie chaque faille et teste chaque correctif avant de le déployer.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°19 · Security Audit · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/cloudflare/security-audit-skill">dépôt GitHub cloudflare/security-audit-skill</a> · <a href="https://blog.cloudflare.com/build-your-own-vulnerability-harness">Cloudflare : Build your own vulnerability harness (18 juin 2026)</a> · <a href="https://fireup.pro/news/cloudflare-open-sources-its-ai-security-auditor-heres-why-it-matters">fireup.pro : Cloudflare open-sources its AI security auditor (octobre 2026)</a> · <a href="https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code">Claude : revues de sécurité automatiques dans Claude Code</a> · <a href="https://semgrep.dev/pricing">Tarifs Semgrep</a> · <a href="https://snyk.io/plans/">Tarifs Snyk</a> · <a href="https://github.blog/changelog/2025-03-04-introducing-github-secret-protection-and-github-code-security/">GitHub : Secret Protection et Code Security</a></span>
+  </footer>
+</main>
+</body>
+</html>
