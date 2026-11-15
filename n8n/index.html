@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · n8n</title>
+<meta name="description" content="n8n expliqué simplement : à quoi ça sert, pourquoi l'utiliser plutôt que ChatGPT ou un agent IA, comment l'installer chez toi avec Docker, usages, note de confiance et comparatif avec Zapier, Make, Activepieces et les agents IA.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°29 · n8n">
+<meta property="og:description" content="Un mail arrive, n8n range la facture, demande juste à l'IA de lire le montant et te prévient. Gratuit et sans limite d'exécutions chez toi.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/n8n.png">
+<meta property="og:url" content="https://repopop.github.io/n8n/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de n8n">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°29</div>
+        <h1>n8n</h1>
+        <p class="tag">Tu relies tes applis par des blocs, et n8n fait le travail tout seul, même la nuit. L'IA n'intervient que pour l'étape où il faut réfléchir.</p>
+        <div class="chips">
+          <span class="chip">★ 210 000+ étoiles</span>
+          <span class="chip">Version n8n@2.47.7</span>
+          <span class="chip">Gratuit chez toi (Cloud dès 24 €/mois) · licence Sustainable Use License (fair-code)</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>n8n</b> est un outil d'<b>automatisation</b> : tu dessines un <b>workflow</b> en reliant des blocs (un mail arrive → lire la pièce jointe → ajouter une ligne au tableur → envoyer un message), et n8n l'exécute <b>tout seul</b>, à chaque fois qu'un événement arrive (nouveau mail, formulaire rempli, heure fixe…). Il se branche à <b>plus de 400 applis</b> (Gmail, Google Sheets, Notion, Telegram, Slack, bases de données…) et peut lancer du code JavaScript ou Python. <b>Pourquoi pas ChatGPT ou un agent IA ?</b> Un agent improvise à chaque passage et consomme de l'IA à chaque étape. n8n suit <b>toujours la même recette</b>, garde l'historique de chaque exécution, et n'appelle un modèle (Claude, OpenAI, Mistral…) que pour l'étape qui demande de réfléchir. Il sait même lancer et <b>encadrer des agents IA</b> (nœud AI Agent).</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker (PC, NAS, serveur)</h3>
+        <p>docker volume create n8n_data, puis docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n. L'éditeur s'ouvre sur http://localhost:5678. Pour le garder allumé, passe en Docker Compose.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Sans Docker (npx)</h3>
+        <p>Avec Node.js installé : npx n8n lance n8n en une commande, pratique pour tester sur ton ordinateur.</p>
+        <span class="pill ok">Pour tester</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>n8n Cloud</h3>
+        <p>Hébergé par n8n (serveurs à Francfort), rien à installer. Starter : 24 € par mois (20 € en annuel) pour 2 500 exécutions ; Pro : 60 € par mois (50 € en annuel) pour 10 000.</p>
+        <span class="pill ok">Payant</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">✓</span><span><b>Gratuit et illimité chez toi.</b> L'édition Community, hébergée par toi, est gratuite : pas de limite d'exécutions, de workflows ni d'utilisateurs. Une exécution = un passage complet du workflow, quel que soit le nombre d'étapes.</span></li>
+        <li><span class="dot y">€</span><span><b>L'IA reste payante.</b> n8n ne fournit pas l'IA : l'étape « Claude » ou « OpenAI » est facturée par ce fournisseur, avec ta clé API. L'économie face à un agent vient du fait que n8n ne l'appelle qu'une fois, pour l'étape utile ; elle dépend du modèle et de la tâche.</span></li>
+        <li><span class="dot y">!</span><span><b>Fair-code, pas open source.</b> Le code est public, mais sous Sustainable Use License : usage personnel ou interne en entreprise gratuit, revente de n8n comme service interdite. Quelques fonctions (SSO, environnements, Git) sont réservées aux offres payantes.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Mets-le à jour.</b> Plusieurs failles critiques ont été corrigées en 2026, dont « Ni8mare » (CVE-2026-21858, note 10/10) sur les instances auto-hébergées non à jour. Ne l'expose pas sur Internet sans mot de passe fort ni mises à jour régulières.</span></li>
+        <li><span class="dot y">↔</span><span><b>Télémétrie activée par défaut.</b> n8n envoie des statistiques d'usage anonymes (pas tes données ni tes identifiants). Pour les couper : variable N8N_DIAGNOSTICS_ENABLED=false.</span></li>
+        <li><span class="dot y">!</span><span><b>Pas tout à fait sans code.</b> Les premiers workflows se font à la souris, mais dès qu'on manipule des données on croise des expressions et du JSON. Des milliers de modèles prêts à l'emploi aident à démarrer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ranger tes factures tout seul</h3></div>
+        <p>Un mail avec une facture arrive : n8n la récupère, demande à l'IA d'y lire le montant, l'ajoute à ton tableur et te prévient sur Telegram.</p>
+        <div class="flow"><span>Nouveau mail</span><i>→</i><span>IA : montant</span><i>→</i><span>Tableur + message</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Recevoir des alertes</h3></div>
+        <p>Surveille un site, une mairie, un flux RSS ou une API, et reçois un message dès qu'une nouveauté tombe, même la nuit.</p>
+        <div class="flow"><span>Toutes les heures</span><i>→</i><span>Nouveauté ?</span><i>→</i><span>Telegram</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Trier tes mails avec l'IA</h3></div>
+        <p>Chaque mail est résumé et classé (urgent, facture, newsletter…) ; les tâches à faire partent dans Notion ou ta liste de tâches.</p>
+        <div class="tools"><span class="tool">Gmail</span><span class="tool">Claude ou OpenAI</span><span class="tool">Notion</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Relier tes outils entre eux</h3></div>
+        <p>Un formulaire rempli crée la fiche client, envoie le mail de bienvenue et ajoute une ligne au suivi, sans copier-coller.</p>
+        <div class="flow"><span>Formulaire</span><i>→</i><span>Fiche client</span><i>→</i><span>Mail + tableur</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Encadrer un agent IA</h3></div>
+        <p>Le nœud AI Agent donne des outils à un modèle (recherche, base de données, API), mais dans un workflow que tu contrôles, avec l'historique de chaque passage.</p>
+        <div class="tools"><span class="tool">AI Agent</span><span class="tool">Outils</span><span class="tool">Historique</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Un poids lourd très actif, sous licence fair-code</h3>
+          <p>Créé en 2019 à Berlin par Jan Oberhauser, n8n a dépassé 200 000 étoiles sur GitHub en 2026. Il est utilisé par de grandes entreprises : selon l'étude de cas publiée par n8n, Vodafone a économisé 5 000 jours-personnes et évité 2,2 millions de livres de coûts, et Delivery Hero gagne 200 heures par mois avec un seul workflow. SAP y a investi en mai 2026, à une valorisation de 5,2 milliards de dollars.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plusieurs versions par semaine, des milliers de commits par an, une équipe salariée derrière le projet.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 200 000 étoiles et plus de 55 000 forks sur GitHub, un forum très actif et des milliers de modèles de workflows partagés.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Auto-hébergé, tes workflows et identifiants restent chez toi ; mais télémétrie anonyme activée par défaut, et les données passent par les services que tu branches (IA comprise).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Entreprise rentable et très financée (Cloud et licences Entreprise payants) ; licence fair-code, donc pas open source au sens strict.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Sept ans d'existence, version 2 stable, de grandes entreprises en production ; attention toutefois aux mises à jour de sécurité, nombreuses en 2026.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, la documentation officielle, la page des tarifs, les études de cas n8n et la presse économique le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>n8n</h3><div class="cp"><b>Gratuit chez toi</b><small>Community auto-hébergé gratuit et illimité ; Cloud Starter 24 €/mois (20 € en annuel, 2 500 exécutions), Pro 60 €/mois (50 € en annuel, 10 000)</small></div></div>
+        <div class="cm"><span class="lvl m">Chez toi (auto-hébergé) ou serveurs n8n à Francfort</span><span class="on">Docker, Node.js, navigateur</span></div>
+        <p>Bon pour : Automatiser sans limite et n'appeler l'IA que quand il faut</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Zapier</h3><div class="cp"><b>Dès 29,99 $/mois</b><small>Gratuit jusqu'à 100 tâches par mois ; Professional 29,99 $/mois (19,99 $ en annuel) pour 750 tâches, chaque étape comptant pour une tâche</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Zapier</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Le plus simple à prendre en main, avec le plus grand catalogue d'applis</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Make</h3><div class="cp"><b>Dès ~9 $/mois</b><small>Gratuit jusqu'à 1 000 crédits par mois ; Core autour de 9 à 10,59 $/mois pour 10 000 crédits</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Make</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Des scénarios visuels complexes à petit prix, sans rien héberger</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Activepieces</h3><div class="cp"><b>Gratuit chez toi</b><small>Open source (licence MIT) et auto-hébergeable ; offre cloud payante</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi ou serveurs d'Activepieces</span><span class="on">Docker, navigateur</span></div>
+        <p>Bon pour : Une alternative vraiment open source, plus jeune et moins fournie</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Agent IA (ChatGPT, Claude…)</h3><div class="cp"><b>Dès ~20 $/mois</b><small>Abonnements grand public autour de 20 $/mois avec quotas ; en API, chaque étape de réflexion de l'agent est facturée</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'OpenAI, d'Anthropic…</span><span class="on">Navigateur, appli, API</span></div>
+        <p>Bon pour : Les tâches ponctuelles qui demandent de réfléchir, pas les mêmes tâches répétées des centaines de fois</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>N8N</b><span>si tu veux automatiser des tâches répétitives sans payer à l'exécution, chez toi, et ne sortir l'IA que pour les étapes utiles.</span></li>
+        <li><b>ZAPIER OU MAKE</b><span>si tu ne veux rien installer ni maintenir et que tes volumes restent petits.</span></li>
+        <li><b>UN AGENT IA</b><span>pour une tâche ponctuelle et floue ; pour la même tâche cent fois par jour, branche-le plutôt dans n8n.</span></li>
+      </ul>
+      <p class="warnline">Si tu ouvres ton n8n sur Internet (pour recevoir des webhooks), mets-le à jour souvent : plusieurs failles critiques ont touché les instances auto-hébergées en 2026.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°29 · n8n · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/n8n-io/n8n">dépôt GitHub n8n-io/n8n</a> · <a href="https://docs.n8n.io/hosting/installation/docker">Documentation n8n : installation avec Docker</a> · <a href="https://n8n.io/pricing/">n8n : tarifs</a> · <a href="https://www.casestudies.com/company/n8n/case-study/vodafone-saves-22m-with-n8n">Étude de cas Vodafone (n8n)</a> · <a href="https://www.casestudies.com/company/n8n/case-study/delivery-hero-saved-200-hoursmonth-with-a-single-it-ops-workflow">Étude de cas Delivery Hero (n8n)</a> · <a href="https://sacra.com/c/n8n/">Sacra : investissement de SAP dans n8n</a> · <a href="https://careers.rapid7.com/blogs/Rapid7-Blogs/ni8mare-and-n8scape-flaws-among-multiple-critical-vulnerabilities-affecting-n8n">Rapid7 : failles Ni8mare et N8scape</a> · <a href="https://toolradar.com/blog/zapier-pricing-2026">Toolradar : tarifs Zapier 2026</a> · <a href="https://hackceleration.com/labs/compare/make-vs-zapier">Hackceleration : Make contre Zapier 2026</a></span>
+  </footer>
+</main>
+</body>
+</html>
