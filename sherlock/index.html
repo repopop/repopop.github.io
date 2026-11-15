@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Sherlock</title>
+<meta name="description" content="Sherlock expliqué simplement : installation, usages, note de confiance et comparatif avec Maigret, WhatsMyName et OSINT Industries.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°20 · Sherlock">
+<meta property="og:description" content="Retrouve tous les comptes liés à un pseudo sur plus de 400 sites, gratuitement et depuis ton PC. Installation, pièges, usages responsables et alternatives.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/sherlock.png">
+<meta property="og:url" content="https://repopop.github.io/sherlock/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Sherlock">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°20</div>
+        <h1>Sher<span>lock</span></h1>
+        <p class="tag">L'outil open source qui cherche un même pseudo sur plus de 400 sites et réseaux sociaux, et te montre en quelques instants où il existe. Gratuit, et tout tourne sur ton PC.</p>
+        <div class="chips">
+          <span class="chip">★ 112 000+ étoiles</span>
+          <span class="chip">Version 0.16.2</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Sherlock est un <b>outil gratuit et open source</b> (licence MIT) qui prend un pseudo et le teste sur <b>plus de 400 sites et réseaux sociaux</b> : il te dit où un compte porte ce nom et te donne le lien de chaque profil trouvé. Il s'utilise <b>en ligne de commande</b> (une fenêtre de terminal), sur Windows, Mac ou Linux, et enregistre les résultats dans un fichier texte, CSV ou Excel. Il ne pirate rien : il regarde seulement si une page de profil <b>publique</b> existe. C'est un outil d'enquête en sources ouvertes (OSINT), à utiliser <b>sur toi ou pour une enquête légitime</b>.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Sur ton PC (Windows, Mac, Linux)</h3>
+        <p>Installe Python 3.9 ou plus récent, puis une seule commande : pipx install sherlock-project (pip ou uv marchent aussi). Ensuite : sherlock ton_pseudo.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Avec Docker</h3>
+        <p>Sans rien installer d'autre : docker run -it --rm sherlock/sherlock ton_pseudo. Pratique sur un NAS ou un serveur. Des paquets existent aussi pour Debian, Ubuntu, Homebrew, Kali et Fedora (dnf).</p>
+        <span class="pill ok">Officiel</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Sur ton téléphone</h3>
+        <p>Pas d'appli officielle. Méfie-toi des applis ou sites « Sherlock » qui demandent un paiement ou ton compte : ce sont des copies non officielles.</p>
+        <span class="pill no">Pas d'appli</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit, licence MIT.</b> Sans compte, sans abonnement, sans limite de recherches. Le projet vit grâce à des bénévoles et à des sponsors.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Sur toi ou pour une enquête légitime.</b> Chercher des profils publics n'est pas interdit en soi, mais s'en servir pour surveiller, harceler ou ficher quelqu'un l'est (harcèlement, protection des données personnelles). Garde-le pour ta propre trace, ta marque ou une vraie enquête.</span></li>
+        <li><span class="dot y">≠</span><span><b>Même pseudo ne veut pas dire même personne.</b> Sherlock trouve des comptes qui portent ce nom, pas forcément la même personne. Certains sites bloquent les vérifications ou répondent mal : il y a des faux positifs et des oublis. Vérifie chaque lien à la main.</span></li>
+        <li><span class="dot y">↗</span><span><b>Les vérifications partent de ta connexion.</b> Sherlock interroge chaque site directement depuis ton adresse IP, et télécharge la liste à jour des sites sur GitHub à chaque lancement (sauf avec --local). L'option --proxy permet de passer par un proxy.</span></li>
+        <li><span class="dot y">&gt;_</span><span><b>En ligne de commande, sans fenêtre.</b> Pas d'interface graphique : tu tapes sherlock ton_pseudo. Les résultats sont enregistrés dans ton_pseudo.txt ; ajoute --csv ou --xlsx pour un tableur, --print-found pour n'afficher que les comptes trouvés.</span></li>
+        <li><span class="dot g">18</span><span><b>Sites pour adultes exclus par défaut.</b> Une petite partie de la liste (19 sites sur 481 le 15 novembre 2026) n'est testée qu'avec l'option --nsfw.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Faire le ménage dans tes vieux comptes</h3></div>
+        <p>Tu tapes le pseudo que tu utilises depuis des années : Sherlock te ressort les forums, blogs et profils oubliés. Tu sais quoi fermer.</p>
+        <div class="flow"><span>Ton pseudo</span><i>→</i><span>Comptes trouvés</span><i>→</i><span>À supprimer</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Vérifier qu'un pseudo est libre</h3></div>
+        <p>Avant de lancer une chaîne, une marque ou un projet, tu vois en une fois sur quels réseaux le nom est déjà pris.</p>
+        <div class="tools"><span class="tool">--print-all</span><span class="tool">--site</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Repérer les usurpations de ta marque</h3></div>
+        <p>Tu testes le nom de ta marque ou de ton association et tu repères les comptes qui l'utilisent sans toi.</p>
+        <div class="tools"><span class="tool">--print-found</span><span class="tool">--browse</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Vérifier un profil avant de faire confiance</h3></div>
+        <p>Un vendeur ou un recruteur te contacte avec un pseudo : tu regardes si ce pseudo a une vraie présence en ligne ou s'il vient d'être créé.</p>
+        <div class="flow"><span>Pseudo du contact</span><i>→</i><span>Présence en ligne</span><i>→</i><span>Confiance ou prudence</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Une enquête en sources ouvertes</h3></div>
+        <p>Journalistes et chercheurs l'utilisent pour relier des comptes publics entre eux, puis exportent la liste dans un tableur pour la vérifier.</p>
+        <div class="tools"><span class="tool">--csv</span><span class="tool">--xlsx</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Très populaire et maintenu, à utiliser avec discernement</h3>
+          <p>Projet communautaire lancé en décembre 2018, devenu l'outil de recherche de pseudos le plus étoilé de GitHub, et cité dans la boîte à outils de Bellingcat. Tout tourne sur ton PC. À savoir : les résultats demandent toujours une vérification, et l'outil doit servir à des usages légitimes.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Version 0.16.2 publiée le 8 septembre 2026 ; commits encore le 14 novembre 2026 ; la liste des sites est mise à jour en continu.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>GitHub affichait 111 782 étoiles, 12 933 forks et 315 contributeurs le 15 novembre 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Aucun compte ni service en ligne : tout tourne sur ton PC. Mais chaque vérification part de ta connexion vers les sites testés, et la liste des sites est téléchargée sur GitHub à chaque lancement.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit et open source (MIT), porté par des bénévoles et quelques sponsors ; pas d'offre payante ni de société derrière.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Près de huit ans d'existence et une liste de 481 sites ; mais encore en version 0.x, avec des faux positifs selon les sites.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub (API et dépôt), le README officiel, le fichier de configuration du projet et la liste des sites le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Sherlock</h3><div class="cp"><b>Gratuit</b><small>Licence MIT, sans compte ni limite</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux (terminal), Docker</span></div>
+        <p>Bon pour : Une recherche rapide d'un pseudo sur 400+ sites</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Maigret</h3><div class="cp"><b>Gratuit</b><small>Open source (MIT), dérivé de Sherlock ; 3 000+ sites, 500 les plus visités par défaut</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows (.exe), Mac, Linux, Docker, interface web locale</span></div>
+        <p>Bon pour : Des rapports HTML ou PDF plus détaillés sur un pseudo</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>WhatsMyName Web</h3><div class="cp"><b>Gratuit</b><small>Site web gratuit, basé sur une liste de sites communautaire</small></div></div>
+        <div class="cm"><span class="lvl m">Dans ton navigateur (site whatsmyname.app)</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Une recherche sans rien installer, avec export CSV</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>OSINT Industries</h3><div class="cp"><b>Dès 19 £/mois</b><small>30 crédits pour 19 £/mois ; accès gratuit pour administrations, forces de l'ordre, journalistes et associations</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'OSINT Industries</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Les enquêteurs pros (e-mail, téléphone, pseudo)</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>SHERLOCK</b><span>pour vérifier vite où un pseudo existe, gratuitement et depuis ton PC.</span></li>
+        <li><b>MAIGRET</b><span>si tu veux plus de sites et un rapport complet.</span></li>
+        <li><b>WHATSMYNAME WEB</b><span>si tu ne veux rien installer.</span></li>
+      </ul>
+      <p class="warnline">Ces outils trouvent des comptes publics, pas des preuves : vérifie chaque résultat, et ne t'en sers jamais pour surveiller ou harceler quelqu'un.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°20 · Sherlock · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/sherlock-project/sherlock">Dépôt GitHub sherlock-project/sherlock</a> · <a href="https://github.com/sherlock-project/sherlock/blob/master/docs/README.md">README officiel (installation et options)</a> · <a href="https://sherlockproject.xyz/">Site du projet Sherlock</a> · <a href="https://github.com/sherlock-project/sherlock/releases">Journal des versions (v0.16.2)</a> · <a href="https://bellingcat.gitbook.io/toolkit/more/all-tools/sherlock">Boîte à outils Bellingcat : Sherlock</a> · <a href="https://github.com/soxoj/maigret">Maigret (README)</a> · <a href="https://github.com/WebBreacher/WhatsMyName">WhatsMyName (README)</a> · <a href="https://maxintel.org/osint-industries-alternatives-2026.html">Tarifs OSINT Industries (relevés le 10 octobre 2026, MaxIntel)</a></span>
+  </footer>
+</main>
+</body>
+</html>
