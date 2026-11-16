@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Wallos</title>
+<meta name="description" content="Wallos expliqué simplement : où l'installer (Docker, NAS, mini PC), ce qu'il suit, les rappels avant prélèvement, 5 usages, note de confiance et comparatif avec Rocket Money, Bobby et un tableur.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°33 · Wallos">
+<meta property="og:description" content="Liste tous tes abonnements, vois le total par mois et par an, et reçois un rappel avant chaque prélèvement sur Telegram, Discord ou par mail. Gratuit et open source.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/wallos.png">
+<meta property="og:url" content="https://repopop.github.io/wallos/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Wallos">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°33</div>
+        <h1>Wal<span>los</span></h1>
+        <p class="tag">Tous tes abonnements au même endroit : le vrai total par mois et par an, un rappel avant chaque prélèvement, et de quoi couper ce qui ne sert plus. Gratuit, open source, chez toi.</p>
+        <div class="chips">
+          <span class="chip">★ 8 000+ étoiles</span>
+          <span class="chip">Version 5.11.1</span>
+          <span class="chip">Gratuit · licence GPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>Wallos</b> est une petite appli web qui tient la liste de <b>tous tes abonnements</b> : streaming, musique, cloud, salle de sport, logiciels, assurances… Pour chacun, tu notes le prix, la fréquence (mois, an ou autre), la catégorie, le moyen de paiement et la prochaine échéance. Il calcule le <b>vrai total par mois et par an</b>, le compare à ton <b>budget</b>, affiche un <b>calendrier</b> des prochains prélèvements et te <b>prévient quelques jours avant</b> chaque paiement (tu choisis combien), ou avant la date d'annulation que tu as fixée. Tu saisis tout toi-même : il ne se connecte <b>jamais à ta banque</b>. L'interface existe en français.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Chez toi avec Docker</h3>
+        <p>La méthode la plus simple : une commande Docker (ou docker compose) sur un NAS, un mini PC, un serveur ou un Raspberry Pi. Interface web sur le port 8282, données dans une petite base SQLite à toi.</p>
+        <span class="pill ok">Gratuit, tout reste chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Sur un serveur web</h3>
+        <p>Sans Docker : NGINX ou Apache, PHP 8.3 et quelques modules, plus des tâches planifiées (cron) pour les rappels et les taux de change. Pour ceux qui ont déjà un serveur web.</p>
+        <span class="pill mid">Plus technique</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Hébergé par un tiers</h3>
+        <p>Pas de version officielle en ligne. Des hébergeurs comme ElfHosted le proposent clé en main (à partir de 1,29 $ par mois dans un forfait). Ta liste est alors sur leurs serveurs. Une démo publique existe pour tester (identifiant et mot de passe : demo, remise à zéro toutes les 2 heures).</p>
+        <span class="pill mid">Payant, sans installation</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence GPL-3.0 : gratuit, sans limite d'abonnements ni d'utilisateurs. Le projet vit des dons (GitHub Sponsors).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Pas de lien avec ta banque.</b> Tu ajoutes tes abonnements à la main (le logo se trouve tout seul). C'est plus lent au début, mais aucune donnée bancaire ne sort de chez toi. Il ne détecte pas tout seul un abonnement oublié : il faut l'ajouter une fois.</span></li>
+        <li><span class="dot y">!</span><span><b>Les rappels se règlent.</b> Active les notifications (mail, Telegram, Discord, Pushover, Gotify ou webhook), choisis combien de jours avant être prévenu, puis coche « notifier » sur chaque abonnement. Pour un essai gratuit, ajoute aussi une date d'annulation : Wallos te prévient avant.</span></li>
+        <li><span class="dot y">↔</span><span><b>Plusieurs devises ? Clé Fixer.</b> Si tu paies en euros et en dollars, une clé gratuite de l'API Fixer sert à tout convertir dans ta devise principale. Avec une seule devise, rien à faire.</span></li>
+        <li><span class="dot y">↔</span><span><b>L'IA est facultative.</b> Les recommandations pour économiser envoient la liste de tes abonnements au fournisseur que tu branches (ChatGPT, Gemini, OpenRouter…). Tu peux tout garder chez toi avec Ollama, ou ne pas l'activer.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Protège l'accès et sauvegarde.</b> Ce sont tes dépenses : n'ouvre pas Wallos à Internet sans HTTPS (VPN ou reverse proxy), et sauvegarde le dossier db (Wallos exporte aussi en CSV ou JSON).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Voir enfin le vrai total</h3></div>
+        <p>Tu entres chaque abonnement une fois, avec sa fréquence : Wallos additionne le mensuel et l'annuel et te montre ce que tu paies vraiment par mois et par an, par catégorie.</p>
+        <div class="flow"><span>Tes abonnements</span><i>→</i><span>Wallos</span><i>→</i><span>Total mois / an</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ne plus te faire piéger par un essai gratuit</h3></div>
+        <p>Tu ajoutes l'essai avec sa date de fin et une date d'annulation : quelques jours avant, tu reçois un message sur Telegram ou par mail, et tu résilies à temps.</p>
+        <div class="flow"><span>Essai gratuit</span><i>→</i><span>Rappel</span><i>→</i><span>Résilié</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Faire le tri une fois par an</h3></div>
+        <p>Trie par prix ou par catégorie, désactive ce qui ne sert plus et regarde ce que tu économises. Les recommandations par IA (facultatives) peuvent pointer les doublons.</p>
+        <div class="tools"><span class="tool">Tri</span><span class="tool">Désactiver</span><span class="tool">Recommandations</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Gérer les abonnements du foyer</h3></div>
+        <p>Ajoute les membres de ta famille et indique qui paie quoi : Wallos montre la répartition et peut prévenir chacun par mail avant ses échéances.</p>
+        <div class="tools"><span class="tool">Membres</span><span class="tool">Qui paie</span><span class="tool">Mails</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Tenir un budget</h3></div>
+        <p>Fixe un budget mensuel : le tableau de bord compare ton total à ce budget, affiche ce qu'il reste et te signale quand tu le dépasses.</p>
+        <div class="flow"><span>Budget</span><i>→</i><span>Total</span><i>→</i><span>Alerte dépassement</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Actif depuis 2023, tes données chez toi</h3>
+          <p>Créé fin 2023 par Henrique (ellite), qui ne trouvait pas d'outil gratuit pour suivre ses abonnements sans payer… un abonnement. Wallos est devenu le suivi d'abonnements auto-hébergé le plus connu. C'est surtout le projet d'un développeur principal, aidé par la communauté.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 700 commits, version 5.11.1 sur la branche principale au 16 novembre 2026, des nouveautés régulières (OIDC, IA, budget).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Environ 8 600 étoiles et 430 forks sur GitHub, un serveur Discord et des traductions par la communauté ; un seul mainteneur principal.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Tout reste dans ta base chez toi, sans lien bancaire ; seules l'IA (si tu l'actives), la recherche de logos, les taux de change et les notifications passent par des services tiers.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Gratuit et open source, financé uniquement par des dons : pas d'entreprise derrière, l'avenir dépend surtout de son créateur.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Trois ans d'existence et une version 5, très utilisé chez les auto-hébergeurs ; l'appli reste volontairement simple (pas d'appli mobile native, une page web adaptée au téléphone).</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README, la démo et la traduction française de l'interface le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Wallos</h3><div class="cp"><b>Gratuit</b><small>Gratuit chez toi, sans limite d'abonnements ni d'utilisateurs</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (NAS, mini PC, serveur)</span><span class="on">Navigateur (PC et téléphone)</span></div>
+        <p>Bon pour : Suivre tous les abonnements du foyer, avec rappels et budget, sans lien bancaire</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Rocket Money</h3><div class="cp"><b>Gratuit / 7 à 14 $/mois</b><small>Version gratuite limitée ; Premium au prix choisi, environ 7 à 14 $ par mois ; détection automatique via ta banque, surtout pensée pour les États-Unis</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Rocket Money (accès à ta banque)</span><span class="on">iOS, Android, navigateur</span></div>
+        <p>Bon pour : Détecter les abonnements tout seul et les faire résilier, si tu acceptes de connecter ta banque</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Bobby</h3><div class="cp"><b>Gratuit / achat unique</b><small>Gratuit jusqu'à 5 abonnements, puis un petit achat unique (environ 1 à 2 $) pour l'illimité</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton iPhone</span><span class="on">iPhone uniquement</span></div>
+        <p>Bon pour : Une liste simple sur iPhone, pour une seule personne</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Tableur</h3><div class="cp"><b>Gratuit</b><small>Google Sheets ou Excel : gratuit, mais tout à la main, sans rappel automatique</small></div></div>
+        <div class="cm"><span class="lvl m">Ton PC ou le cloud de Google / Microsoft</span><span class="on">PC, navigateur</span></div>
+        <p>Bon pour : Faire un premier inventaire, sans rien installer</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>WALLOS</b><span>si tu as un NAS ou un mini PC et que tu veux le vrai total, des rappels avant chaque prélèvement et le budget du foyer, sans abonnement ni lien bancaire.</span></li>
+        <li><b>BOBBY</b><span>si tu es seul, sur iPhone, et qu'une simple liste te suffit.</span></li>
+        <li><b>ROCKET MONEY</b><span>si tu veux une détection automatique par ta banque et que tu acceptes de payer chaque mois (offre pensée pour les États-Unis).</span></li>
+      </ul>
+      <p class="warnline">Aucun de ces outils ne résilie un abonnement à ta place sans ton accord : c'est toi qui annules chez le fournisseur.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°33 · Wallos · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/ellite/Wallos">dépôt GitHub ellite/Wallos (README, licence, version)</a> · <a href="https://demo.wallosapp.com">démo officielle de Wallos</a> · <a href="https://www.reddit.com/r/selfhosted/comments/17s2ge3/wallos_opensource_personal_subscription_tracker/">r/selfhosted : lancement de Wallos par son créateur (10 novembre 2023)</a> · <a href="https://www.gigazine.net/gsc_news/en/20260504-wallos">Gigazine : présentation de Wallos (mai 2026)</a> · <a href="https://store.elfhosted.com/product/wallos/">ElfHosted : Wallos hébergé</a> · <a href="https://greenlight.com/learning-center/reviews/rocket-money-review">Rocket Money : prix 2026 (Greenlight)</a> · <a href="https://apppricinglab.com/iap/apple/1059152023">Bobby : achats intégrés (App Store, juin 2026)</a></span>
+  </footer>
+</main>
+</body>
+</html>
