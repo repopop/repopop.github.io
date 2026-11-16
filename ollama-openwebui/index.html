@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Ollama + Open WebUI</title>
+<meta name="description" content="Ollama et Open WebUI expliqués simplement : faire tourner une IA comme ChatGPT sur ton ordinateur, gratuitement et sans envoyer tes conversations. Installation avec Docker, usages, note de confiance et comparatif avec ChatGPT, Claude, LM Studio et Ollama Cloud.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°31 · Ollama + Open WebUI">
+<meta property="og:description" content="Glisse ton contrat en PDF, pose ta question : l'IA répond en te montrant le passage. Sans abonnement, sans limite, même sans Internet.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/ollama-openwebui.png">
+<meta property="og:url" content="https://repopop.github.io/ollama-openwebui/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Ollama + Open WebUI">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°31</div>
+        <h1>Ollama + <span>Open WebUI</span></h1>
+        <p class="tag">Ollama fait tourner l'IA sur ton ordinateur, Open WebUI lui donne l'interface de ChatGPT. Gratuit, sans limite, et tes conversations restent chez toi.</p>
+        <div class="chips">
+          <span class="chip">★ 187 000 + 158 000 étoiles</span>
+          <span class="chip">Ollama MIT · Open WebUI License</span>
+          <span class="chip">Gratuit en local</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Il faut <b>deux outils</b>. <b>Ollama</b> est le moteur : il télécharge des <b>modèles d'IA ouverts</b> (Gemma, Qwen, Mistral, DeepSeek, gpt-oss…) et les fait tourner <b>sur ton ordinateur</b>, sous Windows, macOS ou Linux. <b>Open WebUI</b> est l'interface : une page web qui ressemble à <b>ChatGPT</b>, avec l'historique des conversations, le choix du modèle en un clic, l'envoi de <b>documents</b> (l'IA répond en citant le passage), la recherche web en option et <b>plusieurs comptes</b>. Une fois les modèles téléchargés, tout marche <b>sans Internet</b> et rien ne sort de chez toi. La seule limite, c'est la <b>puissance de ton PC</b> : plus le modèle est gros, plus il faut de mémoire.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker tout-en-un</h3>
+        <p>Une seule image avec Ollama intégré : docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama (ajoute --gpus=all avec une carte Nvidia). Puis ouvre http://localhost:3000.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Appli sur ton PC</h3>
+        <p>Installe Ollama depuis ollama.com (Windows, macOS, Linux), puis Open WebUI avec pip install open-webui et open-webui serve (Python 3.12), ou avec l'appli de bureau Open WebUI.</p>
+        <span class="pill ok">Sans Docker</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>NAS ou mini-serveur</h3>
+        <p>Possible avec Docker, mais sans carte graphique les réponses sont lentes : garde de petits modèles. Pratique pour donner l'accès à toute la maison depuis le navigateur.</p>
+        <span class="pill mid">Petits modèles</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">✓</span><span><b>Gratuit et illimité en local.</b> Ollama et Open WebUI ne coûtent rien et ne limitent pas le nombre de messages : les modèles tournent sur ta machine. Tu paies seulement l'électricité.</span></li>
+        <li><span class="dot y">⚙</span><span><b>Ton PC fixe la limite.</b> Un petit modèle tourne sur un ordinateur récent ; les gros demandent beaucoup de mémoire et une bonne carte graphique (ou un Mac Apple Silicon). Trop gros pour ta machine, il devient très lent. La prochaine vidéo RepoPop présente llmfit, qui te dit quels modèles ton PC peut faire tourner.</span></li>
+        <li><span class="dot y">☁</span><span><b>Les modèles « cloud » ne sont pas locaux.</b> Ollama propose aussi des modèles « -cloud » qui tournent sur ses serveurs : ceux-là envoient tes messages chez Ollama, avec un quota gratuit puis des offres payantes (Pro 20 $/mois, Max 100 $/mois). Les modèles téléchargés, eux, restent chez toi.</span></li>
+        <li><span class="dot y">!</span><span><b>Open WebUI n'est plus vraiment open source.</b> Ollama est sous licence MIT. Open WebUI a sa propre licence (dérivée de BSD) : usage gratuit, mais interdiction d'enlever la marque Open WebUI au-delà de 50 utilisateurs par mois sans licence Entreprise.</span></li>
+        <li><span class="dot r">⚠</span><span><b>N'ouvre pas Ollama sur Internet.</b> L'API d'Ollama (port 11434) n'a pas de mot de passe : ne l'expose jamais directement. Pour un accès à distance, passe par Open WebUI avec des comptes, derrière un VPN ou un proxy sécurisé.</span></li>
+        <li><span class="dot y">≈</span><span><b>Moins fort que les meilleurs ChatGPT ou Claude.</b> Les modèles ouverts qui tiennent sur un PC sont très bons pour résumer, traduire ou interroger tes documents, mais restent en dessous des plus gros modèles payants, et peuvent se tromper : vérifie les réponses importantes.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Interroger tes documents</h3></div>
+        <p>Glisse un contrat, une notice ou un relevé en PDF : l'IA répond à ta question et cite le passage d'où vient la réponse.</p>
+        <div class="flow"><span>PDF</span><i>→</i><span>Question</span><i>→</i><span>Réponse + passage</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Une IA même hors ligne</h3></div>
+        <p>Dans le train ou en avion, résume, traduis ou rédige sans connexion : les modèles téléchargés tournent sur ton PC.</p>
+        <div class="tools"><span class="tool">Résumer</span><span class="tool">Traduire</span><span class="tool">Rédiger</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Un assistant de code privé</h3></div>
+        <p>Ollama se branche à des outils de code (Claude Code, OpenCode, Codex…) avec ollama launch : ton code reste sur ta machine.</p>
+        <div class="flow"><span>ollama launch</span><i>→</i><span>Modèle local</span><i>→</i><span>Ton code</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Une IA pour toute la maison</h3></div>
+        <p>Open WebUI gère plusieurs comptes : chacun a ses conversations, et tu choisis quels modèles chacun peut utiliser.</p>
+        <div class="tools"><span class="tool">Comptes</span><span class="tool">Historique</span><span class="tool">Droits</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Comparer les modèles</h3></div>
+        <p>Pose la même question à deux modèles côte à côte (Gemma, Qwen, Mistral…) et garde celui qui te répond le mieux.</p>
+        <div class="flow"><span>Ta question</span><i>→</i><span>Gemma | Qwen</span><i>→</i><span>Le meilleur</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 9,2 sur 10" style="background:conic-gradient(#16C47F 0 92%,#E7E2F2 92% 100%)"><div>9,2<small>/10</small></div></div>
+        <div>
+          <h3>Deux poids lourds de l'IA locale, très actifs</h3>
+          <p>Ollama, créé en 2023, a dépassé 187 000 étoiles sur GitHub ; il a levé 65 millions de dollars en juillet 2026 et revendique près de 9 millions de développeurs actifs par mois. Open WebUI, créé par Timothy Jaeryang Baek, dépasse 158 000 étoiles et annonce plus de 371 millions de téléchargements. En France, l'Université de Rennes a monté son IA maison (RAGaRenn) avec Open WebUI et Ollama, hébergée dans un datacenter régional, et l'Université de Strasbourg l'utilise aussi en production.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Nouvelles versions chaque semaine pour les deux projets (Ollama 0.40.16 et Open WebUI 0.13.3 publiées début novembre 2026).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 187 000 et plus de 158 000 étoiles sur GitHub, des dizaines de milliers de forks et d'intégrations.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Avec des modèles téléchargés, tout reste sur ta machine, même sans Internet ; seuls les modèles « cloud » d'Ollama envoient tes messages à l'extérieur.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Ollama, financé par des investisseurs, vit de son offre cloud payante ; Open WebUI vend une licence Entreprise, et sa licence n'est plus open source au sens strict.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Très utilisés, jusque dans des universités, mais encore en version 0.x avec des changements fréquents : fais des sauvegardes avant de mettre à jour.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, les sites officiels d'Ollama et d'Open WebUI, et la presse le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Ollama + Open WebUI</h3><div class="cp"><b>Gratuit</b><small>Gratuit et sans limite en local ; seuls les modèles cloud d'Ollama sont payants au-delà d'un petit quota</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Windows, macOS, Linux, Docker, navigateur</span></div>
+        <p>Bon pour : Une IA privée, gratuite et personnalisable, pour toi ou toute la maison</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>LM Studio</h3><div class="cp"><b>Gratuit</b><small>Appli gratuite, y compris au travail depuis juillet 2025 ; logiciel non open source</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : Tout dans une seule appli de bureau, sans rien configurer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT Plus</h3><div class="cp"><b>23 €/mois</b><small>20 $ par mois, soit environ 23 € TTC en France ; version gratuite limitée</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'OpenAI</span><span class="on">Navigateur, appli</span></div>
+        <p>Bon pour : Les modèles les plus puissants, sans matériel à toi</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Claude Pro</h3><div class="cp"><b>20 $/mois</b><small>20 $ par mois (17 $ par mois en annuel), hors taxes</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'Anthropic</span><span class="on">Navigateur, appli</span></div>
+        <p>Bon pour : La rédaction et le code avec un modèle de pointe</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ollama Cloud</h3><div class="cp"><b>Dès 20 $/mois</b><small>Free avec petit quota ; Pro 20 $/mois, Max 100 $/mois pour les gros modèles hébergés</small></div></div>
+        <div class="cm"><span class="lvl m">Serveurs d'Ollama</span><span class="on">Ollama, Open WebUI, API</span></div>
+        <p>Bon pour : Utiliser de très gros modèles ouverts quand ton PC ne suit pas</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>OLLAMA + OPEN WEBUI</b><span>si tu veux une IA gratuite, sans limite et qui garde tes conversations et tes documents chez toi.</span></li>
+        <li><b>LM STUDIO</b><span>si tu veux juste discuter avec une IA locale dans une appli, sans Docker ni comptes.</span></li>
+        <li><b>CHATGPT OU CLAUDE</b><span>pour les tâches les plus difficiles, ou si ton ordinateur est trop juste pour les modèles locaux.</span></li>
+      </ul>
+      <p class="warnline">Avant de choisir un modèle, vérifie qu'il tient dans la mémoire de ton PC : c'est le sujet de la prochaine vidéo RepoPop (llmfit).</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°31 · Ollama + Open WebUI · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/ollama/ollama">dépôt GitHub ollama/ollama</a> · <a href="https://github.com/open-webui/open-webui">dépôt GitHub open-webui/open-webui</a> · <a href="https://github.com/open-webui/open-webui/blob/main/LICENSE">Licence Open WebUI</a> · <a href="https://docs.openwebui.com/getting-started/quick-start/">Documentation Open WebUI : démarrage rapide</a> · <a href="https://ollama.com/pricing">Ollama : offres cloud</a> · <a href="https://www.openwebui.com/government">Open WebUI pour le secteur public (chiffres d'adoption)</a> · <a href="https://siliconangle.com/2026/07/09/open-source-ai-developer-tool-ollama-raises-65m-grow-platform/">SiliconANGLE : Ollama lève 65 millions de dollars</a> · <a href="https://pedagogie.ac-rennes.fr/sites/pedagogie.ac-rennes.fr/IMG/pdf/2025.11.26._conference_o__wong_jai.pdf">Académie de Rennes : RAGaRenn, Université de Rennes (OpenWebUI, vLLM, Ollama)</a> · <a href="https://videos.esup-portail.org/video/1889-atelier-ia-tech-5-openwebui-en-production/">Esup-Portail : OpenWebUI en production (Strasbourg, Rennes)</a> · <a href="https://www.jechange.fr/telecom/mobile/news/chatgpt-23-euros-sans-pub-ia-plus-chere-que-forfait-mobile">JeChange : prix de ChatGPT en France (octobre 2026)</a> · <a href="https://www.lmstudio.ai/blog/free-for-work">LM Studio est gratuit au travail</a></span>
+  </footer>
+</main>
+</body>
+</html>
