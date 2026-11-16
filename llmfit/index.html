@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · llmfit</title>
+<meta name="description" content="llmfit expliqué simplement : où l'installer (PC Windows, Mac, Linux, Docker), comment il note les IA locales selon ton matériel, usages, note de confiance et comparatif avec LM Studio, CanIRun.ai et whichllm.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°32 · llmfit">
+<meta property="og:description" content="Une commande pour savoir quelles IA locales ton PC peut faire tourner, notées de la meilleure à la moins bonne, puis téléchargées dans Ollama. Gratuit et open source.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/llmfit.png">
+<meta property="og:url" content="https://repopop.github.io/llmfit/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de llmfit">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°32</div>
+        <h1>llm<span>fit</span></h1>
+        <p class="tag">Il scanne ton PC et classe les IA locales qu'il peut vraiment faire tourner, de la meilleure à la moins bonne. Gratuit, open source, rien ne sort de chez toi.</p>
+        <div class="chips">
+          <span class="chip">★ 39 000+ étoiles</span>
+          <span class="chip">Version 1.1.20</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>llmfit</b> répond à une seule question : <span class="k">quelle IA locale ton PC peut-il faire tourner ?</span> Il détecte ton processeur, ta <b>mémoire</b>, ta <b>carte graphique</b> (NVIDIA, AMD, Intel, Apple Silicon), puis note des milliers de modèles sur quatre critères : place en mémoire, vitesse estimée, qualité et contexte. Chaque modèle reçoit un verdict, de <b>Perfect</b> à <b>Too Tight</b> (trop lourd), et la touche <b>d</b> le télécharge dans <b>Ollama</b>, llama.cpp ou LM Studio. Il ne fait pas tourner l'IA lui-même : c'est le guide qui t'évite de télécharger des dizaines de gigas pour rien.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC</h3>
+        <p>Une commande : scoop ou winget sur Windows, brew sur Mac et Linux, ou le script d'installation. C'est là qu'il est utile : il analyse la machine qui fera tourner l'IA.</p>
+        <span class="pill ok">Recommandé, gratuit</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Sur un serveur avec Docker</h3>
+        <p>L'image officielle lance aussi un tableau de bord web et une API (port 8787). Pratique pour un serveur ou un NAS qui fera tourner Ollama : il note ce que cette machine-là peut supporter.</p>
+        <span class="pill ok">Pour un serveur IA</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Avec Python</h3>
+        <p>uv tool install llmfit ou pip : même outil, pour ceux qui ont déjà Python. On peut aussi le compiler depuis les sources (Rust).</p>
+        <span class="pill mid">Pour les habitués</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence MIT : tu l'utilises, le modifies et le partages librement, sans compte ni abonnement.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Rien ne sort de ton PC.</b> Le projet s'engage à ne rien envoyer sur Internet, sauf quand tu le demandes : téléchargement d'un modèle, classement communautaire ou partage de tes mesures.</span></li>
+        <li><span class="dot y">!</span><span><b>Des estimations, pas des promesses.</b> La vitesse est calculée à partir de ton matériel. llmfit info montre sur quoi repose chaque chiffre, et llmfit bench mesure la vraie vitesse une fois le modèle lancé : tes mesures remplacent alors les estimations.</span></li>
+        <li><span class="dot y">↔</span><span><b>Il faut un moteur à côté.</b> llmfit choisit et télécharge, mais l'IA tourne dans Ollama, llama.cpp, LM Studio, MLX ou Docker Model Runner. Installe l'un d'eux avant (Ollama : voir notre vidéo n°31).</span></li>
+        <li><span class="dot y">⌨</span><span><b>Interface en anglais, au clavier.</b> L'écran principal s'affiche dans le terminal et se pilote au clavier (/ pour chercher, f pour filtrer, d pour télécharger). Un tableau de bord web existe aussi avec llmfit serve.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Windows : prends une version récente.</b> Les binaires Windows sont signés depuis la version 1.1.19. Avant, un fichier pouvait sortir sans signature : installe la dernière version.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Choisir ta première IA locale</h3></div>
+        <p>Tu lances llmfit, il affiche ton matériel en haut et tous les modèles classés dessous. Tu prends le premier marqué Perfect et tu appuies sur d : il part dans Ollama.</p>
+        <div class="flow"><span>Scan du PC</span><i>→</i><span>Classement</span><i>→</i><span>Touche d</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Avant d'acheter un PC ou une carte graphique</h3></div>
+        <p>La simulation (touche S) remplace ta mémoire et ta carte graphique par celles que tu vises : tout le classement est recalculé. Le mode Plan fait l'inverse : quel matériel faut-il pour ce modèle ?</p>
+        <div class="tools"><span class="tool">Simulation</span><span class="tool">Mode Plan</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Trouver la meilleure IA pour coder</h3></div>
+        <p>Le filtre d'usage (touche U, ou --use-case coding) donne plus de poids aux modèles bons en code : un petit modèle spécialisé peut passer devant un gros généraliste.</p>
+        <div class="flow"><span>Filtre Code</span><i>→</i><span>Classement</span><i>→</i><span>Ollama</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Mesurer la vraie vitesse</h3></div>
+        <p>llmfit bench mesure les mots par seconde et le temps avant la première réponse sur ta machine. Tu peux partager tes résultats : les autres utilisateurs du même matériel en profitent.</p>
+        <div class="tools"><span class="tool">llmfit bench</span><span class="tool">Classement communautaire</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Pour tes scripts et tes agents</h3></div>
+        <p>llmfit recommend --json sort les meilleurs choix dans un format lisible par un programme, et llmfit serve ouvre une API : un agent peut choisir seul le modèle adapté à la machine.</p>
+        <div class="tools"><span class="tool">JSON</span><span class="tool">API REST</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Jeune mais très suivi, rien ne sort</h3>
+          <p>Créé en février 2026 par Alex Jones, déjà fondateur de K8sGPT, un projet accueilli par la CNCF (la fondation qui héberge Kubernetes), llmfit a dépassé les 39 000 étoiles en neuf mois et a été classé n°1 sur Trendshift.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 1 100 commits, version 1.1.20 publiée le 3 novembre 2026, des mises à jour chaque semaine.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 39 000 étoiles, 2 500 forks et plus de 100 contributeurs ; des mesures de vitesse partagées par les utilisateurs.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Tout est calculé sur ta machine ; rien n'est envoyé sauf si tu télécharges un modèle ou partages tes mesures.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit, licence MIT, aucune offre payante ; le projet repose surtout sur son créateur et ses contributeurs bénévoles.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Neuf mois d'existence seulement ; vitesses estimées, mode cluster encore en aperçu, versions qui changent vite.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README et la documentation officielle le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>llmfit</h3><div class="cp"><b>Gratuit</b><small>Gratuit et open source (MIT), sans compte</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux, Docker</span></div>
+        <p>Bon pour : Classer des milliers de modèles selon ton matériel, puis les télécharger dans Ollama</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>LM Studio</h3><div class="cp"><b>Gratuit</b><small>Gratuit, y compris au travail depuis juillet 2025, mais logiciel fermé (pas open source)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Une appli tout-en-un : son catalogue indique si un modèle tient dans ta carte graphique</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>CanIRun.ai</h3><div class="cp"><b>Gratuit</b><small>Site gratuit, sans inscription ni installation ; résultats estimés</small></div></div>
+        <div class="cm"><span class="lvl m">Dans ton navigateur</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Une première idée en quelques secondes, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>whichllm</h3><div class="cp"><b>Gratuit</b><small>Gratuit et open source (MIT)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Python</span></div>
+        <p>Bon pour : Un classement basé sur des benchmarks récents, pour les habitués de Python</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>LLMFIT</b><span>si tu veux le classement le plus complet pour ton matériel, avec téléchargement direct dans Ollama et mesures réelles.</span></li>
+        <li><b>LM STUDIO</b><span>si tu préfères une appli avec fenêtres et boutons qui choisit, télécharge et fait tourner l'IA au même endroit.</span></li>
+        <li><b>CANIRUN.AI</b><span>si tu veux juste une estimation rapide avant d'installer quoi que ce soit.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°32 · llmfit · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/AlexsJones/llmfit">dépôt GitHub AlexsJones/llmfit (README, licence, notes de version)</a> · <a href="https://github.com/AlexsJones/llmfit/blob/main/docs/tui.md">llmfit : guide de l'interface (TUI)</a> · <a href="https://github.com/AlexsJones/llmfit/blob/main/docs/how-it-works.md">llmfit : comment les modèles sont notés</a> · <a href="https://trendshift.io/repositories/21325">Trendshift : llmfit</a> · <a href="https://cncf.io/blog/2024/06/07/generative-ai-for-kubernetes-meet-k8sgpt-open-source-project">CNCF : K8sGPT, créé par Alex Jones</a> · <a href="https://lmstudio.ai/blog/free-for-work">LM Studio gratuit au travail (juillet 2025)</a> · <a href="https://canirun.ai">CanIRun.ai</a> · <a href="https://github.com/Andyyyy64/whichllm">dépôt GitHub Andyyyy64/whichllm</a></span>
+  </footer>
+</main>
+</body>
+</html>
