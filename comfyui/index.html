@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · ComfyUI</title>
+<meta name="description" content="ComfyUI expliqué simplement : où l'installer (appli Windows, Mac, Linux), la carte graphique qu'il faut, les modèles à télécharger, 5 usages, note de confiance et comparatif avec Midjourney, Adobe Firefly, InvokeAI et Comfy Cloud.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°35 · ComfyUI">
+<meta property="og:description" content="Crée des images et des vidéos avec l'IA sur ton PC, en reliant des blocs : Flux, Qwen Image, Wan… Gratuit, open source, même sans Internet.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/comfyui.png">
+<meta property="og:url" content="https://repopop.github.io/comfyui/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de ComfyUI">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°35</div>
+        <h1>Comfy<span>UI</span></h1>
+        <p class="tag">Les meilleures IA d'images et de vidéos, sur ton propre PC : tu relies des blocs comme des Lego, sans abonnement ni crédits. Gratuit, open source, même hors ligne.</p>
+        <div class="chips">
+          <span class="chip">★ 147 000+ étoiles</span>
+          <span class="chip">Version 0.45.0</span>
+          <span class="chip">Gratuit · licence GPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>ComfyUI</b> fait tourner sur ton ordinateur les <b>modèles d'IA open source</b> qui créent des <b>images</b> (Flux, Qwen Image, SDXL…), des <b>vidéos</b> (Wan, LTX-Video, HunyuanVideo…), du <b>son</b> et même de la <b>3D</b>. Au lieu d'une simple case de texte, tu construis une <b>recette avec des blocs reliés</b> (des « nœuds ») : le modèle, ton texte, la taille de l'image, puis l'enregistrement. Pas besoin de partir de zéro : des <b>modèles de recettes tout prêts</b> s'ouvrent en un clic. Une fois les modèles téléchargés, tout tourne <b>chez toi, même sans Internet</b>, sans crédits ni limite d'images.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>L'appli Comfy Desktop</h3>
+        <p>La méthode conseillée : une appli qui installe tout (Python, dépendances) et se met à jour. Windows 10 ou plus avec une carte graphique (NVIDIA conseillée, AMD possible), Mac à puce Apple (M1 ou plus, macOS 13+), Linux (.deb ou AppImage).</p>
+        <span class="pill ok">Gratuit, tout reste chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Version portable ou manuelle</h3>
+        <p>Une archive portable pour Windows (NVIDIA, AMD, Intel ou même sans carte graphique, mais très lent), ou une installation manuelle avec Python, ou l'outil comfy-cli. Pour suivre les toutes dernières nouveautés et tous les types de cartes.</p>
+        <span class="pill mid">Plus technique</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Comfy Cloud</h3>
+        <p>La version en ligne officielle, sur de grosses cartes graphiques louées : 5 essais gratuits, puis à partir de 20 $ par mois (16 $ en annuel) avec un quota de crédits. Utile sans carte graphique, mais tes fichiers sont alors sur leurs serveurs.</p>
+        <span class="pill mid">Payant, sans carte graphique</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence GPL-3.0 : aucune limite d'images ni de vidéos. Seuls les blocs « API » (modèles payants d'entreprises, à brancher si tu veux) consomment des crédits ; l'option --offline les coupe.</span></li>
+        <li><span class="dot y">!</span><span><b>Il faut une bonne carte graphique.</b> Les gros modèles peuvent tourner dès 4 Go de mémoire vidéo et 8 Go de RAM grâce à la gestion de mémoire de ComfyUI, mais plus la carte est puissante, plus c'est rapide. La vidéo demande beaucoup plus que l'image.</span></li>
+        <li><span class="dot y">↔</span><span><b>Les modèles se téléchargent à part.</b> ComfyUI est le moteur : les modèles (Flux, Wan, Qwen…) pèsent souvent plusieurs gigaoctets chacun. Prévois de la place sur ton disque ; les modèles de recettes proposent de les télécharger.</span></li>
+        <li><span class="dot y">⚖</span><span><b>Vérifie la licence de chaque modèle.</b> ComfyUI est libre, mais chaque modèle a sa propre licence : certains interdisent l'usage commercial des images. Regarde-la avant de vendre une création.</span></li>
+        <li><span class="dot g">⌂</span><span><b>La recette est dans l'image.</b> Chaque PNG créé garde toute sa recette (blocs, réglages, graine) : glisse-le dans ComfyUI et tout revient, pour refaire ou modifier une image.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Prudence avec les blocs ajoutés.</b> Les « custom nodes » de la communauté sont du code qui tourne sur ton PC : installe seulement ceux qui sont connus et à jour. Et n'ouvre pas ComfyUI à Internet sans protection (VPN).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Créer une affiche ou une illustration</h3></div>
+        <p>Tu ouvres le modèle de recette « texte vers image », tu décris la scène, tu choisis la taille : ton PC dessine l'image, autant de fois que tu veux, sans crédits.</p>
+        <div class="flow"><span>Ton texte</span><i>→</i><span>Modèle d'image</span><i>→</i><span>Affiche</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Animer une photo</h3></div>
+        <p>Avec un modèle vidéo comme Wan, une image devient une courte vidéo : tu décris le mouvement (flammes, vent, caméra qui avance) et ComfyUI génère les images une à une.</p>
+        <div class="flow"><span>Image</span><i>→</i><span>Modèle vidéo</span><i>→</i><span>Petite vidéo</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Retoucher une image avec l'IA</h3></div>
+        <p>Tu peins un masque sur une zone et tu décris ce que tu veux à la place : un objet en moins, un ciel différent, un cadre agrandi (inpainting, outpainting).</p>
+        <div class="tools"><span class="tool">Masque</span><span class="tool">Remplacer</span><span class="tool">Agrandir le cadre</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Agrandir et améliorer une image</h3></div>
+        <p>Des blocs d'agrandissement (upscale) et de détourage (enlever le fond) se branchent à la fin de n'importe quelle recette.</p>
+        <div class="tools"><span class="tool">Agrandir</span><span class="tool">Détourer</span><span class="tool">Interpoler</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Réutiliser une recette qui marche</h3></div>
+        <p>Une image réussie garde sa recette : glisse-la dans ComfyUI pour la refaire, change un seul bloc, ou enregistre la recette pour toute une série d'images au même style.</p>
+        <div class="flow"><span>PNG</span><i>→</i><span>Recette</span><i>→</i><span>Nouvelle série</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Le standard des créateurs IA, très actif</h3>
+          <p>Lancé seul par comfyanonymous début 2023, ComfyUI est devenu l'outil de référence pour les modèles d'images et de vidéos open source. Sa société, Comfy Org, a levé 30 millions de dollars en avril 2026 (valorisation de 500 millions) et vend une version en ligne, Comfy Cloud, tandis que le logiciel reste gratuit et open source.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Mises à jour presque quotidiennes et prise en charge des nouveaux modèles d'images et de vidéos dès leur sortie, par une équipe d'environ 65 personnes.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 143 500 étoiles et 17 000 forks sur GitHub, des millions d'utilisateurs et plus de 60 000 blocs créés par la communauté.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tout tourne en local et fonctionne hors ligne ; seuls les blocs API payants (facultatifs) envoient tes données à un service. Les blocs de la communauté sont du code à installer avec prudence.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Logiciel gratuit sous GPL-3.0, financé par Comfy Org (47 millions de dollars levés) et par Comfy Cloud ; une entreprise solide, mais qui a aussi une offre payante à vendre.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Trois ans d'existence, utilisé en production par des studios et des agences ; mais l'interface en blocs demande un temps d'apprentissage et certaines recettes cassent après une mise à jour.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README, la documentation officielle et les annonces de Comfy Org le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>ComfyUI</h3><div class="cp"><b>Gratuit</b><small>Gratuit et sans limite chez toi ; blocs API payants facultatifs</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac (puce Apple), Linux</span></div>
+        <p>Bon pour : Images, vidéos, son et 3D avec les modèles open source, avec un contrôle total</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Midjourney</h3><div class="cp"><b>10 à 120 $/mois</b><small>Aucune offre gratuite ; Basic 10 $, Standard 30 $, Pro 60 $, Mega 120 $ par mois (20 % de moins en annuel)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Midjourney</span><span class="on">Navigateur, Discord</span></div>
+        <p>Bon pour : De belles images très vite, sans rien installer ni régler</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Adobe Firefly</h3><div class="cp"><b>Gratuit limité / dès 9,99 $/mois</b><small>Petit quota gratuit, puis Standard 9,99 $, Pro 19,99 $ par mois, avec des crédits</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'Adobe</span><span class="on">Navigateur, appli, Photoshop</span></div>
+        <p>Bon pour : Les utilisateurs de Photoshop qui veulent l'IA dans leurs outils</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>InvokeAI</h3><div class="cp"><b>Gratuit</b><small>Open source (Apache 2.0), maintenu par la communauté depuis le rachat de la société Invoke par Adobe (octobre 2025)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Retoucher sur une toile avec des calques, plus simple que des blocs</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Comfy Cloud</h3><div class="cp"><b>Dès 20 $/mois</b><small>ComfyUI en ligne sur des cartes graphiques louées : 5 essais gratuits, puis 20, 35 ou 100 $ par mois selon les crédits</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Comfy Org</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Utiliser ComfyUI sans carte graphique puissante</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>COMFYUI</b><span>si tu as une bonne carte graphique et que tu veux créer images et vidéos sans limite, gratuitement, avec un contrôle total.</span></li>
+        <li><b>MIDJOURNEY</b><span>si tu veux de belles images tout de suite, sans rien installer, et que l'abonnement ne te gêne pas.</span></li>
+        <li><b>INVOKEAI</b><span>si tu préfères retoucher sur une toile avec des calques plutôt que relier des blocs.</span></li>
+      </ul>
+      <p class="warnline">Quel que soit l'outil, vérifie la licence du modèle utilisé avant de vendre une image, et n'utilise jamais l'IA pour imiter une personne réelle sans son accord.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°35 · ComfyUI · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/Comfy-Org/ComfyUI">dépôt GitHub Comfy-Org/ComfyUI (README, licence, modèles pris en charge)</a> · <a href="https://docs.comfy.org/installation/system_requirements">documentation ComfyUI : configuration requise</a> · <a href="https://docs.comfy.org/installation/desktop/faq">documentation Comfy Desktop : FAQ</a> · <a href="https://www.comfy.org/cloud/pricing">Comfy Cloud : tarifs</a> · <a href="https://blog.comfy.org/p/comfyui-raises-30m-to-scale-open">Comfy Org : levée de 30 M$ (24 avril 2026)</a> · <a href="https://comfy.org/customers/svedka-silverside">Comfy Org : étude de cas Svedka et Silverside AI (Super Bowl LX, 8 février 2026)</a> · <a href="https://techcrunch.com/?p=3090483">TechCrunch : Svedka et la pub du Super Bowl faite surtout par IA</a> · <a href="https://www.nocode.mba/articles/midjourney-pricing">Midjourney : prix 2026</a> · <a href="https://www.costbench.com/software/ai-image-generators/adobe-firefly/">Adobe Firefly : prix 2026</a> · <a href="https://www.promptquorum.com/power-local-llm/invokeai-review">InvokeAI : projet open source après le rachat par Adobe</a></span>
+  </footer>
+</main>
+</body>
+</html>
