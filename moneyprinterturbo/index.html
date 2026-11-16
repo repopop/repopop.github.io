@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · MoneyPrinterTurbo</title>
+<meta name="description" content="MoneyPrinterTurbo expliqué simplement : où l'installer (pack Windows, Docker, Colab), ce dont il a besoin (clé Pexels, une IA), les pièges (images génériques, droits, règles de YouTube), 5 usages, note de confiance et comparatif avec InVideo, Pictory et RecCloud.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°34 · MoneyPrinterTurbo">
+<meta property="og:description" content="Donne un sujet : l'IA écrit le texte, trouve des vidéos libres de droits, ajoute voix, sous-titres et musique, et sort une vidéo verticale. Gratuit et open source.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/moneyprinterturbo.png">
+<meta property="og:url" content="https://repopop.github.io/moneyprinterturbo/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de MoneyPrinterTurbo">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°34</div>
+        <h1>MoneyPrinter<span>Turbo</span></h1>
+        <p class="tag">Tu donnes un sujet, il écrit le texte, trouve les images, ajoute la voix, les sous-titres et la musique, puis sort une vidéo verticale prête à publier. Gratuit, open source, chez toi.</p>
+        <div class="chips">
+          <span class="chip">★ 143 000+ étoiles</span>
+          <span class="chip">Version 1.3.10</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>MoneyPrinterTurbo</b> fabrique une <b>vidéo courte complète à partir d'un sujet ou d'un mot-clé</b>. Une IA (celle que tu branches) écrit le <b>texte</b> et choisit des mots-clés ; l'outil va chercher des <b>vidéos libres de droits</b> sur Pexels, Pixabay ou Coverr (ou prend <b>tes propres images</b>), ajoute une <b>voix de synthèse</b> (Edge TTS est gratuit et propose des voix françaises), les <b>sous-titres</b> et une <b>musique de fond</b>, puis exporte la vidéo en <b>vertical 9:16</b> (1080 × 1920), horizontal 16:9 ou carré. Tu peux aussi écrire ton propre texte, lancer <b>plusieurs versions d'un coup</b> et garder la meilleure. Tout se pilote dans une <b>page web</b> (ou par une API). Attention : ce n'est pas un générateur d'images, il <b>assemble</b> des extraits existants.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Pack Windows en un clic</h3>
+        <p>Télécharge le pack .7z dans les Releases GitHub (pas l'archive du code), décompresse-le dans un dossier sans espace ni accent, lance update.bat puis start.bat. La page web s'ouvre toute seule. 4 cœurs et 4 Go de RAM suffisent, sans carte graphique.</p>
+        <span class="pill ok">Le plus simple sur PC</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker (PC, mini PC, serveur)</h3>
+        <p>Avec docker compose et l'image officielle : page web sur le port 8501, API sur le port 8080. Pratique sur un mini PC ou un serveur. Aussi installable avec Python 3.11 (pip install mpt) sur Windows, macOS ou Linux.</p>
+        <span class="pill ok">Gratuit, chez toi</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Sans installation</h3>
+        <p>Un carnet Google Colab officiel permet de l'essayer dans le navigateur. Le README cite aussi RecCloud, un service en ligne gratuit basé sur ce projet : tes textes et vidéos passent alors par leurs serveurs.</p>
+        <span class="pill mid">Pour tester</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence MIT. L'outil est gratuit ; ce qui peut coûter, ce sont les services que tu branches (une IA payante, certaines voix ou des vidéos générées par IA).</span></li>
+        <li><span class="dot y">!</span><span><b>Il te faut deux clés.</b> Une clé Pexels (gratuite) ou Pixabay pour les images, et une IA pour le texte : ChatGPT, Claude, Gemini, DeepSeek… Pour ne rien payer, Ollama fait tourner une IA sur ton PC.</span></li>
+        <li><span class="dot y">↔</span><span><b>Tes textes partent chez l'IA.</b> Le sujet et le texte sont envoyés à l'IA choisie, la voix Edge TTS passe par un service en ligne de Microsoft. Avec Ollama et ta propre voix ou tes images, presque tout reste chez toi. Garde tes clés API secrètes (fichier config.toml).</span></li>
+        <li><span class="dot y">!</span><span><b>Des images génériques.</b> Les extraits sont choisis par mots-clés : sur un sujet précis ou abstrait, ils peuvent être à côté. L'IA peut aussi écrire des erreurs. Relis et regarde chaque vidéo avant de la publier.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Attention aux droits.</b> Le README prévient que certaines musiques fournies viennent de vidéos YouTube et doivent être retirées en cas de souci de droits d'auteur : mets plutôt ta propre musique. Pexels et Pixabay ont aussi leurs règles (marques, personnes reconnaissables).</span></li>
+        <li><span class="dot r">⚠</span><span><b>YouTube ne paie pas la vidéo en série.</b> Depuis juillet 2025, YouTube appelle « contenu non authentique » les vidéos produites en masse et répétitives, et ne les monétise pas (règles précisées en juillet 2026). Le nom promet de l'argent : sers-t'en comme brouillon, et ajoute ta touche.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Une vidéo à partir d'un sujet</h3></div>
+        <p>Tu tapes « les secrets du sommeil » : l'IA écrit le texte, l'outil trouve les extraits, ajoute la voix française, les sous-titres et la musique, et sort une vidéo verticale.</p>
+        <div class="flow"><span>Un sujet</span><i>→</i><span>MoneyPrinterTurbo</span><i>→</i><span>Vidéo 9:16</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ton texte, mis en images</h3></div>
+        <p>Tu as déjà écrit ton texte ? Colle-le à la place de celui de l'IA : l'outil s'occupe seulement des images, de la voix et des sous-titres.</p>
+        <div class="flow"><span>Ton texte</span><i>→</i><span>Voix + images</span><i>→</i><span>Vidéo</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Plusieurs versions d'un coup</h3></div>
+        <p>Demande plusieurs vidéos pour le même sujet, compare-les et garde la meilleure. En ligne de commande, un fichier peut lancer jusqu'à 100 tâches à la suite.</p>
+        <div class="tools"><span class="tool">Lot</span><span class="tool">Comparer</span><span class="tool">Garder la meilleure</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Tes propres images</h3></div>
+        <p>Pour une boutique ou une asso : donne tes photos et vidéos à la place des extraits gratuits, pour que la vidéo montre vraiment ton sujet.</p>
+        <div class="tools"><span class="tool">Photos</span><span class="tool">Vidéos</span><span class="tool">Sous-titres</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Brancher une automatisation</h3></div>
+        <p>L'API (documentée sur le port 8080) permet de lancer une vidéo depuis un autre outil, par exemple n8n, puis de récupérer le fichier.</p>
+        <div class="flow"><span>n8n</span><i>→</i><span>API</span><i>→</i><span>Vidéo prête</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 7,6 sur 10" style="background:conic-gradient(#FF9F1C 0 76%,#E7E2F2 76% 100%)"><div>7,6<small>/10</small></div></div>
+        <div>
+          <h3>Très actif, mais images génériques</h3>
+          <p>Créé en mars 2024 par harry0703, c'est une refonte de MoneyPrinter, le projet de FujiwaraChoki : il a désormais environ dix fois plus d'étoiles que l'original. Des mises à jour presque chaque mois et une énorme communauté. Le README est rempli de partenaires sponsorisés (fournisseurs d'IA, liens de parrainage) : ce ne sont pas des recommandations neutres.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Version 1.3.10 et dernier commit le 13 novembre 2026, une nouvelle version presque chaque mois en 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 138 500 étoiles et 22 000 forks début novembre 2026, régulièrement en tendance sur GitHub.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Le logiciel tourne chez toi, mais le sujet et le texte partent chez l'IA choisie, et la voix gratuite passe par Microsoft, sauf si tu utilises Ollama et une voix locale.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Gratuit sous licence MIT, financé par de nombreux sponsors (fournisseurs d'IA et de vidéo) mis en avant dans le README, avec des liens de parrainage.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Très complet, mais des erreurs reviennent souvent (voix, assemblage, chemins avec accents sous Windows) et les extraits choisis par mots-clés restent génériques.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub (README, licence, notes de version, ancienne version v1.2.6) et dans des tests publiés le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>MoneyPrinterTurbo</h3><div class="cp"><b>Gratuit</b><small>Gratuit et sans limite ; seules les IA ou voix payantes que tu branches peuvent coûter (Ollama et Edge TTS sont gratuits)</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (PC, mini PC, serveur)</span><span class="on">Windows, macOS, Linux (page web)</span></div>
+        <p>Bon pour : Fabriquer beaucoup de vidéos courtes à partir de sujets, sans abonnement</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>InVideo AI</h3><div class="cp"><b>Dès 9 $/mois</b><small>Basic à 9 $/mois avec peu de crédits, Pro à 30 $/mois (tarifs relevés en septembre 2026, ils changent souvent) ; version gratuite avec filigrane</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'InVideo</span><span class="on">Navigateur, mobile</span></div>
+        <p>Bon pour : Des vidéos plus soignées avec des images générées par IA, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Pictory</h3><div class="cp"><b>Dès 29 $/mois</b><small>Starter à 29 $/mois (25 $/mois en annuel), Team à 199 $/mois ; essai gratuit de 14 jours (prix relevés le 14 novembre 2026)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Pictory</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Transformer un article ou un texte en vidéo, en équipe</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>RecCloud</h3><div class="cp"><b>Gratuit (limité)</b><small>Générateur vidéo en ligne basé sur MoneyPrinterTurbo, cité par le README ; limites et offres payantes à vérifier sur leur site</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de RecCloud</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Essayer le principe sans rien installer</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>MONEYPRINTERTURBO</b><span>si tu veux produire des brouillons de vidéos courtes en quantité, gratuitement et chez toi, et que tu acceptes de les relire et de les retoucher.</span></li>
+        <li><b>INVIDEO AI</b><span>si tu veux un rendu plus soigné sans rien installer, et que payer chaque mois ne te gêne pas.</span></li>
+        <li><b>PICTORY</b><span>si tu transformes surtout des articles ou des textes longs en vidéos, en équipe.</span></li>
+      </ul>
+      <p class="warnline">Aucun de ces outils ne remplace ta relecture : vérifie les faits, les droits de la musique et des images, et ajoute ta touche avant de publier, surtout sur YouTube.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°34 · MoneyPrinterTurbo · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/harry0703/MoneyPrinterTurbo">dépôt GitHub harry0703/MoneyPrinterTurbo (README, licence MIT, version 1.3.10)</a> · <a href="https://github.com/harry0703/MoneyPrinterTurbo/blob/v1.2.6/README-en.md">README de la v1.2.6 : « based on FujiwaraChoki/MoneyPrinter »</a> · <a href="https://github.com/FujiwaraChoki/MoneyPrinter">dépôt d'origine FujiwaraChoki/MoneyPrinter</a> · <a href="https://explainx.ai/blog/moneyprinterturbo-github-trending-138k-stars-ai-short-video-generator-sponsors-terms-risks-2026">explainx.ai : étoiles, forks et risques (4 novembre 2026)</a> · <a href="https://ghtrends.pages.dev/harry0703/MoneyPrinterTurbo">ghtrends : comparaison avec MoneyPrinter et limites connues</a> · <a href="https://techrepublic.com/article/news-youtube-ai-video-monetization-rules">TechRepublic : YouTube précise ses règles sur le contenu non authentique (juillet 2026)</a> · <a href="https://www.plagiarismtoday.com/2025/07/08/youtube-targets-inauthentic-content/">Plagiarism Today : YouTube cible le contenu « inauthentique » (juillet 2025)</a> · <a href="https://toolradar.com/tools/pictory/pricing">Toolradar : prix de Pictory (novembre 2026)</a> · <a href="https://lumalabs.ai/news/invideo-ai-pricing">Luma : prix d'InVideo AI (septembre 2026)</a></span>
+  </footer>
+</main>
+</body>
+</html>
