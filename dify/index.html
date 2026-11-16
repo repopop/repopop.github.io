@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Dify</title>
+<meta name="description" content="Dify expliqué simplement : à quoi ça sert, comment créer un chatbot IA qui répond avec tes documents et le publier sur ton site, comment l'installer chez toi avec Docker, ce que coûte vraiment l'IA, usages, note de confiance et comparatif avec Chatbase, Microsoft Copilot Studio, Dify Cloud et Open WebUI.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°37 · Dify">
+<meta property="og:description" content="Un gîte, un livret d'accueil, un clic sur Publier : à minuit, la bulle de chat répond toute seule aux clients. Gratuit chez toi.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/dify.png">
+<meta property="og:url" content="https://repopop.github.io/dify/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Dify">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°37</div>
+        <h1>Dify</h1>
+        <p class="tag">Tu relies des blocs, tu choisis ton IA, tu lui donnes tes documents, et tu publies ton propre assistant : en lien, ou en bulle de chat sur ton site.</p>
+        <div class="chips">
+          <span class="chip">★ 161 000+ étoiles</span>
+          <span class="chip">Version 1.19.0</span>
+          <span class="chip">Gratuit chez toi (Cloud dès 59 $/mois) · licence Dify Open Source License (Apache 2.0 + conditions)</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>Dify</b> est une plateforme pour fabriquer des <b>applis d'IA</b> sans coder : un <b>chatbot</b>, un <b>assistant qui répond avec tes documents</b> (base de connaissances), un <b>workflow</b> ou un <b>agent</b> qui utilise des outils. Tu relies des blocs à l'écran, tu choisis le <b>modèle</b> (ChatGPT, Claude, Gemini, Mistral… ou un modèle <b>local avec Ollama</b>), puis tu <b>publies</b> : un lien à partager, une <b>bulle de chat</b> ou un cadre à coller dans ton site, et une <b>API</b> pour tes autres outils. La différence avec <b>Open WebUI</b> (vidéo n°31) : Open WebUI sert à discuter avec l'IA <b>pour toi</b> ; Dify sert à <b>construire un assistant pour les autres</b>. Et avec <b>n8n</b> (vidéo n°29) : n8n automatise des tâches entre tes applis ; Dify fabrique l'appli d'IA elle-même.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker Compose (PC, NAS)</h3>
+        <p>git clone https://github.com/langgenius/dify, puis dans dify/docker : cp .env.example .env et docker compose up -d. Ouvre ensuite http://localhost/install pour créer le compte administrateur. Il faut Docker Compose 2.24 ou plus, 2 cœurs et 4 Go de RAM au minimum.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Serveur ou VPS (pour ton site)</h3>
+        <p>Pour qu'une bulle de chat réponde aux visiteurs de ton site, Dify doit être joignable depuis Internet : installe-le sur un serveur ou un VPS, avec un nom de domaine et HTTPS (reverse proxy), et garde-le à jour.</p>
+        <span class="pill mid">Un peu technique</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Dify Cloud</h3>
+        <p>Hébergé par Dify, rien à installer. Sandbox gratuit (200 crédits de messages au total, 5 applis) ; Professional 59 $ par mois (590 $ par an) pour 5 000 crédits par mois et 50 applis ; Team 159 $ par mois.</p>
+        <span class="pill ok">Payant</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">✓</span><span><b>Gratuit chez toi.</b> L'édition Community, installée par toi, est gratuite. Tu peux t'en servir pour ton activité, y compris commerciale, et comme moteur d'IA pour tes autres applis (API).</span></li>
+        <li><span class="dot y">€</span><span><b>L'IA se paie à part.</b> Dify ne fournit pas le modèle : avec ChatGPT, Claude ou Gemini, chaque réponse est facturée à l'usage par le fournisseur, avec ta clé API. Avec un modèle local (Ollama), c'est gratuit, mais il faut une machine assez puissante, et les petits modèles répondent moins bien.</span></li>
+        <li><span class="dot y">!</span><span><b>Open source, avec deux conditions.</b> La licence reprend Apache 2.0 et ajoute deux règles : pas de service « multi-clients » (plusieurs espaces de travail pour des clients différents) sans accord écrit de Dify, et le logo et le copyright Dify restent visibles dans l'interface. Pour un usage perso ou une entreprise, rien ne change.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Une petite pile de services.</b> Docker Compose lance plusieurs conteneurs (interface, API, base de données, cache, base vectorielle, bac à sable des plugins…). Compte au moins 4 Go de RAM rien que pour Dify, plus le modèle si tu le fais tourner sur la même machine.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Ouvert sur Internet ? Mets-le à jour.</b> Une bulle de chat publique expose ton Dify. Mot de passe fort, HTTPS et mises à jour régulières : la version 1.15.0 (juin 2026) a par exemple corrigé une faille de type « path traversal » (CVE-2026-41948).</span></li>
+        <li><span class="dot y">↔</span><span><b>Où partent les questions ?</b> Les questions de tes visiteurs et les extraits de tes documents utilisés pour répondre sont envoyés au fournisseur du modèle (sauf modèle local). Ne mets dans une base de connaissances publique que ce que tu acceptes de voir cité.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Le chatbot de ton site</h3></div>
+        <p>Tu glisses ton livret d'accueil, ta FAQ ou ton catalogue, tu publies, et une bulle de chat répond à tes visiteurs jour et nuit, avec tes infos.</p>
+        <div class="flow"><span>Tes documents</span><i>→</i><span>Publier</span><i>→</i><span>Bulle sur ton site</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Répondre aux questions des clients</h3></div>
+        <p>Horaires, livraison, retours, garanties : l'assistant répond à partir de tes pages, et tu relis l'historique des conversations pour améliorer les réponses.</p>
+        <div class="tools"><span class="tool">Base de connaissances</span><span class="tool">Historique</span><span class="tool">Annotations</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>L'assistant de ton équipe</h3></div>
+        <p>Procédures, notes internes, documentation technique : chacun pose sa question en langage courant au lieu de fouiller les dossiers.</p>
+        <div class="flow"><span>Docs internes</span><i>→</i><span>Question</span><i>→</i><span>Réponse + source</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Traiter des documents en série</h3></div>
+        <p>Un workflow résume, traduit ou classe chaque document que tu lui envoies, et renvoie le résultat dans le format que tu veux.</p>
+        <div class="flow"><span>Document</span><i>→</i><span>Workflow IA</span><i>→</i><span>Résumé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Un agent avec des outils</h3></div>
+        <p>Donne à ton assistant des outils (recherche web, API, serveurs MCP, plugins) pour qu'il aille chercher l'info ou agisse, dans un cadre que tu contrôles.</p>
+        <div class="tools"><span class="tool">Agent</span><span class="tool">Outils</span><span class="tool">MCP</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Un poids lourd très actif, avec une licence à lire</h3>
+          <p>Lancé en 2023 par la société LangGenius, Dify dépasse 150 000 étoiles sur GitHub (environ 159 700 en novembre 2026) et 25 000 forks. Selon une étude de cas publiée par AWS, Dify Cloud compte plus de 600 000 utilisateurs inscrits et plus d'un million d'applis publiées. ETS, l'organisme qui crée le TOEIC et le TOEFL, a bâti sa plateforme d'IA interne sur Dify Enterprise : environ 2 000 salariés, plus de 50 applis en production, gérées par une équipe de 12 personnes. La société a levé 30 millions de dollars en mars 2026.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Nouvelles versions plusieurs fois par mois (1.15 en juin 2026, 1.17 en août 2026), plus de 14 000 commits et une équipe salariée.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 159 700 étoiles et 25 000 forks sur GitHub, une place de marché de plugins, une documentation traduite en plusieurs langues.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Installé chez toi, tes applis et documents restent sur ta machine ; mais les questions partent chez le fournisseur du modèle, sauf si tu utilises un modèle local.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Société financée (Cloud et édition Enterprise payants) ; licence basée sur Apache 2.0 mais avec deux conditions, donc pas totalement libre.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Trois ans d'existence, version 1.x stable, de grandes organisations en production ; plusieurs correctifs de sécurité en 2026, à suivre.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, la licence, la documentation officielle, la page des tarifs, les études de cas de Dify et d'AWS le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Dify</h3><div class="cp"><b>Gratuit chez toi</b><small>Community auto-hébergée gratuite (le modèle d'IA se paie à part, sauf modèle local) ; Dify Cloud : Sandbox gratuit, Professional 59 $/mois, Team 159 $/mois</small></div></div>
+        <div class="cm"><span class="lvl m">Chez toi (auto-hébergé) ou serveurs de Dify</span><span class="on">Docker, navigateur, API</span></div>
+        <p>Bon pour : Construire et publier tes propres assistants, workflows et agents, avec l'IA de ton choix</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Chatbase</h3><div class="cp"><b>Dès 40 $/mois</b><small>Hobby 40 $/mois (32 $ en annuel), Standard 150 $/mois, Pro 500 $/mois, avec des crédits de messages limités</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Chatbase</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Un chatbot de site prêt en quelques minutes, sans rien héberger</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Microsoft Copilot Studio</h3><div class="cp"><b>200 $/mois</b><small>Pack de 25 000 crédits Copilot par mois pour toute l'organisation, ou 0,01 $ par crédit à l'usage (abonnement Azure)</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud Microsoft</span><span class="on">Navigateur, Teams, sites web</span></div>
+        <p>Bon pour : Les entreprises déjà équipées de Microsoft 365</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ollama + Open WebUI</h3><div class="cp"><b>Gratuit</b><small>Open source, installé chez toi ; vidéo RepoPop n°31</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Docker, Windows, Mac, Linux</span></div>
+        <p>Bon pour : Discuter avec l'IA et tes documents pour toi seul, pas publier un assistant</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>DIFY</b><span>si tu veux construire ton propre assistant IA, le nourrir avec tes documents et le publier sur ton site, sans abonnement à la plateforme.</span></li>
+        <li><b>CHATBASE</b><span>si tu veux un chatbot de site en dix minutes et que tu ne veux rien installer ni maintenir.</span></li>
+        <li><b>OPEN WEBUI</b><span>si l'assistant est juste pour toi : c'est plus simple.</span></li>
+      </ul>
+      <p class="warnline">L'IA qui répond n'est jamais infaillible : relis régulièrement l'historique des conversations, et indique à tes visiteurs qu'ils parlent à un assistant automatique.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°37 · Dify · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/langgenius/dify">dépôt GitHub langgenius/dify</a> · <a href="https://github.com/langgenius/dify/blob/main/LICENSE">Licence Dify Open Source License</a> · <a href="https://docs.dify.ai/en/use-dify/publish/webapp/embedding-in-websites">Documentation Dify : intégrer une appli dans un site</a> · <a href="https://docs.dify.ai/development/models-integration/ollama">Documentation Dify : modèles locaux avec Ollama</a> · <a href="https://dify.ai/pricing/dify-cloud">Dify : tarifs de Dify Cloud</a> · <a href="https://dify.ai/solutions/assessment-and-testing">Dify : étude de cas ETS</a> · <a href="https://aws.amazon.com/solutions/case-studies/dify-lambda-case-study">AWS : étude de cas Dify</a> · <a href="https://newreleases.io/project/github/langgenius/dify/release/1.15.0">Dify 1.15.0 : notes de version</a> · <a href="https://yespress.io/dify">yespress : Dify en chiffres (2026)</a> · <a href="https://www.layer3labs.io/guides/chatbase-pricing">Layer3 Labs : tarifs Chatbase 2026</a> · <a href="https://dupple.com/learn/microsoft-copilot-studio-pricing">Dupple : tarifs Copilot Studio 2026</a></span>
+  </footer>
+</main>
+</body>
+</html>
