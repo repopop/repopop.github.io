@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Ghostfolio</title>
+<meta name="description" content="Ghostfolio expliqué simplement : où l'installer (Docker sur PC, NAS, Raspberry Pi, ou en ligne), ce qu'il fait et ne fait pas (pas de synchro bancaire), les pièges (cours des ETF européens, sauvegardes), 5 usages, note de confiance et comparatif avec Finary et Portfolio Performance.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°36 · Ghostfolio">
+<meta property="og:description" content="Réunis tes actions, ETF et crypto de tous tes comptes dans un tableau de bord privé : vrai rendement, dividendes, répartition et risques. Gratuit et open source.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/ghostfolio.png">
+<meta property="og:url" content="https://repopop.github.io/ghostfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Ghostfolio">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°36</div>
+        <h1>Ghost<span>folio</span></h1>
+        <p class="tag">Actions, ETF, crypto : tous tes placements, sur tous tes comptes, dans un seul tableau de bord. Ton vrai gain, dividendes compris, et les risques signalés. Gratuit, open source, chez toi.</p>
+        <div class="chips">
+          <span class="chip">★ 9 000+ étoiles</span>
+          <span class="chip">Version 3.100.0</span>
+          <span class="chip">Gratuit · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>Ghostfolio</b> est un <b>gestionnaire de patrimoine</b> pour particuliers : tu y ranges tes <b>actions, ETF, cryptos, liquidités</b> et autres avoirs, répartis sur <b>plusieurs comptes et plateformes</b> (un PEA, un compte-titres, une appli crypto…). Il met les <b>cours à jour tout seul</b> (Yahoo Finance, CoinGecko), calcule ton <b>rendement réel dividendes compris</b> (aujourd'hui, depuis le début de l'année, sur 1 an, 5 ans ou depuis le début), montre ta <b>répartition</b> par compte, devise, pays ou secteur, et son analyse <b>X-ray</b> signale les risques de concentration. Il s'utilise depuis un navigateur ou le <b>téléphone</b> (application web). Attention : il ne se <b>connecte pas à ta banque</b>, tes achats se <b>saisissent</b> ou s'<b>importent</b>. Ce n'est pas un conseiller : il montre, il ne recommande rien.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker sur un PC ou un mini PC</h3>
+        <p>Avec docker compose et l'image officielle (elle lance aussi une base PostgreSQL et Redis) : copie le fichier .env.example en .env, choisis tes mots de passe, puis ouvre localhost:3333. Le premier compte créé devient administrateur.</p>
+        <span class="pill ok">Gratuit, chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>NAS, Raspberry Pi, serveur maison</h3>
+        <p>Images officielles pour amd64, ARM 64 bits et ARMv7 : il tourne sur un Synology, un Raspberry Pi ou un serveur. Des paquets de la communauté existent pour Unraid, CasaOS, Umbrel et Home Assistant.</p>
+        <span class="pill ok">Idéal pour l'avoir partout</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Ghostfolio Premium (en ligne)</h3>
+        <p>La version hébergée par l'équipe du projet, sans rien installer, avec des données de marché professionnelles. Payante (de l'ordre de 40 à 50 $ par an selon les comparateurs, prix exact sur ghostfol.io) ; tes données sont alors sur leurs serveurs.</p>
+        <span class="pill mid">Payant, sans installation</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence AGPL-3.0 : la version installée chez toi est gratuite et sans limite. Le projet se finance par la version en ligne Premium.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tes chiffres restent chez toi.</b> Installé chez toi, aucun compte bancaire n'est connecté et rien n'est partagé. Seuls les noms des titres sont envoyés à Yahoo Finance ou CoinGecko pour récupérer les cours.</span></li>
+        <li><span class="dot y">!</span><span><b>Pas de synchro bancaire.</b> Contrairement à Finary, il ne se connecte pas à ta banque ou à ton courtier : tu saisis tes achats ou tu importes un fichier (CSV ou JSON). Des outils de la communauté convertissent les exports de certains courtiers (Trade Republic, DEGIRO…).</span></li>
+        <li><span class="dot y">!</span><span><b>ETF et fonds européens.</b> Les cours viennent de Yahoo Finance : cherche tes ETF par leur code de cotation (ticker) ; certains fonds, assurances-vie ou fonds en euros n'y figurent pas et se suivent en saisie manuelle.</span></li>
+        <li><span class="dot y">↔</span><span><b>Fais des sauvegardes.</b> Tout est dans une base PostgreSQL : sauvegarde-la (ou exporte tes opérations) régulièrement. Pour y accéder hors de chez toi, passe par un VPN (Tailscale, WireGuard) plutôt que d'ouvrir un port.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Ce n'est pas un conseil.</b> Ghostfolio calcule et affiche, il ne dit pas quoi acheter. Ses alertes X-ray (trop sur un compte, une devise, un pays) sont des repères, à adapter à ta situation.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Tous tes comptes réunis</h3></div>
+        <p>Un PEA à la banque, des ETF sur une appli, un peu de Bitcoin ailleurs : crée un compte par plateforme et vois tout ensemble, avec la valeur totale à jour.</p>
+        <div class="flow"><span>PEA + ETF + crypto</span><i>→</i><span>Ghostfolio</span><i>→</i><span>1 tableau de bord</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ton vrai rendement</h3></div>
+        <p>Le rendement est calculé sur ce que tu as réellement investi, dividendes compris, pour aujourd'hui, l'année en cours, 1 an, 5 ans ou depuis le début.</p>
+        <div class="tools"><span class="tool">Rendement</span><span class="tool">Dividendes</span><span class="tool">Historique</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Repérer les risques</h3></div>
+        <p>L'analyse X-ray signale si une trop grosse part repose sur un seul compte, une seule devise ou une seule région, avec des seuils que tu peux régler.</p>
+        <div class="flow"><span>Tes positions</span><i>→</i><span>X-ray</span><i>→</i><span>Alerte concentration</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Remplacer ton tableur</h3></div>
+        <p>Importe l'historique de tes achats (CSV ou JSON) une fois, puis ajoute chaque nouvel achat en quelques secondes : fini les formules et les cours recopiés à la main.</p>
+        <div class="flow"><span>Ton tableur</span><i>→</i><span>Import</span><i>→</i><span>Cours à jour</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Partout, sans pub</h3></div>
+        <p>Installe-le sur ton NAS et ouvre-le sur ton téléphone comme une appli (PWA), avec le mode sombre et le mode Zen qui masque les montants.</p>
+        <div class="tools"><span class="tool">Téléphone</span><span class="tool">Mode sombre</span><span class="tool">Mode Zen</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Très actif, et tes chiffres restent chez toi</h3>
+          <p>Lancé en 2021 par Thomas Kaul, un développeur de Zurich, comme projet personnel, puis publié en open source : dans son article de lancement, il explique vouloir un outil utilisable de façon anonyme, loin des regards des grandes banques et des géants du web. De nouvelles versions sortent très souvent. Le projet repose encore beaucoup sur son créateur, et se finance avec la version en ligne Premium.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 5 900 commits et des versions publiées très souvent (2.248 et 2.249 à quelques jours d'écart sur Docker Hub).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Environ 9 600 étoiles, 1 400 forks et plus d'un million de téléchargements sur Docker Hub, mais un projet encore très porté par son créateur.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Installé chez toi, rien n'est partagé et aucune banque n'est connectée ; les noms des titres partent seulement chez Yahoo Finance ou CoinGecko pour les cours.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Open source sous AGPL-3.0, financé par la version en ligne Premium et des dons, sans publicité.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Développé depuis 2021 et passé en version 2 ; saisie manuelle obligatoire et cours parfois manquants pour les fonds européens.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub (README, licence, versions), Docker Hub et le blog du créateur le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Ghostfolio</h3><div class="cp"><b>Gratuit</b><small>Gratuit et sans limite une fois installé chez toi (Docker)</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (PC, NAS, Raspberry Pi)</span><span class="on">Navigateur, téléphone (PWA)</span></div>
+        <p>Bon pour : Suivre actions, ETF et crypto sur plusieurs comptes, en privé</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ghostfolio Premium</h3><div class="cp"><b>≈ 40-50 $/an</b><small>Version hébergée par l'équipe du projet, avec données de marché professionnelles (prix relevés par des comparateurs, à vérifier sur ghostfol.io)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Ghostfolio</span><span class="on">Navigateur, téléphone</span></div>
+        <p>Bon pour : Le même outil sans rien installer, en soutenant le projet</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Finary</h3><div class="cp"><b>Dès 0 €</b><small>Version gratuite limitée ; Finary Plus 149,99 €/an, Pro 349,99 €/an (tarifs 2026)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Finary</span><span class="on">Navigateur, iOS, Android</span></div>
+        <p>Bon pour : La synchro automatique de tes comptes français, assurance-vie et immobilier compris</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Portfolio Performance</h3><div class="cp"><b>Gratuit</b><small>Logiciel open source (licence Eclipse), gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : Des calculs de performance très poussés, sur un seul ordinateur</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GHOSTFOLIO</b><span>si tu veux tout voir au même endroit, depuis ton téléphone, sans abonnement et sans confier tes chiffres à une entreprise.</span></li>
+        <li><b>FINARY</b><span>si tu veux que tes comptes se mettent à jour tout seuls, et que payer chaque année ne te gêne pas.</span></li>
+        <li><b>PORTFOLIO PERFORMANCE</b><span>si tu veux les calculs les plus détaillés et que tout rester sur un seul PC te va.</span></li>
+      </ul>
+      <p class="warnline">Aucun de ces outils ne remplace un conseil personnalisé : ils montrent tes placements, ils ne disent pas quoi acheter.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°36 · Ghostfolio · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/ghostfolio/ghostfolio">dépôt GitHub ghostfolio/ghostfolio (README, licence AGPL-3.0, ~9 600 étoiles)</a> · <a href="https://hub.docker.com/r/ghostfolio/ghostfolio/tags">Docker Hub ghostfolio/ghostfolio (plus d'un million de téléchargements)</a> · <a href="https://dev.to/dtslvr/hello-ghostfolio-personal-finance-management-software-1ap6">Thomas Kaul : « Hello Ghostfolio » (lancement, vie privée)</a> · <a href="https://gappsy.com/tools/ghostfolio/">gappsy.com : Ghostfolio, Zurich, prix de Premium (juillet 2026)</a> · <a href="https://finary.com/en/finary-pro">Finary Pro : prix (349,99 €/an)</a> · <a href="https://lemediadelinvestisseur.fr/avis-et-test/finary-reduction-et-avis-sur-les-abonnements/">Le Média de l'Investisseur : prix de Finary Plus (149,99 €/an)</a> · <a href="https://www.lafabriquedunet.fr/logiciel/portfolio-performance">La Fabrique du Net : Portfolio Performance</a> · <a href="https://openapps.pro/apps/ghostfolio">openapps.pro : analyse X-ray et multi-comptes</a></span>
+  </footer>
+</main>
+</body>
+</html>
