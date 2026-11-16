@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · changedetection.io</title>
+<meta name="description" content="changedetection.io expliqué simplement : où l'installer (Docker, NAS, mini PC ou version hébergée), ce qu'il surveille, alertes, usages, note de confiance et comparatif avec Visualping, Distill et PageCrawl.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°30 · changedetection.io">
+<meta property="og:description" content="Surveille n'importe quelle page web et reçois une alerte quand le prix baisse, quand un produit revient en stock ou quand le contenu change. Gratuit et open source.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/changedetection.io.png">
+<meta property="og:url" content="https://repopop.github.io/changedetection.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de changedetection.io">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°30</div>
+        <h1>change<span>detection.io</span></h1>
+        <p class="tag">Il surveille les pages web à ta place et te prévient dès qu'elles changent : baisse de prix, retour en stock, nouvelle annonce. Gratuit, open source, chez toi.</p>
+        <div class="chips">
+          <span class="chip">★ 35 000+ étoiles</span>
+          <span class="chip">Version 0.70.3</span>
+          <span class="chip">Gratuit · licence Apache 2.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>changedetection.io</b> surveille des pages web à ta place. Tu colles l'adresse d'une page, tu choisis à quelle fréquence la vérifier, et il te prévient dès qu'elle change : sur <b>Telegram, Discord, par mail</b> et plus de 85 autres services. Pour une fiche produit, il lit le <b>prix</b> et le <b>stock</b>, garde l'historique en graphique et ne t'alerte que si le prix passe sous ta limite ou si le produit revient. Tu peux aussi ne surveiller qu'<b>une partie de la page</b>, ignorer le bruit, suivre un PDF ou une API, et demander à une <b>IA</b> facultative de résumer ce qui a changé.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Chez toi avec Docker</h3>
+        <p>La méthode recommandée : une seule commande Docker (ou docker compose) sur un NAS, un mini PC, un serveur ou un Raspberry Pi. Interface web sur le port 5000, données dans un dossier à toi.</p>
+        <span class="pill ok">Gratuit, tout reste chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sur ton PC avec Python</h3>
+        <p>Avec pip (pip3 install changedetection.io) sur Linux ou Mac, et une procédure Windows sur le wiki. Pratique pour tester, mais il ne surveille que quand ton PC est allumé.</p>
+        <span class="pill mid">Pour tester</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Version hébergée</h3>
+        <p>Le même logiciel, hébergé par son créateur : 8,99 $ par mois, navigateur Chrome et proxys inclus, rien à installer. Tes pages surveillées sont alors sur leurs serveurs.</p>
+        <span class="pill mid">Payant, sans installation</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence Apache 2.0 : tu l'utilises gratuitement, chez toi, sans limite de pages. Seule la revente du logiciel dans une offre commerciale demande la licence commerciale du projet.</span></li>
+        <li><span class="dot y">!</span><span><b>Sites en JavaScript : ajoute un navigateur.</b> Par défaut, il lit la page sans exécuter JavaScript (rapide). Pour les boutiques qui chargent le prix en JavaScript, le <b>sélecteur visuel</b> et les <b>étapes de navigateur</b> (cliquer, se connecter, accepter les cookies), il faut activer un navigateur Chrome (Playwright, déjà prévu dans le docker-compose).</span></li>
+        <li><span class="dot y">↔</span><span><b>L'IA est facultative.</b> Les règles et résumés par IA envoient les changements détectés au fournisseur que tu branches (OpenAI, Gemini, Anthropic…), avec ses propres coûts. Tu peux aussi tout garder chez toi avec Ollama ou LM Studio.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Protège ton interface.</b> La commande officielle n'ouvre l'interface que sur ta machine (127.0.0.1). Si tu l'ouvres à ton réseau ou à Internet, active le mot de passe dans les réglages et passe par un VPN ou un reverse proxy en HTTPS.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Mets-le à jour souvent.</b> Plusieurs failles ont été corrigées en 2026 (XSS, lecture de fichiers via XPath, sauvegardes) : le projet publie vite les correctifs, à condition de mettre ton conteneur à jour (docker compose pull).</span></li>
+        <li><span class="dot y">⏱</span><span><b>Reste raisonnable sur la fréquence.</b> Vérifier une boutique toutes les minutes peut te faire bloquer et va contre les conditions de certains sites. Une vérification par heure suffit pour un prix ; des proxys (payants) existent pour les cas difficiles.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Attendre la bonne promo</h3></div>
+        <p>Tu colles la fiche produit, tu fixes ton prix : il garde l'historique en graphique et ne t'alerte que quand le prix passe sous ta limite (ou baisse d'un certain pourcentage).</p>
+        <div class="flow"><span>Fiche produit</span><i>→</i><span>Ton prix</span><i>→</i><span>Alerte</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Être là au retour en stock</h3></div>
+        <p>Pour une console, une carte graphique ou une édition limitée : la détection « retour en stock » te prévient dès que le bouton d'achat revient, avec une capture d'écran dans la notification.</p>
+        <div class="flow"><span>Rupture</span><i>→</i><span>Vérification</span><i>→</i><span>En stock !</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Suivre une page d'administration</h3></div>
+        <p>Mairie, préfecture, université, règlement d'un concours : beaucoup d'annonces ne sont publiées que sur le site. Tu surveilles juste la zone des actualités, sans le menu ni le pied de page.</p>
+        <div class="tools"><span class="tool">Zone précise</span><span class="tool">Ignorer le bruit</span><span class="tool">Mail</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Voir passer les offres d'emploi</h3></div>
+        <p>Tu surveilles la page carrières d'une entreprise ou une recherche sur un site d'annonces, avec un filtre sur des mots-clés : une alerte seulement quand un poste qui te correspond apparaît.</p>
+        <div class="flow"><span>Page carrières</span><i>→</i><span>Mot-clé</span><i>→</i><span>Nouveau poste</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Ne rater aucune mise à jour</h3></div>
+        <p>Nouvelle version d'un logiciel, avis de sécurité, PDF de conditions qui change, réponse d'une API : il compare mot par mot et peut même créer un flux RSS des changements.</p>
+        <div class="tools"><span class="tool">PDF</span><span class="tool">API JSON</span><span class="tool">Flux RSS</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Très actif depuis 2021, tout chez toi</h3>
+          <p>Créé en janvier 2021 par Leigh Morresi (dgtlmoon), changedetection.io est devenu l'outil de référence pour surveiller des pages web chez soi. Il est financé par sa version hébergée payante et par des partenariats avec des fournisseurs de proxys.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 2 700 commits, version 0.70.3 publiée le 9 novembre 2026, des mises à jour presque chaque semaine.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 35 800 étoiles, 2 250 forks et plus de 170 contributeurs sur GitHub ; extension Chrome et images Docker de LinuxServer.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tout reste chez toi en auto-hébergement ; seules l'IA (si tu la branches), les notifications et les proxys éventuels passent par des services tiers.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit et open source, financé par l'abonnement hébergé à 8,99 $ par mois et par des liens partenaires vers des fournisseurs de proxys.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Près de cinq ans d'existence et très utilisé, mais toujours en version 0.x, avec plusieurs failles corrigées en 2026 : mises à jour régulières indispensables.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README, le site officiel et les notes de version le 15 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>changedetection.io</h3><div class="cp"><b>Gratuit</b><small>Gratuit chez toi, sans limite de pages ; version hébergée à 8,99 $ par mois si tu ne veux rien installer</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (NAS, mini PC, serveur)</span><span class="on">Docker, Python, navigateur</span></div>
+        <p>Bon pour : Surveiller autant de pages que tu veux, prix et stock compris, sans abonnement</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Visualping</h3><div class="cp"><b>Gratuit / dès 10 $/mois</b><small>Gratuit : 5 pages et 150 vérifications par mois, une par heure au mieux ; Personal dès 10 $ par mois ; Business dès 100 $ par mois</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Visualping</span><span class="on">Navigateur, extension</span></div>
+        <p>Bon pour : Démarrer en deux clics, sans serveur</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Distill.io</h3><div class="cp"><b>Gratuit / dès 15 $/mois</b><small>Gratuit : 25 moniteurs dont 5 dans le cloud, 1 000 vérifications par mois ; Starter 15 $, Professional 35 $ par mois</small></div></div>
+        <div class="cm"><span class="lvl m">Ton navigateur ou leurs serveurs</span><span class="on">Extension, appli, navigateur</span></div>
+        <p>Bon pour : Surveiller depuis ton navigateur, sans installer de serveur</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>PageCrawl</h3><div class="cp"><b>Gratuit / dès 8 $/mois</b><small>Offre gratuite limitée ; Standard dès 8 $ par mois pour 100 pages vérifiées toutes les 15 minutes (prix annoncés par l'éditeur)</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de PageCrawl</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Une solution en ligne moins chère, si tu acceptes le cloud</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CHANGEDETECTION.IO</b><span>si tu as un NAS, un mini PC ou un Raspberry Pi et que tu veux surveiller beaucoup de pages, prix et stock compris, sans payer chaque mois.</span></li>
+        <li><b>VISUALPING OU DISTILL</b><span>si tu ne surveilles que quelques pages et que tu ne veux rien installer : les offres gratuites suffisent souvent.</span></li>
+        <li><b>VERSION HÉBERGÉE</b><span>si tu veux changedetection.io sans t'occuper d'un serveur : 8,99 $ par mois, navigateur et proxys inclus.</span></li>
+      </ul>
+      <p class="warnline">Surveiller un site très souvent peut te faire bloquer : respecte les conditions d'utilisation des sites et garde une fréquence raisonnable.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°30 · changedetection.io · informations vérifiées le 15 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/dgtlmoon/changedetection.io">dépôt GitHub dgtlmoon/changedetection.io (README, licence, notes de version)</a> · <a href="https://changedetection.io/">site officiel et version hébergée</a> · <a href="https://www.reddit.com/r/selfhosted/comments/xep0w3/changedetectionio_helped_me_buy_a_raspberry_pi/">r/selfhosted : changedetection.io m'a aidé à acheter un Raspberry Pi (et une PS5)</a> · <a href="https://www.reddit.com/r/selfhosted/comments/n89eyq/my_selfhosted_lockdown_project_changedetectionio/">r/selfhosted : « My self-hosted lockdown project » (mai 2021)</a> · <a href="https://visualping.io/blog/visualping-pricing-explained">Visualping : explication des prix (avril 2026)</a> · <a href="https://distill.io/pricing/">Distill : page des prix</a> · <a href="https://pagecrawl.io/alternative/visualping">PageCrawl : comparaison avec Visualping (novembre 2026)</a> · <a href="https://newreleases.io/project/github/dgtlmoon/changedetection.io/release/0.54.4">notes de version et correctifs de sécurité 2026</a></span>
+  </footer>
+</main>
+</body>
+</html>
