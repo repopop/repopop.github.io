@@ -26,6 +26,26 @@
 .kit .meta span{font-size:13px;font-weight:700;border:2px solid var(--ink);border-radius:999px;padding:2px 10px;background:#F4F0FF}
 .kit .meta span.ok{background:#C9F6E2}
 .soon{border:3px dashed #9B87D6;border-radius:18px;padding:16px;color:#E9E2FF;font-weight:700;text-align:center}
+
+.fmts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fmts a{text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:10px 6px;text-align:center}
+.fmts a b{font-family:var(--display);font-weight:400;font-size:15px}
+.fmts a span{font-size:12px;font-weight:700}
+.fhead{border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:14px 16px;display:flex;align-items:center;gap:14px}
+.fhead .fb{flex:none;display:inline-flex;align-items:center;gap:6px;color:var(--ink);border:3px solid var(--ink);border-radius:10px;font-family:var(--display);font-size:13px;padding:5px 10px;transform:rotate(-3deg)}
+.fhead .fb svg{width:15px;height:15px}
+.fhead h2{font-size:21px;color:var(--paper);text-shadow:2px 2px 0 var(--ink)}
+.fhead p{margin:2px 0 0;font-size:14px;color:#E9E2FF}
+.fhead.dv{background:#5B21B6} .fhead.dv .fb{background:#FFD60A}
+.fhead.ex{background:#0E1424;border-bottom-width:10px;border-bottom-color:#3B82F6} .fhead.ex .fb{background:#FFB27A}
+.fhead.dc{background:#0F5E5A;border-bottom-width:10px;border-bottom-color:#19867F} .fhead.dc .fb{background:#C6F432}
+.fhead.dc p{color:#D7FBEF}
+.bientot{border:3px dashed #9B87D6;border-radius:18px;padding:16px;color:#E9E2FF;font-weight:700;text-align:center}
+.bientot.ex{border-color:#7E8CB0;background:#0E1424}
+.bientot.dc{border-color:#6EF2C2;background:#042F2E;color:#D7FBEF}
+.kit-decode .no{color:#0F5E5A}
+.kit-decode .meta span{background:#E6FBF3}
+.kit-decode img{background:#C6F432}
 </style>
 </head>
 <body>
@@ -38,7 +58,7 @@
     <div class="row">
       <div class="txt">
         <h1 style="margin-top:18px">Les <span>kits</span></h1>
-        <p class="tag">Chaque dépôt GitHub de nos vidéos, expliqué simplement et en français.</p>
+        <p class="tag">Chaque vidéo RepoPop a son kit, expliqué simplement et en français.</p>
         <div class="chips">
           <span class="chip">Où l'installer</span>
           <span class="chip">Usages concrets</span>
@@ -50,8 +70,14 @@
     </div>
   </header>
 
-  <section>
-    <div class="sh"><h2>Tous les kits</h2></div>
+  <nav class="fmts" aria-label="Formats">
+    <a href="#decouverte" style="background:#FFD60A"><b>DÉCOUVERTE</b><span>un dépôt GitHub</span></a>
+    <a href="#expert" style="background:#FFB27A"><b>EXPERT</b><span>pas à pas</span></a>
+    <a href="#decode" style="background:#C6F432"><b>DÉCODE</b><span>ton IA, au-delà du chat</span></a>
+  </nav>
+
+  <section id="decouverte">
+    <div class="fhead dv"><span class="fb"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span><div><h2>Un dépôt GitHub en 45 s</h2><p>Où l'installer, usages, note de confiance, comparatif.</p></div></div>
     <div class="list">
       <a class="sticker kit" href="/stirling-pdf/">
         <img src="/stirling-pdf/logo.webp" alt="">
@@ -334,6 +360,27 @@
         <div class="meta"><span class="ok">Confiance 8,0/10</span><span>Gratuit (clé d'IA à prévoir)</span><span>16 nov. 2026</span></div>
       </a>
       <div class="soon">Le prochain kit arrive avec la prochaine vidéo.</div>
+    </div>
+  </section>
+
+  <section id="expert">
+    <div class="fhead ex"><span class="fb"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M44 6a14 14 0 0 0-13 19L8 48a5 5 0 0 0 0 7l1 1a5 5 0 0 0 7 0l23-23a14 14 0 0 0 19-13l-9 5-7-3-2-7z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round"/></svg>EXPERT</span><div><h2>Une fonction, pas à pas</h2><p>Pour aller plus loin sur un dépôt déjà présenté.</p></div></div>
+    <div class="list" id="liste-expert">
+      <div class="bientot ex">Le premier kit Expert arrive avec la première vidéo Expert.</div>
+    </div>
+  </section>
+
+  <section id="decode">
+    <div class="fhead dc"><span class="fb"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span><div><h2>Ton IA, au-delà du chat</h2><p>Une fonction de Claude ou ChatGPT, captures à l'appui.</p></div></div>
+    <div class="list" id="liste-decode">
+      <a class="sticker kit kit-decode" href="/decode/skills/">
+        <img src="/decode/skills/logo.webp" alt="">
+        <span class="no">DÉCODE N°01</span>
+        <h3>Les Skills</h3>
+        <p>Des modes d'emploi que Claude ouvre tout seul, au bon moment.</p>
+        <div class="meta"><span>Claude</span><span>Dès l'offre gratuite</span><span>5 captures annotées</span><span>17 nov. 2026</span></div>
+      </a>
+      <div class="bientot dc">Le prochain kit Décode arrive avec la prochaine vidéo Décode.</div>
     </div>
   </section>
 

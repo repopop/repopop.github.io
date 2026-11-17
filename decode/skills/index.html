@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Les Skills</title>
+<meta name="description" content="Les Skills de Claude expliqués simplement : c'est quoi, où les trouver (Personnalisation › Skills), comment en ajouter ou en créer une avec Claude, et l'équivalent chez ChatGPT et Gemini. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°01 · Les Skills">
+<meta property="og:description" content="C'est quoi une skill, où la trouver dans Claude, comment créer la tienne : le pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-skills.png">
+<meta property="og:url" content="https://repopop.github.io/decode/skills/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Les Skills">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°01</div>
+        <h1>Les <span>Skills</span></h1>
+        <p class="tag">Apprends ta façon de travailler à Claude une bonne fois pour toutes : il ouvrira le bon mode d'emploi tout seul.</p>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Dès l'offre gratuite</span>
+          <span class="chip">5 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Une <b>skill</b>, c'est un <span class="k">mode d'emploi</span> rangé dans Claude : des consignes (et parfois des modèles ou des scripts) pour faire une tâche précise à ta façon. Claude garde toutes tes skills de côté, ne lit que leur nom et leur description, et <b>ouvre la bonne tout seul</b> quand ta demande en a besoin.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Rangées dans Claude</h3>
+        <p>Toutes tes skills sont dans <b>Personnalisation › Skills</b> : celles d'Anthropic (Word, Excel, PowerPoint, PDF), celles que tu ajoutes et les tiennes.</p>
+        <span class="pill ok">Tous les forfaits</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Ouvertes au bon moment</h3>
+        <p>Tu demandes normalement : Claude choisit la skill utile (par ex. <span class="k">pptx</span> pour une présentation). Sinon, nomme-la : « utilise ma skill charte pour… ».</p>
+        <span class="pill ok">Automatique</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Une seule fois</h3>
+        <p>Tu écris ta méthode une fois (ou tu la fais écrire par Claude) : elle sert dans toutes tes conversations, et même dans Claude Code et Claude pour Excel, PowerPoint, Word et Outlook.</p>
+        <span class="pill mid">Même compte</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Dès l'offre gratuite.</b> Skills disponibles sur Free, Pro, Max, Ultra, Team et Enterprise (aide officielle de Claude, 17/11/2026).</span></li>
+        <li><span class="dot y">!</span><span><b>Exécution de code requise.</b> Paramètres › Capacités › <b>Exécuter du code dans le cloud</b> doit être activé (« Requis pour les Skills »).</span></li>
+        <li><span class="dot y">⌂</span><span><b>Team et Enterprise :</b> c'est l'administrateur qui autorise les skills (Organization settings › Plugins &amp; skills, onglet Policy).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Sources de confiance seulement.</b> Une skill peut contenir du code et demander d'installer des paquets : lis son contenu avant d'activer une skill venue d'ailleurs.</span></li>
+        <li><span class="dot g">↔</span><span><b>Format ouvert.</b> Une skill est un dossier avec un fichier <b>SKILL.md</b> : le même format se lit dans Claude Code, et Gemini sait importer un SKILL.md.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Tout se passe dans la barre de gauche de Claude (web et appli de bureau), menu <b>Personnalisation</b>.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Activer l'exécution de code</h3></div>
+        <div class="chemin">Paramètres › Capacités › Exécuter du code dans le cloud</div>
+        <p>À faire une fois. Sans cette option, les skills ne peuvent pas tourner.</p>
+        <figure class="shot"><img src="captures/03_capacites.webp" alt="« Requis pour les Skills » : l'interrupteur doit être bleu." loading="lazy"><figcaption>« Requis pour les Skills » : l'interrupteur doit être bleu.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Ajouter une skill toute prête</h3></div>
+        <div class="chemin">Personnalisation › Skills › Découvrir</div>
+        <p>Parcours les skills par catégorie, clique <b>Essayer</b> pour la tester ou <b>+</b> pour l'ajouter.</p>
+        <figure class="shot"><img src="captures/01_decouvrir.webp" alt="Design, par Anthropic : 3,5 millions d'installations (17/11/2026)." loading="lazy"><figcaption>Design, par Anthropic : 3,5 millions d'installations (17/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Créer la tienne</h3></div>
+        <div class="chemin">Personnalisation › Skills › Les vôtres › Ajouter › Créer avec Claude</div>
+        <p>Décris ta méthode à Claude : il écrit la skill pour toi. Tu peux aussi <b>Importer un Skill</b> (un dossier zippé avec son SKILL.md) ou l'écrire toi-même.</p>
+        <figure class="shot"><img src="captures/02_ajouter.webp" alt="Le menu Ajouter : importer, créer, ou créer avec Claude." loading="lazy"><figcaption>Le menu Ajouter : importer, créer, ou créer avec Claude.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Demander normalement</h3></div>
+        <div class="chemin">Nouvelle conversation</div>
+        <p>Claude charge la skill utile tout seul. Ici, une demande de présentation : « Compétence chargée pptx ».</p>
+        <figure class="shot"><img src="captures/04_skill_utilisee.webp" alt="Les étapes dépliées montrent quelle skill Claude a ouverte." loading="lazy"><figcaption>Les étapes dépliées montrent quelle skill Claude a ouverte.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">5</span><h3>Le résultat</h3></div>
+        <div class="chemin">Fichier créé</div>
+        <p>La présentation sort avec la méthode de la skill PowerPoint (mise en page vérifiée, notes de présentation).</p>
+        <figure class="shot"><img src="captures/05_presentation.webp" alt="Le fichier .pptx produit, prêt à télécharger." loading="lazy"><figcaption>Le fichier .pptx produit, prêt à télécharger.</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ta charte en un clic</h3></div>
+        <p>Couleurs, polices et logo de ta marque : toutes tes présentations et tes documents sortent aux bonnes couleurs.</p>
+        <div class="flow"><span>Skill charte</span><i>→</i><span>« Fais la présentation »</span><i>→</i><span>À tes couleurs</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Tes comptes rendus</h3></div>
+        <p>Ton plan habituel (décisions, actions, responsables, échéances) appliqué à chaque réunion que tu colles.</p>
+        <div class="flow"><span>Notes brutes</span><i>→</i><span>Skill compte rendu</span><i>→</i><span>CR propre</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Tes mails types</h3></div>
+        <p>Ton ton, ta signature, tes formules : relances, devis, réponses clients écrits comme toi.</p>
+        <div class="tools"><span class="tool">Relance</span><span class="tool">Devis</span><span class="tool">Réponse client</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Tes tableaux Excel</h3></div>
+        <p>Tes colonnes, tes formules et ton graphique préférés, à chaque export de chiffres.</p>
+        <div class="flow"><span>Export brut</span><i>→</i><span>Skill Excel</span><i>→</i><span>Tableau prêt</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Ta checklist de relecture</h3></div>
+        <p>Les points que tu vérifies toujours (orthographe, chiffres, liens, mentions) passés en revue sans rien oublier.</p>
+        <div class="tools"><span class="tool">Relire</span><span class="tool">Vérifier</span><span class="tool">Corriger</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Le principe des skills se retrouve chez les concurrents, avec des offres et des noms différents.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude</h3><div class="cp"><b>Skills</b><small>Dès l'offre gratuite</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, bureau, Claude Code, Excel/PowerPoint/Word/Outlook</span></div>
+        <p>Bon pour : tout le monde, y compris en <b>gratuit</b> ; catalogue Découvrir et création avec Claude.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini</h3><div class="cp"><b>Skills (remplacent les Gems)</b><small>Comptes perso et Workspace</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, appli mobile, Mac, Workspace</span></div>
+        <p>Bon pour : les utilisateurs Google ; les Gems des comptes perso deviennent des skills à partir du 17/11/2026, import d'un SKILL.md possible.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Skills</b><small>Business, Enterprise, Healthcare, Edu</small></div></div>
+        <div class="cm"><span class="lvl m">Offres entreprise</span><span class="on">Web, Codex, API</span></div>
+        <p>Bon pour : les entreprises sur ChatGPT ; pas listé pour Free, Plus et Pro dans l'aide d'OpenAI. Sinon : les Projets.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE</b><span>le plus simple pour commencer : gratuit, catalogue prêt, et Claude écrit la skill pour toi.</span></li>
+        <li><b>GEMINI</b><span>si tu vis dans Google ; tes Gems deviennent des skills.</span></li>
+        <li><b>CHATGPT</b><span>si ton entreprise a une offre Business ou Enterprise.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°01 · Les Skills · informations et captures vérifiées le 17 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.claude.com/en/articles/12512180">Aide Claude : Use skills in Claude</a> · <a href="https://claude.ai/customize/skills">Appli Claude : Personnalisation › Skills (vu le 17/11/2026)</a> · <a href="https://blog.google/products-and-platforms/products/gemini/automate-tasks-with-skills/">Google : skills in Gemini</a> · <a href="https://support.google.com/gemini/answer/18560919">Aide Gemini : transition des Gems vers les skills</a> · <a href="https://help.openai.com/en/articles/20001066-skills-in-chatgpt">Aide OpenAI : Skills in ChatGPT</a></span>
+  </footer>
+</main>
+</body>
+</html>
