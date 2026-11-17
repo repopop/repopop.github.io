@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Daily Stock Analysis</title>
+<meta name="description" content="Daily Stock Analysis expliqué simplement : à quoi ça sert, comment recevoir chaque jour une analyse IA de tes actions sur Telegram, comment l'installer gratuitement sur GitHub Actions ou chez toi avec Docker, ce qui est vraiment gratuit, les marchés couverts, usages, note de confiance et comparatif avec Zonebourse, InvestingPro, Seeking Alpha et Ghostfolio.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°40 · Daily Stock Analysis">
+<meta property="og:description" content="Ta liste d'actions, les cours, l'actu : chaque jour, une fiche IA par action sur ton téléphone (note sur 100, tendance, risques). Gratuit, sans serveur.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/daily-stock-analysis.png">
+<meta property="og:url" content="https://repopop.github.io/daily-stock-analysis/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Daily Stock Analysis">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°40</div>
+        <h1>Daily Stock <span>Analysis</span></h1>
+        <p class="tag">Tu lui donnes ta liste d'actions : chaque jour, l'IA lit les cours et l'actu, et t'envoie une fiche par action sur ton téléphone. Une aide pour réfléchir, pas un conseil.</p>
+        <div class="chips">
+          <span class="chip">★ 73 000+ étoiles</span>
+          <span class="chip">Version 3.35.0</span>
+          <span class="chip">Gratuit (clé d'IA à prévoir) · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead"><b>Daily Stock Analysis</b> (DSA) est un outil qui <b>analyse chaque jour ta liste d'actions avec une IA</b>. Il récupère les <b>cours</b>, les <b>indicateurs techniques</b> et l'<b>actualité</b> de chaque titre, puis le modèle d'IA de ton choix (Gemini, Claude, DeepSeek, Qwen, un service compatible OpenAI, ou un <b>modèle local avec Ollama</b>) rédige un <b>tableau de bord</b> : pour chaque action, une conclusion, une <b>note sur 100</b>, la <b>tendance</b>, des niveaux d'entrée et de sortie, les <b>risques</b> et les catalyseurs. Le rapport arrive sur <b>Telegram</b>, Discord, Slack, par e-mail, sur WeChat Work ou Feishu. Une <b>interface web</b> ajoute l'historique, l'analyse à la demande, un agent de stratégies, le backtest et le suivi de portefeuille. La différence avec <b>Ghostfolio</b> (vidéo n°36) : Ghostfolio suit <b>ton patrimoine</b> ; DSA <b>analyse tes actions</b> chaque jour. <b>Ce n'est pas un conseil d'investissement</b> : c'est une aide pour réfléchir, c'est toi qui décides.</p>
+
+    <div class="where">
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>GitHub Actions (sans serveur)</h3>
+        <p>Tu forkes le dépôt, tu ajoutes dans Settings &gt; Secrets and variables &gt; Actions au moins une clé d'IA, un canal de notification (ex. TELEGRAM_BOT_TOKEN et TELEGRAM_CHAT_ID) et ta liste STOCK_LIST, puis tu actives les workflows. Par défaut, l'analyse part du lundi au vendredi à 10 h UTC (18 h à Pékin, 11 h à Paris en hiver) ; l'horaire se change dans le fichier du workflow.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker (PC, NAS)</h3>
+        <p>git clone du dépôt, cp .env.example .env (clés et liste d'actions), puis docker compose -f docker/docker-compose.yml up -d server pour l'interface web sur le port 8000 (ou analyzer pour l'analyse planifiée seule). Une image officielle zhulinsen/daily_stock_analysis existe aussi. Compte 1 Go de RAM pour une analyse complète.</p>
+        <span class="pill ok">Chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Python sur ton PC</h3>
+        <p>pip install -r requirements.txt, puis python main.py (options --webui, --schedule, --dry-run…). Python 3.10 ou plus. Avec Docker, c'est le mode conseillé pour une IA locale avec Ollama (sur GitHub Actions, le README recommande une IA en ligne).</p>
+        <span class="pill mid">Un peu technique</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Pas un conseil d'investissement.</b> Le README le dit lui-même : l'analyse générée par l'IA n'est pas un conseil d'investissement, et l'auteur n'est pas responsable des pertes. L'IA peut se tromper ou inventer, et les données gratuites peuvent être retardées. Vérifie toujours avant d'acheter ou de vendre.</span></li>
+        <li><span class="dot y">!</span><span><b>Actions européennes : non annoncées.</b> Les marchés couverts sont la Chine (A-shares), Hong Kong, les États-Unis, le Japon, la Corée du Sud, Taïwan et les ETF. Paris, Francfort ou Londres ne figurent pas dans la documentation : ne compte pas dessus pour un PEA.</span></li>
+        <li><span class="dot y">€</span><span><b>Gratuit, mais l'IA demande une clé.</b> Le logiciel est gratuit (licence MIT) et les sources de cours par défaut (AkShare, Baostock, YFinance) aussi. Il faut au moins une clé d'IA : certains fournisseurs ont une offre gratuite limitée, sinon c'est payé à l'usage. La recherche d'actualités (SerpAPI, Tavily, Brave…) demande aussi une clé, souvent avec un quota gratuit.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Fork public = journaux publics.</b> GitHub Actions est gratuit et illimité sur un dépôt public, et tes clés restent cachées dans les Secrets. Mais les journaux d'exécution d'un dépôt public sont visibles par tous : ta liste d'actions ou des extraits du rapport peuvent y apparaître. Si ça te gêne, passe le dépôt en privé (2 000 minutes gratuites par mois) ou installe-le chez toi.</span></li>
+        <li><span class="dot y">↔</span><span><b>Où partent tes données ?</b> Ta liste d'actions, les cours et l'actu de chaque titre sont envoyés au fournisseur d'IA pour rédiger le rapport, et les noms des titres aux services de recherche d'actualités. Aucun compte de courtier n'est nécessaire. Avec Ollama en local, l'analyse reste sur ta machine.</span></li>
+        <li><span class="dot y">!</span><span><b>Sources gratuites fragiles.</b> Les sources gratuites peuvent limiter le débit, changer d'interface ou couper : le README prévient qu'elles ne sont pas garanties. Des sources à jeton (Tushare, Longbridge…) sont plus stables. Commence avec 2 ou 3 actions pour tout tester.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Le rapport du jour sur ton téléphone</h3></div>
+        <p>Chaque jour de bourse, une fiche par action de ta liste arrive sur Telegram ou par e-mail : note sur 100, tendance, risques, actualités et points à surveiller.</p>
+        <div class="flow"><span>Ta liste</span><i>→</i><span>Analyse IA</span><i>→</i><span>Telegram</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>La revue du marché</h3></div>
+        <p>Un résumé des grands indices, du nombre de hausses et de baisses, et des secteurs les plus forts et les plus faibles de la séance.</p>
+        <div class="tools"><span class="tool">Indices</span><span class="tool">Hausses / baisses</span><span class="tool">Secteurs</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Discuter stratégie avec l'agent</h3></div>
+        <p>Pose tes questions en langage courant à l'agent, qui connaît 15 stratégies intégrées (moyennes mobiles, ondes d'Elliott, tendance, événements, croissance…).</p>
+        <div class="tools"><span class="tool">Agent</span><span class="tool">15 stratégies</span><span class="tool">Web, bot ou API</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Importer ta liste en un geste</h3></div>
+        <p>Une capture d'écran de ton appli de courtier, un fichier CSV ou Excel, ou un copier-coller : l'outil reconnaît les codes et les noms des actions.</p>
+        <div class="flow"><span>Capture ou Excel</span><i>→</i><span>Import</span><i>→</i><span>Ta liste</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>L'historique et le backtest</h3></div>
+        <p>Dans l'interface web, relis les anciens rapports, vérifie après coup si les analyses passées tenaient la route (backtest) et suis ton portefeuille.</p>
+        <div class="tools"><span class="tool">Historique</span><span class="tool">Backtest</span><span class="tool">Portefeuille</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,0 sur 10" style="background:conic-gradient(#16C47F 0 80%,#E7E2F2 80% 100%)"><div>8,0<small>/10</small></div></div>
+        <div>
+          <h3>Un phénomène de 2026, encore jeune</h3>
+          <p>Créé le 10 janvier 2026 par le développeur ZhuLinsen, Daily Stock Analysis a dépassé 69 000 étoiles et 56 000 copies (forks) sur GitHub en dix mois : beaucoup de forks servent à le faire tourner sur son propre compte avec GitHub Actions. Il a été n°2 de GitHub Trending (juin 2026), n°1 des dépôts Python du jour sur Trendshift, mis en avant par HelloGitHub, et fait l'objet d'une publication sur arXiv (« DSA: Evidence-Aware LLM-Agent Orchestration for Multi-Market Stock Research »).</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Une nouvelle version presque chaque semaine (3.27 à 3.30 entre juillet et août 2026, 3.32 ensuite), plus de 1 000 commits et des correctifs réguliers.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 69 500 étoiles et 56 600 forks en dix mois, des guides écrits par d'autres (NAS, Railway, Japon), et une image Docker très téléchargée.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Aucun compte de courtier demandé et tout peut tourner chez toi ; mais ta liste et les données partent chez le fournisseur d'IA (sauf Ollama), et les journaux d'un fork public sont visibles.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Licence MIT, gratuit ; porté surtout par un seul auteur, financé par des sponsors (dont des fournisseurs d'IA avec liens d'affiliation).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Moins d'un an d'existence, changements très fréquents, sources de données gratuites instables ; la documentation et le code sont d'abord en chinois.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, le README et la documentation du dépôt, Trendshift, HelloGitHub et arXiv le 16 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Daily Stock Analysis</h3><div class="cp"><b>Gratuit</b><small>Logiciel gratuit (MIT) ; GitHub Actions gratuit sur un dépôt public ; clé d'IA : offre gratuite limitée chez certains fournisseurs ou paiement à l'usage, gratuit avec Ollama en local</small></div></div>
+        <div class="cm"><span class="lvl m">Ton compte GitHub ou chez toi, plus le fournisseur d'IA</span><span class="on">GitHub Actions, Docker, Python, interface web</span></div>
+        <p>Bon pour : Recevoir chaque jour une analyse IA de tes actions US ou asiatiques, sans abonnement</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Zonebourse</h3><div class="cp"><b>Dès 29 €/mois</b><small>Access 29 €/mois (288 €/an), Premium 49 €/mois (480 €/an), Expert 249 €/mois</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Zonebourse</span><span class="on">Navigateur, iOS</span></div>
+        <p>Bon pour : Des analyses écrites par des analystes, des portefeuilles modèles et les actions européennes</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>InvestingPro</h3><div class="cp"><b>Dès 16,99 € HT/mois</b><small>Pro 16,99 € HT/mois, Pro+ 42,49 € HT/mois (remises en annuel) ; l'assistant IA WarrenAI est inclus dans ces formules</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'Investing.com</span><span class="on">Navigateur, Android, iOS</span></div>
+        <p>Bon pour : Des données financières complètes et un assistant IA, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Seeking Alpha Premium</h3><div class="cp"><b>299 $/an</b><small>Prix catalogue 2026 de Premium ; promotions fréquentes la première année. Alpha Picks 499 $/an</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs de Seeking Alpha</span><span class="on">Navigateur, Android, iOS</span></div>
+        <p>Bon pour : Les actions américaines, avec des notes « Quant » et des articles d'analystes (en anglais)</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Ghostfolio</h3><div class="cp"><b>Gratuit chez toi</b><small>Auto-hébergé gratuit (vidéo RepoPop n°36) ; offre en ligne payante</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi (auto-hébergé)</span><span class="on">Docker, navigateur</span></div>
+        <p>Bon pour : Suivre ton patrimoine et tes placements, plutôt qu'analyser chaque action</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>DAILY STOCK ANALYSIS</b><span>si tu veux un résumé IA quotidien de tes actions américaines ou asiatiques, envoyé sur ton téléphone, sans abonnement.</span></li>
+        <li><b>ZONEBOURSE</b><span>si tu investis surtout en Europe et veux des analyses écrites par des analystes.</span></li>
+        <li><b>GHOSTFOLIO</b><span>si tu veux d'abord suivre l'ensemble de ton patrimoine.</span></li>
+      </ul>
+      <p class="warnline">Aucun de ces outils ne remplace ton jugement : une analyse, humaine ou IA, peut se tromper. Ce n'est pas un conseil d'investissement.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°40 · Daily Stock Analysis · informations vérifiées le 16 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/ZhuLinsen/daily_stock_analysis">dépôt GitHub ZhuLinsen/daily_stock_analysis</a> · <a href="https://github.com/ZhuLinsen/daily_stock_analysis/blob/main/docs/README_EN.md">README en anglais</a> · <a href="https://github.com/ZhuLinsen/daily_stock_analysis/blob/main/docs/market-support.md">marchés couverts (market-support.md)</a> · <a href="https://hub.docker.com/r/zhulinsen/daily_stock_analysis">image Docker officielle</a> · <a href="https://trendshift.io/repositories/18527">Trendshift</a> · <a href="https://hellogithub.com/en/repository/ZhuLinsen/daily_stock_analysis">HelloGitHub</a> · <a href="https://arxiv.org/abs/2608.26990">publication arXiv 2608.26990</a> · <a href="https://letraderdudimanche.com/meilleur-site-analyse-bourse">tarifs Zonebourse et InvestingPro 2026 (Le Trader du Dimanche)</a> · <a href="https://www.stockbrokers.com/review/tools/seeking-alpha">tarifs Seeking Alpha 2026 (StockBrokers.com)</a></span>
+  </footer>
+</main>
+</body>
+</html>
