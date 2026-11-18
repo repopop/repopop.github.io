@@ -1,0 +1,13 @@
+/* Pages légales RepoPop (confidentialité, conditions) — complète kit.css */
+.hero.legal{padding:22px 18px 20px}
+.hero.legal h1{font-size:36px}
+.hero.legal .tag{max-width:none}
+.legal-nav{display:flex;flex-wrap:wrap;gap:10px}
+.legal-nav a{text-decoration:none;background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:8px 12px;font-weight:700;font-size:14px}
+.legal-nav a[aria-current]{background:var(--yellow)}
+.lg h2{font-size:21px;margin-bottom:10px}
+.lg p{margin:0 0 10px;font-size:15px}
+.lg p:last-child,.lg ul:last-child{margin-bottom:0}
+.lg ul{margin:0 0 10px;padding-left:20px;display:grid;gap:6px;font-size:15px}
+.lg a{color:var(--violet);font-weight:700}
+.lg .note{background:#F4F0FF;border:2px solid var(--ink);border-radius:10px;padding:8px 10px;font-size:14px}
