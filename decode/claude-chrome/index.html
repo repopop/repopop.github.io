@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Claude dans Chrome</title>
+<meta name="description" content="Claude dans Chrome expliqué simplement : c'est quoi, comment l'installer et l'ouvrir (Chrome Web Store, épingler, panneau latéral), un exemple concret avec une recherche de billets d'avion, les modes d'autorisation, et ce que proposent ChatGPT et Gemini. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°03 · Claude dans Chrome">
+<meta property="og:description" content="Claude qui surfe à ta place dans Chrome : installation pas à pas en captures, exemple billets d'avion, sécurité. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-claude-chrome.png">
+<meta property="og:url" content="https://repopop.github.io/decode/claude-chrome/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Claude dans Chrome">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°03</div>
+        <h1>Claude <span>dans Chrome</span></h1>
+        <p class="tag">Claude surfe à ta place dans ton Chrome : il voit la page, clique, remplit et compare. Toi, tu gardes la main.</p>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Offre payante (Pro et +)</span>
+          <span class="chip">5 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Claude dans Chrome</b> (<span class="k">Claude in Chrome</span>) est l'extension officielle d'Anthropic pour Google Chrome. Dans un <b>panneau à droite</b>, Claude <b>lit la page, clique, remplit les formulaires et navigue d'un onglet à l'autre</b> à ta place, pendant que tu regardes. Tu lui donnes une mission en une phrase, il s'occupe des clics.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Il agit sur les sites</h3>
+        <p>Il ouvre les pages, tape dans les champs, clique sur les boutons et compare ce qu'il trouve. Tu peux lui donner <b>plusieurs onglets</b> à la fois (groupe d'onglets de Claude).</p>
+        <span class="pill ok">Chrome sur ordinateur</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Toi qui gardes la main</h3>
+        <p>Par défaut (<b>Approuver automatiquement</b>), Claude vérifie chaque action et s'arrête quand il a besoin de toi. Tu peux passer en <b>Approuver manuellement</b> pour valider chaque étape, et reprendre la main à tout moment.</p>
+        <span class="pill ok">Avec ta permission</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Raccourcis et tâches planifiées</h3>
+        <p>Enregistre une demande en <b>raccourci</b> (tape « / » pour la relancer) et programme-la avec l'icône <b>horloge</b> en haut du panneau.</p>
+        <span class="pill mid">Selon la version du panneau</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">€</span><span><b>Offres payantes uniquement.</b> Pro, Max, Ultra, Team et Enterprise (aide officielle de Claude, 19/11/2026). Pas disponible en gratuit. En Enterprise, l'administrateur doit d'abord l'activer.</span></li>
+        <li><span class="dot y">!</span><span><b>Chrome sur ordinateur seulement.</b> Pas sur mobile, ni sur les autres navigateurs basés sur Chromium (Edge, Brave…), d'après l'aide officielle.</span></li>
+        <li><span class="dot g">✓</span><span><b>Il ne paie jamais à ta place.</b> Par sécurité, certaines actions lui sont interdites, dont <b>effectuer des achats</b> et <b>créer des comptes</b> : le paiement, c'est toi qui le fais.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Prudence avec les sites inconnus.</b> Une page piégée peut cacher des instructions pour l'IA (<span class="k">injection de prompt</span>). Claude a des filtres de sécurité, mais Anthropic rappelle que le risque n'est pas nul : évite de lui confier tes comptes bancaires ou des données sensibles, et passe en <b>Approuver manuellement</b> pour les tâches importantes.</span></li>
+        <li><span class="dot g">↔</span><span><b>23 millions d'utilisateurs.</b> Chiffre affiché sur la fiche du Chrome Web Store le 19/11/2026 (capture de l'étape 1). Au départ, en août 2025, l'extension n'était testée que par 1 000 abonnés Max.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Tout se passe dans Google Chrome sur ton ordinateur, connecté à ton compte Claude payant.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Installer l'extension</h3></div>
+        <div class="chemin">Chrome Web Store › Claude › Ajouter à Chrome</div>
+        <p>Cherche <b>Claude</b> (éditeur : Anthropic) sur le Chrome Web Store, puis clique sur <b>Ajouter à Chrome</b> et connecte-toi avec ton compte Claude.</p>
+        <figure class="shot"><img src="captures/01_webstore.webp" alt="La fiche officielle de l'extension, éditée par Anthropic." loading="lazy"><figcaption>La fiche officielle de l'extension, éditée par Anthropic.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>L'épingler</h3></div>
+        <div class="chemin">Icône puzzle › Claude › Punaise</div>
+        <p>Clique sur l'icône <b>puzzle</b> en haut à droite de Chrome, puis sur la <b>punaise</b> à côté de Claude : l'icône reste dans ta barre d'outils.</p>
+        <figure class="shot"><img src="captures/02_epingler.webp" alt="Le menu des extensions de Chrome." loading="lazy"><figcaption>Le menu des extensions de Chrome.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Ouvrir le panneau</h3></div>
+        <div class="chemin">Icône Claude</div>
+        <p>Un clic sur l'icône Claude ouvre le <b>panneau à droite</b>. Il reste ouvert pendant que tu navigues.</p>
+        <figure class="shot"><img src="captures/03_panneau.webp" alt="Le panneau Claude, prêt à recevoir une mission." loading="lazy"><figcaption>Le panneau Claude, prêt à recevoir une mission.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Lui donner une mission</h3></div>
+        <div class="chemin">Ta demande</div>
+        <p>Écris ta demande comme à une personne. Ici : « Trouve-moi un Paris-Lisbonne en mars, le moins cher. » Claude ouvre les sites, entre les dates et compare.</p>
+        <figure class="shot"><img src="captures/04_recherche.webp" alt="Claude travaille sur le comparateur, à gauche." loading="lazy"><figcaption>Claude travaille sur le comparateur, à gauche.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">5</span><h3>Le résultat</h3></div>
+        <div class="chemin">Réponse de Claude</div>
+        <p>Il te présente le meilleur vol trouvé. <b>Pour réserver, c'est toi</b> : il ne paie jamais à ta place.</p>
+        <figure class="shot"><img src="captures/05_resultat.webp" alt="Recherche arrêtée avant tout paiement." loading="lazy"><figcaption>Recherche arrêtée avant tout paiement.</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Comparer des vols ou des hôtels</h3></div>
+        <p>« Trouve-moi le Paris-Lisbonne le moins cher en mars » : il passe d'un comparateur à l'autre et te résume les meilleures options.</p>
+        <div class="flow"><span>Ta demande</span><i>→</i><span>Comparateurs</span><i>→</i><span>Meilleur prix</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Remplir un formulaire</h3></div>
+        <p>Inscription, demande de devis, formulaire administratif répétitif : il remplit les champs, tu relis avant d'envoyer.</p>
+        <div class="flow"><span>Formulaire</span><i>→</i><span>Claude remplit</span><i>→</i><span>Tu relis</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Trier ta boîte mail</h3></div>
+        <p>Dans ta messagerie web : repérer les mails importants, archiver les newsletters, préparer des brouillons.</p>
+        <div class="flow"><span>Boîte mail</span><i>→</i><span>Tri</span><i>→</i><span>Brouillons</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Résumer tes onglets</h3></div>
+        <p>Mets plusieurs onglets dans son groupe : il en tire un résumé ou un tableau comparatif.</p>
+        <div class="tools"><span class="tool">Articles</span><span class="tool">Fiches produit</span><span class="tool">Avis</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Automatiser une routine</h3></div>
+        <p>Une vérification à faire chaque semaine (prix, disponibilité, tableau de bord) : enregistre-la en raccourci et planifie-la.</p>
+        <div class="tools"><span class="tool">Raccourci /</span><span class="tool">Horloge</span><span class="tool">Chaque semaine</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Les autres IA ont aussi leur agent dans le navigateur, mais pas toujours en France.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude</h3><div class="cp"><b>Claude dans Chrome (extension)</b><small>Pro, Max, Ultra, Team, Enterprise</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Chrome sur ordinateur</span></div>
+        <p>Bon pour : faire agir l'IA <b>dans ton propre Chrome</b>, avec tes sessions, en gardant la main.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Extension ChatGPT pour Chrome + appli de bureau</b><small>Selon l'offre et le pays</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Chrome, appli de bureau</span></div>
+        <p>Bon pour : l'extension lit la page et les onglets ; les tâches d'agent passent par l'appli de bureau. Le navigateur Atlas a été arrêté le 9 août 2026.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini</h3><div class="cp"><b>Gemini dans Chrome (auto browse)</b><small>Auto browse : Google AI Pro ou Ultra</small></div></div>
+        <div class="cm"><span class="lvl n">Pas en France</span><span class="on">Chrome</span></div>
+        <p>Bon pour : intégré directement à Chrome, mais <b>pas encore disponible en France ni dans l'Union européenne</b>.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE</b><span>le seul des trois qui agit dans ton Chrome depuis la France, si tu as une offre payante.</span></li>
+        <li><b>CHATGPT</b><span>si tu es déjà abonné et que l'appli de bureau te suffit.</span></li>
+        <li><b>GEMINI</b><span>à surveiller, le jour où il arrive en Europe.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°03 · Claude dans Chrome · informations et captures vérifiées le 19 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome">Aide Claude : Get started with Claude in Chrome</a> · <a href="https://support.claude.com/en/articles/12902446">Aide Claude : Claude in Chrome permissions guide</a> · <a href="https://support.claude.com/en/articles/12902428">Aide Claude : Using Claude in Chrome safely</a> · <a href="https://claude.com/blog/claude-for-chrome">Anthropic : Piloting Claude in Chrome (pilote à 1 000 utilisateurs, août 2025)</a> · <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn">Chrome Web Store : Claude (Anthropic)</a> · <a href="https://help.openai.com/en/articles/20001371">Aide OpenAI : Atlas devient ChatGPT pour le travail dans le navigateur</a> · <a href="https://futura-sciences.com/tech/actualites/technologie-google-chrome-devient-agent-ia-gain-temps-perte-maitrise-ce-quil-faut-savoir-130703/">Futura : l'agent de Chrome (auto browse) pas disponible en France</a></span>
+  </footer>
+</main>
+</body>
+</html>
