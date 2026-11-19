@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Navidrome</title>
+<meta name="description" content="Navidrome expliqué simplement : où l'installer, les applis à utiliser, écouter hors de chez toi, 5 usages concrets, note de confiance et comparatif avec Jellyfin, Plex et Spotify.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°41 · Navidrome">
+<meta property="og:description" content="Installation, applis, accès à distance, 5 usages concrets, note de confiance et comparatif, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/navidrome.png">
+<meta property="og:url" content="https://repopop.github.io/navidrome/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Navidrome">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°41</div>
+        <h1>Navi<span>drome</span></h1>
+        <p class="tag">Ton propre Spotify, avec ta musique, chez toi. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ 24 000+ étoiles</span>
+          <span class="chip">Version 0.64.2</span>
+          <span class="chip">Gratuit · licence GPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Navidrome lit les fichiers musicaux que tu as <span class="k">déjà</span> (MP3, FLAC, AAC, Opus…) et te les sert en streaming, dans ton navigateur ou dans une appli sur ton téléphone. Il tourne chez toi, sur un appareil allumé en permanence. Trois façons de l'installer :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Avec Docker (NAS ou mini-PC)</h3>
+        <p>La méthode la plus courante : l'image officielle navidrome/navidrome, avec un dossier pour ta musique (en lecture seule) et un dossier pour ses données. Sur un NAS Synology, elle s'installe depuis Container Manager.</p>
+        <span class="pill ok">Tout reste chez toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4v4H7zM15 10h2"/></svg></span>
+        <h3>Raspberry Pi ou PC</h3>
+        <p>Des versions prêtes à l'emploi existent pour Linux (y compris Raspberry Pi), Windows et macOS. Installe aussi ffmpeg, dont Navidrome a besoin pour fonctionner correctement.</p>
+        <span class="pill ok">Tout reste chez toi</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Hébergé pour toi</h3>
+        <p>Des hébergeurs partenaires (PikaPods, Zenith Hosting, ElfHosted) le font tourner pour toi, contre un abonnement ; une part revient au projet. Pratique, mais ta musique est alors chez eux.</p>
+        <span class="pill mid">Ta musique chez l'hébergeur</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (licence GPL-3.0).</b> Aucune version payante, aucune pub. Le projet vit des dons et d'une part des abonnements des hébergeurs partenaires.</span></li>
+        <li><span class="dot y">▶</span><span><b>Les applis mobiles viennent d'autres développeurs :</b> Navidrome est compatible avec les applis Subsonic, par exemple Symfonium, Tempo ou Ultrasonic sur Android, Nautiline, Amperfy, play:Sub ou Substreamer sur iPhone. Certaines sont payantes. Sur ordinateur, son interface web suffit.</span></li>
+        <li><span class="dot r">!</span><span><b>Pour écouter hors de chez toi,</b> ton serveur doit être joignable : un VPN comme <span class="k">Tailscale</span> (le plus simple et le plus sûr) ou un nom de domaine en HTTPS. Sans ça, ça ne marche qu'à la maison.</span></li>
+        <li><span class="dot y">↔</span><span><b>Ton bilan de l'année, façon Wrapped :</b> Navidrome compte tes écoutes (titres les plus joués, favoris). Pour un vrai bilan annuel, active l'envoi de tes écoutes (scrobbling) vers <span class="k">Last.fm</span> ou <span class="k">ListenBrainz</span> dans tes réglages.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Statistiques anonymes activées par défaut :</b> Navidrome envoie au projet des données d'usage anonymes (version, taille de la bibliothèque…), sans e-mail, nom ni adresse IP. Tu peux les désactiver.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Il ne touche pas à tes fichiers :</b> le dossier de musique peut être en lecture seule. Navidrome lit tes tags et les pochettes intégrées, puis complète avec des images d'artistes (Deezer, Last.fm), désactivables.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Tes achats iTunes et Bandcamp, partout</h3></div>
+        <p>Les morceaux achetés qui dormaient sur un disque dur : tu les mets dans le dossier de musique, Navidrome les ajoute tout seul, avec leurs pochettes, et tu les écoutes sur ton téléphone.</p>
+        <div class="flow"><span>Disque dur</span><i>→</i><span>Navidrome</span><i>→</i><span>Téléphone</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Un compte par personne</h3></div>
+        <p>Chaque membre de la famille a son propre compte : ses playlists, ses favoris et ses compteurs d'écoute, sans mélanger avec les tiens.</p>
+        <div class="tools"><span class="tool">Multi-utilisateurs</span><span class="tool">Playlists</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Ton bilan de l'année</h3></div>
+        <p>Active l'envoi de tes écoutes vers Last.fm ou ListenBrainz : en fin d'année, tu retrouves tes artistes et titres les plus écoutés, comme un Wrapped.</p>
+        <div class="tools"><span class="tool">Last.fm</span><span class="tool">ListenBrainz</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Faire écouter un album à un ami</h3></div>
+        <p>Un lien de partage vers un titre, un album ou une playlist : ton ami écoute sans créer de compte sur ton serveur.</p>
+        <div class="tools"><span class="tool">Lien de partage</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Économiser ton forfait mobile</h3></div>
+        <p>Navidrome convertit la musique à la volée dans un format plus léger (Opus, par exemple), réglable par appli : tes FLAC passent même en 4G.</p>
+        <div class="tools"><span class="tool">Transcodage</span><span class="tool">Opus</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,8 sur 10" style="background:conic-gradient(#16C47F 0 88%,#E7E2F2 88% 100%)"><div>8,8<small>/10</small></div></div>
+        <div>
+          <h3>Solide pour ta musique</h3>
+          <p>Un serveur léger et éprouvé depuis 2016. Pense à lire les notes de version avant une mise à jour.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Version 0.64.2 publiée le 24 septembre 2026, et des modifications encore envoyées sur GitHub le 19 novembre 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Près de 25 000 étoiles sur GitHub, 265 contributeurs, plus de 10 millions de téléchargements sur Docker Hub, un Discord et un subreddit.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Ta musique reste chez toi. Mais des statistiques d'usage anonymes partent par défaut (désactivables), et des images d'artistes sont demandées à Deezer ou Last.fm.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Projet communautaire sans version payante ni pub, financé par les dons et les hébergeurs partenaires. Il repose beaucoup sur son créateur, Deluan.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Lancé en 2016 et très utilisé, mais toujours en version 0.x : certaines mises à jour changent des choses (la 0.61 a retiré l'intégration Spotify).</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, Docker Hub et dans la documentation officielle le 19 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Navidrome</h3><div class="cp"><b>Gratuit</b><small>Appli mobile gratuite ou payante, selon ton choix</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">NAS, PC, Raspberry Pi, Docker</span></div>
+        <p>Bon pour : Ta propre musique partout, sur un serveur très léger</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Jellyfin</h3><div class="cp"><b>Gratuit</b><small>Films, séries et musique dans le même serveur</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">NAS, PC, Docker</span></div>
+        <p>Bon pour : Tout ton multimédia au même endroit</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Plex + Plexamp</h3><div class="cp"><b>Gratuit (base)</b><small>Plex Pass facultatif : 6,99 $/mois</small></div></div>
+        <div class="cm"><span class="lvl m">Chez toi, compte Plex obligatoire</span><span class="on">NAS, PC, Docker</span></div>
+        <p>Bon pour : Une appli musique très soignée, si tu es déjà sur Plex</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Spotify · Deezer</h3><div class="cp"><b>12,14 €/mois</b><small>Spotify Premium Personnel · Deezer Premium : 11,99 €/mois</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Spotify ou de Deezer</span><span class="on">Toutes</span></div>
+        <p>Bon pour : Découvrir des titres que tu n'as pas</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>NAVIDROME</b><span>si ta musique est déjà en fichiers et que tu veux l'écouter partout, sans abonnement.</span></li>
+        <li><b>JELLYFIN</b><span>si tu veux aussi tes films et tes séries dans le même serveur.</span></li>
+        <li><b>PLEX</b><span>si tu es déjà sur Plex et que tu veux l'appli Plexamp.</span></li>
+        <li><b>SPOTIFY / DEEZER</b><span>si tu veux surtout découvrir de la musique que tu n'as pas.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°41 · Navidrome · informations vérifiées le 19 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/navidrome/navidrome">dépôt GitHub navidrome/navidrome</a> · <a href="https://www.navidrome.org/docs/installation/">documentation officielle (installation)</a> · <a href="https://www.navidrome.org/docs/installation/docker/">installation avec Docker</a> · <a href="https://www.navidrome.org/docs/usage/features/scrobbling/">scrobbling Last.fm et ListenBrainz</a> · <a href="https://www.navidrome.org/docs/usage/admin/insights/">statistiques anonymes</a> · <a href="https://hub.docker.com/r/deluan/navidrome">image Docker Hub</a> · <a href="https://www.spotify.com/fr/premium/">prix Spotify Premium (France)</a> · <a href="https://www.plex.tv/blog/important-2025-plex-updates/">changements Plex Pass</a> · <a href="https://apps.apple.com/app/id6755918140">appli Nautiline (App Store)</a></span>
+  </footer>
+</main>
+</body>
+</html>
