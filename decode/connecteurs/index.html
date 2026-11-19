@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Les Connecteurs</title>
+<meta name="description" content="Les connecteurs de Claude (MCP) expliqués simplement : c'est quoi, où les trouver (Personnalisation › Connecteurs), comment en brancher un et l'activer dans une conversation, et l'équivalent chez ChatGPT et Gemini. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°02 · Les Connecteurs">
+<meta property="og:description" content="C'est quoi un connecteur MCP, où le trouver dans Claude, comment le brancher : le pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-connecteurs.png">
+<meta property="og:url" content="https://repopop.github.io/decode/connecteurs/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Les Connecteurs">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°02</div>
+        <h1>Les <span>Connecteurs</span></h1>
+        <p class="tag">Branche Claude à ton agenda, tes mails et tes notes : il va chercher l'info et agit dedans, avec ta permission.</p>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Dès l'offre gratuite</span>
+          <span class="chip">6 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Un <b>connecteur</b> relie Claude à une appli ou un service (agenda, mails, notes, design…) pour qu'il y <b>trouve l'info et agisse pour toi</b>, sans copier-coller. Derrière, il y a <b>MCP</b> (<span class="k">Model Context Protocol</span>), un standard ouvert que sa documentation compare à une <span class="k">prise USB-C pour l'IA</span> : une seule prise pour brancher n'importe quelle appli.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Un catalogue prêt</h3>
+        <p><b>Personnalisation › Connecteurs › Découvrir</b> : Gmail, Google Agenda, Drive, Notion, Canva, Slack, Figma… Une fiche par connecteur, avec ses outils et son éditeur.</p>
+        <span class="pill ok">Tous les forfaits</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Toi qui décides</h3>
+        <p>Tu actives un connecteur par conversation (<b>+ › Connecteurs</b>), et Claude peut te demander <b>Autoriser une fois</b> ou <b>Toujours autoriser</b> avant d'utiliser un outil.</p>
+        <span class="pill ok">Avec ta permission</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Partout</h3>
+        <p>Un connecteur ajouté sur claude.ai marche aussi dans l'appli de bureau, sur mobile et dans Claude Code (même compte).</p>
+        <span class="pill mid">Même compte</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Dès l'offre gratuite.</b> Connecteurs du catalogue pour tous ; connecteurs personnalisés (adresse d'un serveur MCP) sur Free, Pro, Max, Ultra, Team et Enterprise, <b>un seul</b> en gratuit (aide officielle de Claude, 17/11/2026).</span></li>
+        <li><span class="dot y">!</span><span><b>Un compte chez l'appli.</b> Le connecteur se branche sur <b>ton</b> compte Gmail, Notion, Canva… : le service peut demander son propre compte ou son offre payante.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Team et Enterprise :</b> un propriétaire de l'organisation ajoute d'abord le connecteur ; sinon tu vois un bouton <b>Request</b> pour le demander.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Développeurs de confiance seulement.</b> L'appli le rappelle sur chaque fiche : Anthropic ne contrôle pas les outils des développeurs. Le badge Vérifié n'est pas un audit de sécurité. Garde <b>Autoriser une fois</b> pour les actions qui écrivent ou suppriment.</span></li>
+        <li><span class="dot g">↔</span><span><b>Standard ouvert.</b> MCP a été confié à la Linux Foundation (Agentic AI Foundation, décembre 2025) ; ChatGPT, Gemini et Copilot l'utilisent aussi.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Tout se passe dans la barre de gauche de Claude (web et appli de bureau), menu <b>Personnalisation</b>, puis dans la zone de message de tes conversations.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Ouvrir le catalogue</h3></div>
+        <div class="chemin">Personnalisation › Connecteurs › Découvrir</div>
+        <p>Cherche ton appli ou parcours les catégories. Le <b>+</b> ajoute directement, un clic sur le nom ouvre la fiche.</p>
+        <figure class="shot"><img src="captures/01_decouvrir.webp" alt="Les connecteurs les plus utilisés : Google Drive, Gmail, Google Calendar, Canva, Notion…" loading="lazy"><figcaption>Les connecteurs les plus utilisés : Google Drive, Gmail, Google Calendar, Canva, Notion…</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Brancher ton compte</h3></div>
+        <div class="chemin">Fiche du connecteur › Connecter à Claude</div>
+        <p>Claude t'envoie sur la page de connexion de l'appli : connecte-toi et accepte les accès demandés.</p>
+        <figure class="shot"><img src="captures/02_connecter.webp" alt="La fiche Canva : éditeur, URL du connecteur, outils disponibles." loading="lazy"><figcaption>La fiche Canva : éditeur, URL du connecteur, outils disponibles.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Vérifier qu'il est connecté</h3></div>
+        <div class="chemin">Personnalisation › Connecteurs › Les vôtres</div>
+        <p>Tes connecteurs branchés ont une coche ; les autres affichent <b>Connecter</b>. Un clic sur un connecteur ouvre ses <b>permissions d'outils</b>.</p>
+        <figure class="shot"><img src="captures/03_vos_connecteurs.webp" alt="Notion et GitHub branchés, Gmail, Agenda et Drive en attente." loading="lazy"><figcaption>Notion et GitHub branchés, Gmail, Agenda et Drive en attente.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>L'activer dans ta conversation</h3></div>
+        <div class="chemin">+ › Connecteurs</div>
+        <p>L'interrupteur choisit si Claude peut utiliser ce connecteur dans cette conversation.</p>
+        <figure class="shot"><img src="captures/04_menu_connecteurs.webp" alt="Le menu + de la zone de message, sous-menu Connecteurs." loading="lazy"><figcaption>Le menu + de la zone de message, sous-menu Connecteurs.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">5</span><h3>Demander normalement</h3></div>
+        <div class="chemin">Ta demande</div>
+        <p>Ici : « Crée une page Notion ‹ Idées vidéos › avec trois idées de vidéos courtes sur l'IA ». Claude prépare l'action et te la montre avant de la lancer.</p>
+        <figure class="shot"><img src="captures/05_permission.webp" alt="« Refuser », « Autoriser une fois » ou « Toujours autoriser »." loading="lazy"><figcaption>« Refuser », « Autoriser une fois » ou « Toujours autoriser ».</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">6</span><h3>Le résultat</h3></div>
+        <div class="chemin">Créé dans Notion</div>
+        <p>La page est créée dans ton Notion, avec un lien direct depuis la conversation.</p>
+        <figure class="shot"><img src="captures/06_resultat.webp" alt="« Créé dans Notion » : la page existe vraiment, sans copier-coller." loading="lazy"><figcaption>« Créé dans Notion » : la page existe vraiment, sans copier-coller.</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ton agenda en une phrase</h3></div>
+        <p>« Qu'est-ce que j'ai demain après-midi ? », « Trouve un créneau d'une heure cette semaine » : Claude lit ton agenda au lieu que tu le recopies.</p>
+        <div class="flow"><span>Google Agenda</span><i>→</i><span>Claude</span><i>→</i><span>Créneau trouvé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Tes mails triés</h3></div>
+        <p>Résumer les fils importants, retrouver une facture, préparer un brouillon de réponse dans ton ton.</p>
+        <div class="flow"><span>Gmail</span><i>→</i><span>Résumé</span><i>→</i><span>Brouillon</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Tes notes rangées</h3></div>
+        <p>Transformer un compte rendu en page Notion propre, ou retrouver une décision dans tes pages.</p>
+        <div class="flow"><span>Notes brutes</span><i>→</i><span>Claude</span><i>→</i><span>Page Notion</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Tes visuels Canva</h3></div>
+        <p>Chercher un design, en générer un nouveau ou l'exporter sans quitter la conversation.</p>
+        <div class="tools"><span class="tool">Chercher</span><span class="tool">Créer</span><span class="tool">Exporter</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Tes fichiers retrouvés</h3></div>
+        <p>Fouiller ton Drive pour retrouver le bon document et en tirer les chiffres utiles.</p>
+        <div class="tools"><span class="tool">Drive</span><span class="tool">Docs</span><span class="tool">Sheets</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">MCP est devenu le standard : les concurrents l'utilisent aussi, sous d'autres noms.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude</h3><div class="cp"><b>Connecteurs</b><small>Dès l'offre gratuite</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, bureau, mobile, Claude Code</span></div>
+        <p>Bon pour : tout le monde, y compris en <b>gratuit</b> : catalogue Découvrir + un connecteur perso par adresse MCP (illimité en payant).</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Applis (ex-connecteurs)</b><small>Applis : toutes offres (selon l'appli et le pays) ; MCP perso complet : Business, Enterprise, Edu</small></div></div>
+        <div class="cm"><span class="lvl m">Oui</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : les applis partenaires ; brancher son propre serveur MCP passe par le mode développeur.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini</h3><div class="cp"><b>Applis connectées</b><small>Comptes perso et Workspace</small></div></div>
+        <div class="cm"><span class="lvl m">Oui</span><span class="on">Web, appli mobile, Workspace</span></div>
+        <p>Bon pour : les utilisateurs Google ; une appli perso peut être ajoutée par l'adresse de son serveur MCP depuis juin 2026.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE</b><span>le plus simple pour commencer : gratuit, gros catalogue, permission demandée avant d'agir.</span></li>
+        <li><b>CHATGPT</b><span>si tes applis partenaires y sont déjà.</span></li>
+        <li><b>GEMINI</b><span>si tu vis dans Google (Gmail, Agenda, Drive).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°02 · Les Connecteurs · informations et captures vérifiées le 17 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://claude.com/docs/connectors">Doc Claude : Get started with connectors</a> · <a href="https://support.claude.com/en/articles/11176164">Aide Claude : connecteurs personnalisés (remote MCP)</a> · <a href="https://claude.ai/customize/connectors">Appli Claude : Personnalisation › Connecteurs (vu le 17/11/2026)</a> · <a href="https://modelcontextprotocol.io/docs/getting-started/intro">MCP : What is the Model Context Protocol? (la prise USB-C de l'IA)</a> · <a href="https://help.openai.com/en/articles/11487775-apps-in-chatgpt">Aide OpenAI : Apps in ChatGPT</a> · <a href="https://siliconangle.com/2025/12/09/linux-foundation-announces-agentic-ai-foundation-joined-anthropic-openai-block/">Linux Foundation : Agentic AI Foundation (déc. 2025)</a></span>
+  </footer>
+</main>
+</body>
+</html>
