@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Sonarr &amp; Radarr</title>
+<meta name="description" content="Sonarr, Radarr, Lidarr, Bazarr et Prowlarr (les « arrs ») expliqués simplement : à quoi sert chaque outil, ce qu'il te faut en plus, comment les installer avec Docker sur un NAS, un Raspberry Pi ou un PC, ce qui est légal ou non, usages, note de confiance et comparatif avec Netflix, Prime Video et Disney+.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°42 · Sonarr &amp; Radarr">
+<meta property="og:description" content="Tu ajoutes une série : les épisodes arrivent triés par saison, renommés, avec les sous-titres en français, direct dans Jellyfin. Gratuit, open source, chez toi.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/servarr.png">
+<meta property="og:url" content="https://repopop.github.io/servarr/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Sonarr &amp; Radarr">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°42</div>
+        <h1>Sonarr <span>&amp; co</span></h1>
+        <p class="tag">Sonarr, Radarr, Lidarr, Bazarr et Prowlarr : cinq outils open source qui gardent ta médiathèque à jour toute seule. Tu ajoutes une série ou un film, ils s'occupent du reste : récupération, tri, renommage, sous-titres.</p>
+        <div class="chips">
+          <span class="chip">★ 50 000+ étoiles (5 outils)</span>
+          <span class="chip">Depuis 2011</span>
+          <span class="chip">Gratuit · licence GPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Les <b>arrs</b> sont une famille d'outils open source, développés par des bénévoles, qui <b>automatisent ta médiathèque</b>. <b>Sonarr</b> gère tes <b>séries</b>, <b>Radarr</b> tes <b>films</b>, <b>Lidarr</b> ta <b>musique</b>, <b>Bazarr</b> les <b>sous-titres</b> (pour Sonarr et Radarr), et <b>Prowlarr</b> centralise tes <b>sources</b> (indexeurs) et les transmet aux autres. Tu ajoutes un titre une fois : l'outil le surveille, récupère chaque nouvel épisode <b>depuis les sources que tu as configurées</b>, le passe à ton <b>logiciel de téléchargement</b>, puis le <b>range</b>, le <b>renomme</b> proprement et prévient ton lecteur (<b>Jellyfin</b>, vidéo n°05, Plex ou Emby). <b>Important</b> : les arrs ne fournissent <b>aucun contenu</b>. Ils ont besoin d'un logiciel de téléchargement (qBittorrent, SABnzbd, NZBGet…) et de sources (indexeurs Usenet ou torrent) que tu choisis toi-même. <b>Readarr</b>, l'outil prévu pour les livres, a été <b>arrêté et archivé en juin 2025</b> : il n'est pas présenté ici.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 13l3-3 3 3M12 10v5"/></svg></span>
+        <h3>NAS (Synology, QNAP…)</h3>
+        <p>Avec Container Manager (Synology) ou Container Station (QNAP), lance les images LinuxServer : lscr.io/linuxserver/sonarr, radarr, lidarr, bazarr et prowlarr. Ports par défaut : Sonarr 8989, Radarr 7878, Lidarr 8686, Prowlarr 9696, Bazarr 6767. Mets tous les conteneurs et ton logiciel de téléchargement sur le même dossier partagé (ex. /data) pour que les fichiers soient déplacés sans copie.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4v4H7zM15 10h2"/></svg></span>
+        <h3>Raspberry Pi ou mini-PC</h3>
+        <p>Les images Docker existent pour ARM64 : un Raspberry Pi 4 ou 5 avec un disque USB suffit pour Sonarr, Radarr et Prowlarr. Un docker-compose.yml regroupe tous les outils en un seul fichier ; les guides TRaSH (trash-guides.info) donnent une structure de dossiers éprouvée.</p>
+        <span class="pill ok">Petit budget</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Windows, macOS ou Linux</h3>
+        <p>Sonarr, Radarr, Lidarr et Prowlarr ont des installeurs pour Windows et macOS, et des paquets pour Linux ; Bazarr s'installe avec Python. Pratique pour tester, mais le PC doit rester allumé pour que tout se fasse tout seul.</p>
+        <span class="pill mid">Pour tester</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Ils ne fournissent aucun contenu.</b> Les arrs organisent ce que tu récupères depuis les sources que tu leur donnes. Télécharger ou partager des films, séries ou albums protégés sans l'autorisation des ayants droit est illégal en France. Utilise des sources légales : tes propres disques, des œuvres libres de droits ou du domaine public, des achats sans DRM.</span></li>
+        <li><span class="dot y">!</span><span><b>Il te faut deux briques en plus.</b> Un logiciel de téléchargement (qBittorrent, Transmission, SABnzbd, NZBGet…) et des indexeurs, ajoutés une seule fois dans Prowlarr. Sans eux, Sonarr et Radarr savent ce qu'il manque, mais ne peuvent rien récupérer.</span></li>
+        <li><span class="dot y">↔</span><span><b>Les chemins, le piège n°1.</b> Le logiciel de téléchargement et les arrs doivent voir les fichiers au même endroit (même dossier partagé, mêmes droits d'accès). Sinon, les fichiers restent bloqués dans « téléchargements » ou sont copiés au lieu d'être déplacés. Suis la structure /data des guides TRaSH.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tout reste chez toi.</b> Aucun compte à créer : ta liste de séries, de films et d'albums reste sur ta machine. Les outils interrogent seulement des services de métadonnées (affiches, épisodes, dates de sortie) et les sources que tu as ajoutées.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Pour regarder : Jellyfin.</b> Les arrs rangent ; un lecteur affiche. Jellyfin (vidéo RepoPop n°05), Plex ou Emby lisent le dossier et sont prévenus à chaque nouvel épisode. Pour que ta famille demande un film depuis son téléphone, ajoute un outil de demandes comme Jellyseerr.</span></li>
+        <li><span class="dot r">!</span><span><b>Livres : Readarr est arrêté.</b> L'équipe Servarr a retiré Readarr le 27 juin 2025 (dépôt archivé, plus de support) : ses métadonnées ne fonctionnaient plus. Pour les livres et livres audio, d'autres projets existent (LazyLibrarian, par exemple), hors de la famille arrs.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Tes séries toujours à jour</h3></div>
+        <p>Tu ajoutes une série dans Sonarr : il récupère les saisons déjà sorties, puis chaque nouvel épisode le jour de sa diffusion, et le range dans le bon dossier de saison.</p>
+        <div class="flow"><span>Sonarr</span><i>→</i><span>Nouvel épisode</span><i>→</i><span>Jellyfin</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Des films bien rangés</h3></div>
+        <p>Radarr surveille les films de ta liste et les sorties à venir, choisit la qualité que tu veux (1080p, 4K…) et peut remplacer un fichier par une meilleure version.</p>
+        <div class="tools"><span class="tool">Liste de films</span><span class="tool">Qualité au choix</span><span class="tool">Mises à niveau</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Les sous-titres en français</h3></div>
+        <p>Bazarr cherche automatiquement les sous-titres manquants dans les langues que tu choisis pour chaque film et chaque épisode, et les place à côté du fichier.</p>
+        <div class="flow"><span>Épisode</span><i>→</i><span>Bazarr</span><i>→</i><span>.fr.srt</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Ta musique classée</h3></div>
+        <p>Lidarr suit tes artistes, repère leurs nouveaux albums et range ta bibliothèque musicale proprement (artiste, album, piste), prête pour Navidrome, Jellyfin ou Plexamp.</p>
+        <div class="tools"><span class="tool">Artistes suivis</span><span class="tool">Nouveaux albums</span><span class="tool">Tags propres</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Un seul endroit pour tes sources</h3></div>
+        <p>Prowlarr gère tes indexeurs une seule fois et les envoie à Sonarr, Radarr et Lidarr : plus besoin de les configurer dans chaque outil.</p>
+        <div class="flow"><span>Prowlarr</span><i>→</i><span>Sonarr · Radarr · Lidarr</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Une valeur sûre du self-hosting, portée par des bénévoles</h3>
+          <p>Sonarr est né en 2011 sous le nom de NzbDrone ; Radarr en est une copie pour les films (2016), puis sont venus Lidarr (2017), Bazarr (2017) et Prowlarr (2020). Le 19 novembre 2026, les cinq dépôts cumulent plus de 50 000 étoiles sur GitHub (Sonarr ~17 800, Radarr ~14 800, Prowlarr ~7 600, Lidarr ~5 800, Bazarr ~4 400), et tous ont reçu des modifications cette semaine. Les guides TRaSH, écrits par la communauté, sont la référence pour bien les configurer.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Les cinq dépôts ont reçu des modifications entre le 17 et le 19 novembre 2026, avec des versions publiées régulièrement.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 50 000 étoiles cumulées, des milliers de forks, un wiki officiel, un Discord actif et les guides TRaSH.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tout tourne chez toi, sans compte ; seuls des services de métadonnées et tes propres sources sont interrogés.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Licence GPL-3.0, gratuits, financés par des dons (Open Collective). Portés par des bénévoles : Readarr a été arrêté en 2025, faute de temps pour réparer ses métadonnées.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Plus de dix ans pour Sonarr et très stables, mais la première installation demande de la rigueur (chemins, droits, logiciel de téléchargement).</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub (dépôts Sonarr, Radarr, Lidarr, Prowlarr, Bazarr et Readarr) et sur le wiki Servarr le 19 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Sonarr &amp; co (les arrs)</h3><div class="cp"><b>Gratuit</b><small>Logiciels gratuits (GPL-3.0). À prévoir : ton matériel (NAS, Raspberry Pi ou PC), tes disques, et éventuellement un fournisseur Usenet si tu choisis cette source</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Docker, Windows, macOS, Linux, NAS, Raspberry Pi</span></div>
+        <p>Bon pour : Une médiathèque perso qui se range et se met à jour toute seule</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Medusa</h3><div class="cp"><b>Gratuit</b><small>Open source (GPL-3.0), environ 2 000 étoiles</small></div></div>
+        <div class="cm"><span class="lvl y">Chez toi</span><span class="on">Docker, Python</span></div>
+        <p>Bon pour : Les séries uniquement, avec une alternative plus ancienne à Sonarr</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Netflix</h3><div class="cp"><b>14,99 €/mois</b><small>Standard sans pub ; 7,99 € avec pub, 21,99 € en Premium 4K (France, 2026)</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Netflix</span><span class="on">Toutes</span></div>
+        <p>Bon pour : Ses séries et films exclusifs, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Prime Video</h3><div class="cp"><b>6,99 €/mois</b><small>Inclus dans Amazon Prime (69,90 €/an), avec publicités ; option sans pub en supplément</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud d'Amazon</span><span class="on">Toutes</span></div>
+        <p>Bon pour : Si tu es déjà abonné à Amazon Prime</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Disney+</h3><div class="cp"><b>10,99 €/mois</b><small>Standard sans pub ; 6,99 € avec pub, 15,99 € en Premium (France, 2026)</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Disney</span><span class="on">Toutes</span></div>
+        <p>Bon pour : Disney, Pixar, Marvel, Star Wars</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>LES ARRS</b><span>si tu as déjà un NAS ou un petit serveur, des sources légales, et que tu veux une médiathèque qui se range toute seule.</span></li>
+        <li><b>STREAMING</b><span>si tu veux juste regarder, sans rien installer ni gérer de stockage.</span></li>
+      </ul>
+      <p class="warnline">Les arrs ne remplacent pas un catalogue : ils organisent ce que tu récupères. Télécharger des œuvres protégées sans autorisation est illégal.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°42 · Sonarr &amp; Radarr · informations vérifiées le 19 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/Sonarr/Sonarr">dépôt GitHub Sonarr/Sonarr</a> · <a href="https://github.com/Radarr/Radarr">dépôt GitHub Radarr/Radarr</a> · <a href="https://github.com/Lidarr/Lidarr">dépôt GitHub Lidarr/Lidarr</a> · <a href="https://github.com/Prowlarr/Prowlarr">dépôt GitHub Prowlarr/Prowlarr</a> · <a href="https://github.com/morpheus65535/bazarr">dépôt GitHub morpheus65535/bazarr</a> · <a href="https://github.com/Readarr/Readarr">annonce de l'arrêt de Readarr (dépôt archivé)</a> · <a href="https://wiki.servarr.com">wiki Servarr</a> · <a href="https://trash-guides.info">guides TRaSH</a> · <a href="https://selectra.info/telecom/tv/svod/netflix">tarifs Netflix France 2026 (Selectra)</a> · <a href="https://www.tv-direct.fr/offre/disney-plus/">tarifs Disney+ France 2026 (TV Direct)</a> · <a href="https://selectra.info/telecom/guides/comprendre/amazon-prime-video">tarifs Prime Video France 2026 (Selectra)</a></span>
+  </footer>
+</main>
+</body>
+</html>
