@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Git et GitHub</title>
+<meta name="description" content="Git et GitHub expliqués simplement : la différence, le retour à une version précédente, les branches, puis comment lire une page GitHub (étoiles, README, bouton Code, Issues, Fork). Pas à pas en captures, en français, avec les alternatives (GitLab, Codeberg).">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°05 · Git et GitHub">
+<meta property="og:description" content="La différence entre Git et GitHub, et comment lire une page GitHub pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-git-github.png">
+<meta property="og:url" content="https://repopop.github.io/decode/git-github/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Git et GitHub">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°05</div>
+        <h1>Git et <span>GitHub</span></h1>
+        <p class="tag">Git garde chaque version de ton projet, GitHub le met en ligne : enfin la différence, et comment lire une page GitHub sans se perdre.</p>
+        <div class="chips">
+          <span class="chip">Git · GitHub</span>
+          <span class="chip">Gratuit</span>
+          <span class="chip">5 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Git</b> est un <span class="k">logiciel</span> qui s'installe sur ton ordinateur et garde l'historique de ton projet. <b>GitHub</b> est un <span class="k">site web</span> qui héberge des projets Git en ligne pour les partager et travailler à plusieurs. On peut utiliser Git sans GitHub, et télécharger depuis GitHub sans jamais toucher à Git.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Git : chaque version gardée</h3>
+        <p>Chaque enregistrement (un <span class="k">commit</span>) est une photo de ton projet. Tout plante ? Tu reviens à la <b>dernière version qui marchait</b> et tu reprends calmement.</p>
+        <span class="pill ok">Gratuit, open source</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Les branches</h3>
+        <p>La <b>branche principale</b> (souvent <span class="k">main</span>) contient la version qui marche. Pour tester une idée, tu crées une <b>branche</b> à côté : si ça marche, tu la <span class="k">fusionnes</span> (merge) ; sinon, tu la jettes, sans rien casser.</p>
+        <span class="pill ok">Sans risque</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>GitHub : les projets en ligne</h3>
+        <p>Une page par projet : le code, le <b>README</b> (mode d'emploi), les <b>étoiles</b> (les likes), les <b>Issues</b> (bugs et idées) et les <b>Releases</b> (versions à télécharger).</p>
+        <span class="pill ok">Compte gratuit</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Le Fork et la pull request</h3>
+        <p>Un <b>Fork</b>, c'est ta copie d'un projet sur ton compte, pour l'améliorer. Tu proposes ensuite tes changements à l'auteur avec une <b>pull request</b> : il peut les accepter.</p>
+        <span class="pill mid">Compte requis</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">↔</span><span><b>Né en 10 jours.</b> Linus Torvalds, le créateur de Linux, a écrit Git en une dizaine de jours en avril 2005, quand le noyau Linux a perdu l'accès à son outil BitKeeper. Aujourd'hui, plus de 180 millions de développeurs sont sur GitHub (Octoverse 2025).</span></li>
+        <li><span class="dot g">€</span><span><b>Compte gratuit.</b> GitHub Free : dépôts publics et privés illimités, collaborateurs illimités (fonctions avancées limitées sur les privés). Pas besoin de compte pour lire une page ou télécharger.</span></li>
+        <li><span class="dot y">!</span><span><b>Une étoile n'est pas une garantie.</b> Les étoiles montrent la popularité, pas la sécurité : regarde aussi la date du dernier commit, les Issues ouvertes et la licence.</span></li>
+        <li><span class="dot y">↔</span><span><b>Télécharger : Releases d'abord.</b> Le bouton <b>Code › Download ZIP</b> donne le code source. Pour un programme prêt à installer, cherche plutôt la section <b>Releases</b> (à droite de la page).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Git marche sans Internet.</b> Git tourne sur ton ordinateur : l'historique est chez toi. GitHub n'est qu'une copie en ligne, utile pour partager et sauvegarder.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Jamais de mots de passe dans un dépôt public.</b> Tout ce que tu envoies sur un dépôt public est lisible par tout le monde, historique compris : clés et mots de passe restent hors du dépôt.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Tout se lit sur la page d'un projet, ici <b>Stirling-PDF</b> (vidéo RepoPop n°01). GitHub est en anglais : voici où regarder.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Le nom, les étoiles et le Fork</h3></div>
+        <div class="chemin">github.com › Propriétaire / Projet</div>
+        <p>En haut : le nom du projet, puis <b>Star</b> (les étoiles = les likes, ici 97 100) et <b>Fork</b> (le nombre de copies).</p>
+        <figure class="shot"><img src="captures/01_page_depot_complet.webp" alt="Stirling-PDF : Watch, Fork 9,4 k, Star 97,1 k (20/11/2026)." loading="lazy"><figcaption>Stirling-PDF : Watch, Fork 9,4 k, Star 97,1 k (20/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Le README : le mode d'emploi</h3></div>
+        <div class="chemin">Page du projet › README</div>
+        <p>Sous la liste des fichiers : à quoi sert le projet, comment l'installer, captures d'écran.</p>
+        <figure class="shot"><img src="captures/02_readme.webp" alt="Le README de Stirling-PDF." loading="lazy"><figcaption>Le README de Stirling-PDF.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Télécharger</h3></div>
+        <div class="chemin">Code › Download ZIP</div>
+        <p>Le bouton vert <b>Code</b> donne le code source en ZIP ou l'adresse pour le cloner avec Git. Les programmes prêts à installer sont dans <b>Releases</b>.</p>
+        <figure class="shot"><img src="captures/03_bouton_code.webp" alt="Menu du bouton Code : Clone, Download ZIP." loading="lazy"><figcaption>Menu du bouton Code : Clone, Download ZIP.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Issues : signaler un bug</h3></div>
+        <div class="chemin">Onglet Issues › New issue</div>
+        <p>La liste des bugs et des idées signalés aux créateurs. <b>New issue</b> pour en ouvrir un (compte requis).</p>
+        <figure class="shot"><img src="captures/04_issues.webp" alt="Les Issues ouvertes de Stirling-PDF (noms d'utilisateurs floutés)." loading="lazy"><figcaption>Les Issues ouvertes de Stirling-PDF (noms d'utilisateurs floutés).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">5</span><h3>Fork : ta copie</h3></div>
+        <div class="chemin">Fork › Create fork</div>
+        <p>Crée une copie du projet sur ton compte, pour l'améliorer. Tes changements se proposent ensuite à l'auteur par une pull request.</p>
+        <figure class="shot"><img src="captures/05_fork.webp" alt="La page « Create a new fork » (rien n'a été créé)." loading="lazy"><figcaption>La page « Create a new fork » (rien n'a été créé).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Télécharger un outil gratuit</h3></div>
+        <p>Repérer la bonne version dans Releases plutôt que le code source brut.</p>
+        <div class="flow"><span>Page GitHub</span><i>→</i><span>Releases</span><i>→</i><span>Installer</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Juger un projet en 10 secondes</h3></div>
+        <p>Étoiles, date du dernier commit, Issues ouvertes, licence : de quoi savoir si un projet est vivant.</p>
+        <div class="tools"><span class="tool">Étoiles</span><span class="tool">Dernier commit</span><span class="tool">Licence</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Signaler un bug</h3></div>
+        <p>Ouvrir une Issue claire : ce que tu as fait, ce que tu attendais, ce qui s'est passé.</p>
+        <div class="flow"><span>Issues</span><i>→</i><span>New issue</span><i>→</i><span>Bug signalé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Ne plus perdre ton travail</h3></div>
+        <p>Git sur tes propres fichiers (scripts, site, notes) : chaque version gardée, retour arrière en une commande.</p>
+        <div class="flow"><span>Tu modifies</span><i>→</i><span>Commit</span><i>→</i><span>Retour possible</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Proposer une amélioration</h3></div>
+        <p>Fork, modification, pull request : c'est comme ça que des milliers de bénévoles améliorent l'open source.</p>
+        <div class="flow"><span>Fork</span><i>→</i><span>Changements</span><i>→</i><span>Pull request</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">GitHub est le plus connu, mais d'autres sites hébergent aussi des projets Git.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>GitHub</h3><div class="cp"><b>Dépôts Git en ligne</b><small>Gratuit (offres payantes en plus)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, appli mobile, GitHub Desktop</span></div>
+        <p>Bon pour : tout le monde : le plus grand catalogue de projets open source ; appartient à <b>Microsoft</b> depuis 2018.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>GitLab</h3><div class="cp"><b>Dépôts Git + outils DevOps</b><small>Gratuit limité, offres payantes</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, ou installé sur ton serveur</span></div>
+        <p>Bon pour : les équipes qui veulent tout au même endroit, ou héberger chez elles.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Codeberg</h3><div class="cp"><b>Dépôts Git (Forgejo)</b><small>Gratuit (association)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web</span></div>
+        <p>Bon pour : les projets libres qui préfèrent une <b>association à but non lucratif</b> basée à Berlin.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GITHUB</b><span>pour trouver, suivre et télécharger les projets : c'est là que presque tout se passe.</span></li>
+        <li><b>GITLAB</b><span>si ton équipe veut aussi l'intégration continue et l'auto-hébergement.</span></li>
+        <li><b>CODEBERG</b><span>si tu veux une alternative européenne, associative et sans entreprise derrière.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°05 · Git et GitHub · informations et captures vérifiées le 20 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://github.blog/open-source/git/git-turns-20-a-qa-with-linus-torvalds/">GitHub Blog : Git turns 20, Q&amp;A with Linus Torvalds</a> · <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub Blog : Octoverse 2025</a> · <a href="https://docs.github.com/en/get-started/learning-about-github/githubs-plans">GitHub Docs : GitHub's plans</a> · <a href="https://www.sec.gov/Archives/edgar/data/789019/000156459019001392/msft-10q_20181231.htm">Microsoft 10-Q : acquisition de GitHub (25/10/2018)</a> · <a href="https://docs.codeberg.org/getting-started/what-is-codeberg/">Codeberg : What is Codeberg?</a> · <a href="https://github.com/Stirling-Tools/Stirling-PDF">Page GitHub de Stirling-PDF (captures du 20/11/2026)</a></span>
+  </footer>
+</main>
+</body>
+</html>
