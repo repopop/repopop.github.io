@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Les artefacts</title>
+<meta name="description" content="Les artefacts de Claude expliqués simplement : c'est quoi, où les trouver, comment créer une présentation et la partager, 5 idées d'artefacts, et ce que proposent Gemini (Canvas) et ChatGPT. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°06 · Les artefacts">
+<meta property="og:description" content="Arrête de recopier l'IA dans PowerPoint : les artefacts de Claude pas à pas en captures. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-artefacts.png">
+<meta property="og:url" content="https://repopop.github.io/decode/artefacts/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Les artefacts">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°06</div>
+        <h1>Les <span>artéfacts</span></h1>
+        <p class="tag">Un doc, des slides, un design ou une mini-appli, prêts à montrer : Claude les fabrique à côté de la conversation, et tu les retouches toi-même.</p>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Gratuit (partage par lien : Pro et +)</span>
+          <span class="chip">3 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Un <b>artefact</b>, c'est tout ce que Claude fabrique pour toi et que tu montrerais à quelqu'un : un <b>doc</b>, une <b>présentation</b>, une <b>maquette</b>, un <b>tableau de bord</b> ou une <b>mini-appli</b>. Il s'ouvre dans une fenêtre à côté de la conversation, et il est rangé dans l'onglet <b>Artefacts</b> du menu de gauche pour le retrouver depuis n'importe quelle conversation.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Des modèles prêts</h3>
+        <p>Docs, Slides et Design dès l'offre gratuite ; Data (tableaux de bord), Sheets et Whiteboards (bêta) dès l'offre Pro ; Motion (animations, bêta) en Team et Enterprise.</p>
+        <span class="pill ok">Docs, Slides, Design : gratuit</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Tu retouches toi-même</h3>
+        <p>Tu tapes directement dans un doc, tu modifies une diapo, tu déplaces un élément d'une maquette… ou tu demandes la modification à Claude.</p>
+        <span class="pill ok">Modification directe</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Export et partage</h3>
+        <p>Export <b>Word, PDF, Markdown ou Google Docs</b> pour un doc, <b>PowerPoint, PDF ou Google Slides</b> pour une présentation. Partage par lien dès l'offre Pro.</p>
+        <span class="pill mid">Lien : Pro et +</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">?</span><span><b>Discussion ou menu Artéfacts ?</b> Le résultat est le même : demande « fais-moi 5 slides » dans n'importe quelle conversation et Claude crée l'artéfact. Le menu <b>Artéfacts</b> sert surtout de <b>bibliothèque</b> : tout ce que Claude a fabriqué (« Les vôtres »), ce qu'on t'a partagé (« Partagé avec vous ») et des <b>modèles</b> pour partir du bon format sans rien écrire.</span></li>
+        <li><span class="dot y">€</span><span><b>Créer : gratuit. Partager par lien : Pro.</b> Tout le monde peut créer des artefacts. Le partage « Toute personne ayant le lien » est réservé aux offres Pro, Max, Team et Enterprise (aide officielle de Claude, 20/11/2026).</span></li>
+        <li><span class="dot y">!</span><span><b>Il faut un compte Claude pour ouvrir un lien.</b> La personne qui reçoit le lien d'un artefact récent doit être connectée à Claude. Seuls les anciens artefacts publiés depuis une conversation (avant le 16/09/2026) s'ouvrent sans compte.</span></li>
+        <li><span class="dot g">↔</span><span><b>Dernière version ou version figée.</b> Au moment de partager, tu choisis si le lien montre <b>la dernière version</b> (tes retouches apparaissent toutes seules) ou une version précise.</span></li>
+        <li><span class="dot g">⚙</span><span><b>Une option à activer.</b> Les artefacts demandent l'option <b>Créer et modifier des fichiers</b> dans <b>Paramètres › Capacités</b> (« Create and edit files »).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Attention aux données partagées.</b> Certains artefacts gardent des données (dès Pro). Avant d'y taper des infos sensibles, vérifie s'il utilise un <b>stockage partagé</b> : tout le monde y verrait les mêmes données.</span></li>
+        <li><span class="dot g">⚖</span><span><b>Même les avocats.</b> Le 28/10/2026, Anthropic a lancé une galerie d'artefacts juridiques prêts à l'emploi, dont certains construits par les cabinets <b>Goodwin</b> et <b>Foley &amp; Lardner</b> (Law.com, ABA Journal).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Dans Claude sur le web ou l'appli de bureau (sur mobile, tu peux créer et voir tes artefacts, mais pas régler le partage).</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Ouvrir les artefacts</h3></div>
+        <div class="chemin">Menu de gauche › Artéfacts</div>
+        <p>Clique sur <b>Artéfacts</b> dans le menu de gauche : tu retrouves tout ce que tu as fabriqué, et des modèles pour en commencer un.</p>
+        <figure class="shot"><img src="captures/01_artefacts.webp" alt="L'onglet Artéfacts et ses modèles (Documents, Diapositives, Feuilles de calcul, Design, Données)." loading="lazy"><figcaption>L'onglet Artéfacts et ses modèles (Documents, Diapositives, Feuilles de calcul, Design, Données).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Choisir un modèle</h3></div>
+        <div class="chemin">Artéfacts › Diapositives</div>
+        <p>Sous « Créer quelque chose de nouveau », choisis <b>Diapositives</b> (ou Documents, Design…), puis décris ce que tu veux. Tu peux aussi le demander dans <b>n'importe quelle conversation</b> : « Fais-moi 5 slides sur mon projet ».</p>
+        <figure class="shot"><img src="captures/01_artefacts.webp" alt="Les modèles, sous « Créer quelque chose de nouveau »." loading="lazy"><figcaption>Les modèles, sous « Créer quelque chose de nouveau ».</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Partager</h3></div>
+        <div class="chemin">Partager › Accès général › Copier le lien</div>
+        <p>Ouvre l'artefact, clique sur <b>Partager</b> en haut à droite, règle l'<b>Accès général</b> (au départ : « Vous uniquement »), puis <b>Copier le lien</b>. L'onglet <b>Exporter</b> de la même fenêtre donne le fichier (PowerPoint, PDF…).</p>
+        <figure class="shot"><img src="captures/02_partager.webp" alt="La fenêtre Partager, avec l'onglet Exporter à côté." loading="lazy"><figcaption>La fenêtre Partager, avec l'onglet Exporter à côté.</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>La présentation du lundi</h3></div>
+        <p>« Fais-moi 6 slides sur l'avancement du projet, à partir de ces notes. » Puis export PowerPoint.</p>
+        <div class="flow"><span>Tes notes</span><i>→</i><span>Slides</span><i>→</i><span>PowerPoint</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Le compte rendu à partager</h3></div>
+        <p>« Transforme ce compte rendu en doc propre, avec les décisions et les actions. » Un lien, et c'est envoyé.</p>
+        <div class="flow"><span>Notes</span><i>→</i><span>Doc</span><i>→</i><span>Lien</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>La maquette d'appli</h3></div>
+        <p>« Dessine l'écran d'accueil de mon appli de recettes, 3 versions. » Tu déplaces les éléments toi-même.</p>
+        <div class="tools"><span class="tool">Design</span><span class="tool">3 versions</span><span class="tool">Retouches</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Le mini-outil maison</h3></div>
+        <p>« Fais-moi un calculateur de budget vacances. » Il tourne directement dans l'artefact.</p>
+        <div class="tools"><span class="tool">Mini-appli</span><span class="tool">Calcul</span><span class="tool">Partage</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Le tableau de bord</h3></div>
+        <p>« Fais un tableau de bord de mes ventes avec ce fichier. » (modèle Data, dès l'offre Pro)</p>
+        <div class="flow"><span>Fichier</span><i>→</i><span>Graphiques</span><i>→</i><span>Tableau de bord</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Les grandes IA savent toutes afficher ce qu'elles fabriquent à côté du chat, mais pas de la même façon.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude</h3><div class="cp"><b>Artefacts</b><small>Dès Gratuit (partage par lien : Pro et +)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, ordinateur, mobile</span></div>
+        <p>Bon pour : des <b>docs, slides et maquettes modifiables</b>, rangés dans un onglet, exportables en Word, PowerPoint ou PDF.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini</h3><div class="cp"><b>Canvas</b><small>Gratuit (meilleur modèle en Google AI Pro / Ultra)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : rédiger et créer de petites applis, avec un lien public en un clic.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Aperçu dans les réponses (Canvas retiré)</b><small>Toutes les offres</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Web, mobile, appli de bureau</span></div>
+        <p>Bon pour : voir une page HTML, un graphique ou un diagramme directement dans la réponse ; Canvas n'est plus proposé sur les modèles récents depuis le 28/05/2026.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE</b><span>si tu veux un vrai document à retoucher, exporter et partager.</span></li>
+        <li><b>GEMINI</b><span>si tu veux une petite appli à partager sans compte payant.</span></li>
+        <li><b>CHATGPT</b><span>si un aperçu rapide dans la réponse te suffit.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°06 · Les artefacts · informations et captures vérifiées le 20 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them">Aide Claude : What are artifacts and how do I use them?</a> · <a href="https://support.claude.com/en/articles/9547008-share-artifacts">Aide Claude : Share artifacts</a> · <a href="https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors">Claude : Sheets, Whiteboards et Data (10/11/2026)</a> · <a href="https://www.law.com/legaltechnews/2026/10/28/anthropic-releases-claude-for-legal-artifacts-a-set-of-new-interactive-tools-for-legal-users-/">Law.com : Claude for Legal artifacts (28/10/2026)</a> · <a href="https://www.appypie.com/blog/?p=2795990">Appy Pie : ChatGPT Canvas vs Claude Artifacts vs Gemini Canvas (26/10/2026)</a></span>
+  </footer>
+</main>
+</body>
+</html>
