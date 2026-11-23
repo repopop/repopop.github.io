@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Les résumés audio</title>
+<meta name="description" content="Le Résumé audio de Gemini Notebook (ex-NotebookLM) expliqué simplement : c'est quoi, où le trouver, comment le personnaliser, 5 usages concrets, et ce que proposent l'appli Gemini et ChatGPT. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°07 · Les résumés audio">
+<meta property="og:description" content="Tes PDF en podcast, sans rien lire : le Résumé audio de Gemini Notebook (ex-NotebookLM) pas à pas en captures. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-resumes-audio.png">
+<meta property="og:url" content="https://repopop.github.io/decode/resumes-audio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Les résumés audio">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°07</div>
+        <h1>Les résumés <span>audio</span></h1>
+        <p class="tag">Tes PDF, cours et rapports deviennent un podcast : deux voix d'IA en discutent, en français, gratuitement, dans Gemini Notebook (l'ex-NotebookLM).</p>
+        <div class="chips">
+          <span class="chip">Gemini Notebook</span>
+          <span class="chip">Gratuit (compte Google)</span>
+          <span class="chip">3 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Le <b>Résumé audio</b> (« Audio Overview » en anglais) est la fonction phare de <b>Gemini Notebook</b>, l'outil de Google qui s'appelait <b>NotebookLM</b> jusqu'au 16 juillet 2026. Tu lui donnes tes documents, et il en fait une <b>conversation façon podcast</b> entre deux hôtes IA, basée <b>uniquement sur tes sources</b>.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Tes sources, pas Internet</h3>
+        <p>PDF, fichiers Word, Google Docs, pages web, vidéos YouTube… Les hôtes ne parlent que de ce que tu as ajouté au notebook.</p>
+        <span class="pill ok">Basé sur tes sources</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Deux formats</h3>
+        <p><b>Analyse approfondie</b> : deux hôtes décortiquent et relient les thèmes. <b>Briefing</b> : un aperçu condensé des idées principales.</p>
+        <span class="pill ok">Analyse ou Briefing</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Tu le diriges</h3>
+        <p>Tu choisis la <b>langue</b> (français compris), la <b>longueur</b> (Court ou Par défaut) et tu dis aux hôtes <b>sur quoi se concentrer</b>.</p>
+        <span class="pill ok">Personnalisable</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>À emporter</h3>
+        <p>Lecture de x0,5 à x2, <b>téléchargement</b> du fichier audio et <b>partage</b> par lien.</p>
+        <span class="pill ok">Téléchargeable</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">↔</span><span><b>NotebookLM = Gemini Notebook.</b> Google a renommé <b>NotebookLM</b> en <b>Gemini Notebook</b> le 16 juillet 2026. Même outil, mêmes notebooks : les anciens liens continuent de fonctionner.</span></li>
+        <li><span class="dot y">€</span><span><b>Gratuit, mais avec un quota.</b> Gratuit avec un compte Google. Depuis le 2 septembre 2026, ce n'est plus « 3 résumés par jour » : un <b>quota de calcul</b> se recharge toutes les 5 heures, jusqu'à une limite par semaine. Google AI Plus double ce quota, AI Pro le multiplie par 4.</span></li>
+        <li><span class="dot y">⏱</span><span><b>Quelques minutes de génération.</b> La génération tourne en arrière-plan : tu peux continuer à travailler. Tu peux aussi cliquer sur <b>Générer plus tard</b>.</span></li>
+        <li><span class="dot y">!</span><span><b>Le mode interactif est en anglais.</b> Le mode où tu interromps les hôtes pour leur poser une question n'existe qu'en <b>anglais</b>. En français, tu écoutes.</span></li>
+        <li><span class="dot r">⚠</span><span><b>L'IA peut se tromper.</b> Les hôtes s'appuient sur tes sources, mais peuvent simplifier ou mal interpréter. Pour un contrat ou un examen, vérifie dans le document.</span></li>
+        <li><span class="dot g">★</span><span><b>Une invention de l'année.</b> Le magazine <b>Time</b> a classé NotebookLM parmi les <b>200 meilleures inventions de 2024</b>. Trois mois après le lancement, les utilisateurs avaient déjà généré plus de <b>350 ans</b> d'écoute de résumés audio (Google, décembre 2024).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Sur le site de <b>Gemini Notebook</b> (ex-NotebookLM) ou dans son appli mobile, avec ton compte Google.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Créer un notebook et ajouter tes sources</h3></div>
+        <div class="chemin">Créer un notebook › Ajouter des sources</div>
+        <p>Crée un notebook, puis <b>Ajouter des sources</b> : PDF, Word, Google Docs, page web, vidéo YouTube, texte copié…</p>
+        <figure class="shot"><img src="captures/01_notebook.webp" alt="Un notebook avec ses sources (ici 14 cours en .docx)." loading="lazy"><figcaption>Un notebook avec ses sources (ici 14 cours en .docx).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Ouvrir Résumé audio</h3></div>
+        <div class="chemin">Studio › Résumé audio</div>
+        <p>Dans le panneau <b>Studio</b>, à droite, choisis <b>Résumé audio</b>.</p>
+        <figure class="shot"><img src="captures/02_studio.webp" alt="Le panneau Studio, et le résumé une fois généré (15 min 29 ici)." loading="lazy"><figcaption>Le panneau Studio, et le résumé une fois généré (15 min 29 ici).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Personnaliser et générer</h3></div>
+        <div class="chemin">Format › Langue › Consigne › Générer maintenant</div>
+        <p>Choisis le <b>format</b> (Analyse approfondie ou Briefing), la <b>langue</b>, la <b>longueur</b>, écris <b>sur quoi les hôtes doivent se concentrer</b>, puis <b>Générer maintenant</b>.</p>
+        <figure class="shot"><img src="captures/03_personnaliser.webp" alt="La fenêtre « Personnaliser le résumé audio »." loading="lazy"><figcaption>La fenêtre « Personnaliser le résumé audio ».</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Réviser un cours</h3></div>
+        <p>Ajoute tes cours, demande aux hôtes de se concentrer sur le chapitre de l'examen, écoute dans les transports.</p>
+        <div class="flow"><span>Tes cours</span><i>→</i><span>Résumé audio</span><i>→</i><span>Révision</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Le rapport avant la réunion</h3></div>
+        <p>Un rapport trop long ? Format Briefing pour les idées principales en quelques minutes.</p>
+        <div class="flow"><span>Rapport PDF</span><i>→</i><span>Briefing</span><i>→</i><span>Réunion</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Comprendre un contrat</h3></div>
+        <p>« Concentrez-vous sur les engagements et les frais. » Puis vérifie les passages dans le document.</p>
+        <div class="tools"><span class="tool">Contrat</span><span class="tool">Consigne</span><span class="tool">À vérifier</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Une vidéo trop longue</h3></div>
+        <p>Colle le lien d'une longue vidéo YouTube : tu écoutes la discussion au lieu de tout regarder.</p>
+        <div class="flow"><span>Lien YouTube</span><i>→</i><span>Résumé audio</span><i>→</i><span>Écoute</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Partager à l'équipe</h3></div>
+        <p>Télécharge le fichier audio ou partage le lien pour que tout le monde ait le même résumé.</p>
+        <div class="tools"><span class="tool">Télécharger</span><span class="tool">Partager</span><span class="tool">Équipe</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Google a mis le résumé audio dans plusieurs de ses outils ; chez les autres, il faut bricoler.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Gemini Notebook</h3><div class="cp"><b>Résumé audio</b><small>Gratuit (quota plus haut en AI Plus / Pro / Ultra)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : un <b>vrai podcast à deux voix</b> sur plusieurs sources à la fois, personnalisable, en français.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Appli Gemini</h3><div class="cp"><b>Résumé audio (Audio Overview)</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : transformer un fichier envoyé dans le chat ou un rapport Deep Research en podcast.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Mode vocal (pas de podcast)</b><small>Toutes les offres</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Web, mobile, appli de bureau</span></div>
+        <p>Bon pour : lire ou résumer à voix haute, mais sans conversation à deux voix générée.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GEMINI NOTEBOOK</b><span>si tu veux écouter plusieurs documents comme un vrai podcast.</span></li>
+        <li><b>APPLI GEMINI</b><span>si tu as juste un fichier ou un rapport à écouter vite.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°07 · Les résumés audio · informations et captures vérifiées le 21 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.google.com/notebooklm/answer/16212820?hl=fr">Aide Gemini Notebook : Générer un résumé audio</a> · <a href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/">Google : NotebookLM is now Gemini Notebook (juillet 2026)</a> · <a href="https://support.google.com/gemininotebook/answer/17670842?hl=en">Aide Gemini Notebook : limites d'utilisation</a> · <a href="https://blog.google/intl/fr-fr/nouveautes-produits/explorez-obtenez-des-reponses/les-resumes-audio-de-notebooklm-sont-desormais-disponibles-dans-plus-de-50-langues/">Google France : les résumés audio en plus de 50 langues (avril 2025)</a> · <a href="https://time.com/7094935/google-notebooklm">TIME : Google NotebookLM, Best Inventions 2024</a> · <a href="https://blog.google/intl/id-id/company-news/technology/notebooklm-kini-dengan-tampilan-baru-dan-audio-interaktif/">Google : 350 ans de résumés audio en trois mois (décembre 2024)</a> · <a href="https://workspaceupdates.googleblog.com/2025/03/audio-overview-gemini-app.html">Workspace Updates : Audio Overview dans l'appli Gemini (mars 2025)</a></span>
+  </footer>
+</main>
+</body>
+</html>
