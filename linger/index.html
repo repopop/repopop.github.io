@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Linger</title>
+<meta name="description" content="Linger en français : agent IA personnel open source qui tourne en local (Mac, Windows, Linux). Config minimale, limites, note de confiance et comparatif avec ChatGPT, Claude, Hermes Agent.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°46 · Linger">
+<meta property="og:description" content="Ton assistant IA perso, sur ton PC, sans abonnement : le kit complet de Linger en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/linger.png">
+<meta property="og:url" content="https://repopop.github.io/linger/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Linger">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°46</div>
+        <h1>Lin<span>ger</span></h1>
+        <p class="tag">Un agent IA personnel, gratuit et open source, qui tourne sur ton propre ordinateur.</p>
+        <div class="chips">
+          <span class="chip">★ 4 000+ étoiles</span>
+          <span class="chip">Version desktop-v0.1.6</span>
+          <span class="chip">Gratuit · licence Apache 2.0 modifiée</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Linger installe sur ton ordinateur un agent IA, <b>Another Me</b>, avec sa mémoire et son modèle. Il lit les fichiers et les applis que tu l'autorises à voir (mails, agenda, Slack…), range ce qui compte dans un <span class="k">wiki</span> et te relance quand c'est utile. En mode local, tes données et sa mémoire restent sur ta machine, et il n'y a pas de frais au jeton. Le projet est sorti en novembre 2026 : c'est encore une version 0.1.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>PC Windows ou Linux</h3>
+        <p>Appli à installer (ou version portable sous Windows). Minimum conseillé : carte graphique NVIDIA de 8 Go et 32 Go de mémoire vive. Le modèle de 125 milliards demande 12 Go et 64 Go.</p>
+        <span class="pill ok">Recommandé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Mac Apple silicon</h3>
+        <p>macOS 14 ou plus récent, 16 Go de mémoire au minimum. Pas de version pour les Mac Intel (passer par Docker).</p>
+        <span class="pill ok">Possible</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Serveur / NAS avec Docker</h3>
+        <p>Docker Compose sert l'interface à plusieurs ordinateurs, mais le modèle et les agents tournent sur l'ordinateur que tu y connectes. Il faut au moins 5 Go de mémoire pour Docker.</p>
+        <span class="pill mid">Pour les avancés</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Pas de frais au jeton</b> Le modèle tourne sur ta machine : pas d'abonnement ni de facture à l'usage. Tu peux aussi brancher Claude Code ou Codex si tu as déjà un abonnement.</span></li>
+        <li><span class="dot r">!</span><span><b>Le modèle géant est lent</b> Sur une carte de 12 Go, le README annonce environ 21 jetons (morceaux de mots) par seconde et jusqu'à 3 minutes avant la première réponse sur une longue demande. Les modèles plus petits répondent bien plus vite.</span></li>
+        <li><span class="dot y">↔</span><span><b>Les applis connectées restent en ligne</b> Gmail, Slack, l'agenda… échangent leurs données avec leurs propres services. La voix et certains traitements de la mémoire passent aussi par des services externes.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Appli Mac non signée</b> Au premier lancement, macOS bloque l'appli : le README donne la commande à taper dans le Terminal pour l'autoriser.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Mot de passe de test en Docker</b> L'installation Docker crée un compte avec le mot de passe test1234 : change-le dans Réglages › Sécurité avant d'ouvrir le serveur à d'autres.</span></li>
+        <li><span class="dot y">§</span><span><b>Licence avec conditions</b> Apache 2.0 avec des ajouts : usage commercial permis, mais licence payante pour proposer Linger en service hébergé à d'autres, et interdiction d'enlever le logo de l'interface.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ne plus oublier un devis</h3></div>
+        <p>Un client demande un devis pour vendredi : Another Me le note et te relance le mercredi matin.</p>
+        <div class="flow"><span>Mail du client</span><i>→</i><span>Mémoire</span><i>→</i><span>Rappel mercredi</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Trier ce qui compte</h3></div>
+        <p>Il ignore les messages qui ne te concernent pas et se tait la nuit (22 h – 8 h).</p>
+        <div class="tools"><span class="tool">Mails</span><span class="tool">Slack</span><span class="tool">Agenda</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Une mémoire commune</h3></div>
+        <p>Chaque nuit, mails, discussions et réunions deviennent des pages de wiki que tous les agents consultent.</p>
+        <div class="flow"><span>Mails et réunions</span><i>→</i><span>Wiki</span><i>→</i><span>Tous les agents</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Une équipe d'agents</h3></div>
+        <p>Pour un gros travail, il crée une équipe (recherche, chiffres, rédaction) qui suit un seul plan, team.md.</p>
+        <div class="tools"><span class="tool">Recherche</span><span class="tool">Chiffres</span><span class="tool">Rédaction</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Comptes rendus de réunion</h3></div>
+        <p>Il enregistre une réunion avec transcription en direct, répond à « qu'est-ce qui a été dit ? » et prépare les suites.</p>
+        <div class="flow"><span>Réunion</span><i>→</i><span>Transcription</span><i>→</i><span>Suites à faire</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 6,8 sur 10" style="background:conic-gradient(#FF9F1C 0 68%,#E7E2F2 68% 100%)"><div>6,8<small>/10</small></div></div>
+        <div>
+          <h3>Prometteur, mais très jeune</h3>
+          <p>Un projet sérieux et très actif, avec une vraie approche locale, mais sorti il y a quelques jours : à tester sans lui confier tout de suite tes données sensibles.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Quatre versions de l'appli entre le 10 et le 18 novembre 2026, mises à jour quotidiennes.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Plus de 2 000 étoiles, dont 1 000 la première semaine, et un Discord ; communauté encore toute neuve.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>En mode local, données et mémoire restent sur ta machine ; les applis connectées, la voix et certains traitements passent par des services externes.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Gratuit et open source, édité par l'entreprise SimplexAI ; licence modifiée qui réserve l'hébergement commercial.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>2/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <p>Version 0.1, appli Mac non signée, chiffres de performance mesurés par l'équipe elle-même.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub et dans la documentation officielle le 23 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Linger</h3><div class="cp"><b>Gratuit</b><small>open source, pas de frais au jeton</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur</span><span class="on">Mac, Windows, Linux, Docker</span></div>
+        <p>Bon pour : Un agent perso qui retient tout et te relance</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Hermes Agent</h3><div class="cp"><b>Gratuit</b><small>open source</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur</span><span class="on">Selon ta config (avec Ollama ou LM Studio)</span></div>
+        <p>Bon pour : Un agent local à bricoler soi-même</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT Plus</h3><div class="cp"><b>22,99 €/mois</b><small>OpenAI</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'OpenAI</span><span class="on">Web, mobile, ordinateur</span></div>
+        <p>Bon pour : Le plus simple, sans matériel à acheter</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Claude Pro</h3><div class="cp"><b>~21 €/mois</b><small>20 $ HT, Anthropic</small></div></div>
+        <div class="cm"><span class="lvl n">Serveurs d'Anthropic</span><span class="on">Web, mobile, ordinateur</span></div>
+        <p>Bon pour : Écrire, analyser, coder sans matériel</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>LINGER</b><span>si tu as un PC assez puissant et que tu veux un assistant qui garde tes données chez toi, sans abonnement.</span></li>
+        <li><b>CHATGPT OU CLAUDE</b><span>si ton ordinateur est modeste ou que tu veux les modèles les plus forts sans rien installer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°46 · Linger · informations vérifiées le 23 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/simplexai-labs/linger">dépôt GitHub simplexai-labs/linger (README, licence)</a> · <a href="https://github.com/simplexai-labs/linger/releases">versions de l'appli Linger</a> · <a href="https://docs.heylinger.com/">documentation officielle de Linger</a> · <a href="https://alphasignal.ai/news/simplexai-s-linger-runs-a-full-ai-agent-on-your-pc-for-free">AlphaSignal : « SimplexAI's Linger Runs a Full AI Agent on Your PC for Free » (19/11/2026)</a> · <a href="https://www.jechange.fr/telecom/mobile/news/chatgpt-23-euros-sans-pub-ia-plus-chere-que-forfait-mobile">JeChange : prix des formules ChatGPT en France (octobre 2026)</a> · <a href="https://geotoolbox.ai/fr/blog/prix-claude">GEO Toolbox : prix de Claude en France (juillet 2026)</a> · <a href="https://build.nvidia.com/rtx/llms/overview">NVIDIA : agents locaux (Hermes Agent, OpenClaw)</a></span>
+  </footer>
+</main>
+</body>
+</html>
