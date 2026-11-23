@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Mister Download Manager</title>
+<meta name="description" content="Mister Download Manager expliqué simplement : installation sur Windows, Linux ou Mac, reprise des téléchargements, vidéos et torrents, 5 usages concrets, note de confiance et comparatif avec IDM, Free Download Manager et JDownloader.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°48 · Mister Download Manager">
+<meta property="og:description" content="Installation, 5 usages concrets, note de confiance et comparatif avec IDM, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/misterdownloadmanager.png">
+<meta property="og:url" content="https://repopop.github.io/misterdownloadmanager/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Mister Download Manager">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°48</div>
+        <h1>Mister <span>Download Manager</span></h1>
+        <p class="tag">Le gestionnaire de téléchargement gratuit qui découpe tes fichiers en 8 morceaux téléchargés en même temps, comme IDM. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ 17 000+ étoiles</span>
+          <span class="chip">Version 0.5.2</span>
+          <span class="chip">Gratuit · licence GPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Mister Download Manager (MDM) est un logiciel à installer sur ton ordinateur, avec une extension pour ton navigateur. Il prend la main sur tes téléchargements, <span class="k">découpe</span> chaque fichier en morceaux téléchargés en même temps et <span class="k">reprend</span> là où il s'était arrêté après une coupure, un plantage ou un redémarrage. Sa fenêtre reprend la disposition d'IDM. Trois façons de l'installer :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Windows 10 et 11</h3>
+        <p>Le support principal (x64, ARM64 et 32 bits). Prends le fichier « -setup.exe » de la page des versions sur GitHub : il installe MDM, le relie à ton navigateur et te demande ta langue. Aussi en version portable (ZIP, pour une clé USB) et par la commande winget install AhmedNefzaoui.MisterDownloadManager.</p>
+        <span class="pill ok">Support principal</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Linux</h3>
+        <p>Paquets .deb (Ubuntu, Debian, Mint), .rpm (Fedora, openSUSE), AppImage ou .tar.gz, testés sur Ubuntu 24.04, Debian 12 et Fedora. Pas encore de lecteur d'écran (Orca) ni de prise en charge des navigateurs Flatpak.</p>
+        <span class="pill ok">Pris en charge</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>macOS (Apple Silicon et Intel)</h3>
+        <p>Fichiers .dmg marqués « experimental » : l'auteur ne les a pas encore testés sur un Mac. À la première ouverture, clic droit sur l'appli puis « Ouvrir ».</p>
+        <span class="pill mid">En test</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (GPL-3.0).</b> Ni pub, ni essai, ni compte. Pas de version payante : l'auteur accepte des dons sur GitHub Sponsors, rien ne se débloque avec.</span></li>
+        <li><span class="dot y">!</span><span><b>Plus rapide… quand le serveur bride :</b> le gain vient des 8 connexions en parallèle. Il est net quand le site limite la vitesse de chaque connexion (hébergeurs de fichiers, miroirs, serveurs lointains) ; si c'est ta box qui limite, ça ne va pas plus vite. Dans la vidéo, 6 s = mesure de l'auteur (100 Mo, 2 Mo/s par connexion) et 50 s = calcul pour une seule connexion : le navigateur n'a pas été mesuré.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Avertissement Windows à la 1re ouverture :</b> la signature du code se met en place, Windows peut afficher « Windows a protégé votre ordinateur ». Clique sur « Informations complémentaires » puis « Exécuter quand même », uniquement pour un fichier pris sur la page officielle.</span></li>
+        <li><span class="dot y">↔</span><span><b>Vidéos et torrents :</b> il s'appuie sur yt-dlp pour les vidéos et sur librqbit pour les torrents. Ne télécharge que ce que tu as le droit de télécharger (vidéos libres, tes propres contenus, fichiers autorisés).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Projet très jeune :</b> dépôt créé le 29 octobre 2026. Les traductions (86 langues) sont faites par machine et attendent une relecture ; garde ton ancien gestionnaire le temps de l'essayer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Un gros fichier sur un serveur lent</h3></div>
+        <p>Une image ISO ou un gros fichier sur un site qui bride chaque connexion : MDM en ouvre 8 et répartit le travail jusqu'au dernier octet.</p>
+        <div class="flow"><span>1 fichier</span><i>→</i><span>8 morceaux</span><i>→</i><span>Fini plus tôt</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Reprendre sans tout recommencer</h3></div>
+        <p>Coupure, plantage ou redémarrage : MDM garde sa progression et repart d'où il était. Si le lien a expiré, « Actualiser l'adresse » en récupère un nouveau.</p>
+        <div class="flow"><span>Coupure</span><i>→</i><span>Reprendre</span><i>→</i><span>Fichier complet</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Enregistrer la vidéo d'une page</h3></div>
+        <p>Un bouton « Download video » apparaît sur la vidéo : tu choisis la qualité, ou juste le son. Pour des vidéos libres ou que tu as le droit de garder.</p>
+        <div class="tools"><span class="tool">Bouton vidéo</span><span class="tool">Sous-titres</span><span class="tool">Son seul</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Télécharger la nuit</h3></div>
+        <p>Mets tes fichiers dans une file d'attente, le planificateur la lance à l'heure choisie (il peut réveiller le PC) puis éteint l'ordinateur si tu veux.</p>
+        <div class="tools"><span class="tool">File d'attente</span><span class="tool">Planificateur</span><span class="tool">Extinction</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Torrents et liens magnet</h3></div>
+        <p>Ouvre un .torrent ou un lien magnet, coche seulement les fichiers voulus et suis les pairs, les pièces et la vitesse dans la fenêtre de progression.</p>
+        <div class="flow"><span>.torrent</span><i>→</i><span>Choix des fichiers</span><i>→</i><span>Téléchargé</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,0 sur 10" style="background:conic-gradient(#16C47F 0 80%,#E7E2F2 80% 100%)"><div>8,0<small>/10</small></div></div>
+        <div>
+          <h3>Excellent, mais tout jeune</h3>
+          <p>Très actif, très suivi, et ton contenu reste sur ton PC. Son point faible : il a moins d'un mois et le Mac n'est pas encore testé.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Des mises à jour presque tous les jours (version 0.5.2 le 9 novembre 2026, dernière modification le 23 novembre 2026).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 17 000 étoiles et près de 1 500 copies (forks) en moins d'un mois, n°1 des dépôts Rust du jour sur Trendshift, des dizaines de contributeurs.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tout se fait sur ton PC, sans compte ni pub. Il se connecte pour les mises à jour et les outils optionnels (yt-dlp, ffmpeg) ; le pays du serveur est lu dans une table locale.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit sous licence GPL-3.0, sans version payante, financé par des dons. Un seul auteur principal.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>2/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <p>Dépôt créé le 29 octobre 2026, présenté comme une préversion : Mac non testé, traductions automatiques, signature du code en cours.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, l'API GitHub et le README du projet le 23 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Mister Download Manager</h3><div class="cp"><b>Gratuit</b><small>Dons facultatifs</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Linux, Mac (en test)</span></div>
+        <p>Bon pour : Retrouver IDM gratuitement, vidéos et torrents compris</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Internet Download Manager (IDM)</h3><div class="cp"><b>10,50 €/an</b><small>ou 21,95 € à vie pour 1 PC, après 30 jours d'essai</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows</span></div>
+        <p>Bon pour : Un logiciel éprouvé depuis des années, si la licence ne te gêne pas</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Free Download Manager</h3><div class="cp"><b>Gratuit</b><small>Logiciel gratuit, code non ouvert</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux, Android</span></div>
+        <p>Bon pour : Un gestionnaire gratuit et mûr, aussi sur téléphone</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>JDownloader 2</h3><div class="cp"><b>Gratuit</b><small>Open source</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Les liens d'hébergeurs de fichiers en masse</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>MISTER DOWNLOAD MANAGER</b><span>si tu veux l'expérience IDM gratuitement et que tu acceptes un logiciel encore très jeune.</span></li>
+        <li><b>IDM</b><span>si tu as déjà une licence et que tu veux un outil éprouvé depuis des années, sous Windows.</span></li>
+        <li><b>FREE DOWNLOAD MANAGER</b><span>si tu veux un gestionnaire gratuit plus ancien, aussi sur Mac et Android.</span></li>
+      </ul>
+      <p class="warnline">Télécharger une vidéo ou un fichier protégé sans autorisation peut être interdit par la loi et par les conditions des sites : réserve ces fonctions aux contenus libres ou que tu as le droit de garder.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°48 · Mister Download Manager · informations vérifiées le 23 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/anefzaoui/misterdownloadmanager">dépôt GitHub anefzaoui/misterdownloadmanager</a> · <a href="https://github.com/anefzaoui/misterdownloadmanager/releases">versions publiées (installateurs Windows, Linux, macOS)</a> · <a href="https://misterdownloadmanager.com">site officiel misterdownloadmanager.com</a> · <a href="https://github.com/anefzaoui/misterdownloadmanager/blob/main/docs/bench/run5/REPORT.md">rapport du banc d'essai MDM contre IDM (mesures de l'auteur)</a> · <a href="https://github.com/anefzaoui/misterdownloadmanager/tree/main/docs/images">capture de la vidéo : fenêtre principale du README</a> · <a href="https://secure.internetdownloadmanager.com/buy_idm.html">tarifs officiels d'IDM</a> · <a href="https://www.lafabriquedunet.fr/logiciels/productivite/gestionnaire-telechargement">prix d'IDM en France (La Fabrique du Net, novembre 2026)</a> · <a href="https://trendshift.io/repositories/337427">statistiques Trendshift du dépôt</a></span>
+  </footer>
+</main>
+</body>
+</html>
