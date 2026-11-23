@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · God's Eye View</title>
+<meta name="description" content="God's Eye View expliqué simplement : installation avec Pinokio ou Docker, suivi des avions, bateaux et satellites, cockpit, commande vocale, 5 usages concrets, note de confiance et comparatif avec Flightradar24, MarineTraffic et Google Earth.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°49 · God's Eye View">
+<meta property="og:description" content="Installation, 5 usages concrets, note de confiance et comparatif, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/gods-eye-view.png">
+<meta property="og:url" content="https://repopop.github.io/gods-eye-view/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de God's Eye View">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°49</div>
+        <h1>God's Eye <span>View</span></h1>
+        <p class="tag">Les avions, les bateaux et les satellites de la planète en direct, sur un globe 3D dans ton navigateur. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ 66 000+ étoiles</span>
+          <span class="chip">Version 0.3.0</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">God's Eye View est une appli web que tu fais tourner <span class="k">sur ton ordinateur</span> : elle va chercher des données publiques (vols, navires, satellites, séismes, incendies, météo, caméras publiques…) et les pose sur un <span class="k">globe 3D</span> que tu ouvres dans ton navigateur, à l'adresse localhost:4173. La base marche <span class="k">sans compte et sans clé</span>. Trois façons de l'installer :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Pinokio (un clic)</h3>
+        <p>Le plus simple, sans terminal : installe Pinokio 8.2 ou plus récent (Windows, macOS ou Linux), ouvre la page God's Eye View dans Pinokio, puis Install et Start.</p>
+        <span class="pill ok">Le plus simple</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker</h3>
+        <p>Tu clones le dépôt et tu lances docker compose up, puis tu ouvres localhost:4173. Le serveur MCP (pour les agents IA) et la connexion vocale via ChatGPT ne marchent pas dans Docker.</p>
+        <span class="pill ok">Pris en charge</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Terminal (Node.js)</h3>
+        <p>Pour les développeurs : Node.js 24 (24.14 ou plus) ou 26, puis npm ci, npm run doctor et npm run dev. Prends une version récente de Node : les correctifs de sécurité d'octobre 2026 sont dans 24.22.1+ et 26.12.1+.</p>
+        <span class="pill mid">Pour les curieux</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (licence MIT).</b> Le nom « God's Eye View » est une marque déposée. L'équipe (Halfpixel) prépare aussi une version hébergée, avec liste d'attente.</span></li>
+        <li><span class="dot y">🔑</span><span><b>Des clés en option :</b> la plupart des couches marchent sans clé. Les bateaux (AISStream) et les incendies (NASA FIRMS) demandent une clé gratuite ; la 3D Google passe par une clé Cesium ion ; la voix et le chat utilisent OpenAI ou Gemini, payés à l'usage (alerte à 2 $ et plafond à 5 $ par session).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Pas pour un usage réel :</b> les données peuvent être en retard, incomplètes, estimées ou fausses. Le projet interdit de s'en servir pour naviguer, pour les secours, la santé ou l'investissement. Le trafic routier est simulé et la position des caméras est estimée.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Respect de la vie privée :</b> le projet ne propose ni recherche de personnes par leur nom, ni reconnaissance faciale, ni suivi d'individus, et refuse les contributions qui en ajouteraient.</span></li>
+        <li><span class="dot y">!</span><span><b>Tes clés restent chez toi :</b> elles sont stockées dans un fichier local (ou le trousseau macOS). Ne partage pas ton instance sur ton réseau : tes clés seraient exposées à ceux qui y accèdent.</span></li>
+        <li><span class="dot y">↔</span><span><b>Un navigateur qui gère la 3D :</b> il faut une carte graphique correcte. Si l'affichage est saccadé dans Pinokio, ouvre la même adresse dans ton navigateur habituel.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Suivre l'avion qui passe au-dessus de chez toi</h3></div>
+        <p>Tu cliques dessus : la caméra s'accroche, sa trace se dessine et ses informations s'affichent. Un clic de plus et tu es dans son cockpit.</p>
+        <div class="flow"><span>Clic sur l'avion</span><i>→</i><span>Trace + infos</span><i>→</i><span>Cockpit</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Savoir quand l'ISS passe chez toi</h3></div>
+        <p>Demande-le à la voix (ou par écrit) : l'heure du lever, du point le plus haut, du coucher, et si elle sera visible.</p>
+        <div class="flow"><span>Question</span><i>→</i><span>Satellites</span><i>→</i><span>Heures de passage</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Regarder une tempête arriver</h3></div>
+        <p>Active le vent, le radar de pluie, les nuages et les éclairs sur une même frise, et suis la trajectoire des cyclones avec leur cône de prévision.</p>
+        <div class="tools"><span class="tool">Vent</span><span class="tool">Radar</span><span class="tool">Cyclones</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Voir les bateaux autour d'un port</h3></div>
+        <p>Avec une clé AISStream gratuite, les navires apparaissent en direct ; clique sur l'un d'eux pour le suivre ou passer à la caméra publique la plus proche.</p>
+        <div class="tools"><span class="tool">Navires en direct</span><span class="tool">Suivi</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Laisser ton agent IA explorer la carte</h3></div>
+        <p>En serveur MCP, Claude Desktop, Codex ou ChatGPT peuvent ouvrir un lieu sur le globe, l'interroger et y poser leurs annotations.</p>
+        <div class="tools"><span class="tool">MCP</span><span class="tool">Claude Desktop</span><span class="tool">Annotations</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,0 sur 10" style="background:conic-gradient(#16C47F 0 80%,#E7E2F2 80% 100%)"><div>8,0<small>/10</small></div></div>
+        <div>
+          <h3>Très actif, encore jeune</h3>
+          <p>Un projet énorme et mis à jour chaque jour, qui garde tes clés chez toi. Il est encore en version 0.3 et une version hébergée payante se prépare.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 3 300 modifications, dernière mise à jour le 23 novembre 2026, version 0.3.0 le 28 octobre 2026.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 66 000 étoiles et 13 000 copies (forks), plus de 100 contributeurs, n°1 de GitHub Trending.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tourne en local, clés gardées sur ta machine, voix avec jetons de courte durée. Les requêtes partent quand même vers les fournisseurs de données.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Code sous licence MIT, mais nom déposé et version hébergée en préparation par la société Halfpixel.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Code ouvert en août 2026, version 0.3, plus de 400 tickets ouverts ; données parfois estimées ou en retard.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, dans le README et dans DATA_SOURCES.md le 23 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>God's Eye View</h3><div class="cp"><b>Gratuit</b><small>Clés optionnelles (voix payée à l'usage)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur</span><span class="on">Windows, macOS, Linux (navigateur)</span></div>
+        <p>Bon pour : Tout voir sur un seul globe : avions, bateaux, satellites, météo</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Flightradar24</h3><div class="cp"><b>Gratuit (limité)</b><small>Silver dès 2,99 $/mois, Gold 34,99 $/an (App Store)</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Flightradar24</span><span class="on">Web, iPhone, Android</span></div>
+        <p>Bon pour : Les avions seulement, avec historique et alertes</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>MarineTraffic</h3><div class="cp"><b>Gratuit (limité)</b><small>Basic dès 10 £/mois</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de MarineTraffic (Kpler)</span><span class="on">Web, iPhone, Android</span></div>
+        <p>Bon pour : Les bateaux seulement, avec suivi de flotte</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Earth</h3><div class="cp"><b>Gratuit</b><small>Compte Google pour certaines fonctions</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Google</span><span class="on">Web, PC, mobile</span></div>
+        <p>Bon pour : Explorer la planète en 3D, sans données en direct</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GOD'S EYE VIEW</b><span>si tu veux tout voir en direct sur un même globe, par curiosité ou pour apprendre.</span></li>
+        <li><b>FLIGHTRADAR24</b><span>si tu suis surtout des vols précis (un proche, un retard) et que tu veux l'historique.</span></li>
+        <li><b>MARINETRAFFIC</b><span>si tu travailles avec des navires et qu'il te faut des alertes fiables.</span></li>
+      </ul>
+      <p class="warnline">God's Eye View n'est pas fait pour un usage réel : pour un vol à attraper ou un bateau à suivre de près, vérifie toujours auprès de la source officielle.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°49 · God's Eye View · informations vérifiées le 23 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/bilawalsidhu/gods-eye-view">dépôt GitHub bilawalsidhu/gods-eye-view</a> · <a href="https://github.com/bilawalsidhu/gods-eye-view#%EF%B8%8F-what-this-thing-does">capture de la vidéo : section « What This Thing Does » du README</a> · <a href="https://github.com/bilawalsidhu/gods-eye-view/blob/main/DATA_SOURCES.md">sources de données et conditions d'usage (DATA_SOURCES.md)</a> · <a href="https://godseyeview.ai/">site officiel godseyeview.ai</a> · <a href="https://forklog.com/en/?p=106859">parcours de Bilawal Sidhu (6 ans chef de produit chez Google), ForkLog</a> · <a href="https://www.flightradar24.com/premium/">abonnements Flightradar24</a> · <a href="https://g2.com/products/kpler-marinetraffic/pricing">tarifs MarineTraffic (G2)</a></span>
+  </footer>
+</main>
+</body>
+</html>
