@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · La mémoire</title>
+<meta name="description" content="La mémoire de Claude et de ChatGPT expliquée simplement : c'est quoi, où la trouver, comment la corriger ou l'effacer, comment passer sa mémoire de ChatGPT à Claude, 5 usages concrets et ce que propose Gemini. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°09 · La mémoire">
+<meta property="og:description" content="Arrête de te présenter à ton IA à chaque conversation : la mémoire de Claude et ChatGPT pas à pas en captures. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-memoire.png">
+<meta property="og:url" content="https://repopop.github.io/decode/memoire/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de La mémoire">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°09</div>
+        <h1>La <span>mémoire</span></h1>
+        <p class="tag">Claude et ChatGPT retiennent qui tu es, sur quoi tu travailles et comment tu aimes tes réponses. Et c'est toi qui décides : tu vois tout, tu corriges, tu effaces.</p>
+        <div class="chips">
+          <span class="chip">Claude · ChatGPT</span>
+          <span class="chip">Inclus, même en gratuit</span>
+          <span class="chip">5 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">La <b>mémoire</b> permet à ton IA de retenir, d'une conversation à l'autre, ce qui compte pour toi : ton métier, tes projets, tes préférences de réponse. Plus besoin de te présenter à chaque fois. Claude et ChatGPT l'ont tous les deux, et dans les deux cas <b>tu peux tout voir, corriger et effacer</b>.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Elle se remplit toute seule</h3>
+        <p>L'IA garde ce qui lui semble utile pendant que tu discutes. Tu peux aussi lui dire « retiens que… » pour enregistrer quelque chose tout de suite.</p>
+        <span class="pill ok">Automatique</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Tu la corriges</h3>
+        <p>Sur <b>Claude</b>, chaque sujet se modifie au crayon ou se supprime. Sur <b>ChatGPT</b>, tu corriges le <b>Résumé de la mémoire</b> en écrivant une phrase dans le champ du bas.</p>
+        <span class="pill ok">Modifiable</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Une mémoire par projet</h3>
+        <p>Sur Claude, chaque projet a sa propre mémoire : ton travail et ta vie perso ne se mélangent pas.</p>
+        <span class="pill ok">Séparée par projet</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Tu changes d'IA sans repartir de zéro</h3>
+        <p>Claude fournit une invite à coller dans ChatGPT (ou Gemini) : tu recopies la réponse dans Claude, et ta mémoire est importée. Tu peux aussi exporter la mémoire de Claude en .zip.</p>
+        <span class="pill ok">Import / export</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Inclus dans les offres gratuites.</b> Sur Claude, la mémoire est activée par défaut en Free, Pro et Max (web, appli de bureau, mobile) ; en Team et Enterprise, c'est l'administrateur qui décide. Sur ChatGPT, les réglages disponibles varient selon l'offre, le pays et l'appareil : vérifie dans tes Paramètres.</span></li>
+        <li><span class="dot y">!</span><span><b>Le résumé de ChatGPT n'est pas complet.</b> OpenAI le précise : le <b>Résumé de la mémoire</b> donne une vue d'ensemble, il ne contient pas tout ce que ChatGPT a retenu. Pour vraiment effacer une info, il faut aussi supprimer les conversations, fichiers ou applis connectées qui la contiennent.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Les sujets sensibles.</b> Sur Claude, les sujets sensibles (santé, religion…) ne sont pas mémorisés par défaut : un réglage permet de les inclure. Certaines infos ne sont jamais enregistrées (numéros d'identité, de compte bancaire…).</span></li>
+        <li><span class="dot g">↔</span><span><b>Une conversation sans mémoire.</b> Claude : conversation <b>incognito</b> (icône fantôme) ou « + › Mémoire » désactivé pour une seule conversation. ChatGPT : <b>chat temporaire</b>, qui ne crée ni ne modifie de souvenirs.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Relis ce qu'elle retient.</b> La mémoire peut garder une info périmée (ancien poste, projet terminé). Jette un œil de temps en temps et corrige : une ligne suffit.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Dans les <b>Paramètres</b> de Claude et de ChatGPT, sur le web ou dans l'appli de bureau. Captures prises le 23/11/2026, informations personnelles floutées.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Claude : ouvrir la mémoire</h3></div>
+        <div class="chemin">Paramètres › Votre Claude › Mémoire de Claude › Ouvrir</div>
+        <p>Dans <b>Votre Claude</b>, la section <b>Mémoire</b> regroupe les interrupteurs (générer la mémoire, rechercher dans les conversations, sujets sensibles), l'<b>import</b> et l'<b>export</b>. <b>Mémoire de Claude › Ouvrir</b> montre ce qu'il a retenu.</p>
+        <figure class="shot"><img src="captures/01_claude_reglages.webp" alt="Paramètres › Votre Claude › Mémoire." loading="lazy"><figcaption>Paramètres › Votre Claude › Mémoire.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Claude : modifier ou supprimer un sujet</h3></div>
+        <div class="chemin">Mémoire de Claude › Sujet › ✎ Modifier / 🗑</div>
+        <p>La mémoire est rangée en <b>sujets</b>. Sur chaque ligne : le <b>crayon</b> pour modifier, la <b>corbeille</b> pour supprimer. Le champ du bas sert à lui dire quoi retenir.</p>
+        <figure class="shot"><img src="captures/02_claude_sujets.webp" alt="La liste des sujets (descriptions floutées)." loading="lazy"><figcaption>La liste des sujets (descriptions floutées).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>ChatGPT : ouvrir le résumé</h3></div>
+        <div class="chemin">Paramètres › Personnalisation › Résumé de la mémoire › Gérer</div>
+        <p>Dans <b>Personnalisation</b>, <b>Activer la mémoire</b> allume ou coupe la fonction ; <b>Résumé de la mémoire › Gérer</b> affiche ce que ChatGPT a appris sur toi.</p>
+        <figure class="shot"><img src="captures/03_chatgpt_personnalisation.webp" alt="Paramètres › Personnalisation." loading="lazy"><figcaption>Paramètres › Personnalisation.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>ChatGPT : corriger en une phrase</h3></div>
+        <div class="chemin">Résumé de la mémoire › Poser une question ou mettre à jour</div>
+        <p>Écris ta correction dans le champ du bas (« J'ai changé de poste : je suis maintenant… »). Le menu <b>•••</b> permet aussi de tout supprimer et de désactiver la mémoire.</p>
+        <figure class="shot"><img src="captures/04_chatgpt_resume.webp" alt="Le Résumé de la mémoire (texte flouté)." loading="lazy"><figcaption>Le Résumé de la mémoire (texte flouté).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">5</span><h3>Passer ta mémoire de ChatGPT à Claude</h3></div>
+        <div class="chemin">Votre Claude › Importer la mémoire › Démarrer l'importation</div>
+        <p>Claude te donne une invite : <b>Copier</b>, colle-la dans ChatGPT, puis recopie sa réponse dans Claude et <b>Ajouter à la mémoire</b>.</p>
+        <figure class="shot"><img src="captures/05_claude_import.webp" alt="La fenêtre « Importer la mémoire dans Claude »." loading="lazy"><figcaption>La fenêtre « Importer la mémoire dans Claude ».</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ne plus te présenter</h3></div>
+        <p>Ton métier, ton secteur, ton niveau : l'IA adapte ses réponses sans que tu les répètes.</p>
+        <div class="flow"><span>Tu te présentes une fois</span><i>→</i><span>Mémoire</span><i>→</i><span>Réponses adaptées</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Garder ton style</h3></div>
+        <p>« Réponses courtes, en tutoiement, sans jargon » : retenu pour les prochaines conversations.</p>
+        <div class="tools"><span class="tool">Ton</span><span class="tool">Longueur</span><span class="tool">Format</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Reprendre un projet</h3></div>
+        <p>Tu reviens trois jours plus tard : l'IA sait déjà où en est ton projet.</p>
+        <div class="flow"><span>Projet</span><i>→</i><span>Pause</span><i>→</i><span>Reprise directe</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Mettre à jour une info</h3></div>
+        <p>Nouveau poste, déménagement, projet terminé : une phrase et la mémoire est à jour.</p>
+        <div class="flow"><span>Ancienne info</span><i>→</i><span>Une ligne</span><i>→</i><span>À jour</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Changer d'IA</h3></div>
+        <p>Importe dans Claude ce que ChatGPT ou Gemini avait appris sur toi, en un copier-coller.</p>
+        <div class="flow"><span>ChatGPT</span><i>→</i><span>Invite</span><i>→</i><span>Claude</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Les trois grandes IA ont désormais une mémoire que tu peux consulter et corriger.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude</h3><div class="cp"><b>Mémoire de Claude</b><small>Gratuit, Pro, Max (Team / Enterprise : selon l'admin)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, bureau, mobile</span></div>
+        <p>Bon pour : une mémoire <b>rangée en sujets</b>, modifiable ligne par ligne, séparée <b>par projet</b>, avec import et export.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Mémoire (Résumé de la mémoire)</b><small>Selon l'offre et le pays</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, bureau, mobile</span></div>
+        <p>Bon pour : une mémoire qui se met à jour seule, que tu <b>corriges en une phrase</b>.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini</h3><div class="cp"><b>Mémoire (Personal Intelligence)</b><small>Compte Google, 18 ans et plus</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : retrouver tes anciennes conversations, avec un résumé de mémoire et l'import depuis une autre IA.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE</b><span>si tu veux voir et retoucher ta mémoire sujet par sujet.</span></li>
+        <li><b>CHATGPT</b><span>si tu préfères qu'elle se tienne à jour toute seule.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°09 · La mémoire · informations et captures vérifiées le 23 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.claude.com/en/articles/11817273">Aide Claude : chat search et mémoire</a> · <a href="https://claude.com/import-memory">Claude : importer ta mémoire depuis une autre IA</a> · <a href="https://www.macrumors.com/2026/03/02/anthropic-memory-import-tool/">MacRumors : outil d'import de mémoire, ouvert aux comptes gratuits (mars 2026)</a> · <a href="https://help.openai.com/en/articles/11146739">Aide OpenAI : Memory in ChatGPT</a> · <a href="https://help.openai.com/en/articles/8590148">Aide OpenAI : Memory FAQ</a> · <a href="https://openai.com/index/chatgpt-memory-dreaming">OpenAI : la mémoire « dreaming » (juin 2026)</a> · <a href="https://support.google.com/gemini/answer/16598469">Aide Gemini : mémoire de tes anciennes conversations</a></span>
+  </footer>
+</main>
+</body>
+</html>
