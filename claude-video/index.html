@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · Claude Video</title>
+<meta name="description" content="Claude Video (/watch) expliqué simplement : comment l'installer dans Claude Code ou Codex, faire analyser un tuto YouTube ou un fichier vidéo, 5 usages concrets, note de confiance et comparatif avec Gemini, NotebookLM et la transcription seule.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°53 · Claude Video">
+<meta property="og:description" content="Installation, 5 usages concrets, note de confiance et comparatif avec Gemini et NotebookLM, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/claude-video.png">
+<meta property="og:url" content="https://repopop.github.io/claude-video/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Claude Video">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°53</div>
+        <h1>Claude <span>Video</span></h1>
+        <p class="tag">La commande /watch, gratuite et open source, qui permet à Claude Code, Codex ou Cursor de regarder une vidéo : images clés et paroles minutées, sur ton PC ou via Gemini. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ 21 000+ étoiles</span>
+          <span class="chip">Version 0.3.2</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">Claude Video n'est <span class="k">pas une IA</span> : c'est un skill (une compétence) qui donne des yeux à ton agent. Il transforme une vidéo (lien YouTube ou autre, ou fichier sur ton PC) en <b>images clés horodatées + transcription minutée</b>, que l'agent lit ensuite. Il te faut <b>un agent de code déjà installé</b> (Claude Code, Codex, Cursor…). Où l'utiliser :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Dans Claude Code</h3>
+        <p>Dans une session : /plugin marketplace add bradautomates/claude-video puis /plugin install watch@claude-video. Dans l'appli Claude (onglet Code) : Personnaliser → Plugins → Ajouter un marketplace, colle l'adresse du dépôt, puis installe Watch.</p>
+        <span class="pill ok">Le plus simple</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Codex, Cursor et 50+ agents</h3>
+        <p>npx skills add bradautomates/claude-video -g --skill watch (installe pour tous tes projets). Pour Codex : codex plugin marketplace add bradautomates/claude-video puis codex plugin add watch@claude-video.</p>
+        <span class="pill ok">Une ligne</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Claude dans le navigateur</h3>
+        <p>Le README actuel indique que Claude Chat et Cowork ne sont pas pris en charge, et que Claude Code sur le web a ses propres limites. Utilise-le dans un agent installé sur ton ordinateur.</p>
+        <span class="pill no">Pas pris en charge</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (MIT).</b> Le skill ne coûte rien. Tu paies seulement ton agent comme d'habitude (abonnement Claude, ChatGPT/Codex…). La clé Gemini, facultative, est gratuite chez Google AI Studio.</span></li>
+        <li><span class="dot y">↔</span><span><b>Deux moteurs, à choisir :</b> local = ffmpeg et yt-dlp découpent la vidéo sur ton PC, rien ne part chez Google. Gemini = la vidéo est envoyée au modèle vidéo de Google (supprimée après la réponse). En mode auto, Gemini est utilisé dès qu'une clé est trouvée : force --engine local si tu veux rester chez toi. Dans tous les cas, les images et le texte partent à ton agent (Claude, Codex…).</span></li>
+        <li><span class="dot y">!</span><span><b>Pré-requis :</b> Python 3.10+, FFmpeg/ffprobe, la dernière version de yt-dlp, et un moteur JavaScript (Deno conseillé) pour YouTube. L'installeur signale ce qui manque (et l'installe via Homebrew sur Mac).</span></li>
+        <li><span class="dot y">⚠</span><span><b>Vidéo sans sous-titres :</b> les sous-titres d'origine sont lus en premier. Sinon : WhisperX en local (environ 3 Go de disque, 8 Go de RAM, vérifié seulement sur Mac Apple Silicon), ou Groq / OpenAI avec ta propre clé API.</span></li>
+        <li><span class="dot g">↔</span><span><b>Dans la vidéo :</b> « la minute exacte » = les images et la transcription sont horodatées ; « le texte affiché à l'écran » = Claude lit les images (ajoute --resolution 1024 pour du petit texte) ; « deux commandes » = l'installation dans Claude Code. La réponse dépend de la qualité de la vidéo et de l'agent.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Trouver le bon passage d'un tuto</h3></div>
+        <p>Tu colles le lien d'une vidéo d'une heure et tu demandes à quel moment il fait le réglage qui t'intéresse.</p>
+        <div class="flow"><span>Lien YouTube</span><i>→</i><span>Ta question</span><i>→</i><span>Minute exacte</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Résumer une conférence</h3></div>
+        <p>/watch avec le niveau transcript ou efficient : un résumé minuté sans regarder la vidéo en entier.</p>
+        <div class="flow"><span>Vidéo 1 h</span><i>→</i><span>/watch</span><i>→</i><span>Résumé minuté</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Analyser un bug filmé</h3></div>
+        <p>Tu enregistres ton écran pendant que l'appli plante : l'agent repère l'image où ça casse et lit le message d'erreur.</p>
+        <div class="flow"><span>Enregistrement</span><i>→</i><span>Images clés</span><i>→</i><span>Le moment du bug</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Lire le texte à l'écran</h3></div>
+        <p>Code, réglages, diapos : ce qui est montré mais jamais dit. Monte la résolution pour le petit texte.</p>
+        <div class="tools"><span class="tool">--resolution 1024</span><span class="tool">--timestamps 1:05,2:30</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Zoomer sur un passage</h3></div>
+        <p>Analyse seulement un intervalle, avec plus d'images, pour une démonstration rapide.</p>
+        <div class="tools"><span class="tool">--start 2:15</span><span class="tool">--end 2:45</span><span class="tool">--detail balanced</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 7,6 sur 10" style="background:conic-gradient(#FF9F1C 0 76%,#E7E2F2 76% 100%)"><div>7,6<small>/10</small></div></div>
+        <div>
+          <h3>Très populaire, encore jeune</h3>
+          <p>Un outil simple et très adopté, gratuit, qui peut tout faire sur ton PC ; il reste en version 0.3 et n'a pas été mis à jour depuis septembre.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Version 0.3.2 publiée le 25 septembre 2026, dernière modification du code à cette date ; environ 200 tickets ouverts.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Environ 21 600 étoiles et 2 300 copies (forks) en sept mois ; le projet a inspiré d'autres versions (khou/watch-video).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Moteur local sans envoi à Google ; le moteur Gemini envoie la vidéo à Google (supprimée après) ; images et texte vont à ton agent.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit sous licence MIT, rien à vendre dans le dépôt ; publié par un créateur qui vend de l'automatisation IA.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Ouvert en avril 2026, encore en 0.3 ; tests automatiques sous Linux, Mac et Windows, mais WhisperX vérifié seulement sur Mac Apple Silicon.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, l'API GitHub et le README officiel le 24 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude Video</h3><div class="cp"><b>Gratuit</b><small>+ ton abonnement d'agent</small></div></div>
+        <div class="cm"><span class="lvl m">Découpage sur ton PC ; images et texte envoyés à ton agent</span><span class="on">Claude Code, Codex, Cursor + 50 agents</span></div>
+        <p>Bon pour : Questions précises : images + paroles, minutées</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini (appli)</h3><div class="cp"><b>Gratuit</b><small>limité ; Google AI Pro 19,99 $/mois (US)</small></div></div>
+        <div class="cm"><span class="lvl n">Chez Google</span><span class="on">Web, Android, iOS</span></div>
+        <p>Bon pour : Envoyer une vidéo sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>NotebookLM (Gemini Notebook)</h3><div class="cp"><b>Gratuit</b><small>avec un compte Google</small></div></div>
+        <div class="cm"><span class="lvl n">Chez Google</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : Résumer des vidéos YouTube publiques sous-titrées (texte seul)</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>WhisperX</h3><div class="cp"><b>Gratuit</b><small>open source</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ta machine</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Transcrire une vidéo, sans les images</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CLAUDE VIDEO</b><span>si tu utilises déjà Claude Code ou Codex et que tu veux qu'il voie aussi l'image, avec la minute exacte, et éventuellement sans rien envoyer à Google.</span></li>
+        <li><b>GEMINI</b><span>si tu veux juste poser une question sur une vidéo, sans rien installer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- depot -->
+  <section id="depot">
+    <style>
+      .repo{display:grid;gap:12px;text-decoration:none;background:var(--violet,#7C3AED)}
+      .repo .rh{display:flex;align-items:center;gap:12px;color:#FFFFFF}
+      .repo .rl{font-family:var(--display);font-size:15px;letter-spacing:.04em}
+      .repo .rn{font-family:var(--display);font-size:24px;line-height:1.15;color:#FFFFFF;overflow-wrap:anywhere}
+      .repo p{margin:0;font-weight:600;color:#FFFFFF}
+      .repo .rb{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--ink,#111);color:var(--paper,#fff);border-radius:12px;padding:13px 15px;font-weight:700}
+      .repo .rb span:last-child{font-family:var(--display);font-weight:400;color:var(--yellow,#FFD23F)}
+      .repo:hover .rb{background:#2a2a2a}
+    </style>
+    <a class="sticker repo" href="https://github.com/bradautomates/claude-video">
+      <div class="rh"><svg viewBox="0 0 16 16" width="34" height="34" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="rl">LE DÉPÔT GITHUB</span></div>
+      <div class="rn">bradautomates/<wbr>claude-video</div>
+      <p>Code source, installation et documentation officielle : tout est là.</p>
+      <div class="rb"><span>Voir le dépôt sur GitHub</span><span>→</span></div>
+    </a>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°53 · Claude Video · informations vérifiées le 24 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/bradautomates/claude-video">dépôt GitHub bradautomates/claude-video (README)</a> · <a href="https://github.com/bradautomates/claude-video/releases">Notes de version (v0.3.2, watch.skill)</a> · <a href="https://pub.towardsai.net/claude-couldnt-watch-videos-one-developer-fixed-that-with-a-clever-trick-here-s-how-it-works-76e6cc17c0db">Brad Bonanno, créateur de /watch (Towards AI)</a> · <a href="https://videohighlight.com/vs/notebooklm">NotebookLM : seule la transcription d'une vidéo YouTube est importée (aide Google, via Video Highlight, nov. 2026)</a> · <a href="https://9to5google.com/2026/01/16/google-ai-pro-ultra-features/">Formules Gemini (Google AI Plus, Pro, Ultra)</a> · <a href="https://github.com/khou/watch-video">khou/watch-video, inspiré de claude-video</a></span>
+  </footer>
+</main>
+</body>
+</html>
