@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Les modèles de Claude</title>
+<meta name="description" content="Les modèles de Claude expliqués simplement : Haiku, Sonnet, Opus et Fable, à quoi sert chacun, le réglage de l'effort, où les choisir, les prix de l'API et ce que proposent ChatGPT et Gemini. Pas à pas en captures, en français.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°08 · Les modèles de Claude">
+<meta property="og:description" content="Arrête d'utiliser Opus pour tout : le tableau des 4 modèles de Claude et le réglage de l'effort, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-modeles-claude.png">
+<meta property="og:url" content="https://repopop.github.io/decode/modeles-claude/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Les modèles de Claude">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°08</div>
+        <h1>Les <span>modèles de Claude</span></h1>
+        <p class="tag">Haiku, Sonnet, Opus, Fable : le bon modèle et le bon effort pour chaque tâche, pour faire durer tes limites et alléger ta facture.</p>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Gratuit (Opus : Pro et +)</span>
+          <span class="chip">3 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Claude existe en <b>quatre modèles</b>, nommés comme des formes de poésie : plus le poème est long, plus le modèle est puissant… et plus il consomme. <b>Haiku</b> est le plus rapide et le moins cher, <b>Sonnet</b> équilibre vitesse et intelligence, <b>Opus</b> est fait pour le raisonnement poussé, et <b>Fable</b> pour les tâches les plus exigeantes. Choisir le bon modèle (et le bon <b>effort</b>) pour chaque tâche, c'est faire durer tes limites d'abonnement et payer moins cher sur l'API.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Haiku — simple et rapide</h3>
+        <p>Reformuler, trier, extraire une info, traduire une phrase, répondre à une question courte, traiter beaucoup de petites tâches. Anthropic le décrit comme l'option <b>la plus rapide et la moins chère</b>.</p>
+        <span class="pill ok">Dès Gratuit</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Sonnet — le travail de tous les jours</h3>
+        <p>Rédiger, résumer, analyser un document, coder au quotidien. D'après Anthropic, c'est le bon choix pour <b>la grande majorité</b> du travail de code.</p>
+        <span class="pill ok">Dès Gratuit</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Opus — l'analyse poussée</h3>
+        <p>Grosses analyses approfondies, stratégie, contrat, gros projets de code, débogage difficile. Il <b>consomme nettement plus</b> de ton quota : à choisir quand la tâche le demande.</p>
+        <span class="pill mid">Pro et +</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Fable — le très long et le très dur</h3>
+        <p>Les tâches les plus exigeantes et les très longues tâches en autonomie (agents), quand Opus ne suffit pas. Inclus dans les forfaits Max et Ultra, disponible en Pro avec des crédits d'utilisation.</p>
+        <span class="pill no">Max, Ultra (Pro : crédits)</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">⚙</span><span><b>L'effort, c'est le temps de réflexion.</b> Dans le menu du modèle, <b>Effort</b> propose Faible, Moyen (recommandé), Élevé, Extra et Max. Le menu le dit lui-même : un effort plus élevé donne des réponses plus approfondies, mais prend plus de temps et <b>consomme tes limites plus vite</b>. Max est signalé « 4× ou plus d'utilisation ».</span></li>
+        <li><span class="dot g">↓</span><span><b>Le conseil d'Anthropic : baisse d'abord l'effort.</b> Pour consommer moins de ta limite, Anthropic conseille de <b>baisser l'effort en premier</b>, avant de changer de modèle : le modèle garde son raisonnement, il réfléchit juste moins longtemps. Change un seul réglage à la fois pour voir ce qui fait la différence.</span></li>
+        <li><span class="dot y">!</span><span><b>Un gros modèle peut coûter moins cher… sur une tâche difficile.</b> Un modèle plus puissant <b>finit souvent une tâche difficile en moins d'échanges</b> : sur un vrai casse-tête, il peut revenir moins cher au total qu'un petit modèle qui tourne en rond. La règle : petit modèle pour le simple, gros modèle quand ça bloque.</span></li>
+        <li><span class="dot y">€</span><span><b>Prix de l'API (22/11/2026).</b> Par million de tokens, entrée / sortie : <b>Haiku 5.5</b> dès 0,10 $ / 0,50 $, <b>Sonnet 5.5</b> 2 $ / 10 $, <b>Opus 5.5</b> 4 $ / 20 $, <b>Fable 5.2</b> 8 $ / 40 $. D'où le « jusqu'à 40 fois moins cher » : 4 $ contre 0,10 $ en entrée.</span></li>
+        <li><span class="dot g">↔</span><span><b>Changer en cours de route, c'est permis.</b> Dans Claude Code, changer de modèle ne vide pas la conversation. Anthropic propose même de <b>planifier avec Opus puis exécuter avec Sonnet</b> (commande /model opusplan).</span></li>
+        <li><span class="dot g">✎</span><span><b>Des noms de poèmes.</b> Haiku (poème court), Sonnet (14 vers), Opus (grande œuvre) : Dario Amodei, le patron d'Anthropic, a expliqué que l'équipe avait fini avec ce « thème poésie » (IBM). Fable et Mythos forment la famille au-dessus d'Opus.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Dans Claude sur le web ou l'appli : le menu du modèle se trouve sous la zone de saisie, à côté du bouton Envoyer. Le choix s'applique à la conversation.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Ouvrir le menu du modèle</h3></div>
+        <div class="chemin">Zone de saisie › Bouton du modèle (ex. « Opus 5.5 Moyen »)</div>
+        <p>Clique sur le nom du modèle, sous la zone où tu écris, près du bouton Envoyer. La liste des modèles s'ouvre, avec une phrase qui résume chacun.</p>
+        <figure class="shot"><img src="captures/01_modeles.webp" alt="Le menu des modèles : Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5." loading="lazy"><figcaption>Le menu des modèles : Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Choisir le modèle</h3></div>
+        <div class="chemin">Menu du modèle › Haiku, Sonnet, Opus ou Fable</div>
+        <p>Simple et rapide : <b>Haiku</b>. Tous les jours : <b>Sonnet</b>. Analyse poussée : <b>Opus</b>. Très long et très dur : <b>Fable</b> (crédits d'utilisation en Pro).</p>
+        <figure class="shot"><img src="captures/01_modeles.webp" alt="Chaque modèle a sa ligne de description." loading="lazy"><figcaption>Chaque modèle a sa ligne de description.</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Régler l'effort</h3></div>
+        <div class="chemin">Menu du modèle › Effort › Faible · Moyen · Élevé · Extra · Max</div>
+        <p>Ouvre <b>Effort</b> dans le même menu. <b>Moyen</b> est recommandé ; descends à <b>Faible</b> pour les tâches simples, monte seulement si la réponse manque de profondeur.</p>
+        <figure class="shot"><img src="captures/02_effort.webp" alt="Le sous-menu Effort et son avertissement : Max consomme 4× ou plus." loading="lazy"><figcaption>Le sous-menu Effort et son avertissement : Max consomme 4× ou plus.</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Le tri du matin</h3></div>
+        <p>« Classe ces 30 mails par urgence et résume chacun en une ligne. » Simple et répétitif : Haiku, effort faible.</p>
+        <div class="flow"><span>30 mails</span><i>→</i><span>Haiku</span><i>→</i><span>Liste triée</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Le résumé d'un PDF</h3></div>
+        <p>« Résume ce rapport de 20 pages en 10 points et propose un mail de synthèse. » Le quotidien : Sonnet.</p>
+        <div class="flow"><span>PDF</span><i>→</i><span>Sonnet</span><i>→</i><span>10 points</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Le contrat à éplucher</h3></div>
+        <p>« Repère les clauses risquées de ce contrat et explique pourquoi. » Analyse approfondie : Opus.</p>
+        <div class="tools"><span class="tool">Opus</span><span class="tool">Effort élevé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Plan avec Opus, exécution avec Sonnet</h3></div>
+        <p>Dans Claude Code : fais écrire le plan par Opus, puis passe à Sonnet pour l'appliquer (/model opusplan).</p>
+        <div class="flow"><span>Plan : Opus</span><i>→</i><span>Code : Sonnet</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>L'agent qui travaille des heures</h3></div>
+        <p>Une très longue tâche en autonomie, où même Opus bloque : Fable (Max, Ultra, ou Pro avec crédits).</p>
+        <div class="tools"><span class="tool">Fable</span><span class="tool">Autonomie</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Les grandes IA proposent toutes un choix entre rapidité et réflexion, mais pas de la même façon.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Claude</h3><div class="cp"><b>4 modèles (Haiku, Sonnet, Opus, Fable) + Effort</b><small>Haiku et Sonnet dès Gratuit ; Opus en Pro et + ; Fable en Max et Ultra (Pro : crédits)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Web, ordinateur, mobile, API</span></div>
+        <p>Bon pour : choisir <b>le modèle et l'effort séparément</b>, avec des prix API publics par modèle.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT</h3><div class="cp"><b>Instant, niveaux de réflexion (Medium, High, Extra High) et Pro</b><small>Choix manuel sur les offres payantes ; Pro selon l'offre</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Web, mobile, appli de bureau</span></div>
+        <p>Bon pour : un curseur de réflexion simple ; moins de choix de modèle visible.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Gemini</h3><div class="cp"><b>Sélection automatique (Auto) + niveaux de réflexion</b><small>Gratuit : Auto uniquement ; choix du modèle avec un abonnement</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : laisser l'IA choisir le modèle à ta place.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>HAIKU</b><span>pour tout ce qui est simple, rapide ou répété en grand nombre.</span></li>
+        <li><b>SONNET</b><span>par défaut pour le travail de tous les jours.</span></li>
+        <li><b>OPUS</b><span>quand la tâche demande une vraie analyse, ou que Sonnet bloque.</span></li>
+        <li><b>FABLE</b><span>pour les très longues tâches en autonomie, quand Opus ne suffit pas.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°08 · Les modèles de Claude · informations et captures vérifiées le 22 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://platform.claude.com/docs/en/models/overview">Claude Platform Docs : Models overview (prix et conseils, 22/11/2026)</a> · <a href="https://academy.claude.com/tutorials/choosing-the-right-claude-model">Claude Academy : Choosing the right Claude model</a> · <a href="https://support.claude.com/en/articles/14552983">Aide Claude : Models, usage, and limits in Claude Code</a> · <a href="https://www.ibm.com/topics/claude-ai">IBM : What is Claude AI? (origine des noms)</a> · <a href="https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt">Aide OpenAI : GPT-6 and other models in ChatGPT</a> · <a href="https://9to5google.com/2026/10/09/gemini-auto-free-users/">9to5Google : Free Gemini users now on Auto models (09/10/2026)</a></span>
+  </footer>
+</main>
+</body>
+</html>
