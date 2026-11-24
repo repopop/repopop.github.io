@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Le réseau Zigbee</title>
+<meta name="description" content="Le réseau Zigbee expliqué simplement : une clé USB (le coordinateur), des appareils sur secteur qui relaient le signal (réseau maillé), des capteurs sur pile qui tiennent des années. Pas à pas en captures dans Zigbee2MQTT (appairage, carte du réseau), 5 usages concrets et la comparaison avec Matter/Thread, Z-Wave et le Wi-Fi.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°20 · Le réseau Zigbee">
+<meta property="og:description" content="Zigbee expliqué : une clé USB, toutes les marques, sans cloud. Pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-zigbee.png">
+<meta property="og:url" content="https://repopop.github.io/decode/zigbee/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Le réseau Zigbee">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°20</div>
+        <h1>Le réseau <span>Zigbee</span></h1>
+        <p class="tag">Zigbee, c'est le réseau radio de la maison connectée : une seule clé USB pilote ampoules, prises et capteurs de toutes les marques, sans cloud. Explication simple, captures à l'appui.</p>
+        <div class="chips">
+          <span class="chip">Zigbee2MQTT · Home Assistant</span>
+          <span class="chip">Gratuit (clé USB à acheter)</span>
+          <span class="chip">2 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Zigbee</b> est un standard radio sans fil, basse consommation, pensé pour les objets connectés de la maison : ampoules, prises, interrupteurs, capteurs de porte, de mouvement, de température… Il est géré par la <span class="k">Connectivity Standards Alliance</span> (l'ancienne Zigbee Alliance). Au lieu d'une appli et d'un pont par marque, <b>une seule clé USB</b> branchée sur ton serveur domotique pilote tous les appareils Zigbee, en local.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>La clé USB : le coordinateur</h3>
+        <p>Un réseau Zigbee a <b>un seul coordinateur</b> : la clé USB (Sonoff, Home Assistant Connect, SLZB…). C'est lui qui crée le réseau et accepte les nouveaux appareils.</p>
+        <span class="pill ok">Une seule clé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <h3>Les appareils sur secteur : des relais</h3>
+        <p>La plupart des appareils branchés en permanence (prises, ampoules, modules encastrés) sont des <b>routeurs</b> : ils relaient les messages des autres. Plus tu en as, plus le réseau porte loin, jusqu'au fond du jardin.</p>
+        <span class="pill ok">Réseau maillé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Les capteurs sur pile : ils dorment</h3>
+        <p>Les capteurs sur pile sont des <b>appareils terminaux</b> : ils dorment presque tout le temps et ne relaient rien, ce qui leur permet de tenir souvent <b>des années</b> sur une pile bouton.</p>
+        <span class="pill ok">Basse conso</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Tout reste chez toi</h3>
+        <p>Avec <b>Zigbee2MQTT</b> ou l'intégration <b>ZHA</b> de Home Assistant, les ordres ne passent par aucun serveur de marque : tout continue de marcher quand Internet est coupé.</p>
+        <span class="pill ok">Sans cloud</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">!</span><span><b>Pas tous les appareils sur secteur relaient.</b> Certaines ampoules ou prises relaient mal, et une ampoule éteinte à l'interrupteur coupe son relais. Pour étendre le réseau, préfère des <b>prises connectées</b> toujours alimentées.</span></li>
+        <li><span class="dot y">↔</span><span><b>Zigbee et Wi-Fi partagent le 2,4 GHz.</b> Éloigne la clé du serveur et de la box (une rallonge USB suffit) et choisis un canal Zigbee qui ne chevauche pas ton Wi-Fi (souvent 15, 20 ou 25).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Une clé = un réseau.</b> Un coordinateur ne gère qu'un réseau, et un appareil ne peut être appairé qu'à un seul réseau. Changer de clé peut demander de réappairer les appareils : garde une sauvegarde de Zigbee2MQTT.</span></li>
+        <li><span class="dot g">€</span><span><b>Gratuit côté logiciel.</b> Zigbee2MQTT et Home Assistant sont gratuits et open source. Il faut seulement acheter la clé USB (coordinateur) et des appareils compatibles Zigbee.</span></li>
+        <li><span class="dot g">!</span><span><b>Les compteurs intelligents anglais parlent Zigbee.</b> Pour ses compteurs intelligents de 2e génération (SMETS2), le gouvernement britannique a retenu le profil <b>ZigBee Smart Energy</b> : le compteur électrique, le compteur de gaz et l'écran installé dans la maison communiquent en Zigbee, via un concentrateur.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Exemple réel dans <b>Zigbee2MQTT</b>, avec sa nouvelle interface web (WindFront), captures prises sur la démo officielle (appareils fictifs). Dans Home Assistant avec ZHA, le principe est le même : <span class="k">Paramètres › Appareils et services › Zigbee</span>.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Ajouter un appareil : l'appairage</h3></div>
+        <div class="chemin">Zigbee2MQTT › Autoriser l'appairage</div>
+        <p>Clique sur <b>Autoriser l'appairage</b> en bas du menu : le réseau accepte de nouveaux appareils pendant quelques minutes. Appuie alors sur le bouton du capteur (souvent quelques secondes) : il apparaît dans la liste. La vue d'ensemble compte les <b>routeurs</b> (relais) et les <b>appareils terminaux</b> (sur pile).</p>
+        <figure class="shot"><img src="captures/01_z2m_appairage.webp" alt="Zigbee2MQTT (démo WindFront) : le bouton « Autoriser l'appairage » (24/11/2026)." loading="lazy"><figcaption>Zigbee2MQTT (démo WindFront) : le bouton « Autoriser l'appairage » (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Voir qui relaie qui : la carte du réseau</h3></div>
+        <div class="chemin">Zigbee2MQTT › Réseau › Type d'affichage : Carte</div>
+        <p>Dans <b>Réseau</b>, choisis l'affichage <b>Carte</b> puis <b>Charger</b> : la clé (le coordinateur, en jaune), les relais et les appareils accrochés à chacun, avec la qualité de chaque liaison. Un capteur isolé ou mal relié ? Ajoute une prise Zigbee entre les deux.</p>
+        <figure class="shot"><img src="captures/02_z2m_carte_reseau.webp" alt="Zigbee2MQTT (démo WindFront) : la carte du réseau (24/11/2026)." loading="lazy"><figcaption>Zigbee2MQTT (démo WindFront) : la carte du réseau (24/11/2026).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Un capteur de porte qui tient des années</h3></div>
+        <p>Un petit capteur d'ouverture sur pile bouton prévient quand la porte ou une fenêtre s'ouvre, sans recharger tous les mois.</p>
+        <div class="flow"><span>Porte ouverte</span><i>→</i><span>Zigbee</span><i>→</i><span>Notification</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Mélanger les marques d'ampoules</h3></div>
+        <p>Des ampoules et télécommandes Zigbee de marques différentes, dans un seul réseau et une seule appli, sans leurs ponts respectifs.</p>
+        <div class="tools"><span class="tool">Toutes marques</span><span class="tool">Une seule clé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Piloter les radiateurs</h3></div>
+        <p>Des modules fil pilote Zigbee passent les radiateurs électriques en confort ou en éco selon l'heure ou la présence.</p>
+        <div class="flow"><span>Horaire</span><i>→</i><span>Module fil pilote</span><i>→</i><span>Radiateur en éco</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Étendre jusqu'au fond du jardin</h3></div>
+        <p>Une prise d'extérieur ou un éclairage de jardin Zigbee sert de relais : le capteur de la boîte aux lettres ou de l'abri reste connecté.</p>
+        <div class="flow"><span>Clé</span><i>→</i><span>Prise relais</span><i>→</i><span>Abri</span><i>→</i><span>Boîte aux lettres</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Tout marche sans Internet</h3></div>
+        <p>Interrupteurs, scènes et automatismes tournent en local : une coupure de la box ne t'empêche pas d'allumer la lumière.</p>
+        <div class="tools"><span class="tool">Local</span><span class="tool">Sans cloud</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Zigbee n'est pas le seul réseau de la maison connectée. Comparaison rapide (vérifiée le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Zigbee</h3><div class="cp"><b>Réseau maillé 2,4 GHz, coordinateur USB</b><small>Gratuit (clé à acheter)</small></div></div>
+        <div class="cm"><span class="lvl y">Très large choix d'appareils</span><span class="on">Zigbee2MQTT, Home Assistant (ZHA), box domotiques</span></div>
+        <p>Bon pour : beaucoup de <b>capteurs sur pile</b> et d'appareils de marques différentes, en local.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Thread + Matter</h3><div class="cp"><b>Réseau maillé IP, standard commun aux grandes marques</b><small>Gratuit (routeur de bordure à avoir)</small></div></div>
+        <div class="cm"><span class="lvl m">Plus récent, en croissance</span><span class="on">Apple Home, Google Home, Alexa, Home Assistant</span></div>
+        <p>Bon pour : les écosystèmes Apple, Google ou Amazon, avec un standard commun.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Z-Wave</h3><div class="cp"><b>Réseau maillé en 868 MHz (Europe)</b><small>Gratuit (clé à acheter)</small></div></div>
+        <div class="cm"><span class="lvl m">Moins d'appareils, souvent plus chers</span><span class="on">Home Assistant (Z-Wave JS), box domotiques</span></div>
+        <p>Bon pour : éviter les interférences du 2,4 GHz, longue portée.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Wi-Fi</h3><div class="cp"><b>Chaque appareil sur ta box</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl n">Pas de clé, mais souvent une appli et un cloud par marque</span><span class="on">Appli de chaque marque</span></div>
+        <p>Bon pour : quelques appareils <b>sur secteur</b>, sans installer de serveur.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>ZIGBEE</b><span>si tu veux beaucoup de capteurs, toutes marques confondues, en local et sans cloud.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°20 · Le réseau Zigbee · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://www.home-assistant.io/connectivity/zigbee/">Home Assistant — Zigbee (coordinateur, routeurs, appareils terminaux)</a> · <a href="https://www.zigbee2mqtt.io/advanced/zigbee/01_zigbee_network.html">Zigbee2MQTT — Zigbee network (types d'appareils)</a> · <a href="https://github.com/Koenkk/zigbee2mqtt">dépôt GitHub Koenkk/zigbee2mqtt</a> · <a href="https://nerivec.github.io/zigbee2mqtt-windfront/">Démo officielle de l'interface Zigbee2MQTT WindFront (captures)</a> · <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/209841/smart_meters_equipment_technical_spec_2_consultation_response_part_1.pdf">Gouvernement britannique — réponse SMETS2 (ZigBee Smart Energy pour le réseau domestique)</a> · <a href="https://assets.publishing.service.gov.uk/media/5a7f652ced915d74e33f62a7/Government_Response_on_Home_Area_Network_Solutions__Implementation_of_86___.pdf">Gouvernement britannique — réseau domestique ZigBee 868 MHz (compteurs, écran, gaz)</a> · <a href="https://fr.wikipedia.org/wiki/Zigbee">Wikipédia — Zigbee</a></span>
+  </footer>
+</main>
+</body>
+</html>
