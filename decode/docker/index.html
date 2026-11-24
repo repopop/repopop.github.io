@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Docker</title>
+<meta name="description" content="C'est quoi Docker et un conteneur, expliqué simplement : la métaphore du conteneur de bateau, la différence entre une image et un conteneur, un vrai exemple pas à pas (Stirling-PDF installé avec une seule commande, Docker Hub, Docker Desktop), les conditions de gratuité de Docker Desktop et les alternatives (Podman Desktop, Container Manager de Synology).">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°15 · Docker">
+<meta property="og:description" content="Docker et les conteneurs expliqués avec un bateau, et un vrai exemple pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-docker.png">
+<meta property="og:url" content="https://repopop.github.io/decode/docker/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Docker">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°15</div>
+        <h1>Docker et <span>les conteneurs</span></h1>
+        <p class="tag">Docker range une appli dans un conteneur avec tout ce qu'il lui faut : une commande pour l'installer, rien ne touche au reste de ton PC, et ça tourne pareil partout. Explication simple, captures à l'appui.</p>
+        <div class="chips">
+          <span class="chip">Docker</span>
+          <span class="chip">Gratuit en perso</span>
+          <span class="chip">3 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Docker</b> est un logiciel qui fait tourner des applis dans des <b>conteneurs</b>. Comme un conteneur de bateau : dedans, l'appli et <span class="k">tout ce qu'il lui faut</span> (bibliothèques, réglages, versions exactes). Le conteneur est fermé : il ne touche pas au reste de ton PC, et il tourne <b>pareil partout</b> : sur ton PC, sur un NAS ou sur un serveur.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 13l3-3 3 3M12 10v5"/></svg></span>
+        <h3>L'image : le modèle</h3>
+        <p>Une <b>image</b> est le modèle figé d'une appli, prêt à l'emploi. On la télécharge une fois, le plus souvent depuis <b>Docker Hub</b>, la grande bibliothèque d'images.</p>
+        <span class="pill ok">Téléchargée une fois</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Le conteneur : l'appli qui tourne</h3>
+        <p>Un <b>conteneur</b> est une copie de l'image en train de tourner. Avec une même image, tu peux lancer autant de conteneurs que tu veux, côte à côte, sans conflit.</p>
+        <span class="pill ok">Isolé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>La commande : docker run</h3>
+        <p>Sur la page d'un projet, la ligne <span class="k">docker run…</span> télécharge l'image et lance le conteneur. Beaucoup de projets fournissent aussi un fichier <span class="k">docker-compose.yml</span> pour tout lancer d'un coup.</p>
+        <span class="pill ok">Une seule ligne</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Docker Desktop : l'appli à installer</h3>
+        <p>Sur Windows et Mac, on installe <b>Docker Desktop</b> : il fait tourner Docker et montre tes conteneurs dans une fenêtre (lancer, arrêter, supprimer). Sur un NAS Synology, c'est <b>Container Manager</b>.</p>
+        <span class="pill mid">Gratuit en perso</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">€</span><span><b>Gratuit… sous conditions.</b> Docker Desktop est gratuit pour un usage perso, l'enseignement, l'open source non commercial et les entreprises de <b>moins de 250 salariés et moins de 10 millions de dollars</b> de chiffre d'affaires. Au-delà, ou pour une administration, il faut un abonnement payant (Pro, Team ou Business).</span></li>
+        <li><span class="dot g">↔</span><span><b>Supprimer sans laisser de trace.</b> Supprimer un conteneur ne touche pas au reste de ton PC. Pense aussi à supprimer l'<b>image</b> (onglet Images) pour récupérer la place : certaines pèsent plus d'1 Go.</span></li>
+        <li><span class="dot y">!</span><span><b>Tes données, à mettre à l'abri.</b> Ce qui est écrit <span class="k">dans</span> un conteneur disparaît avec lui. Les projets sérieux indiquent un <b>volume</b> (un dossier de ton PC relié au conteneur) pour garder tes fichiers et réglages.</span></li>
+        <li><span class="dot r">⚠</span><span><b>N'installe que des images de confiance.</b> Une image peut contenir n'importe quoi. Préfère les images officielles, celles des éditeurs vérifiés ou celles indiquées dans le dépôt GitHub du projet.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Inventé par un Français.</b> <b>Solomon Hykes</b>, ancien élève d'Epitech, a créé Docker au sein de sa start-up dotCloud et l'a dévoilé en public lors d'une intervention de <b>5 minutes</b> à la PyCon 2013 (« The future of Linux Containers »). Les images de Docker Hub sont aujourd'hui téléchargées environ <b>20 milliards de fois par mois</b>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Exemple réel avec <b>Stirling-PDF</b>, un projet présenté sur la chaîne : un éditeur de PDF qui tourne chez toi. Les pages sont en anglais : voici où regarder.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Installe Docker Desktop</h3></div>
+        <div class="chemin">docker.com › Download Docker Desktop</div>
+        <p>Télécharge <b>Docker Desktop</b> pour Windows, Mac ou Linux, installe-le et lance-le. L'onglet <b>Containers</b> liste tes conteneurs ; en bas à gauche, <span class="k">Engine running</span> indique que Docker tourne.</p>
+        <figure class="shot"><img src="captures/03_docker_desktop_conteneurs.webp" alt="Docker Desktop, onglet Containers (image officielle de docker.com, conteneurs d'exemple)." loading="lazy"><figcaption>Docker Desktop, onglet Containers (image officielle de docker.com, conteneurs d'exemple).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Copie la commande du projet</h3></div>
+        <div class="chemin">Page GitHub du projet › README › Quick Start</div>
+        <p>Dans le README, la section <b>Quick Start</b> donne la ligne à copier : <span class="k">docker run -p 8080:8080 …/stirling-pdf</span>. Colle-la dans un terminal (PowerShell sous Windows) et valide.</p>
+        <figure class="shot"><img src="captures/01_readme_commande.webp" alt="README de Stirling-PDF sur GitHub, section Quick Start (24/11/2026)." loading="lazy"><figcaption>README de Stirling-PDF sur GitHub, section Quick Start (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Docker télécharge l'image</h3></div>
+        <div class="chemin">Docker Hub › stirlingtools/stirling-pdf</div>
+        <p>Docker récupère l'<b>image</b> (le modèle), ici depuis Docker Hub, puis lance le <b>conteneur</b>. La première fois, ça prend un peu de temps ; ensuite, c'est immédiat.</p>
+        <figure class="shot"><img src="captures/02_docker_hub_image.webp" alt="L'image Stirling-PDF sur Docker Hub : plus de 10 millions de téléchargements (24/11/2026)." loading="lazy"><figcaption>L'image Stirling-PDF sur Docker Hub : plus de 10 millions de téléchargements (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Ouvre l'appli, puis supprime-la si besoin</h3></div>
+        <div class="chemin">Navigateur › localhost:8080</div>
+        <p>Ouvre <b>http://localhost:8080</b> dans ton navigateur : l'appli est là. Plus besoin ? Dans Docker Desktop, arrête le conteneur puis clique sur la <b>corbeille</b>, et supprime l'image dans l'onglet Images.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Installer un projet GitHub</h3></div>
+        <p>Jellyfin, Immich, Stirling-PDF, Home Assistant… La plupart des projets auto-hébergés donnent une commande Docker toute prête.</p>
+        <div class="flow"><span>README</span><i>→</i><span>docker run</span><i>→</i><span>Appli prête</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Tester sans risque</h3></div>
+        <p>Tu essaies une appli dans un conteneur ; elle ne te plaît pas, tu la supprimes : ton PC reste propre.</p>
+        <div class="tools"><span class="tool">Essayer</span><span class="tool">Supprimer</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Un serveur maison sur ton NAS</h3></div>
+        <p>Sur un NAS (Synology, QNAP…) ou un mini-PC, des dizaines d'applis tournent côte à côte, chacune dans son conteneur.</p>
+        <div class="flow"><span>NAS</span><i>→</i><span>10 conteneurs</span><i>→</i><span>Zéro conflit</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Même chose partout</h3></div>
+        <p>Le conteneur qui marche sur ton PC marche pareil sur un serveur : fini le « chez moi, ça marche ».</p>
+        <div class="tools"><span class="tool">PC</span><span class="tool">Serveur</span><span class="tool">Cloud</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Garder plusieurs versions</h3></div>
+        <p>Deux versions d'une même appli ou d'une base de données peuvent tourner en même temps, chacune dans son conteneur.</p>
+        <div class="tools"><span class="tool">Version 1</span><span class="tool">Version 2</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Docker Desktop n'est pas le seul moyen de faire tourner des conteneurs (vérifié le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Docker Desktop</h3><div class="cp"><b>Docker + fenêtre de gestion</b><small>Gratuit en perso et petites entreprises</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : <b>débuter</b> : c'est l'outil que citent la plupart des tutoriels.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Podman Desktop</h3><div class="cp"><b>Conteneurs compatibles Docker</b><small>Gratuit, open source (Apache 2.0)</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : une alternative <b>100 % gratuite</b>, poussée par Red Hat, y compris en entreprise.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Container Manager (Synology)</h3><div class="cp"><b>Docker intégré au NAS</b><small>Gratuit sur les NAS compatibles</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">NAS Synology (DSM)</span></div>
+        <p>Bon pour : faire tourner tes applis <b>24 h/24</b> sur ton NAS.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Docker Engine</h3><div class="cp"><b>Docker sans interface</b><small>Gratuit, open source</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Linux (serveur, Raspberry Pi)</span></div>
+        <p>Bon pour : les serveurs et les <b>Raspberry Pi</b>, en ligne de commande.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>POUR DÉBUTER</b><span>Docker Desktop sur ton PC et la commande du README d'un projet : 5 minutes.</span></li>
+        <li><b>POUR DURER</b><span>un NAS ou un mini-PC allumé en permanence, avec Container Manager ou Docker Engine.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°15 · Docker · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://www.docker.com/pricing/faq">Docker : FAQ des abonnements (conditions de gratuité de Docker Desktop)</a> · <a href="https://docs.docker.com/subscription/desktop-license/">Docker Docs : licence de Docker Desktop</a> · <a href="https://hub.docker.com/publisher-program">Docker Hub : programme Verified Publisher (20 milliards de téléchargements par mois)</a> · <a href="https://pyvideo.org/pycon-us-2013/the-future-of-linux-containers.html">PyVideo : Solomon Hykes, « The future of Linux Containers », PyCon US 2013</a> · <a href="https://www.frenchweb.fr/cloud-open-source-docker-fonde-par-le-francais-solomon-hykes-leve-15-millions-de-dollars/138977">FrenchWeb : Docker, fondé par le Français Solomon Hykes (Epitech)</a> · <a href="https://www.journaldunet.com/cloud/1208176-docker-souffle-ses-5-bougies-et-atteint-37-milliards-de-containers-telecharges/">Journal du Net : Docker souffle ses 5 bougies</a> · <a href="https://www.redhat.com/fr/topics/containers/what-is-podman-desktop">Red Hat : Podman Desktop, qu'est-ce que c'est ?</a> · <a href="https://github.com/Stirling-Tools/Stirling-PDF">Stirling-PDF sur GitHub (Quick Start)</a> · <a href="https://hub.docker.com/r/stirlingtools/stirling-pdf">Stirling-PDF sur Docker Hub</a></span>
+  </footer>
+</main>
+</body>
+</html>
