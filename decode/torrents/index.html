@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Torrent</title>
+<meta name="description" content="Comment marche BitTorrent : ce que contient un fichier .torrent (nom, taille, empreintes des morceaux), sources et pairs, pourquoi c'est plus rapide à plusieurs. Pas à pas légal avec Ubuntu et qBittorrent, 5 usages légaux et ce que dit la loi en France.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°19 · Torrent">
+<meta property="og:description" content="C'est quoi un torrent ? Ce qu'il contient, comment ça marche, et un pas à pas légal avec qBittorrent, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-torrents.png">
+<meta property="og:url" content="https://repopop.github.io/decode/torrents/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Torrent">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°19</div>
+        <h1>Les <span>torrents</span></h1>
+        <p class="tag">Un fichier .torrent ne contient pas ton fichier : c'est une carte. Ton logiciel s'en sert pour récupérer des milliers de morceaux chez plein d'internautes à la fois, et vérifie chacun.</p>
+        <div class="chips">
+          <span class="chip">qBittorrent</span>
+          <span class="chip">Gratuit</span>
+          <span class="chip">3 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>BitTorrent</b> est une façon de télécharger inventée en 2001 par Bram Cohen. Au lieu de tout prendre sur un seul serveur, ton logiciel récupère le fichier <b>en morceaux</b>, chez toutes les personnes qui l'ont déjà ou le téléchargent en même temps (l'<b>essaim</b>). Le fichier <b>.torrent</b> n'est que la carte qui permet de les retrouver.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Une carte, pas le fichier</h3>
+        <p>Le .torrent contient le nom, la taille, la liste des fichiers, la taille des morceaux, l'<b>empreinte</b> (un code unique) de chaque morceau et l'adresse d'un tracker. Exemple réel : Ubuntu 22.04 = 19 140 morceaux de 256 Kio.</p>
+        <span class="pill ok">Ce qu'il contient</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Sources et pairs</h3>
+        <p>Les <b>sources</b> (seeds) ont le fichier entier. Les <b>pairs</b> (peers) le téléchargent, comme toi, et renvoient déjà les morceaux qu'ils ont.</p>
+        <span class="pill ok">Le vocabulaire</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Chaque morceau est vérifié</h3>
+        <p>Ton logiciel compare chaque morceau reçu à son empreinte. Un morceau abîmé ou trafiqué est jeté et redemandé : à la fin, le fichier est identique à l'original.</p>
+        <span class="pill ok">Fiable</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Plus on est, plus ça va vite</h3>
+        <p>Chacun envoie pendant qu'il reçoit : la charge est partagée au lieu de saturer un seul serveur. Le lien <b>magnet</b> fait la même chose avec seulement l'empreinte du torrent.</p>
+        <span class="pill ok">Le point fort</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Tu partages aussi.</b> Un logiciel torrent renvoie automatiquement ce que tu télécharges. Avec un film, une série ou un jeu protégé, c'est de la <b>contrefaçon</b> : jusqu'à 3 ans de prison et 300 000 € d'amende, même si la réponse graduée de l'Arcom est suspendue depuis la décision du Conseil d'État du 30 avril 2026.</span></li>
+        <li><span class="dot y">!</span><span><b>Ton adresse IP est visible.</b> Dans un essaim, chaque pair voit l'adresse IP des autres. C'est comme ça que les ayants droit repèrent les partages illégaux.</span></li>
+        <li><span class="dot y">!</span><span><b>Prends tes torrents à la source.</b> Un torrent trouvé n'importe où peut cacher un logiciel piégé. Utilise les torrents officiels (Ubuntu, Internet Archive, Kiwix…) et méfie-toi des fichiers .exe.</span></li>
+        <li><span class="dot g">✓</span><span><b>Un fichier intact.</b> Grâce aux empreintes, un morceau corrompu n'est jamais gardé : pas besoin de tout recommencer si la connexion coupe.</span></li>
+        <li><span class="dot g">↔</span><span><b>Ferme quand tu as fini.</b> Après le téléchargement, qBittorrent continue de partager (statut Seeding). Mets le torrent en pause si tu veux garder ta connexion.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Exemple 100 % légal : télécharger Ubuntu en torrent avec <b>qBittorrent</b>, gratuit et open source (Windows, macOS, Linux).</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Installe qBittorrent</h3></div>
+        <div class="chemin">qbittorrent.org › Download</div>
+        <p>Télécharge-le uniquement sur <b>qbittorrent.org</b> (ou le Microsoft Store / ta logithèque Linux). Pas de pub, pas d'option payante.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Prends le .torrent officiel</h3></div>
+        <div class="chemin">ubuntu.com › Alternative downloads › BitTorrent › Download</div>
+        <p>Sur la page <b>Alternative downloads</b> d'Ubuntu, onglet <b>BitTorrent</b>, clique sur <b>Download</b> à côté de la version voulue : tu récupères un petit fichier .torrent.</p>
+        <figure class="shot"><img src="captures/01_ubuntu_bittorrent.webp" alt="ubuntu.com : la section BitTorrent des téléchargements alternatifs (capture du 24/11/2026)." loading="lazy"><figcaption>ubuntu.com : la section BitTorrent des téléchargements alternatifs (capture du 24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Ouvre-le dans qBittorrent</h3></div>
+        <div class="chemin">Fichier › Ajouter un fichier torrent</div>
+        <p>Double-clique sur le .torrent (ou <b>Fichier › Ajouter un fichier torrent</b>), choisis le dossier et valide. Les colonnes <b>Sources</b> et <b>Pairs</b> montrent combien de personnes t'envoient des morceaux.</p>
+        <figure class="shot"><img src="captures/02_qbittorrent_sources_pairs.webp" alt="qBittorrent : Ubuntu en cours de téléchargement, avec les sources et les pairs (capture officielle du site qBittorrent)." loading="lazy"><figcaption>qBittorrent : Ubuntu en cours de téléchargement, avec les sources et les pairs (capture officielle du site qBittorrent).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Regarde ce que contient la carte</h3></div>
+        <div class="chemin">Clic sur le torrent › Onglet Général</div>
+        <p>L'onglet <b>Général</b> affiche la barre des morceaux (qui se remplit dans le désordre), leur nombre et leur taille (19 140 × 256 Kio) et l'<b>empreinte</b> du torrent (Info Hash).</p>
+        <figure class="shot"><img src="captures/03_qbittorrent_morceaux.webp" alt="qBittorrent : la barre des morceaux et les informations du torrent (capture officielle du site qBittorrent)." loading="lazy"><figcaption>qBittorrent : la barre des morceaux et les informations du torrent (capture officielle du site qBittorrent).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Linux en un clic</h3></div>
+        <p>Ubuntu, Fedora, Debian, Linux Mint : les grosses images ISO sont proposées en torrent officiel, souvent plus vite que le lien direct à la sortie d'une version.</p>
+        <div class="flow"><span>.torrent officiel</span><i>→</i><span>qBittorrent</span><i>→</i><span>ISO vérifiée</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Internet Archive</h3></div>
+        <p>Plus d'un million de livres, films et concerts du domaine public, avec un lien torrent sur chaque fiche.</p>
+        <div class="tools"><span class="tool">Domaine public</span><span class="tool">Lien torrent</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Des modèles d'IA</h3></div>
+        <p>Mistral AI a publié plusieurs modèles par simple lien magnet posté sur X (Mixtral 8x7B en 2023, Mixtral 8x22B en 2024).</p>
+        <div class="flow"><span>Lien magnet</span><i>→</i><span>qBittorrent</span><i>→</i><span>Modèle en local</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Wikipédia hors ligne</h3></div>
+        <p>Kiwix propose ses archives de Wikipédia (plusieurs dizaines de Go) en torrent, pour les lire sans connexion.</p>
+        <div class="tools"><span class="tool">Kiwix</span><span class="tool">Hors ligne</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Tes propres gros fichiers</h3></div>
+        <p>Outils › Créateur de torrent : partage une grosse vidéo de famille ou une sauvegarde entre tes machines, sans passer par un cloud.</p>
+        <div class="flow"><span>Ton dossier</span><i>→</i><span>Créateur de torrent</span><i>→</i><span>Partagé</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Le protocole est le même partout ; ce qui change, c'est le logiciel qui l'utilise.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>qBittorrent</h3><div class="cp"><b>Client torrent open source</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : le plus complet : moteur de recherche intégré, RSS, créateur de torrent, aucune publicité.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Transmission</h3><div class="cp"><b>Client torrent open source</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">macOS, Linux, Windows</span></div>
+        <p>Bon pour : le plus léger, souvent déjà installé sur Linux ; très simple.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>µTorrent</h3><div class="cp"><b>Client torrent propriétaire</b><small>Gratuit avec publicités</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Windows, macOS, Android</span></div>
+        <p>Bon pour : longtemps le plus connu, mais publicités et offres payantes : préfère un client open source.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>QBITTORRENT</b><span>gratuit, sans pub, open source : le bon choix pour débuter, avec des torrents officiels.</span></li>
+        <li><b>MISTRAL</b><span>la start-up française a publié plusieurs de ses modèles d'IA par un simple lien torrent, sans aucune annonce.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°19 · Torrent · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://www.cs.princeton.edu/courses/archive/fall14/cos561/papers/BitTorrent03.pdf">Bram Cohen, Incentives Build Robustness in BitTorrent (2003)</a> · <a href="https://ubuntu.com/download/alternative-downloads">Ubuntu : Alternative downloads (BitTorrent)</a> · <a href="https://www.qbittorrent.org/">qBittorrent : site officiel</a> · <a href="https://venturebeat.com/ai/mistral-ai-bucks-release-trend-by-dropping-torrent-link-to-new-open-source-llm">VentureBeat : Mistral publie Mixtral 8x7B par lien torrent</a> · <a href="https://venturebeat.com/business/mistral-ai-drops-new-mixture-of-experts-model-with-a-torrent-link">VentureBeat : Mixtral 8x22B, encore par lien torrent</a> · <a href="https://help.archive.org/help/archive-bittorrents/">Internet Archive : Archive BitTorrents</a> · <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F32108">Service-public.fr : téléchargement illégal (Arcom)</a> · <a href="https://conseil-etat.fr/content/download/238418/document/Communiqu%C3%A9%20de%20presse%20-%20Protection%20des%20droits%20d%E2%80%99auteur%20contre%20le%20piratage%20-%20web.pdf">Conseil d'État : décision n° 433539 du 30 avril 2026 (réponse graduée)</a></span>
+  </footer>
+</main>
+</body>
+</html>
