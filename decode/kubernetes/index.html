@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Kubernetes</title>
+<meta name="description" content="C'est quoi Kubernetes (K8s), expliqué simplement : les conteneurs, le capitaine qui les répartit sur des serveurs, la relance automatique et les copies en plus quand il y a du monde. Un vrai fichier de la documentation officielle en captures, où l'essayer gratuitement chez toi, et les offres de Google, Amazon et Microsoft.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°16 · Kubernetes">
+<meta property="og:description" content="Kubernetes expliqué simplement, avec un vrai exemple en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-kubernetes.png">
+<meta property="og:url" content="https://repopop.github.io/decode/kubernetes/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Kubernetes">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°16</div>
+        <h1>Kuber<span>netes</span></h1>
+        <p class="tag">Le capitaine qui répartit les petites boîtes d'une appli (les conteneurs) sur des dizaines de serveurs, les relance quand elles plantent et en ajoute quand tout le monde se connecte. Expliqué simplement, captures à l'appui.</p>
+        <div class="chips">
+          <span class="chip">Serveurs et cloud</span>
+          <span class="chip">Gratuit et open source</span>
+          <span class="chip">3 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Kubernetes</b> (on écrit souvent <span class="k">K8s</span> : un K, 8 lettres, un S) est un logiciel <b>open source</b> qui fait tourner des applis sur un groupe de serveurs. Une appli moderne est découpée en petites boîtes, les <span class="k">conteneurs</span> (souvent créés avec Docker). Kubernetes est le <b>capitaine</b> : il décide sur quel serveur va chaque boîte, surveille qu'elles tournent et corrige tout seul ce qui ne va pas.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Les conteneurs</h3>
+        <p>Chaque morceau de l'appli (site, base de données, moteur de recherche…) est rangé dans une <b>boîte</b> qui contient tout ce qu'il faut pour tourner, à l'identique sur n'importe quel serveur.</p>
+        <span class="pill ok">La base</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Le capitaine</h3>
+        <p>Kubernetes <b>répartit</b> les boîtes sur les serveurs disponibles. Si un serveur tombe, il déplace ses boîtes ailleurs.</p>
+        <span class="pill ok">Automatique</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Tu dis ce que tu veux</h3>
+        <p>Tu écris dans un fichier l'état voulu (par exemple <span class="k">replicas: 3</span>, trois copies). Kubernetes compare en permanence avec la réalité et <b>corrige l'écart</b> : boîte plantée relancée, copies ajoutées ou retirées.</p>
+        <span class="pill ok">Déclaratif</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Partout</h3>
+        <p>Il tourne sur tes propres machines comme chez Google (<b>GKE</b>), Amazon (<b>EKS</b>) ou Microsoft (<b>AKS</b>), qui le gèrent pour toi contre paiement.</p>
+        <span class="pill mid">Gratuit ou loué</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">!</span><span><b>Pokémon GO a tenu le choc avec.</b> À son lancement en juillet 2016, le trafic de Pokémon GO a atteint <b>50 fois</b> l'objectif prévu et 10 fois le pire scénario imaginé. La logique du jeu tournait sur le service Kubernetes de Google (GKE), le plus grand déploiement Kubernetes de Google à l'époque.</span></li>
+        <li><span class="dot g">⎈</span><span><b>Un nom grec et un clin d'œil à Star Trek.</b> <span class="k">Kubernetes</span> veut dire <b>pilote</b> ou <b>timonier</b> en grec ancien, d'où la barre de bateau du logo. Il descend de <b>Borg</b>, le système interne de Google. Son premier nom de code était <b>Seven of Nine</b>, un personnage Borg « plus sympathique » de Star Trek : c'est pour ça que la barre a <b>7 rayons</b>.</span></li>
+        <li><span class="dot g">↔</span><span><b>Et ChatGPT ?</b> OpenAI fait tourner ses services sur des <b>centaines de clusters Kubernetes</b>, et décrivait dès 2021 un cluster de <b>7 500 serveurs</b> utilisé pour entraîner GPT-3 et DALL·E.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Puissant, donc fragile si mal réglé.</b> Le 11 décembre 2024, ChatGPT, l'API et Sora sont tombés pendant environ <b>4 heures</b> : un nouveau service de surveillance avait surchargé le cœur de leurs clusters Kubernetes. Bien le configurer est un vrai métier.</span></li>
+        <li><span class="dot y">€</span><span><b>Gratuit, mais pas les serveurs.</b> Kubernetes est gratuit (licence Apache 2.0). Ce qui se paie : les machines, ou le service géré chez Google, Amazon ou Microsoft (facturé à l'usage).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tu peux l'essayer chez toi.</b> Des versions légères comme <b>minikube</b>, <b>kind</b> ou <b>k3s</b> tournent sur un simple PC, un mini-PC ou même un Raspberry Pi, pour apprendre sans rien payer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Le site officiel <b>kubernetes.io</b> est en partie traduit en français. Voici les deux pages à connaître, et le dépôt GitHub du projet.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Écrire ce que tu veux : 3 copies</h3></div>
+        <div class="chemin">kubernetes.io › Documentation › Concepts › Workloads › Déploiements</div>
+        <p>L'exemple officiel de <b>Déploiement</b> : un fichier texte (YAML) où la ligne <span class="k">replicas: 3</span> demande <b>trois copies</b> de l'appli. Tu l'envoies à Kubernetes, il s'occupe du reste.</p>
+        <figure class="shot"><img src="captures/01_trois_copies.webp" alt="Exemple officiel de Déploiement, documentation Kubernetes en français (24/11/2026)." loading="lazy"><figcaption>Exemple officiel de Déploiement, documentation Kubernetes en français (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Le site officiel</h3></div>
+        <div class="chemin">kubernetes.io/fr › Apprendre les bases de Kubernetes</div>
+        <p>La page d'accueil résume tout : un système <b>open source</b> pour automatiser le déploiement, la mise à l'échelle et la gestion des applis en conteneurs. Le bouton <b>Apprendre les bases</b> mène au tutoriel interactif.</p>
+        <figure class="shot"><img src="captures/02_kubernetes_io.webp" alt="Page d'accueil de kubernetes.io en français (24/11/2026)." loading="lazy"><figcaption>Page d'accueil de kubernetes.io en français (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Le code, sur GitHub</h3></div>
+        <div class="chemin">github.com › kubernetes › kubernetes</div>
+        <p>Le code est public sur GitHub : environ <b>129 000 étoiles</b>, licence <b>Apache 2.0</b>. Projet donné à la <span class="k">Cloud Native Computing Foundation</span> (Linux Foundation) en 2015.</p>
+        <figure class="shot"><img src="captures/03_depot_github.webp" alt="Dépôt kubernetes/kubernetes sur GitHub (24/11/2026)." loading="lazy"><figcaption>Dépôt kubernetes/kubernetes sur GitHub (24/11/2026).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Relancer ce qui plante</h3></div>
+        <p>Une boîte plante en pleine nuit : Kubernetes la relance tout seul, sans réveiller personne.</p>
+        <div class="flow"><span>Conteneur planté</span><i>→</i><span>Kubernetes</span><i>→</i><span>Relancé ✓</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Tenir les pics de visiteurs</h3></div>
+        <p>Soldes, sortie d'un jeu, passage à la télé : il ajoute des copies quand la charge monte, et les retire au calme.</p>
+        <div class="flow"><span>Pic de visiteurs</span><i>→</i><span>+ copies</span><i>→</i><span>Calme</span><i>→</i><span>- copies</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Mettre à jour sans coupure</h3></div>
+        <p>Il remplace les anciennes copies par les nouvelles petit à petit, et revient en arrière si la nouvelle version plante.</p>
+        <div class="tools"><span class="tool">Mise à jour</span><span class="tool">Retour arrière</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Faire tourner l'IA</h3></div>
+        <p>Les labos d'IA s'en servent pour répartir l'entraînement et les réponses de leurs modèles sur des milliers de cartes graphiques (OpenAI l'a documenté dès 2018).</p>
+        <div class="tools"><span class="tool">GPU</span><span class="tool">Entraînement</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Ton homelab</h3></div>
+        <p>Avec k3s sur un mini-PC ou des Raspberry Pi, tu fais tourner tes services maison (domotique, médias…) et tu apprends un métier très recherché.</p>
+        <div class="flow"><span>Raspberry Pi</span><i>→</i><span>k3s</span><i>→</i><span>Tes services</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Où faire tourner Kubernetes, et ses alternatives (vérifié le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Kubernetes</h3><div class="cp"><b>Orchestration de conteneurs</b><small>Gratuit (Apache 2.0)</small></div></div>
+        <div class="cm"><span class="lvl y">Open source</span><span class="on">Tes serveurs, PC, cloud</span></div>
+        <p>Bon pour : tout faire toi-même, sans dépendre d'un fournisseur.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google, Amazon, Microsoft</h3><div class="cp"><b>GKE, EKS, AKS (Kubernetes géré)</b><small>Payant à l'usage</small></div></div>
+        <div class="cm"><span class="lvl m">Kubernetes loué</span><span class="on">Cloud</span></div>
+        <p>Bon pour : une entreprise qui veut Kubernetes sans gérer les machines.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>k3s / minikube</h3><div class="cp"><b>Kubernetes léger</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Open source</span><span class="on">PC, mini-PC, Raspberry Pi</span></div>
+        <p>Bon pour : apprendre ou ton homelab.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Docker Compose</h3><div class="cp"><b>Lancer plusieurs conteneurs sur une machine</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Plus simple, une seule machine</span><span class="on">PC, NAS, serveur</span></div>
+        <p>Bon pour : quelques services chez toi, sans relance sur d'autres serveurs.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>POUR COMPRENDRE</b><span>le tutoriel « Apprendre les bases » de kubernetes.io, gratuit, dans le navigateur.</span></li>
+        <li><b>POUR PRATIQUER</b><span>k3s ou minikube sur ton PC : le même Kubernetes, en petit.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°16 · Kubernetes · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://kubernetes.io/fr/">kubernetes.io : site officiel (français)</a> · <a href="https://kubernetes.io/fr/docs/concepts/workloads/controllers/deployment/">Documentation Kubernetes : Déploiements</a> · <a href="https://github.com/kubernetes/kubernetes">Dépôt GitHub kubernetes/kubernetes</a> · <a href="https://cloud.google.com/blog/products/containers-kubernetes/bringing-pokemon-go-to-life-on-google-cloud">Google Cloud Blog : Bringing Pokémon GO to life on Google Cloud (2016)</a> · <a href="https://red.ht/3VDLssN">Red Hat : 10 ans de Kubernetes (Seven of Nine, 7 rayons)</a> · <a href="https://www.theregister.com/2024/06/12/kubertenes_decade_anniversary/">The Register : Kubernetes a 10 ans (2024)</a> · <a href="https://openai.com/index/scaling-kubernetes-to-7500-nodes/">OpenAI : Scaling Kubernetes to 7,500 nodes (2021)</a> · <a href="https://status.openai.com/incidents/ctrsv3lwd797/write-up">OpenAI : rapport d'incident du 11 décembre 2024</a></span>
+  </footer>
+</main>
+</body>
+</html>
