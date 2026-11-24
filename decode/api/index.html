@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · C'est quoi une API ?</title>
+<meta name="description" content="C'est quoi une API, expliqué simplement : la métaphore du restaurant (menu, commande, plat), un vrai exemple avec l'API météo gratuite Open-Meteo (documentation et réponse en captures), les API du quotidien (connexion Google, paiement, Google Maps) et comment Claude, ChatGPT et les autres IA s'en servent.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°13 · C'est quoi une API ?">
+<meta property="og:description" content="Une API expliquée avec un restaurant, et un vrai exemple pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-api.png">
+<meta property="og:url" content="https://repopop.github.io/decode/api/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de C'est quoi une API ?">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°13</div>
+        <h1>C'est quoi <span>une API ?</span></h1>
+        <p class="tag">Une API, c'est le serveur d'un restaurant entre deux logiciels : on choisit dans le menu, il transmet la commande et rapporte le plat. Explication simple, captures à l'appui.</p>
+        <div class="chips">
+          <span class="chip">Toutes les applis</span>
+          <span class="chip">Souvent gratuit pour essayer</span>
+          <span class="chip">2 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Une <b>API</b> (<span class="k">interface de programmation</span>) est la porte d'entrée qu'un logiciel ouvre aux autres logiciels. Comme le <b>serveur d'un restaurant</b> : tu ne vas pas en cuisine, tu choisis dans le <span class="k">menu</span>, le serveur transmet ta <span class="k">commande</span> et te rapporte le <span class="k">plat</span>. Ton appli n'a pas besoin de savoir comment le service travaille : elle demande, il répond.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Le menu : la documentation</h3>
+        <p>Chaque API publie la liste de ce qu'on peut lui demander (la <b>documentation</b>) : quelles infos, sous quelle forme, avec quelles options.</p>
+        <span class="pill ok">Public</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>La commande : une adresse</h3>
+        <p>Une demande à une API est le plus souvent une simple <b>adresse web</b> avec des options (ville, date…). Ton appli l'envoie, sans écran ni clic.</p>
+        <span class="pill ok">Automatique</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Le plat : la réponse</h3>
+        <p>Le service renvoie une réponse <b>structurée</b> (souvent au format <span class="k">JSON</span>), que l'appli met en forme : « 2,4 °C à Paris » devient une jolie icône.</p>
+        <span class="pill ok">En une fraction de seconde</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>La clé : ton badge</h3>
+        <p>Beaucoup d'API demandent une <b>clé API</b> pour savoir qui commande (et qui paie). Elle se garde comme un mot de passe. Certaines, comme Open-Meteo pour un usage non commercial, s'en passent.</p>
+        <span class="pill mid">Selon l'API</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">⚠</span><span><b>Une clé API, c'est comme ta carte bleue.</b> Ne la colle jamais dans un message, une capture ou un dépôt public : quelqu'un pourrait s'en servir à tes frais. En cas de fuite, supprime-la et crée-en une nouvelle.</span></li>
+        <li><span class="dot y">€</span><span><b>Gratuit pour essayer, payant à grande échelle.</b> Beaucoup d'API ont une offre gratuite limitée (nombre de demandes par jour), puis se paient à l'usage. Exemple : Open-Meteo est gratuit pour un usage non commercial, avec moins de 10 000 appels par jour.</span></li>
+        <li><span class="dot g">↔</span><span><b>Abonnement ≠ API chez les IA.</b> Chez Anthropic comme chez OpenAI, l'API des IA (Claude, ChatGPT) se paie <b>à part</b> de l'abonnement au chat, sur leur plateforme pour développeurs.</span></li>
+        <li><span class="dot g">!</span><span><b>Uber et Google Maps.</b> Dans son dossier d'entrée en Bourse (2019), Uber indique avoir payé environ <b>58 millions de dollars</b> à Google pour Google Maps entre 2016 et 2018, un service qu'il juge « critique » pour son appli.</span></li>
+        <li><span class="dot g">⌂</span><span><b>L'État aussi publie des API.</b> Le catalogue de <b>data.gouv.fr</b> (anciennement api.gouv.fr) référence les API publiques de l'administration française : adresses, entreprises, service-public.fr…</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Exemple réel avec <b>Open-Meteo</b>, une API météo gratuite pour un usage non commercial, sans clé ni inscription. Le site est en anglais : voici où regarder.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Le menu : la documentation</h3></div>
+        <div class="chemin">open-meteo.com › API Docs › Hourly Weather Variables</div>
+        <p>La page <b>API Docs</b> liste tout ce qu'on peut demander : température, pluie, vent… Coche <b>Temperature (2 m)</b> : la page fabrique l'adresse de ta commande plus bas.</p>
+        <figure class="shot"><img src="captures/01_menu_documentation.webp" alt="Open-Meteo : la liste des infos qu'on peut commander (24/11/2026)." loading="lazy"><figcaption>Open-Meteo : la liste des infos qu'on peut commander (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Le plat : la réponse</h3></div>
+        <div class="chemin">Adresse de la demande › Réponse JSON</div>
+        <p>Ouvre l'adresse dans ton navigateur : l'API répond aussitôt en <b>JSON</b>. Ici, <span class="k">temperature_2m</span> vaut <b>2.4</b> : 2,4 °C à Paris, à 0 h 30.</p>
+        <figure class="shot"><img src="captures/02_reponse_api.webp" alt="Réponse brute de l'API Open-Meteo pour Paris (24/11/2026, 00:30)." loading="lazy"><figcaption>Réponse brute de l'API Open-Meteo pour Paris (24/11/2026, 00:30).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>La météo de ton appli</h3></div>
+        <p>Ton téléphone ne mesure rien : l'appli demande les prévisions à un service météo par son API.</p>
+        <div class="flow"><span>Ton appli</span><i>→</i><span>API météo</span><i>→</i><span>2,4 °C</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Se connecter avec Google</h3></div>
+        <p>Le site ne voit jamais ton mot de passe : il demande à Google, par son API, de confirmer que c'est bien toi.</p>
+        <div class="tools"><span class="tool">Connexion</span><span class="tool">Sans mot de passe</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Payer en ligne</h3></div>
+        <p>La boutique transmet le paiement à un service spécialisé (banque, Stripe, PayPal…) par son API, et reçoit « payé » ou « refusé ».</p>
+        <div class="flow"><span>Panier</span><i>→</i><span>API de paiement</span><i>→</i><span>Payé ✓</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Une carte dans une appli</h3></div>
+        <p>Uber n'a pas codé ses cartes : il utilise l'API de Google Maps pour l'itinéraire et l'heure d'arrivée.</p>
+        <div class="tools"><span class="tool">Google Maps</span><span class="tool">Itinéraire</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Une IA qui agit</h3></div>
+        <p>Claude, ChatGPT et les autres IA peuvent se brancher sur des API (directement ou par des connecteurs) pour chercher une info à jour ou agir : créer un rendez-vous, envoyer un mail…</p>
+        <div class="flow"><span>Ta demande</span><i>→</i><span>IA</span><i>→</i><span>API</span><i>→</i><span>C'est fait</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Quelques API pour voir de tes yeux comment ça marche (vérifié le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Open-Meteo</h3><div class="cp"><b>Météo, prévisions et historique</b><small>Gratuit (usage non commercial)</small></div></div>
+        <div class="cm"><span class="lvl y">Sans clé</span><span class="on">Navigateur, n'importe quel langage</span></div>
+        <p>Bon pour : faire ta <b>première demande</b> à une API en 10 secondes, dans ton navigateur.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>data.gouv.fr</h3><div class="cp"><b>API publiques de l'État</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Souvent sans clé</span><span class="on">Navigateur, n'importe quel langage</span></div>
+        <p>Bon pour : les données françaises : adresses, entreprises, services publics.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Maps Platform</h3><div class="cp"><b>Cartes, itinéraires, lieux</b><small>Payant à l'usage (quota gratuit)</small></div></div>
+        <div class="cm"><span class="lvl m">Clé + facturation</span><span class="on">Web, Android, iOS</span></div>
+        <p>Bon pour : les applis qui affichent une carte, comme Uber.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>API des IA (Claude, ChatGPT, Gemini)</h3><div class="cp"><b>Poser une question à une IA depuis un logiciel</b><small>À l'usage, à part de l'abonnement (offre gratuite limitée chez Gemini)</small></div></div>
+        <div class="cm"><span class="lvl m">Clé requise</span><span class="on">Plateformes développeurs des éditeurs</span></div>
+        <p>Bon pour : brancher une IA dans tes propres outils ou automatisations.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>POUR COMPRENDRE</b><span>ouvre la documentation d'Open-Meteo et clique sur l'adresse de la demande : tu viens d'utiliser une API.</span></li>
+        <li><b>POUR UNE IA</b><span>une clé API de Claude, ChatGPT ou Gemini, à garder secrète, et un budget à surveiller.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°13 · C'est quoi une API ? · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://open-meteo.com/">Open-Meteo : API météo gratuite (usage non commercial, sans clé)</a> · <a href="https://open-meteo.com/en/terms">Open-Meteo : conditions d'utilisation</a> · <a href="https://www.sec.gov/Archives/edgar/data/1543151/000119312519103850/d647752ds1.htm">Uber, document S-1 (SEC, 2019)</a> · <a href="https://www.cnbc.com/2019/04/11/uber-paid-google-58-million-over-three-years-for-map-services.html">CNBC : Uber paid Google $58 million over three years for map services</a> · <a href="https://www.data.gouv.fr/dataservices">data.gouv.fr : rechercher une API</a> · <a href="https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-do-i-have-to-pay-separately-to-use-the-claude-api-and-console">Aide Claude : pourquoi l'API est facturée à part de l'abonnement</a> · <a href="https://help.openai.com/en/articles/9039756-managing-billing-settings-on-chatgpt-and-the-api-platform">Aide OpenAI : facturation ChatGPT et plateforme API</a></span>
+  </footer>
+</main>
+</body>
+</html>
