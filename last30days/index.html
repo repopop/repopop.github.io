@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · last30days</title>
+<meta name="description" content="last30days expliqué simplement : installation dans Claude Code, Cursor ou Gemini CLI, 5 usages concrets, note de confiance et comparatif avec Perplexity, Google et ChatGPT.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°43 · last30days">
+<meta property="og:description" content="Installation, 5 usages concrets, note de confiance et comparatif, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/last30days.png">
+<meta property="og:url" content="https://repopop.github.io/last30days/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de last30days">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°43</div>
+        <h1>last30<span>days</span></h1>
+        <p class="tag">Ce que les gens disent vraiment sur un sujet, en une recherche. Le mode d'emploi en français.</p>
+        <div class="chips">
+          <span class="chip">★ 71 000+ étoiles</span>
+          <span class="chip">Version 4.4.0</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">last30days est un <span class="k">skill</span> : un module que tu ajoutes à ton assistant IA de code. Tu lui donnes un sujet, il cherche ce qui s'en est dit ces <span class="k">30 derniers jours</span> sur Reddit, Hacker News, X, YouTube et d'autres sources, classe les résultats selon l'engagement réel (votes, likes, vues) et te rend une synthèse avec ses sources. Trois façons de l'installer :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Dans Claude Code</h3>
+        <p>La méthode conseillée par l'auteur : /plugin marketplace add mvanhorn/last30days-skill, puis /plugin install last30days. Il faut Python 3.12 ou plus récent sur ton PC.</p>
+        <span class="pill ok">Tourne sur ton PC</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Cursor, Gemini CLI, Codex</h3>
+        <p>Une seule commande : npx skills add mvanhorn/last30days-skill -g -a cursor (remplace cursor par gemini-cli ou codex). Fonctionne aussi avec une cinquantaine d'autres assistants compatibles.</p>
+        <span class="pill ok">Tourne sur ton PC</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Claude.ai ou Claude Desktop</h3>
+        <p>Tu télécharges le fichier .skill (ou le paquet .mcpb) sur la page des versions du dépôt et tu le glisses dans Claude. Le paquet pour Claude Desktop n'est pas encore pris en charge sous Windows.</p>
+        <span class="pill mid">Pas encore sous Windows (Desktop)</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source (licence MIT).</b> Reddit, Hacker News, GitHub et Polymarket marchent sans aucune clé ni compte.</span></li>
+        <li><span class="dot y">🔑</span><span><b>X, YouTube, TikTok, Instagram :</b> ces sources demandent une clé ou un outil en plus (yt-dlp pour YouTube, une clé ScrapeCreators pour les réseaux sociaux : 10 000 appels gratuits, puis payant à l'usage).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Tout tourne chez toi :</b> les données ne partent que vers les sites interrogés. Pas de suivi ni de statistiques d'usage selon l'auteur.</span></li>
+        <li><span class="dot y">↔</span><span><b>Clé OpenAI, xAI ou Gemini facultative :</b> si tu en mets une pour mieux trier les résultats, ton sujet et des extraits lui sont envoyés. Sans clé, le tri se fait en local.</span></li>
+        <li><span class="dot r">!</span><span><b>Une seule méthode d'installation par machine :</b> si tu installes à la fois le plugin et la version npx, la commande /last30days apparaît en double dans Claude Code.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Préparer une réunion</h3></div>
+        <p>Tu tapes le nom de ton interlocuteur ou de son entreprise : tu vois ce qui s'est dit sur lui ces 30 derniers jours, avec les liens vers les discussions.</p>
+        <div class="flow"><span>Un nom</span><i>→</i><span>last30days</span><i>→</i><span>Synthèse sourcée</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Comparer deux outils</h3></div>
+        <p>Tu demandes « Notion ou Obsidian » : il rassemble les avis des utilisateurs sur Reddit et Hacker News, pas les pages de pub des éditeurs.</p>
+        <div class="tools"><span class="tool">Reddit</span><span class="tool">Hacker News</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Suivre une actu</h3></div>
+        <p>Une nouvelle loi, une sortie de produit, une polémique : tu as l'essentiel de ce qui circule, classé par ce qui a le plus fait réagir.</p>
+        <div class="tools"><span class="tool">X</span><span class="tool">YouTube</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Vérifier un produit avant d'acheter</h3></div>
+        <p>Tu cherches le nom du produit : tu tombes sur les retours réels, les pannes et les déceptions que les fiches produit ne disent pas.</p>
+        <div class="tools"><span class="tool">Reddit</span><span class="tool">YouTube</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Trouver des idées de contenu</h3></div>
+        <p>Sur ton thème, tu vois les questions que les gens posent en ce moment et les sujets qui font le plus réagir.</p>
+        <div class="tools"><span class="tool">Tendances</span><span class="tool">Engagement</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 8,4 sur 10" style="background:conic-gradient(#16C47F 0 84%,#E7E2F2 84% 100%)"><div>8,4<small>/10</small></div></div>
+        <div>
+          <h3>Fiable pour ta veille</h3>
+          <p>Un outil très populaire et actif. Prévois un peu de réglage pour X et YouTube, et vérifie les sources citées.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Près de 1 500 modifications sur la branche principale et un moteur entièrement refait (version 3).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>5/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <p>Plus de 67 000 étoiles et 6 000 copies (forks) sur GitHub.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tout tourne en local. Seuls les sites interrogés et, si tu en ajoutes une, ta clé IA reçoivent ta recherche.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Gratuit et sous licence MIT, sans version payante. Certaines sources passent par des services payants à l'usage (ScrapeCreators, Perplexity).</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Projet récent qui change vite, avec beaucoup de sources optionnelles à configurer une par une.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub et dans le README du projet le 20 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>last30days</h3><div class="cp"><b>Gratuit</b><small>Clés facultatives pour X, YouTube et les réseaux sociaux</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton PC</span><span class="on">Claude Code, Cursor, Gemini CLI, Codex</span></div>
+        <p>Bon pour : Savoir ce que les gens disent vraiment, sources et votes à l'appui</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Perplexity</h3><div class="cp"><b>Gratuit (limité)</b><small>Perplexity Pro : 20 $/mois</small></div></div>
+        <div class="cm"><span class="lvl m">Cloud de Perplexity</span><span class="on">Web, appli mobile</span></div>
+        <p>Bon pour : Une réponse sourcée rapide sur le Web, sans rien installer</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ChatGPT (recherche)</h3><div class="cp"><b>Gratuit (limité)</b><small>ChatGPT Plus : 20 $/mois</small></div></div>
+        <div class="cm"><span class="lvl m">Cloud d'OpenAI</span><span class="on">Web, appli mobile</span></div>
+        <p>Bon pour : Une recherche Web conversationnelle</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google, à la main</h3><div class="cp"><b>Gratuit</b><small>Ton temps</small></div></div>
+        <div class="cm"><span class="lvl n">Cloud de Google</span><span class="on">Navigateur</span></div>
+        <p>Bon pour : Trouver une page précise, pas résumer ce que pensent les gens</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>LAST30DAYS</b><span>si tu utilises déjà un assistant IA de code et que tu veux l'avis réel des communautés, sources à l'appui.</span></li>
+        <li><b>PERPLEXITY</b><span>si tu veux une réponse sourcée tout de suite, sans rien installer.</span></li>
+        <li><b>CHATGPT</b><span>si tu veux discuter du résultat et creuser en posant des questions.</span></li>
+        <li><b>GOOGLE</b><span>si tu cherches une page précise plutôt qu'un avis général.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- depot -->
+  <section id="depot">
+    <style>
+      .repo{display:grid;gap:12px;text-decoration:none;background:var(--violet,#7C3AED)}
+      .repo .rh{display:flex;align-items:center;gap:12px;color:#FFFFFF}
+      .repo .rl{font-family:var(--display);font-size:15px;letter-spacing:.04em}
+      .repo .rn{font-family:var(--display);font-size:24px;line-height:1.15;color:#FFFFFF;overflow-wrap:anywhere}
+      .repo p{margin:0;font-weight:600;color:#FFFFFF}
+      .repo .rb{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--ink,#111);color:var(--paper,#fff);border-radius:12px;padding:13px 15px;font-weight:700}
+      .repo .rb span:last-child{font-family:var(--display);font-weight:400;color:var(--yellow,#FFD23F)}
+      .repo:hover .rb{background:#2a2a2a}
+    </style>
+    <a class="sticker repo" href="https://github.com/mvanhorn/last30days-skill">
+      <div class="rh"><svg viewBox="0 0 16 16" width="34" height="34" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="rl">LE DÉPÔT GITHUB</span></div>
+      <div class="rn">mvanhorn/<wbr>last30days-skill</div>
+      <p>Code source, installation et documentation officielle : tout est là.</p>
+      <div class="rb"><span>Voir le dépôt sur GitHub</span><span>→</span></div>
+    </a>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°43 · last30days · informations vérifiées le 20 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/mvanhorn/last30days-skill">dépôt GitHub mvanhorn/last30days-skill</a> · <a href="https://github.com/mvanhorn/last30days-skill/releases">versions publiées (fichiers .skill et .mcpb)</a></span>
+  </footer>
+</main>
+</body>
+</html>
