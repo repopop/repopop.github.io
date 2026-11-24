@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Matter et Thread</title>
+<meta name="description" content="Matter et Thread, la différence expliquée simplement : Matter est le standard qui fait parler entre eux les objets connectés (Apple, Google, Amazon, Samsung…), Thread est un réseau sans fil maillé et économe qui transporte ces messages, à côté du Wi-Fi et de l'Ethernet. Pourquoi on les confond, ce qu'est un routeur de bordure Thread et lesquels tu as peut-être déjà (HomePod mini, Apple TV 4K, Nest Hub, Home Assistant).">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°21 · Matter et Thread">
+<meta property="og:description" content="Matter = la langue, Thread = la route. Et le routeur de bordure qu'il te faut, captures à l'appui, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-matter-thread.png">
+<meta property="og:url" content="https://repopop.github.io/decode/matter-thread/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Matter et Thread">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°21</div>
+        <h1>Matter et <span>Thread</span></h1>
+        <p class="tag">Matter, c'est la langue commune de la maison connectée. Thread, c'est un des réseaux qui transportent ses messages. Deux choses différentes, souvent écrites côte à côte : voici comment ne plus se tromper à l'achat.</p>
+        <div class="chips">
+          <span class="chip">Maison connectée</span>
+          <span class="chip">Standards ouverts</span>
+          <span class="chip">2 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Matter</b> est un standard ouvert, porté par la Connectivity Standards Alliance : une <span class="k">langue commune</span> pour que les objets connectés de toutes les marques se comprennent et fonctionnent avec Apple Maison, Google Home, Alexa, SmartThings ou Home Assistant. <b>Thread</b> est un <span class="k">réseau sans fil</span> basse consommation qui transporte des messages, comme le Wi-Fi. Un appareil Matter peut passer par le Wi-Fi, l'Ethernet ou Thread.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <h3>Matter : la langue</h3>
+        <p>Il décrit <b>ce que les appareils se disent</b> (allume, éteins, quelle température…), en local, sans dépendre du cloud de la marque. Version 1.5 depuis novembre 2025 (caméras, volets, énergie).</p>
+        <span class="pill ok">Toutes marques</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 13l3-3 3 3M12 10v5"/></svg></span>
+        <h3>Thread : une des routes</h3>
+        <p>Un <b>réseau maillé</b> : chaque appareil branché sur le secteur relaie les messages des autres. Très économe : un capteur à pile peut tenir des années.</p>
+        <span class="pill ok">Basse consommation</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Le pont : routeur de bordure</h3>
+        <p>Thread ne parle pas directement à ta box Wi-Fi. Il lui faut un <b>routeur de bordure Thread</b> (souvent une enceinte ou une box TV) qui relie le réseau Thread au reste de la maison.</p>
+        <span class="pill mid">Obligatoire pour Thread</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>« Matter over Thread »</h3>
+        <p>Sur la boîte, ça veut dire : <b>langue Matter</b>, <b>transportée par Thread</b>. Il te faut donc une appli compatible Matter <b>et</b> un routeur de bordure Thread.</p>
+        <span class="pill mid">Les deux</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">!</span><span><b>Thread ne veut pas toujours dire Matter.</b> Des appareils Thread plus anciens ne parlent que HomeKit (Apple), et un appareil Matter peut très bien passer en Wi-Fi. Regarde les <b>deux</b> logos sur la boîte.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Toutes les Apple TV ne sont pas des ponts Thread.</b> Chez Apple : HomePod mini, HomePod (2e génération), Apple TV 4K (2e génération) et Apple TV 4K (3e génération) <b>Wi-Fi + Ethernet</b>. L'Apple TV 4K de 3e génération Wi-Fi seule ne l'est pas.</span></li>
+        <li><span class="dot g">↔</span><span><b>Depuis 2026, un seul réseau Thread pour toutes les marques.</b> Depuis le 1er janvier 2026, Thread 1.4 est la seule version certifiée pour les routeurs de bordure : le partage des identifiants permet aux appareils Apple, Google, Amazon ou Samsung de rejoindre le même réseau au lieu d'en créer un chacun (la mise à jour arrive progressivement selon les marques).</span></li>
+        <li><span class="dot g">!</span><span><b>Des rivaux réunis.</b> Matter est né du projet <b>Connected Home over IP</b>, lancé le 18 décembre 2019 par Amazon, Apple, Google et la Zigbee Alliance (devenue la Connectivity Standards Alliance). Thread, lui, vient de Nest (Google) : le Thread Group a été créé en 2014 avec Arm, Samsung et d'autres.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Home Assistant peut être ton pont.</b> Avec une clé radio compatible (Home Assistant Connect ZBT-1 ou ZBT-2, Yellow…) et l'app <b>OpenThread Border Router</b>, Home Assistant devient routeur de bordure Thread.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Deux vérifications avant d'acheter un appareil <b>Matter over Thread</b> : as-tu déjà un routeur de bordure Thread, et ton appli maison parle-t-elle Matter ?</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Chez Google : les appareils qui servent de pont</h3></div>
+        <div class="chemin">Aide Google Home › Thread › Routeurs de bordure</div>
+        <p>La page d'aide Google liste ses appareils <b>routeurs de bordure Thread</b> : Google Home Speaker (2026), <b>Nest Hub (2e gén.)</b>, Nest Hub Max, Nest Wifi Pro, Google TV Streamer (4K).</p>
+        <figure class="shot"><img src="captures/01_google_routeurs_thread.webp" alt="Aide Google Home : produits pouvant servir de routeurs de bordure Thread (24/11/2026)." loading="lazy"><figcaption>Aide Google Home : produits pouvant servir de routeurs de bordure Thread (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Avec Home Assistant : en faire ton pont</h3></div>
+        <div class="chemin">Paramètres › Connectivité › Thread</div>
+        <p>La documentation Home Assistant explique comment le transformer en <b>routeur de bordure Thread</b> avec une radio compatible, et où voir tes réseaux Thread : <b>Paramètres › Connectivité › Thread</b>.</p>
+        <figure class="shot"><img src="captures/02_home_assistant_thread.webp" alt="Documentation Home Assistant, intégration Thread (24/11/2026, en anglais)." loading="lazy"><figcaption>Documentation Home Assistant, intégration Thread (24/11/2026, en anglais).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Une ampoule qui marche partout</h3></div>
+        <p>Une ampoule Matter s'ajoute aussi bien dans Apple Maison que dans Google Home, Alexa ou Home Assistant, et peut être partagée entre plusieurs applis.</p>
+        <div class="tools"><span class="tool">Apple Maison</span><span class="tool">Google Home</span><span class="tool">Alexa</span><span class="tool">Home Assistant</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Des capteurs à pile qui durent</h3></div>
+        <p>Détecteurs d'ouverture, de mouvement, de température : en Thread, ils consomment très peu et tiennent souvent des années sur une pile.</p>
+        <div class="flow"><span>Capteur</span><i>→</i><span>Réseau Thread</span><i>→</i><span>Routeur de bordure</span><i>→</i><span>Appli</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Une serrure qui répond vite</h3></div>
+        <p>Le réseau maillé Thread relaie le message d'un appareil à l'autre : la serrure de l'entrée répond même loin de la box Wi-Fi.</p>
+        <div class="tools"><span class="tool">Maillé</span><span class="tool">Local</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Garder ses objets en changeant de box</h3></div>
+        <p>Les appareils Thread ne sont pas liés au mot de passe Wi-Fi : changer de box internet ne les déconnecte pas.</p>
+        <div class="tools"><span class="tool">Pas de mot de passe Wi-Fi</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Tout piloter en local</h3></div>
+        <p>Matter fonctionne sur ton réseau, sans passer par le cloud de chaque marque : les automatismes continuent même si Internet tombe.</p>
+        <div class="flow"><span>Interrupteur</span><i>→</i><span>Matter</span><i>→</i><span>Ampoule</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Qui sert de pont Thread et parle Matter, selon ton écosystème (vérifié le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Apple Maison</h3><div class="cp"><b>Routeur de bordure Thread + contrôleur Matter</b><small>Inclus avec l'appareil</small></div></div>
+        <div class="cm"><span class="lvl y">HomePod mini, HomePod 2, Apple TV 4K (Wi-Fi + Ethernet)</span><span class="on">iPhone, iPad, Mac</span></div>
+        <p>Bon pour : les foyers déjà équipés Apple.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Home</h3><div class="cp"><b>Routeur de bordure Thread + contrôleur Matter</b><small>Inclus avec l'appareil</small></div></div>
+        <div class="cm"><span class="lvl y">Nest Hub (2e gén.), Nest Hub Max, Nest Wifi Pro, Google TV Streamer</span><span class="on">Android, iPhone</span></div>
+        <p>Bon pour : les foyers Android et Nest.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Amazon Alexa</h3><div class="cp"><b>Contrôleur Matter, pont Thread sur certains Echo</b><small>Inclus avec l'appareil</small></div></div>
+        <div class="cm"><span class="lvl m">Selon le modèle d'Echo</span><span class="on">Android, iPhone</span></div>
+        <p>Bon pour : piloter à la voix avec Alexa.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Home Assistant</h3><div class="cp"><b>Contrôleur Matter + routeur de bordure (OpenThread)</b><small>Gratuit et open source</small></div></div>
+        <div class="cm"><span class="lvl y">Avec une radio Thread (Connect ZBT-1/ZBT-2, Yellow…)</span><span class="on">Mini-PC, Raspberry Pi, NAS</span></div>
+        <p>Bon pour : tout garder chez toi et mélanger les marques.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>AVANT D'ACHETER</b><span>regarde les deux logos : Matter (la langue) et Thread ou Wi-Fi (la route).</span></li>
+        <li><b>SI C'EST THREAD</b><span>vérifie que tu as un routeur de bordure : HomePod mini, Apple TV 4K Wi-Fi + Ethernet, Nest Hub ou Home Assistant avec une clé Thread.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°21 · Matter et Thread · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://csa-iot.org/newsroom/matter-1-5-introduces-cameras-closures-and-enhanced-energy-management-capabilities/">CSA : Matter 1.5 (20 novembre 2025)</a> · <a href="https://www.apple.com/newsroom/2019/12/amazon-apple-google-and-the-zigbee-alliance-to-develop-connectivity-standard/">Apple : Amazon, Apple, Google et la Zigbee Alliance lancent Connected Home over IP (18 décembre 2019)</a> · <a href="https://support.google.com/googlehome/answer/9249088?hl=fr">Aide Google Home : comment les produits Google utilisent Thread</a> · <a href="https://support.apple.com/102078">Assistance Apple : alerte « Routeur de bordure Thread requis »</a> · <a href="https://www.home-assistant.io/integrations/thread/">Home Assistant : intégration Thread</a> · <a href="https://www.home-assistant.io/integrations/matter/">Home Assistant : intégration Matter</a> · <a href="https://threadgroup.org/Newsroom/Blog/thread-with-matter-better-connections-smarter-homes">Thread Group : Thread et Matter</a> · <a href="https://spectrum.ieee.org/mesh-network-interoperable-thread">IEEE Spectrum : Thread 1.4 seule version certifiée à partir du 1er janvier 2026</a></span>
+  </footer>
+</main>
+</body>
+</html>
