@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · Le P2P</title>
+<meta name="description" content="Le P2P (pair-à-pair, le principe de BitTorrent) expliqué pour les débutants : pourquoi c'est plus rapide quand il y a du monde, où Windows s'en sert déjà pour ses mises à jour, 5 usages légaux et les outils libres pour s'y mettre.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°18 · Le P2P">
+<meta property="og:description" content="Le pair-à-pair (P2P, torrent) expliqué simplement, avec le réglage caché de Windows Update, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-p2p.png">
+<meta property="og:url" content="https://repopop.github.io/decode/p2p/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Le P2P">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°18</div>
+        <h1>Le P2P, <span>pair-à-pair</span></h1>
+        <p class="tag">Pas de serveur central : le fichier est coupé en morceaux, et chaque ordinateur qui le reçoit le renvoie aux autres. Plus on est nombreux, plus ça va vite.</p>
+        <div class="chips">
+          <span class="chip">BitTorrent · Windows Update · Syncthing · LocalSend</span>
+          <span class="chip">Gratuit et légal</span>
+          <span class="chip">2 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">D'habitude, quand tu télécharges un fichier, tu le récupères sur <b>un serveur</b> : un seul gros ordinateur qui l'envoie à tout le monde. Si trop de gens le demandent en même temps, il sature et tout le monde attend. Avec le <b>pair-à-pair</b> (P2P, <span class="k">peer-to-peer</span> en anglais), il n'y a plus de serveur central : chaque ordinateur qui télécharge devient aussi une <b>source</b> pour les autres.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Coupé en morceaux</h3>
+        <p>Le fichier est découpé en petits morceaux. Tu les récupères chez plusieurs ordinateurs à la fois, dans le désordre, puis ton logiciel les remet en ordre et vérifie qu'aucun n'est abîmé.</p>
+        <span class="pill ok">Le principe</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Tu reçois, tu renvoies</h3>
+        <p>Dès que tu as un morceau, tu peux le passer à quelqu'un d'autre. Celui qui a le fichier complet et continue de le partager s'appelle un « seeder » (une source).</p>
+        <span class="pill ok">Le partage</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Plus on est, plus ça va vite</h3>
+        <p>Avec un serveur, chaque nouvelle personne ralentit les autres. En P2P, chaque nouvelle personne ajoute une source : c'est l'inverse.</p>
+        <span class="pill ok">Le point fort</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Légal</h3>
+        <p>Le P2P est une technique, comme l'e-mail. Ce qui est interdit, c'est de télécharger ou partager des films, musiques ou jeux protégés sans autorisation.</p>
+        <span class="pill ok">La loi</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">!</span><span><b>Partager une œuvre protégée est interdit.</b> En P2P, ce que tu télécharges est aussi <b>mis à disposition</b> des autres : c'est justement ce que l'Arcom repère. Films, séries, musique ou jeux sans autorisation = illégal, quel que soit le logiciel.</span></li>
+        <li><span class="dot y">⇅</span><span><b>Ça utilise aussi ton envoi.</b> Ton PC envoie des morceaux aux autres. Sur une petite connexion ou un forfait limité, règle les limites d'envoi (Windows : Optimisation de la distribution › Options avancées).</span></li>
+        <li><span class="dot y">⚠</span><span><b>Fichiers d'origine inconnue.</b> Un torrent trouvé n'importe où peut cacher un virus. Prends les fichiers torrent sur le site officiel de l'éditeur (Ubuntu, Debian…).</span></li>
+        <li><span class="dot g">✓</span><span><b>Windows ne partage pas tes fichiers.</b> L'Optimisation de la distribution ne concerne que les mises à jour Windows et les applis du Microsoft Store : jamais tes documents ni tes photos (FAQ Microsoft).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Réseau local ou Internet : tu choisis.</b> Dans Windows, « Appareils sur mon réseau local » limite le partage aux PC de ta maison.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Le P2P tourne déjà dans ton PC Windows, pour les mises à jour. Voici où le voir (et le régler), puis comment télécharger un vrai fichier en torrent, légalement.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Windows : Options avancées</h3></div>
+        <div class="chemin">Paramètres › Windows Update › Options avancées</div>
+        <p>Ouvre <b>Paramètres</b> › <b>Windows Update</b>, puis <b>Options avancées</b>. Sa description cite justement l'« Optimisation de la distribution ».</p>
+        <figure class="shot"><img src="captures/01_windows_update.webp" alt="Windows 11 : la page Windows Update (capture du 24/11/2026)." loading="lazy"><figcaption>Windows 11 : la page Windows Update (capture du 24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Optimisation de la distribution</h3></div>
+        <div class="chemin">Options avancées › Optimisation de la distribution › Autoriser</div>
+        <p>Dans <b>Options supplémentaires</b>, ouvre <b>Optimisation de la distribution</b>. L'interrupteur <b>Permettre les téléchargements à partir d'autres appareils</b> active le pair-à-pair ; choisis <b>Appareils sur mon réseau local</b> (les PC de ta maison) ou <b>sur Internet et sur mon réseau local</b>.</p>
+        <figure class="shot"><img src="captures/02_optimisation_distribution.webp" alt="Windows 11 : Optimisation de la distribution, activée sur le réseau local (capture du 24/11/2026)." loading="lazy"><figcaption>Windows 11 : Optimisation de la distribution, activée sur le réseau local (capture du 24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Télécharger Ubuntu en torrent</h3></div>
+        <div class="chemin">ubuntu.com › Téléchargement › BitTorrent › qBittorrent</div>
+        <p>Installe un logiciel libre comme <b>qBittorrent</b> ou <b>Transmission</b>. Sur le site d'Ubuntu, prends le lien <b>BitTorrent</b> des téléchargements alternatifs, ouvre le fichier `.torrent` : les morceaux arrivent de plusieurs ordinateurs à la fois.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Télécharger Linux</h3></div>
+        <p>Ubuntu, Debian et beaucoup d'autres proposent leurs images en torrent officiel : souvent plus rapide que le serveur, et tu aides les suivants.</p>
+        <div class="flow"><span>Fichier .torrent officiel</span><i>→</i><span>Morceaux de partout</span><i>→</i><span>Tu repartages</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Les mises à jour Windows</h3></div>
+        <p>L'Optimisation de la distribution récupère les mises à jour chez les autres PC de la maison : téléchargées une fois, partagées ensuite.</p>
+        <div class="tools"><span class="tool">Windows Update</span><span class="tool">Microsoft Store</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Synchroniser sans cloud</h3></div>
+        <p>Syncthing (libre) garde tes dossiers à jour entre ton PC, ton portable et ton NAS, directement d'appareil à appareil.</p>
+        <div class="flow"><span>PC</span><i>→</i><span>Portable</span><i>→</i><span>NAS</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Envoyer un fichier à côté</h3></div>
+        <p>LocalSend (libre) envoie photos et vidéos d'un appareil à l'autre sur le même Wi-Fi, comme AirDrop, sans câble ni compte.</p>
+        <div class="tools"><span class="tool">Windows</span><span class="tool">Android</span><span class="tool">iPhone</span><span class="tool">Mac</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Mettre à jour des milliers de serveurs</h3></div>
+        <p>En 2010, Twitter a déployé son code avec BitTorrent (outil « Murder ») : de 40 minutes à 12 secondes sur des milliers de serveurs.</p>
+        <div class="flow"><span>1 serveur source</span><i>→</i><span>Milliers de serveurs</span><i>→</i><span>12 s</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Le pair-à-pair est partout, souvent sans qu'on le sache. Quelques outils libres et gratuits pour s'en servir volontairement.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>qBittorrent</h3><div class="cp"><b>Logiciel BitTorrent</b><small>Gratuit, open source, sans pub</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : télécharger des fichiers .torrent légaux (Linux, logiciels libres) ; Transmission est l'équivalent plus léger.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Windows</h3><div class="cp"><b>Optimisation de la distribution</b><small>Inclus dans Windows 10 et 11</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows</span></div>
+        <p>Bon pour : les mises à jour partagées entre les PC de la maison, sans rien installer.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Syncthing</h3><div class="cp"><b>Synchronisation de dossiers</b><small>Gratuit, open source</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux</span></div>
+        <p>Bon pour : garder tes dossiers identiques sur plusieurs appareils sans passer par un cloud.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>LocalSend</h3><div class="cp"><b>Envoi de fichiers en local</b><small>Gratuit, open source</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux, Android, iOS</span></div>
+        <p>Bon pour : l'AirDrop de tout le monde : d'un appareil à l'autre sur le même Wi-Fi.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>SPOTIFY</b><span>jusqu'en 2014, l'appli pour ordinateur faisait passer une partie de la musique par les autres auditeurs : un des plus grands réseaux P2P d'Internet (TorrentFreak, avril 2014).</span></li>
+        <li><b>TWITTER</b><span>en 2010, BitTorrent a fait passer le déploiement de son code de 40 minutes à 12 secondes sur des milliers de serveurs (outil Murder).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°18 · Le P2P · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.microsoft.com/fr-fr/help/4468254/windows-update-delivery-optimization-faq">Microsoft : FAQ de l'Optimisation de la distribution de Windows Update</a> · <a href="https://learn.microsoft.com/en-us/windows/deployment/do/waas-optimize-windows-10-updates">Microsoft Learn : Delivery Optimization et BranchCache, options pair-à-pair de Windows</a> · <a href="https://torrentfreak.com/spotify-starts-shutting-down-its-massive-p2p-network-140416/">TorrentFreak : Spotify commence à fermer son grand réseau P2P (2014)</a> · <a href="https://techcrunch.com/2014/04/17/spotify-removes-peer-to-peer-technology-from-its-desktop-client/">TechCrunch : Spotify retire le P2P de son appli pour ordinateur (2014)</a> · <a href="https://blog.x.com/engineering/en_us/a/2010/murder-fast-datacenter-code-deploys-using-bittorrent">Twitter Engineering : Murder, déploiements avec BitTorrent (2010)</a> · <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F32108">Service-Public.fr : téléchargement illégal (Arcom), les règles</a> · <a href="https://help.ubuntu.com/community/BitTorrent">Aide Ubuntu : BitTorrent</a></span>
+  </footer>
+</main>
+</body>
+</html>
