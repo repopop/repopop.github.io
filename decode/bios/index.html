@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop Décode · BIOS</title>
+<meta name="description" content="C'est quoi le BIOS (UEFI) : ce qu'il fait au démarrage, comment y entrer depuis Windows 11 ou avec une touche, les réglages utiles (ordre de démarrage, virtualisation, TPM 2.0, Secure Boot) et ce qu'il ne faut pas toucher.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop Décode n°23 · BIOS">
+<meta property="og:description" content="C'est quoi le BIOS ? Ce qu'il fait, comment y entrer sur Windows 11 et les réglages utiles, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-bios.png">
+<meta property="og:url" content="https://repopop.github.io/decode/bios/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de BIOS">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°23</div>
+        <h1>Le <span>BIOS</span></h1>
+        <p class="tag">Avant Windows, un petit programme gravé dans ta carte mère réveille ton PC, vérifie le matériel et choisit sur quel disque démarrer : le BIOS, qu'on appelle aujourd'hui UEFI.</p>
+        <div class="chips">
+          <span class="chip">Windows 11</span>
+          <span class="chip">Déjà dans ton PC</span>
+          <span class="chip">2 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Le <b>BIOS</b> (Basic Input/Output System) est le <b>micrologiciel</b> de ta carte mère : un programme rangé dans une puce, qui se lance dès que tu appuies sur le bouton, <b>avant Windows</b>. Sur les PC récents, il s'appelle <b>UEFI</b>, mais tout le monde dit encore « BIOS ».</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Il réveille le matériel</h3>
+        <p>Au démarrage, il initialise le processeur, la mémoire et les disques, et vérifie que tout répond (le fameux <b>POST</b>).</p>
+        <span class="pill ok">À chaque allumage</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Il choisit le disque</h3>
+        <p>Il suit l'<b>ordre de démarrage</b> (Boot) : SSD de Windows, clé USB, réseau… puis passe la main au système trouvé.</p>
+        <span class="pill ok">Le rôle clé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>BIOS ou UEFI ?</h3>
+        <p>L'<b>UEFI</b> a remplacé l'ancien BIOS : interface à la souris, gros disques, <b>Secure Boot</b>. Intel a retiré l'ancien mode « Legacy » de ses plateformes à partir de 2020, et Windows 11 exige un PC UEFI.</p>
+        <span class="pill ok">Le nom moderne</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Ses réglages sont gardés</h3>
+        <p>Les réglages (date, ordre de démarrage…) sont conservés même PC éteint ; « Load Defaults » remet tout aux valeurs d'usine.</p>
+        <span class="pill ok">Pratique</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Ne touche que ce que tu comprends.</b> Tensions, fréquences ou overclocking mal réglés peuvent empêcher le PC de démarrer. En cas de doute : <b>Load Optimized Defaults</b> (souvent F5 ou F9), puis Save &amp; Exit.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Mise à jour du BIOS : jamais de coupure.</b> Une coupure de courant pendant la mise à jour peut rendre la carte mère inutilisable. Prends le fichier <b>uniquement sur le site du fabricant</b> de ta carte mère ou de ton PC.</span></li>
+        <li><span class="dot y">!</span><span><b>Secure Boot : prudence.</b> Le désactiver peut bloquer certains jeux anti-triche et affaiblit la protection au démarrage. Les certificats Secure Boot de Microsoft datant de 2011 expirent depuis juin 2026 : garde Windows Update à jour.</span></li>
+        <li><span class="dot y">!</span><span><b>Pas de BIOS sur Mac.</b> Les Mac Apple Silicon ont leur propre démarrage (maintenir le bouton marche) : ce pas à pas concerne les PC.</span></li>
+        <li><span class="dot g">✓</span><span><b>Rien n'est modifié sans « Save ».</b> Tant que tu quittes avec <b>Discard Changes</b> (ou Échap puis « Non »), aucun réglage n'est enregistré.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <p class="lead">Deux façons d'entrer dans le BIOS (UEFI) : depuis <b>Windows 11</b>, sans deviner la touche, ou avec une <b>touche</b> dès l'allumage.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Ouvre la page Récupération</h3></div>
+        <div class="chemin">Paramètres › Système › Récupération</div>
+        <p>Touche <b>Windows + I</b>, puis <b>Système › Récupération</b>. À côté de <b>Démarrage avancé</b>, clique sur <b>Redémarrer maintenant</b> (enregistre ton travail avant).</p>
+        <figure class="shot"><img src="captures/01_windows_recuperation.webp" alt="Windows 11 : Paramètres › Système › Récupération (capture du 24/11/2026)." loading="lazy"><figcaption>Windows 11 : Paramètres › Système › Récupération (capture du 24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Va dans les options avancées</h3></div>
+        <div class="chemin">Dépannage › Options avancées › Paramètres du microprogramme UEFI</div>
+        <p>Sur l'écran bleu, choisis <b>Dépannage</b>, puis <b>Options avancées</b>, puis <b>Paramètres du microprogramme UEFI</b> et <b>Redémarrer</b> : le PC s'ouvre directement dans le BIOS.</p>
+        <figure class="shot"><img src="captures/02_windows_options_avancees.webp" alt="Windows RE : l'écran Options avancées (capture officielle Microsoft)." loading="lazy"><figcaption>Windows RE : l'écran Options avancées (capture officielle Microsoft).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Ou avec une touche</h3></div>
+        <div class="chemin">Allumage › Suppr / F2</div>
+        <p>Appuie plusieurs fois dès l'allumage : <b>Suppr</b> ou <b>F2</b> sur la plupart des PC fixes (ASUS, MSI, Gigabyte, ASRock), <b>F2</b> chez Dell, Acer, ASUS portables, <b>F10</b> chez HP (ou Échap), <b>F1/F2</b> chez Lenovo. Le <b>menu de démarrage</b> ponctuel est souvent sur <b>F12</b>, F11 ou F8.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Mets ta clé USB en premier</h3></div>
+        <div class="chemin">Onglet Boot › Boot Option #1 › Clé USB</div>
+        <p>Dans l'onglet <b>Boot</b>, place ta clé USB en <b>Boot Option #1</b>, puis <b>Save &amp; Exit</b> (souvent F10). Pour une seule fois, le menu de démarrage (F12) suffit, sans rien changer.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Installer Windows ou Linux</h3></div>
+        <p>Démarrer sur une clé USB d'installation : ordre de démarrage ou menu F12.</p>
+        <div class="flow"><span>Clé USB</span><i>→</i><span>Boot #1</span><i>→</i><span>Installation</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Activer la virtualisation</h3></div>
+        <p>Intel VT-x / AMD SVM : nécessaires pour WSL 2, Docker Desktop ou une machine virtuelle.</p>
+        <div class="tools"><span class="tool">VT-x</span><span class="tool">SVM</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Préparer Windows 11</h3></div>
+        <p>Activer le TPM 2.0 (Intel PTT ou AMD fTPM) et le Secure Boot, exigés ou vérifiés par Windows 11 et certains jeux.</p>
+        <div class="flow"><span>TPM 2.0</span><i>→</i><span>Secure Boot</span><i>→</i><span>Windows 11</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Profiter de ta RAM</h3></div>
+        <p>Activer le profil XMP / EXPO pour que la mémoire tourne à sa vitesse annoncée.</p>
+        <div class="tools"><span class="tool">XMP</span><span class="tool">EXPO</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Mettre à jour la carte mère</h3></div>
+        <p>Outils intégrés (EZ Flash, M-Flash, Q-Flash…) avec le fichier du fabricant, pour la compatibilité et les failles corrigées.</p>
+        <div class="flow"><span>Site du fabricant</span><i>→</i><span>Clé USB</span><i>→</i><span>Mise à jour</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <p class="lead">Même rôle partout, mais un nom et une porte d'entrée différents selon l'appareil.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>PC Windows</h3><div class="cp"><b>UEFI (« BIOS »)</b><small>Inclus</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">PC fixes et portables</span></div>
+        <p>Bon pour : Démarrage avancé de Windows 11 ou touche Suppr / F2 à l'allumage.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Mac Apple Silicon</h3><div class="cp"><b>Options de démarrage</b><small>Inclus</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Mac M1 et suivants</span></div>
+        <p>Bon pour : maintenir le bouton marche : choix du disque, récupération, sécurité du démarrage.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Raspberry Pi</h3><div class="cp"><b>Bootloader EEPROM</b><small>Inclus</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Raspberry Pi 4 et 5</span></div>
+        <p>Bon pour : ordre de démarrage (carte SD, USB, réseau) réglé avec raspi-config.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GARY KILDALL</b><span>a inventé le mot « BIOS » en 1975 pour son système CP/M : la partie qui parle directement au matériel.</span></li>
+        <li><b>COMPAQ</b><span>en 1982, a recréé le BIOS d'IBM « en salle blanche », sans voir son code (environ 1 million de dollars) : le premier PC 100 % compatible, et la naissance des clones.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop Décode n°23 · BIOS · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Sources : <a href="https://support.microsoft.com/fr-fr/windows/environnement-de-r%C3%A9cup%C3%A9ration-windows-0eb14733-6301-41cb-8d26-06a12b42770b">Microsoft : Environnement de récupération Windows (Démarrage avancé)</a> · <a href="https://support.microsoft.com/help/5062710">Microsoft : expiration des certificats Secure Boot (2026)</a> · <a href="https://en.wikipedia.org/wiki/BIOS">Wikipédia : BIOS (origine CP/M, Gary Kildall, 1975)</a> · <a href="https://www.computerhistory.org/revolution/mobile-computing/18/316/1195">Computer History Museum : Compaq Portable</a> · <a href="https://thisdayintechhistory.com/11/04/attack-of-the-clones">This Day in Tech History : Compaq et le BIOS en salle blanche</a> · <a href="https://www.anandtech.com/show/12068/intel-to-remove-bios-support-from-uefi-by-2020">AnandTech : Intel retire le BIOS Legacy de l'UEFI d'ici 2020</a></span>
+  </footer>
+</main>
+</body>
+</html>
