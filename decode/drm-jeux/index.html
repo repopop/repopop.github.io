@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · Les verrous des jeux vidéo · RepoPop</title>
+<meta name="description" content="Les DRM des jeux vidéo expliqués simplement : la licence liée à ton compte (Steam, consoles), Denuvo Anti-Tamper qui chiffre des morceaux du jeu et vérifie qu'on n'y touche pas, le code signé des consoles. Où voir les DRM sur la page Steam d'un jeu, les vérifications en ligne tous les 14 jours, les limites d'activations, et où acheter sans DRM (GOG).">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°22 · Les verrous des jeux vidéo">
+<meta property="og:description" content="Denuvo, Steam, consoles : pourquoi les jeux sont si durs à pirater. En français, capture à l'appui.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-drm-jeux.png">
+<meta property="og:url" content="https://repopop.github.io/decode/drm-jeux/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Les verrous des jeux vidéo">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°22</div>
+        <h1>Les verrous des <span>jeux vidéo</span></h1>
+        <p class="tag">Pourquoi les gros jeux PC sont si durs à pirater : compte, Denuvo, console signée. Explication simple, capture Steam à l'appui.</p>
+        <div class="chips">
+          <span class="chip">Steam · Denuvo</span>
+          <span class="chip">Selon le jeu</span>
+          <span class="chip">1 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Un <b>DRM</b> (<span class="k">Digital Rights Management</span>, gestion des droits numériques) est un verrou qui vérifie que tu as bien le droit de lancer un jeu. Sur un gros jeu PC, il y en a souvent <b>plusieurs empilés</b>. Leur but n'est pas d'empêcher le piratage pour toujours : c'est de tenir <b>les premières semaines après la sortie</b>, quand un jeu fait l'essentiel de ses ventes.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>1. La licence liée à ton compte</h3>
+        <p>Sur <b>Steam</b>, l'Epic Games Store ou une console, le jeu est rattaché à ton compte. Le lanceur vérifie que tu possèdes bien la licence avant de démarrer le jeu.</p>
+        <span class="pill ok">Presque partout</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>2. Denuvo Anti-Tamper</h3>
+        <p>Ajouté par certains éditeurs, <b>Denuvo</b> (société Irdeto) chiffre des morceaux du programme du jeu et vérifie pendant la partie que personne ne l'a modifié. À l'installation, il enregistre un jeton d'activation propre à ton PC.</p>
+        <span class="pill mid">Selon l'éditeur</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 13l3-3 3 3M12 10v5"/></svg></span>
+        <h3>3. Le code signé des consoles</h3>
+        <p>Une console ne lance que des programmes <b>signés numériquement</b> par le fabricant. Sans la clé secrète du fabricant, impossible de faire démarrer un jeu modifié.</p>
+        <span class="pill ok">Toutes les consoles</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>Parfois : la vérification en ligne</h3>
+        <p>Certains jeux redemandent Internet régulièrement. En avril 2026, la presse a signalé que plusieurs jeux 2K protégés par Denuvo (NBA 2K25, NBA 2K26, Marvel's Midnight Suns) exigent une connexion <b>tous les 14 jours</b>.</p>
+        <span class="pill no">Gênant hors ligne</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">!</span><span><b>Les 14 jours : signalé, pas annoncé.</b> La vérification tous les 14 jours sur des jeux 2K a été rapportée en avril 2026 par Tom's Hardware, Kotaku et VideoGamesChronicle à partir de constats de joueurs ; elle n'a pas été annoncée officiellement par l'éditeur.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Limite d'activations.</b> Certaines pages Steam affichent une limite, par exemple « 5 activations within 24 hours » pour Civilization VII : changer souvent de PC ou de matériel peut bloquer temporairement le jeu.</span></li>
+        <li><span class="dot g">↔</span><span><b>Denuvo, c'est surtout pour la sortie.</b> Irdeto dit lui-même que son but principal est de protéger la période de lancement. Beaucoup d'éditeurs retirent Denuvo quelques mois après la sortie.</span></li>
+        <li><span class="dot g">€</span><span><b>Des jeux sans DRM existent.</b> <b>GOG</b> vend des jeux sans DRM : tu peux télécharger l'installateur et le garder, sans vérification en ligne. Sur Steam aussi, certains jeux n'ont aucun DRM tiers.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Les versions crackées sont risquées.</b> Pirater un jeu est illégal, et les contournements récents de Denuvo demandent de désactiver des protections de Windows : un vrai risque pour ton PC.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Avant d'acheter, la <b>page Steam</b> du jeu dit s'il y a un DRM ajouté par l'éditeur. Exemple réel avec <span class="k">Sid Meier's Civilization VII</span> (capture du 24/11/2026).</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Repérer Denuvo sur la page Steam</h3></div>
+        <div class="chemin">Page Steam du jeu › Colonne de droite › Gestion des droits numériques tiers</div>
+        <p>Fais défiler la page du jeu : sous les fonctionnalités et les manettes, des encadrés beiges listent ce que l'éditeur impose. <b>Gestion des droits numériques tiers : Denuvo Anti-tamper</b> signale Denuvo, avec parfois une limite d'activations. Juste en dessous, tu peux voir un <b>compte tiers</b> obligatoire (ici un compte 2K, pas nécessaire hors ligne).</p>
+        <figure class="shot"><img src="captures/01_steam_drm_tiers.webp" alt="Page Steam de Civilization VII : l'encadré « Gestion des droits numériques tiers : Denuvo Anti-tamper » (24/11/2026)." loading="lazy"><figcaption>Page Steam de Civilization VII : l'encadré « Gestion des droits numériques tiers : Denuvo Anti-tamper » (24/11/2026).</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Savoir avant d'acheter</h3></div>
+        <p>Un coup d'œil à l'encadré de la page Steam et tu sais si le jeu a Denuvo ou un compte tiers obligatoire.</p>
+        <div class="flow"><span>Page Steam</span><i>→</i><span>Encadrés beiges</span><i>→</i><span>Achat éclairé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Préparer un séjour hors ligne</h3></div>
+        <p>Avant de partir sans Internet, lance une fois tes jeux connecté pour renouveler leur autorisation, et passe Steam en mode hors connexion.</p>
+        <div class="flow"><span>Lancer connecté</span><i>→</i><span>Mode hors connexion</span><i>→</i><span>Partir</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Éviter le blocage d'activations</h3></div>
+        <p>Si la page indique une limite (ex. 5 activations en 24 h), évite de changer de PC ou de réinstaller en boucle le même jour.</p>
+        <div class="tools"><span class="tool">Limite d'activations</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Acheter sans DRM</h3></div>
+        <p>Pour garder tes jeux pour toujours, même sans Internet ni lanceur : regarde d'abord s'ils existent sur GOG.</p>
+        <div class="tools"><span class="tool">GOG</span><span class="tool">Installateur hors ligne</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Comprendre les performances</h3></div>
+        <p>Quand un éditeur retire Denuvo après la sortie, des joueurs mesurent parfois de meilleures performances : c'est souvent annoncé dans les notes de mise à jour.</p>
+        <div class="tools"><span class="tool">Notes de mise à jour</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
+    <p class="lead">Où et comment tes jeux sont verrouillés selon la boutique (vérifié le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Steam</h3><div class="cp"><b>Licence liée au compte + DRM tiers au choix de l'éditeur (Denuvo…)</b><small>Compte gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Mode hors connexion possible</span><span class="on">PC, Mac, Linux, Steam Deck</span></div>
+        <p>Bon pour : la plus grande bibliothèque ; <b>lis l'encadré DRM</b> avant d'acheter.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>GOG</h3><div class="cp"><b>Jeux sans DRM, installateurs téléchargeables</b><small>Compte gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui, sans vérification</span><span class="on">PC, Mac, Linux</span></div>
+        <p>Bon pour : garder tes jeux <b>pour toujours</b>, même sans Internet.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Epic Games Store</h3><div class="cp"><b>Licence liée au compte + DRM tiers selon l'éditeur</b><small>Compte gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Selon les jeux</span><span class="on">PC, Mac</span></div>
+        <p>Bon pour : les jeux gratuits de la semaine.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Consoles (PlayStation, Xbox, Switch)</h3><div class="cp"><b>Code signé par le fabricant + licence du compte</b><small>Compte gratuit (en ligne payant)</small></div></div>
+        <div class="cm"><span class="lvl n">Disque ou téléchargement</span><span class="on">La console du fabricant</span></div>
+        <p>Bon pour : jouer sans rien régler ; le verrou le plus solide.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>DRM</b><span>si tu tiens à jouer hors ligne longtemps, vérifie l'encadré Steam avant d'acheter, ou prends la version GOG.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°22 · Les verrous des jeux vidéo · informations et captures vérifiées le 24 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://store.steampowered.com/app/1295660/">Steam — page de Sid Meier's Civilization VII (encadré « Gestion des droits numériques tiers »)</a> · <a href="https://irdeto.com/denuvo/anti-tamper">Irdeto — Denuvo Anti-Tamper</a> · <a href="https://en.wikipedia.org/wiki/Denuvo">Wikipédia — Denuvo</a> · <a href="https://www.tomshardware.com/video-games/pc-gaming/denuvo-has-been-bypassed-in-all-single-player-games-it-previously-protected-2k-games-and-denuvo-reportedly-retaliate-with-mandatory-14-day-online-checks">Tom's Hardware — 2K et Denuvo : vérification en ligne tous les 14 jours (avril 2026)</a> · <a href="https://www.videogameschronicle.com/news/as-hackers-say-theyve-cracked-denuvo-drm-2k-and-denuvo-reportedly-add-mandatory-14-day-checks-to-some-games/">VideoGamesChronicle — vérifications obligatoires tous les 14 jours</a> · <a href="https://www.engadget.com/2013/04/29/game-dev-tycoon-creator-punishes-pirates-with-in-game-bankruptcy/">Engadget — Game Dev Tycoon punit les pirates par la faillite (2013)</a> · <a href="https://en.wikipedia.org/wiki/PlayStation_3_homebrew">Wikipédia — PlayStation 3 homebrew (signature du code console)</a> · <a href="https://www.gog.com/">GOG — jeux sans DRM</a></span>
+  </footer>
+</main>
+</body>
+</html>

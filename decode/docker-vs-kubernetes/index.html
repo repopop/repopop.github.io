@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · Docker ou Kubernetes ? · RepoPop</title>
+<meta name="description" content="Docker ou Kubernetes, la différence expliquée simplement : Docker fabrique et lance des conteneurs sur une machine, Kubernetes orchestre des centaines de conteneurs sur plusieurs serveurs (répartition, relance automatique). Lequel choisir pour un homelab, un NAS ou un gros site, où trouver Kubernetes dans Docker Desktop, et les alternatives (Docker Compose, Swarm, k3s).">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°17 · Docker ou Kubernetes ?">
+<meta property="og:description" content="Docker ou Kubernetes ? La différence en clair, lequel choisir chez toi, et le pas à pas en captures, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-docker-vs-kubernetes.png">
+<meta property="og:url" content="https://repopop.github.io/decode/docker-vs-kubernetes/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Docker ou Kubernetes ?">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°17</div>
+        <h1>Docker ou <span>Kubernetes ?</span></h1>
+        <p class="tag">Ce ne sont pas des rivaux : Docker range et lance tes applis dans des conteneurs, Kubernetes pilote des centaines de conteneurs sur plein de serveurs. Lequel il te faut, en clair.</p>
+        <div class="chips">
+          <span class="chip">Docker · Kubernetes</span>
+          <span class="chip">Gratuit en perso</span>
+          <span class="chip">1 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>Docker</b> et <b>Kubernetes</b> ne font pas la même chose, et ils travaillent ensemble. <span class="k">Docker</span> met une appli et tout ce qu'il lui faut dans un <b>conteneur</b>, puis le lance sur une machine. <span class="k">Kubernetes</span> est un <b>orchestrateur</b> : il décide sur quels serveurs tournent des centaines de conteneurs, en lance plus quand il y a du monde et relance ceux qui plantent.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h16a3 3 0 0 0 2-1c-1-1-2-1-3-.5C17 9 15 9 15 9v4"/><path d="M3 13c0 4 3 6 8 6 5 0 8-3 9-6"/><path d="M6 10h3v3H6zM9 10h3v3H9zM12 10h3v3h-3zM9 7h3v3H9z"/></svg></span>
+        <h3>Docker : la boîte</h3>
+        <p>Il <b>fabrique</b> l'image de ton appli et <b>lance</b> le conteneur, sur ton PC, ton NAS ou un serveur. Avec <span class="k">Docker Compose</span>, un seul fichier décrit plusieurs conteneurs qui vont ensemble.</p>
+        <span class="pill ok">Une machine</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>
+        <h3>Kubernetes : le chef d'orchestre</h3>
+        <p>Tu lui dis ce que tu veux (« 3 copies de mon site ») et il s'en charge <b>en continu</b> sur un groupe de serveurs (un <span class="k">cluster</span>) : il répartit, relance et ajoute des copies.</p>
+        <span class="pill ok">Plein de serveurs</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Les mêmes conteneurs</h3>
+        <p>Une image fabriquée avec Docker tourne telle quelle dans Kubernetes : c'est le même format standard (<b>OCI</b>). Les développeurs testent avec Docker, la production tourne sur Kubernetes.</p>
+        <span class="pill ok">Compatibles</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <h3>Chez toi : Docker suffit</h3>
+        <p>Pour Jellyfin, Immich ou Home Assistant sur un NAS ou un mini-PC, <b>Docker et Compose suffisent</b>. Kubernetes ajoute beaucoup de complexité, utile seulement avec plusieurs serveurs ou pour apprendre.</p>
+        <span class="pill mid">Kubernetes : pour apprendre</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit pour toi.</b> Docker Desktop est gratuit en usage perso, pour l'enseignement, l'open source non commercial et les entreprises de moins de 250 salariés <b>et</b> moins de 10 M$ de chiffre d'affaires ; au-delà, abonnement payant. Kubernetes est open source (licence Apache 2.0).</span></li>
+        <li><span class="dot y">!</span><span><b>« Pas de panique » (décembre 2020).</b> Kubernetes a annoncé qu'il arrêtait d'utiliser <b>Docker Engine</b> comme moteur interne (retrait effectif en v1.24, 2022). Panique générale : Kubernetes a publié <span class="k">Don't Panic: Kubernetes and Docker</span> pour rappeler que les images Docker marchent toujours et que Docker reste l'outil des développeurs.</span></li>
+        <li><span class="dot g">↔</span><span><b>Docker a fini par adopter Kubernetes.</b> En octobre 2017, à la DockerCon de Copenhague, Docker, qui concurrençait Kubernetes avec son outil <span class="k">Swarm</span> depuis 2015, a annoncé par surprise l'intégration de Kubernetes. Aujourd'hui, Docker Desktop crée un cluster Kubernetes local en quelques clics.</span></li>
+        <li><span class="dot y">⚠</span><span><b>Le Kubernetes de Docker Desktop, c'est pour tester.</b> Docker le présente comme un cluster de développement et de test, <b>pas pour la production</b>. Pour un vrai cluster, on passe par k3s, kubeadm ou un service géré (GKE, EKS, AKS).</span></li>
+        <li><span class="dot g">⌂</span><span><b>Sur un NAS Synology.</b> Le <span class="k">Container Manager</span> de Synology fait tourner des conteneurs Docker et des projets Compose ; il ne fait pas de Kubernetes.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Kubernetes est livré <b>dans Docker Desktop</b> (Windows et Mac), juste sous les conteneurs. Exemple tiré de la documentation officielle de Docker (en anglais).</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>La vue Kubernetes</h3></div>
+        <div class="chemin">Docker Desktop › Kubernetes</div>
+        <p>Ouvre le tableau de bord de Docker Desktop : dans le menu de gauche, <b>Kubernetes</b> est juste sous Containers, Images, Volumes et Builds.</p>
+        <figure class="shot"><img src="captures/01_vue_kubernetes.webp" alt="Documentation Docker : « Explore the Kubernetes view » (24/11/2026)." loading="lazy"><figcaption>Documentation Docker : « Explore the Kubernetes view » (24/11/2026).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Créer un cluster local</h3></div>
+        <div class="chemin">Kubernetes › Create cluster › Kubeadm ou kind</div>
+        <p>Clique sur <b>Create cluster</b> et choisis le type : <span class="k">Kubeadm</span> (un seul nœud, le plus simple) ou <span class="k">kind</span> (plusieurs nœuds). Docker Desktop télécharge ce qu'il faut et lance le cluster (depuis la version 4.51).</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ton homelab</h3></div>
+        <p>Jellyfin, Immich, Home Assistant sur un NAS ou un mini-PC : un fichier Docker Compose, une commande, c'est en route.</p>
+        <div class="flow"><span>compose.yaml</span><i>→</i><span>docker compose up</span><i>→</i><span>Applis lancées</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Développer sur son PC</h3></div>
+        <p>Le développeur fabrique l'image de son appli avec Docker et la teste en local, à l'identique de la production.</p>
+        <div class="tools"><span class="tool">Docker Desktop</span><span class="tool">Image</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Un gros site en ligne</h3></div>
+        <p>Kubernetes répartit les copies de l'appli sur plusieurs serveurs et en ajoute quand les visiteurs affluent.</p>
+        <div class="flow"><span>Visiteurs</span><i>→</i><span>Kubernetes</span><i>→</i><span>Plus de copies</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Relancer ce qui plante</h3></div>
+        <p>Un conteneur tombe à 3 h du matin ? Kubernetes le remplace tout seul pour garder le nombre de copies demandé.</p>
+        <div class="flow"><span>Conteneur ✗</span><i>→</i><span>Kubernetes</span><i>→</i><span>Nouveau ✓</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Apprendre Kubernetes</h3></div>
+        <p>Un cluster local dans Docker Desktop, ou k3s sur un Raspberry Pi, pour s'entraîner sans louer de serveurs.</p>
+        <div class="tools"><span class="tool">Docker Desktop</span><span class="tool">k3s</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
+    <p class="lead">Les outils de la même famille, du plus simple au plus costaud (vérifié le 24/11/2026).</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Docker + Compose</h3><div class="cp"><b>Lancer un ou plusieurs conteneurs sur une machine</b><small>Gratuit en perso</small></div></div>
+        <div class="cm"><span class="lvl y">Le plus simple</span><span class="on">Windows, Mac, Linux, NAS</span></div>
+        <p>Bon pour : <b>ton homelab</b> et le développement : une machine, un fichier, une commande.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Docker Swarm</h3><div class="cp"><b>Orchestrateur intégré à Docker</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Plus simple que Kubernetes</span><span class="on">Linux</span></div>
+        <p>Bon pour : quelques serveurs, sans la complexité de Kubernetes.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>k3s</h3><div class="cp"><b>Kubernetes allégé</b><small>Gratuit, open source</small></div></div>
+        <div class="cm"><span class="lvl y">Vrai Kubernetes</span><span class="on">Linux, Raspberry Pi</span></div>
+        <p>Bon pour : un petit cluster maison ou pour apprendre.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Kubernetes</h3><div class="cp"><b>Orchestrateur de conteneurs</b><small>Gratuit, open source (Apache 2.0)</small></div></div>
+        <div class="cm"><span class="lvl y">Standard du secteur</span><span class="on">Linux (serveurs, cloud)</span></div>
+        <p>Bon pour : beaucoup de serveurs et de conteneurs, en production.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>GKE, EKS, AKS</h3><div class="cp"><b>Kubernetes géré par Google, Amazon, Microsoft</b><small>Payant à l'usage</small></div></div>
+        <div class="cm"><span class="lvl n">Clé en main</span><span class="on">Cloud</span></div>
+        <p>Bon pour : les entreprises qui ne veulent pas gérer le cluster elles-mêmes.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>CHEZ TOI</b><span>Docker et Docker Compose : c'est tout ce qu'il te faut pour ton NAS ou ton mini-PC.</span></li>
+        <li><b>POUR APPRENDRE</b><span>active Kubernetes dans Docker Desktop, ou installe k3s sur un Raspberry Pi.</span></li>
+        <li><b>EN ENTREPRISE</b><span>Kubernetes (souvent géré : GKE, EKS, AKS) dès qu'il y a plusieurs serveurs à piloter.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°17 · Docker ou Kubernetes ? · informations et captures vérifiées le 24 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://docs.docker.com/desktop/use-desktop/kubernetes/">Docker Docs : Explore the Kubernetes view</a> · <a href="https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/">Kubernetes : Don't Panic: Kubernetes and Docker (2 décembre 2020)</a> · <a href="https://kubernetes.io/dockershim">Kubernetes : Dockershim Removal FAQ (v1.24)</a> · <a href="https://www.docker.com/blog/what-developers-need-to-know-about-docker-docker-engine-and-kubernetes-v1-20/">Docker : What developers need to know about Docker, Docker Engine, and Kubernetes v1.20</a> · <a href="https://techcrunch.com/2017/10/17/docker-gives-into-invevitable-and-offers-native-kubernetes-support">TechCrunch : Docker gives into inevitable and offers native Kubernetes support (2017)</a> · <a href="https://www.docker.com/blog/how-to-set-up-a-kubernetes-cluster-on-docker-desktop">Docker : How to Set Up a Kubernetes Cluster on Docker Desktop (pas pour la production)</a> · <a href="https://www.docker.com/pricing/faq/">Docker : tarifs et FAQ (Docker Desktop gratuit en perso)</a></span>
+  </footer>
+</main>
+</body>
+</html>

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kit RepoPop Décode · Le réseau Zigbee</title>
+<title>Fiche Décode · Le réseau Zigbee · RepoPop</title>
 <meta name="description" content="Le réseau Zigbee expliqué simplement : une clé USB (le coordinateur), des appareils sur secteur qui relaient le signal (réseau maillé), des capteurs sur pile qui tiennent des années. Pas à pas en captures dans Zigbee2MQTT (appairage, carte du réseau), 5 usages concrets et la comparaison avec Matter/Thread, Z-Wave et le Wi-Fi.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="RepoPop">
-<meta property="og:title" content="Kit RepoPop Décode n°20 · Le réseau Zigbee">
+<meta property="og:title" content="Fiche RepoPop Décode n°20 · Le réseau Zigbee">
 <meta property="og:description" content="Zigbee expliqué : une clé USB, toutes les marques, sans cloud. Pas à pas en captures, en français.">
 <meta property="og:image" content="https://repopop.github.io/assets/og/decode-zigbee.png">
 <meta property="og:url" content="https://repopop.github.io/decode/zigbee/">
@@ -47,7 +47,7 @@
     </div>
     <div class="row">
       <div class="txt">
-        <div class="kitno" style="margin-top:14px">KIT DÉCODE N°20</div>
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°20</div>
         <h1>Le réseau <span>Zigbee</span></h1>
         <p class="tag">Zigbee, c'est le réseau radio de la maison connectée : une seule clé USB pilote ampoules, prises et capteurs de toutes les marques, sans cloud. Explication simple, captures à l'appui.</p>
         <div class="chips">
@@ -60,11 +60,11 @@
     </div>
   </header>
 
-  <nav class="toc" aria-label="Sommaire du kit">
+  <nav class="toc" aria-label="Sommaire de la fiche">
     <a href="#quoi"><b>1</b>C'est quoi ?</a>
-    <a href="#ou"><b>2</b>Où le trouver</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
     <a href="#usages"><b>3</b>5 usages concrets</a>
-    <a href="#ailleurs"><b>4</b>Et ailleurs ?</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
     <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
   </nav>
 
@@ -112,7 +112,7 @@
 
   <!-- 2 -->
   <section id="ou">
-    <div class="sh"><span class="n">2</span><h2>Où le trouver, pas à pas</h2></div>
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
     <p class="lead">Exemple réel dans <b>Zigbee2MQTT</b>, avec sa nouvelle interface web (WindFront), captures prises sur la démo officielle (appareils fictifs). Dans Home Assistant avec ZHA, le principe est le même : <span class="k">Paramètres › Appareils et services › Zigbee</span>.</p>
     <div class="steps">
       <article class="sticker step">
@@ -164,7 +164,7 @@
 
   <!-- 4 -->
   <section id="ailleurs">
-    <div class="sh"><span class="n">4</span><h2>Et ailleurs ?</h2></div>
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
     <p class="lead">Zigbee n'est pas le seul réseau de la maison connectée. Comparaison rapide (vérifiée le 24/11/2026).</p>
     <div class="cmp">
       <div class="crow me">
@@ -201,7 +201,7 @@
     <div class="sticker join">
       <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
       <h2>Rejoins les Repo-Potes</h2>
-      <p>Chaque vidéo RepoPop Décode t'explique une fonction de ton IA en moins d'une minute, avec son kit comme celui-ci.</p>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
       <div class="socials">
         <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
         <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
@@ -212,7 +212,7 @@
 
   <footer>
     <a href="/#decode">← Tous les kits RepoPop</a>
-    <span>Kit RepoPop Décode n°20 · Le réseau Zigbee · informations et captures vérifiées le 24 novembre 2026. Les menus et les offres changent souvent : vérifie sur le site de l'éditeur.</span>
+    <span>Fiche RepoPop Décode n°20 · Le réseau Zigbee · informations et captures vérifiées le 24 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
     <span>Sources : <a href="https://www.home-assistant.io/connectivity/zigbee/">Home Assistant — Zigbee (coordinateur, routeurs, appareils terminaux)</a> · <a href="https://www.zigbee2mqtt.io/advanced/zigbee/01_zigbee_network.html">Zigbee2MQTT — Zigbee network (types d'appareils)</a> · <a href="https://github.com/Koenkk/zigbee2mqtt">dépôt GitHub Koenkk/zigbee2mqtt</a> · <a href="https://nerivec.github.io/zigbee2mqtt-windfront/">Démo officielle de l'interface Zigbee2MQTT WindFront (captures)</a> · <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/209841/smart_meters_equipment_technical_spec_2_consultation_response_part_1.pdf">Gouvernement britannique — réponse SMETS2 (ZigBee Smart Energy pour le réseau domestique)</a> · <a href="https://assets.publishing.service.gov.uk/media/5a7f652ced915d74e33f62a7/Government_Response_on_Home_Area_Network_Solutions__Implementation_of_86___.pdf">Gouvernement britannique — réseau domestique ZigBee 868 MHz (compteurs, écran, gaz)</a> · <a href="https://fr.wikipedia.org/wiki/Zigbee">Wikipédia — Zigbee</a></span>
   </footer>
 </main>
