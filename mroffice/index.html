@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · MR Office</title>
+<meta name="description" content="MR Office expliqué simplement : ce qui est open source et ce qui ne l'est pas, comment installer l'appli gratuite sur Windows ou Mac, 5 usages concrets, note de confiance et comparatif avec Microsoft 365, LibreOffice, OnlyOffice et Google Docs.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°54 · MR Office">
+<meta property="og:description" content="Installation, 5 usages concrets, note de confiance et comparatif avec Microsoft 365, LibreOffice et OnlyOffice, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/mroffice.png">
+<meta property="og:url" content="https://repopop.github.io/mroffice/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de MR Office">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°54</div>
+        <h1>MR <span>Office</span></h1>
+        <p class="tag">Six éditeurs open source qui reprennent le ruban d'Office (texte, tableur, présentations, PDF, stylo, code), et une appli de bureau gratuite qui ouvre tes fichiers Word, Excel et PowerPoint. Le mode d'emploi en français, sans rien cacher de ce qui n'est pas open source.</p>
+        <div class="chips">
+          <span class="chip">★ 4 000+ étoiles</span>
+          <span class="chip">Version 0.1.8</span>
+          <span class="chip">Gratuit · licence AGPL-3.0</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">MR Office existe en <b>deux parties</b> : le dépôt GitHub contient <span class="k">six éditeurs open source</span> (texte, tableur, présentations, PDF, écriture manuscrite, code) qui tournent dans le navigateur ; l'<b>appli de bureau gratuite</b> y ajoute un module fermé qui ouvre et enregistre les fichiers Word, Excel et PowerPoint. Où l'utiliser :</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Appli de bureau</h3>
+        <p>Téléchargement gratuit sur mroffice.ai : Windows 10 ou plus récent (64 bits), macOS 13+ (Intel) ou 14+ (Apple Silicon). C'est la seule version qui ouvre et enregistre les .docx, .xlsx et .pptx. Pas de version Linux annoncée.</p>
+        <span class="pill ok">Le plus simple</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></svg></span>
+        <h3>Depuis le code (open source)</h3>
+        <p>git clone du dépôt, puis npm install, npm run fonts, npm run build et npm run preview : les éditeurs s'ouvrent sur http://localhost:5178. Ils utilisent leurs propres formats (.mrdoc, .mrsheet, .mrslides, .mrink) plus CSV, Markdown, HTML et PDF, mais pas les fichiers Office.</p>
+        <span class="pill mid">Pour bidouiller</span>
+      </div>
+      <div class="sticker opt cloud">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z"/></svg></span>
+        <h3>En ligne sur mroffice.ai</h3>
+        <p>Démo en ligne et éditeur intégrable pour les développeurs : les fichiers passent par les serveurs de MR Office. La page ne précise pas où ils sont stockés ni pour combien de temps.</p>
+        <span class="pill no">Évite pour tes documents perso</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit.</b> Les éditeurs sont sous licence AGPL-3.0, et l'appli de bureau avec son module Office est gratuite. Une licence commerciale existe pour les entreprises qui veulent intégrer le code sans les obligations de l'AGPL.</span></li>
+        <li><span class="dot y">!</span><span><b>Pas 100 % open source :</b> le module qui lit et écrit Word, Excel et PowerPoint, les formules avec fonctions (SOMME, SI, RECHERCHEV), les graphiques, SmartArt, la connexion et l'IA sont fournis sous forme compilée, non open source (README et NOTICE.md).</span></li>
+        <li><span class="dot y">⚠</span><span><b>Projet tout neuf :</b> dépôt créé le 10 novembre 2026. Teste-le sur des copies avant de lui confier des documents importants, et vérifie la mise en page de tes fichiers Word complexes après enregistrement.</span></li>
+        <li><span class="dot y">↔</span><span><b>Tableur open source limité :</b> sans le module, seuls les calculs simples entre cellules sont faits ; les fonctions comme SOMME ou RECHERCHEV sont gardées telles quelles mais pas calculées.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Hors ligne :</b> l'appli de bureau fonctionne hors ligne sur ton ordinateur (README). Le README ne précise pas si l'appli envoie des données sans que tu te connectes.</span></li>
+        <li><span class="dot g">↔</span><span><b>Dans la vidéo :</b> « un clone d'Office » = la même organisation en ruban, pas un produit Microsoft ; « l'appli gratuite » = l'appli de bureau avec son module gratuit, non open source ; le cas du rapport Word suppose cette appli.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Ouvrir un fichier Word reçu</h3></div>
+        <p>Ton abonnement a expiré et on t'envoie un .docx : tu l'ouvres, tu corriges, tu le renvoies au même format.</p>
+        <div class="flow"><span>rapport.docx</span><i>→</i><span>Appli MR Office</span><i>→</i><span>rapport.docx corrigé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Faire tes comptes sans abonnement</h3></div>
+        <p>Un tableur avec formats de nombres, mise en forme conditionnelle, tri et filtres ; les fonctions et graphiques demandent l'appli de bureau.</p>
+        <div class="tools"><span class="tool">Mise en forme conditionnelle</span><span class="tool">Tri et filtres</span><span class="tool">CSV</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Annoter un PDF</h3></div>
+        <p>Lire, chercher, surligner, souligner, ajouter des notes, présenter ou imprimer un PDF.</p>
+        <div class="flow"><span>Contrat.pdf</span><i>→</i><span>Surligner + notes</span><i>→</i><span>PDF annoté</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Prendre des notes au stylet</h3></div>
+        <p>Sur tablette ou écran tactile : stylos sensibles à la pression, surligneurs, lasso et reconnaissance des formes.</p>
+        <div class="tools"><span class="tool">Stylo</span><span class="tool">Surligneur</span><span class="tool">Lasso</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Tester un bout de code</h3></div>
+        <p>Un petit éditeur avec coloration : JavaScript, Python, SQL, Lua et shell s'exécutent dans le navigateur.</p>
+        <div class="flow"><span>script.py</span><i>→</i><span>Exécuter</span><i>→</i><span>Résultat</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 5,6 sur 10" style="background:conic-gradient(#E0464E 0 56%,#E7E2F2 56% 100%)"><div>5,6<small>/10</small></div></div>
+        <div>
+          <h3>Prometteur, mais tout neuf</h3>
+          <p>Une interface très proche d'Office et un démarrage fulgurant sur GitHub, mais un projet de deux semaines, porté par une seule entreprise, dont la partie qui lit les fichiers Office est fermée.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Code modifié le 24 novembre 2026, plusieurs mises à jour par semaine depuis sa création.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Environ 3 700 étoiles et 400 copies (forks) en deux semaines, mais un seul compte publie le code.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Appli de bureau utilisable hors ligne ; la version en ligne et la connexion passent par les serveurs de MR Office, sans détail publié sur le stockage.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>2/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <p>Éditeurs sous AGPL-3.0, mais module Office, IA et connexion fermés ; licence commerciale vendue par l'éditeur (MR Note), modèle à long terme pas annoncé.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>2/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <p>Dépôt créé le 10 novembre 2026 ; pas encore de recul sur la fidélité des fichiers Word et Excel complexes.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, l'API GitHub, le README officiel et mroffice.ai le 24 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>MR Office</h3><div class="cp"><b>Gratuit</b><small>éditeurs AGPL + module Office fermé</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur (appli de bureau)</span><span class="on">Windows, Mac ; éditeurs dans le navigateur</span></div>
+        <p>Bon pour : Retrouver le ruban d'Office sans abonnement</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Microsoft 365 Personnel</h3><div class="cp"><b>99 €/an</b><small>ou 10 €/mois</small></div></div>
+        <div class="cm"><span class="lvl m">Sur ton PC + OneDrive (1 To)</span><span class="on">Windows, Mac, mobile, web</span></div>
+        <p>Bon pour : Compatibilité Office totale, Copilot, Outlook</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>LibreOffice</h3><div class="cp"><b>Gratuit</b><small>open source</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Une suite complète et mûre, entièrement open source</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>ONLYOFFICE Desktop</h3><div class="cp"><b>Gratuit</b><small>open source (AGPL)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ton ordinateur</span><span class="on">Windows, Mac, Linux</span></div>
+        <p>Bon pour : Interface en ruban et bonne compatibilité .docx, .xlsx, .pptx</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Docs, Sheets, Slides</h3><div class="cp"><b>Gratuit</b><small>avec un compte Google</small></div></div>
+        <div class="cm"><span class="lvl n">Chez Google</span><span class="on">Web, mobile</span></div>
+        <p>Bon pour : Travailler à plusieurs en ligne</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>MR OFFICE</b><span>si tu veux le même ruban qu'Office, gratuit, et que tu acceptes un projet très récent avec un module fermé.</span></li>
+        <li><b>LIBREOFFICE OU ONLYOFFICE</b><span>si tu veux une suite gratuite, entièrement open source et éprouvée depuis des années.</span></li>
+        <li><b>MICROSOFT 365</b><span>si tu échanges des fichiers Office complexes tous les jours et que l'abonnement ne te gêne pas.</span></li>
+      </ul>
+      <p class="warnline">Projet créé en novembre 2026 : garde une copie de tes fichiers importants avant de les modifier avec MR Office.</p>
+    </div>
+  </section>
+
+  <!-- depot -->
+  <section id="depot">
+    <style>
+      .repo{display:grid;gap:12px;text-decoration:none;background:var(--violet,#7C3AED)}
+      .repo .rh{display:flex;align-items:center;gap:12px;color:#FFFFFF}
+      .repo .rl{font-family:var(--display);font-size:15px;letter-spacing:.04em}
+      .repo .rn{font-family:var(--display);font-size:24px;line-height:1.15;color:#FFFFFF;overflow-wrap:anywhere}
+      .repo p{margin:0;font-weight:600;color:#FFFFFF}
+      .repo .rb{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--ink,#111);color:var(--paper,#fff);border-radius:12px;padding:13px 15px;font-weight:700}
+      .repo .rb span:last-child{font-family:var(--display);font-weight:400;color:var(--yellow,#FFD23F)}
+      .repo:hover .rb{background:#2a2a2a}
+    </style>
+    <a class="sticker repo" href="https://github.com/XinaTian/MROffice">
+      <div class="rh"><svg viewBox="0 0 16 16" width="34" height="34" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="rl">LE DÉPÔT GITHUB</span></div>
+      <div class="rn">XinaTian/<wbr>MROffice</div>
+      <p>Code source, installation et documentation officielle : tout est là.</p>
+      <div class="rb"><span>Voir le dépôt sur GitHub</span><span>→</span></div>
+    </a>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°54 · MR Office · informations vérifiées le 24 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/XinaTian/MROffice">dépôt GitHub XinaTian/MROffice (README, NOTICE.md)</a> · <a href="https://github.com/XinaTian/MROffice/blob/main/docs/media/mr-office-demo.webp">Démo animée du README (docs/media/mr-office-demo.webp)</a> · <a href="https://github.com/XinaTian/MROffice/blob/main/docs/screenshots/docs.png">Capture de l'éditeur de texte (docs/screenshots/docs.png)</a> · <a href="https://mroffice.ai/en/office/download">Téléchargement de l'appli MR Office (plateformes)</a> · <a href="https://www.microsoft.com/fr-fr/microsoft-365/p/product/CFQ7TTC0K5BF">Microsoft 365 Personnel : 99 €/an (Microsoft Store)</a> · <a href="https://www.libreoffice.org">LibreOffice</a> · <a href="https://www.onlyoffice.com/desktop.aspx">ONLYOFFICE Desktop Editors</a></span>
+  </footer>
+</main>
+</body>
+</html>
