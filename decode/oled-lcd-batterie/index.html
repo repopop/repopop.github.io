@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · OLED vs LCD : la batterie · RepoPop</title>
+<meta name="description" content="OLED vs LCD et batterie : pourquoi le mode sombre économise beaucoup sur un écran OLED en plein soleil, peu au quotidien et presque rien sur un écran LCD, comment savoir quel écran tu as, ce que Google a reconnu en 2018 et ce qui économise vraiment la batterie.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°30 · OLED vs LCD : la batterie">
+<meta property="og:description" content="Le mode sombre sauve-t-il ta batterie ? OLED ou LCD, luminosité, chiffres de l'étude Purdue et vraies astuces, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-oled-lcd-batterie.png">
+<meta property="og:url" content="https://repopop.github.io/decode/oled-lcd-batterie/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de OLED vs LCD : la batterie">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°30</div>
+        <h1>OLED vs LCD : <span>la batterie</span></h1>
+        <p class="tag">Le mode sombre économise-t-il vraiment la batterie ? Tout dépend de ton écran : sur un LCD, la lampe du rétroéclairage reste allumée et le noir ne change presque rien ; sur un OLED, un pixel noir est éteint, et le gain dépend surtout de la luminosité.</p>
+        <div class="chips">
+          <span class="chip">Écran OLED · Écran LCD</span>
+          <span class="chip">Gratuit, déjà dans ton téléphone</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Ce qui économise vraiment</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Le <b>mode sombre</b> (ou thème sombre) affiche des fonds noirs et des textes clairs. Il économise la batterie <b>seulement si ton écran sait éteindre ses pixels</b> : c'est le cas de l'<b>OLED</b> (AMOLED, Super Retina…), pas du <b>LCD</b> (IPS, LED-LCD).</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>LCD : une lampe toujours allumée</h3>
+        <p>Derrière les cristaux liquides, un <b>rétroéclairage</b> éclaire toute la dalle en permanence, y compris derrière les pixels noirs : le noir ne fait que <b>bloquer</b> la lumière.</p>
+        <span class="pill no">Presque rien</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>OLED : un pixel noir est éteint</h3>
+        <p>Chaque pixel produit <b>sa propre lumière</b> : pour afficher du noir, il s'éteint. Plus l'image est sombre, moins l'écran consomme.</p>
+        <span class="pill ok">Économise</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>La luminosité compte plus que la couleur</h3>
+        <p>À pleine luminosité, le mode sombre fait gagner <b>39 à 47 %</b> d'énergie sur un téléphone OLED ; entre 30 et 50 % de luminosité (la luminosité automatique en intérieur), seulement <b>3 à 9 %</b> (université Purdue, 2021).</p>
+        <span class="pill mid">Ça dépend</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Attention à l'effet rebond</h3>
+        <p>Une étude de la <b>BBC (2025)</b> sur écran LCD : <b>80 %</b> des participants montent la luminosité en mode sombre pour mieux lire… et consomment parfois plus qu'en mode clair.</p>
+        <span class="pill mid">Piège</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">✓</span><span><b>Tous les iPhone vendus sont en OLED.</b> Depuis février 2025 (iPhone 16e, fin de l'iPhone SE), Apple ne vend plus d'iPhone à écran LCD. Les anciens <b>iPhone SE, 8, XR et 11</b> sont en LCD.</span></li>
+        <li><span class="dot y">!</span><span><b>Beaucoup d'ordinateurs et de petits prix sont en LCD.</b> La plupart des <b>PC portables</b>, des <b>écrans de bureau</b> et des <b>téléphones d'entrée de gamme</b> utilisent encore le LCD : le mode sombre y est un confort, pas une économie.</span></li>
+        <li><span class="dot g">☀</span><span><b>Le vrai gain : en plein soleil.</b> Dehors, la luminosité monte au maximum : c'est là que le mode sombre sur OLED fait la plus grosse différence.</span></li>
+        <li><span class="dot y">↓</span><span><b>Baisser la luminosité marche partout.</b> Sur OLED comme sur LCD, la <b>luminosité</b> est le premier réglage qui fait consommer l'écran. Laisse la luminosité automatique faire son travail.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Ne monte pas la luminosité pour compenser.</b> Si le mode sombre te pousse à monter la luminosité, l'économie disparaît (étude BBC, 2025).</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Le principe en 4 étapes : comment chaque écran fabrique la lumière, et ce que le mode sombre change vraiment.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Un écran LCD filtre une lampe</h3></div>
+        <div class="chemin">Rétroéclairage › Cristaux liquides › Filtres de couleur</div>
+        <p>Une lampe (des LED) éclaire toute la dalle ; les cristaux liquides laissent passer ou bloquent la lumière pixel par pixel. Le <b>noir</b> est une lumière bloquée : la lampe, elle, consomme toujours.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Un écran OLED allume chaque pixel</h3></div>
+        <div class="chemin">Pixel rouge › Pixel vert › Pixel bleu</div>
+        <p>Chaque pixel est une petite diode qui s'allume toute seule. Un pixel <b>noir</b> est simplement <b>éteint</b> et ne consomme presque rien.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>La luminosité fait le gros de la consommation</h3></div>
+        <div class="chemin">Luminosité 100 % › ≈ 40 % gagnés › Luminosité auto : 3 à 9 %</div>
+        <p>Plus la luminosité est haute, plus un pixel blanc coûte cher : c'est pour ça que le mode sombre rapporte gros en plein soleil et peu sur le canapé (Purdue, 2021).</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Comment savoir quel écran tu as</h3></div>
+        <div class="chemin">Caractéristiques › Écran › OLED / AMOLED ou LCD / IPS</div>
+        <p>Regarde les caractéristiques de ton modèle (site du fabricant). <b>OLED, AMOLED, Super Retina XDR</b> = mode sombre utile ; <b>LCD, IPS, Liquid Retina, LED-LCD</b> = presque aucun gain. Astuce : sur un OLED, le noir est parfaitement noir dans le noir complet ; sur un LCD, il reste un léger halo gris.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Dehors, en plein soleil</h3></div>
+        <p>Sur un téléphone OLED à luminosité maximale, passer en mode sombre fait gagner le plus d'autonomie.</p>
+        <div class="flow"><span>Soleil</span><i>→</i><span>Mode sombre</span><i>→</i><span>≈ 40 % gagnés</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Lire le soir</h3></div>
+        <p>Moins d'éblouissement dans le noir, et un petit gain sur OLED quand la luminosité est basse.</p>
+        <div class="tools"><span class="tool">Confort</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Écran toujours allumé</h3></div>
+        <p>L'affichage permanent (heure, notifications) n'est possible que parce qu'un OLED éteint tous les pixels noirs.</p>
+        <div class="flow"><span>Fond noir</span><i>→</i><span>Pixels éteints</span><i>→</i><span>Heure visible</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Sur un LCD : baisse la lumière</h3></div>
+        <p>Le mode sombre n'y change presque rien : c'est la luminosité (ou la luminosité automatique) qui fait économiser.</p>
+        <div class="tools"><span class="tool">Luminosité ↓</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Fonds d'écran noirs</h3></div>
+        <p>Sur OLED, un fond d'écran noir laisse plus de pixels éteints sur l'écran d'accueil et l'écran verrouillé.</p>
+        <div class="tools"><span class="tool">Fond noir</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Ce qui économise vraiment</h2></div>
+    <p class="lead">Le mode sombre n'est qu'un réglage parmi d'autres : voici ce qui pèse vraiment sur la batterie de l'écran.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Luminosité automatique</h3><div class="cp"><b>Baisse l'écran à l'intérieur</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Android, iOS, Windows, macOS</span></div>
+        <p>Bon pour : le meilleur réglage sur OLED comme sur LCD : la luminosité est le premier poste de consommation de l'écran.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Mode sombre</h3><div class="cp"><b>Pixels noirs éteints (OLED)</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Android, iOS, Windows, macOS</span></div>
+        <p>Bon pour : les écrans OLED, surtout en plein soleil ; presque rien sur LCD.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Économiseur de batterie</h3><div class="cp"><b>Limite les tâches de fond</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Android, iOS (mode économie d'énergie)</span></div>
+        <p>Bon pour : tenir jusqu'au soir : réduit synchronisations, animations et luminosité.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Mise en veille rapide</h3><div class="cp"><b>Écran éteint plus tôt</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Android, iOS</span></div>
+        <p>Bon pour : 30 s ou 1 min au lieu de 5 min : l'écran le plus économe est un écran éteint.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GOOGLE (2018)</b><span>À l'Android Dev Summit de novembre 2018, Google montre que le blanc est la couleur la plus gourmande sur un écran OLED et que le thème sombre de YouTube réduit fortement la consommation de l'écran. Il reconnaît être passé du thème sombre « Holo » au blanc de Material Design (2014) : « On s'est un peu tiré une balle dans le pied, côté consommation. »</span></li>
+        <li><b>PURDUE (2021)</b><span>Des chercheurs de l'université Purdue mesurent quatre téléphones OLED (Pixel 2, Moto Z3, Pixel 4, Pixel 5) : 39 à 47 % d'énergie économisée à pleine luminosité, mais 3 à 9 % seulement en luminosité automatique, à l'intérieur.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°30 · OLED vs LCD : la batterie · informations vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://www.purdue.edu/newsroom/releases/2021/Q3/dark-mode-may-not-save-your-phones-battery-life-as-much-as-you-think,-but-there-are-a-few-silver-linings.html">Université Purdue : le mode sombre n'économise pas autant que vous le pensez (2021)</a> · <a href="https://engineering.purdue.edu/ECE/News/2022/shedding-light-on-dark-mode-to-save-energy">Purdue ECE : Shedding light on dark mode (2022)</a> · <a href="https://9to5google.com/2018/11/08/google-dark-themes-android-battery/">9to5Google : Google et les thèmes sombres à l'Android Dev Summit 2018</a> · <a href="https://www.techradar.com/news/google-says-it-was-a-mistake-to-push-app-developers-to-make-all-white-interfaces">TechRadar : Google regrette d'avoir poussé les interfaces toutes blanches</a> · <a href="https://www.theregister.com/2025/02/20/dark_mode_energy_saving/">The Register : l'étude BBC R&amp;D sur le mode sombre (2025)</a> · <a href="https://selectra.info/telecom/actualites/marche/mode-sombre-batterie-oled-lcd-ce-quil-change">Selectra : mode sombre, OLED et LCD</a> · <a href="https://www.macrumors.com/2025/02/19/all-iphones-now-feature-oled-displays">MacRumors : tous les iPhone ont désormais un écran OLED (2025)</a></span>
+  </footer>
+</main>
+</body>
+</html>

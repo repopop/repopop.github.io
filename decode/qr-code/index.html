@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · QR code · RepoPop</title>
+<meta name="description" content="QR code : comment ça marche. Du texte écrit en carrés noirs et blancs, les trois carrés repères, la correction d'erreurs (jusqu'à 30 %), l'histoire du code inventé chez Denso pour Toyota en 1994, et l'arnaque au faux QR code (quishing) sur les horodateurs.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°31 · QR code">
+<meta property="og:description" content="Comment ton téléphone lit un QR code, même abîmé, et comment repérer un faux. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-qr-code.png">
+<meta property="og:url" content="https://repopop.github.io/decode/qr-code/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de QR code">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°31</div>
+        <h1>Le <span>QR code</span></h1>
+        <p class="tag">Ces petits carrés cachent du texte, souvent un lien. Comment ton téléphone les lit, même abîmés, et comment repérer un faux QR code avant de te faire piéger.</p>
+        <div class="chips">
+          <span class="chip">Appareil photo du téléphone</span>
+          <span class="chip">Rien à installer</span>
+          <span class="chip">1 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les autres codes</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Un <b>QR code</b> (« Quick Response », réponse rapide) est un code-barres en deux dimensions : du <b>texte</b> (une adresse web, un mot de passe Wi-Fi, un numéro…) écrit sous forme de petits carrés noirs et blancs, que l'appareil photo de ton téléphone sait lire en une fraction de seconde.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Du texte en carrés</h3>
+        <p>Chaque petit carré (un <b>module</b>) vaut un bit : <b>noir = 1, blanc = 0</b>. Un QR code va de <b>21 × 21</b> à <b>177 × 177</b> modules (40 tailles) et peut contenir <b>plus de 7 000 chiffres</b>, contre 13 pour un code-barres de supermarché.</p>
+        <span class="pill ok">Le principe</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Les trois carrés repères</h3>
+        <p>Les trois gros carrés des coins ne contiennent aucune donnée : ce sont des <b>repères</b>. Ils disent au téléphone où est le code, quelle taille il fait et <b>dans quel sens</b> il est tourné. Le coin sans repère indique le bas à droite.</p>
+        <span class="pill ok">Pour le trouver</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Une copie de secours</h3>
+        <p>Une partie des carrés sert de <b>correction d'erreurs</b> (codes de Reed-Solomon). Selon le réglage choisi à la création, le code se répare s'il perd environ <b>7, 15, 25 ou 30 %</b> de ses données. C'est ce qui permet d'ajouter un logo au milieu.</p>
+        <span class="pill mid">Selon le réglage</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Libre depuis 1994</h3>
+        <p>Inventé en <b>1994</b> par <b>Masahiro Hara</b> chez <b>Denso</b> (groupe Toyota) pour suivre des pièces automobiles. L'idée des <b>trois carrés repères</b> lui est venue dans un <b>train</b>, en voyant un immeuble se détacher du paysage : son équipe a ensuite cherché pendant environ trois mois le motif le plus rare dans les textes imprimés (ratio <b>1:1:3:1:1</b>). Autre inspiration : le <b>jeu de go</b>, pour que les parties intactes compensent les parties abîmées. Denso a gardé son brevet mais a décidé de <b>ne pas le faire valoir</b> : tout le monde peut créer des QR codes <b>gratuitement</b>. Seul le nom « QR Code » est une marque déposée.</p>
+        <span class="pill ok">Gratuit pour tous</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Le faux QR code (quishing).</b> Contraction de « QR code » et de « phishing » : un QR code piégé t'envoie vers un <b>faux site</b> pour voler tes données ou ton argent. En 2025, de faux QR codes ont été collés sur des <b>horodateurs</b> à <b>Nice</b> (mars) et à <b>Marseille</b> (14 avril, quartier Vauban).</span></li>
+        <li><span class="dot y">!</span><span><b>Un autocollant par-dessus ?</b> Bercy conseille de vérifier qu'un QR code n'a pas été <b>collé par-dessus un autre</b> : si un second code apparaît en dessous, méfiance. Sur un horodateur, passe plutôt par l'<b>appli officielle</b> de la ville ou du parking.</span></li>
+        <li><span class="dot g">✓</span><span><b>Lis l'adresse avant d'ouvrir.</b> Après le scan, ton téléphone affiche l'adresse du site <b>avant</b> de l'ouvrir. Vérifie qu'elle correspond au site attendu ; au moindre doute, n'ouvre pas le lien et ne tape aucune coordonnée bancaire.</span></li>
+        <li><span class="dot y">%</span><span><b>« 30 % », avec une nuance.</b> Le chiffre donné par l'inventeur vaut pour le niveau de correction le plus fort (H). Beaucoup de QR codes utilisent un niveau plus faible (7 ou 15 %), et une tache sur un des <b>trois carrés repères</b> peut suffire à bloquer la lecture.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Piégé ? Agis vite.</b> Si tu as payé, préviens tout de suite ta <b>banque</b>. Bercy oriente vers <b>17Cyber</b> (diagnostic et démarches adaptées) et, en cas d'escroquerie, vers la <b>plainte en ligne</b>, possible dès qu'une somme t'a été demandée.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Ce qui se passe en une fraction de seconde entre le moment où tu vises un QR code et celui où le lien s'affiche.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Repérer les trois coins</h3></div>
+        <div class="chemin">Image › 3 carrés repères › Position</div>
+        <p>L'appli cherche dans l'image le motif des <b>trois gros carrés</b> (anneaux noir, blanc, noir). Ils donnent la <b>position</b>, la <b>taille</b> et l'<b>orientation</b> du code, même penché ou vu de biais.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Redresser et lire la grille</h3></div>
+        <div class="chemin">Remettre droit › Grille › 0 et 1</div>
+        <p>Le code est remis d'aplomb, puis chaque <b>module</b> est lu : noir = 1, blanc = 0. De petites zones près des repères indiquent d'abord le <b>niveau de correction</b> et le <b>masque</b> utilisé.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Corriger les erreurs</h3></div>
+        <div class="chemin">Données › Secours › Réparé</div>
+        <p>Une partie des modules sert de <b>copie de secours</b> (Reed-Solomon). Si une tache, un pli ou un logo en cache un bout, le téléphone <b>recalcule</b> ce qui manque, dans la limite du niveau choisi.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Afficher le contenu</h3></div>
+        <div class="chemin">Texte › Lien › Vérifier</div>
+        <p>Le texte décodé s'affiche : souvent une <b>adresse web</b>, parfois un réseau Wi-Fi, un contact ou un numéro. C'est là qu'il faut <b>lire l'adresse</b> avant d'ouvrir.</p>
+        <figure class="shot"><img src="captures/bercy_quishing.webp" alt="La fiche de Bercy « Arnaque au QR code ou quishing » (economie.gouv.fr, 01/10/2026) : vérifier qu'aucun QR code n'est collé par-dessus, puis lire l'adresse avant d'ouvrir." loading="lazy"><figcaption>La fiche de Bercy « Arnaque au QR code ou quishing » (economie.gouv.fr, 01/10/2026) : vérifier qu'aucun QR code n'est collé par-dessus, puis lire l'adresse avant d'ouvrir.</figcaption></figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Partager son Wi-Fi</h3></div>
+        <p>Un QR code peut contenir le nom et le mot de passe du réseau : tes invités se connectent sans rien taper.</p>
+        <div class="flow"><span>Réglages Wi-Fi</span><i>→</i><span>Partager</span><i>→</i><span>Scan</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Billets et cartes d'embarquement</h3></div>
+        <p>Concerts, trains, avions : le billet tient dans un code lu à l'entrée.</p>
+        <div class="tools"><span class="tool">Billet</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Menus et notices</h3></div>
+        <p>Un code sur la table ou l'emballage ouvre le menu ou le mode d'emploi à jour.</p>
+        <div class="tools"><span class="tool">Menu</span><span class="tool">Notice</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Créer le sien</h3></div>
+        <p>Gratuit et libre : de nombreux générateurs (et certains navigateurs) créent un QR code pour une page ou un texte.</p>
+        <div class="flow"><span>Texte ou lien</span><i>→</i><span>Générateur</span><i>→</i><span>QR code</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Vérifier un code suspect</h3></div>
+        <p>Avant d'ouvrir : lis l'adresse affichée, cherche un autocollant collé par-dessus, préfère l'appli officielle.</p>
+        <div class="flow"><span>Scan</span><i>→</i><span>Lire l'adresse</span><i>→</i><span>Ouvrir ou non</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les autres codes</h2></div>
+    <p class="lead">Le QR code n'est pas le seul moyen de faire lire une information à une machine.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>QR code</h3><div class="cp"><b>Code 2D, 3 carrés repères</b><small>Libre</small></div></div>
+        <div class="cm"><span class="lvl y">Partout</span><span class="on">Tout appareil photo de téléphone</span></div>
+        <p>Bon pour : liens, Wi-Fi, billets : lu par tous les téléphones.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Code-barres (EAN-13)</h3><div class="cp"><b>Code 1D, 13 chiffres</b><small>Libre</small></div></div>
+        <div class="cm"><span class="lvl m">Commerce</span><span class="on">Caisses, scanners</span></div>
+        <p>Bon pour : identifier un produit en magasin.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Data Matrix</h3><div class="cp"><b>Code 2D très compact</b><small>Libre</small></div></div>
+        <div class="cm"><span class="lvl m">Industrie</span><span class="on">Scanners, certaines applis</span></div>
+        <p>Bon pour : marquer de toutes petites pièces (médicaments, électronique).</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>NFC (sans contact)</h3><div class="cp"><b>Puce radio à quelques cm</b><small>Libre</small></div></div>
+        <div class="cm"><span class="lvl m">Téléphones récents</span><span class="on">Android, iPhone</span></div>
+        <p>Bon pour : payer ou ouvrir un lien en approchant le téléphone, sans caméra.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>LE RÉFLEXE</b><span>un QR code n'est qu'un texte : avant d'ouvrir, lis l'adresse. Sur un horodateur, méfie-toi des autocollants et passe par l'appli officielle.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°31 · QR code · informations et captures vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://www.qrcode.com/en/faq.html">Denso Wave (qrcode.com) : utilisation libre et marque « QR Code »</a> · <a href="https://www.qrcode.com/en/about/version.html">Denso Wave (qrcode.com) : versions et tailles (21 × 21 à 177 × 177)</a> · <a href="https://spectrum.ieee.org/how-a-board-game-and-skyscrapers-inspired-the-development-of-the-qr-code">IEEE Spectrum : l'invention du QR code par Masahiro Hara (lecture à 30 % abîmé)</a> · <a href="https://www.epo.org/en/news-events/european-inventor-award/meet-the-finalists/masahiro-hara-motoaki-watabe-tadao-nojiri">Office européen des brevets : Masahiro Hara et l'équipe Denso, finalistes 2014</a> · <a href="https://www.economie.gouv.fr/particuliers/numerique-et-cybersecurite/arnaque-au-qr-code-ou-quishing-comment-la-reconnaitre-et-que-faire">Bercy : arnaque au QR code ou quishing, comment la reconnaître (01/10/2026)</a> · <a href="https://www.clubic.com/actualite-562779-arnaque-a-marseille-mefiez-vous-des-faux-qr-codes-sur-les-horodateurs.html">Clubic : faux QR codes sur les horodateurs à Marseille (avril 2025)</a> · <a href="https://selectra.info/telecom/actualites/marche/qr-code-horodateur-autocollant-pirate">Selectra : faux QR codes sur les horodateurs à Nice, Marseille, Bergerac (2025)</a></span>
+  </footer>
+</main>
+</body>
+</html>

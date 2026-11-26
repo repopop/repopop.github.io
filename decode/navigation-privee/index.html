@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · Navigation privée · RepoPop</title>
+<meta name="description" content="C'est quoi la navigation privée : ce qu'elle efface (historique, cookies, formulaires), où (seulement sur ton appareil), qui voit encore ton activité (opérateur, employeur, école, sites, Google), le procès Incognito de Google et les alternatives pour vraiment protéger ta vie privée.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°28 · Navigation privée">
+<meta property="og:description" content="La navigation privée te rend-elle invisible ? Ce qu'elle efface, qui te voit encore et quoi utiliser à la place, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-navigation-privee.png">
+<meta property="og:url" content="https://repopop.github.io/decode/navigation-privee/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Navigation privée">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°28</div>
+        <h1>La <span>navigation privée</span></h1>
+        <p class="tag">La navigation privée (mode Incognito, InPrivate…) efface l'historique, les cookies et les formulaires quand tu fermes la fenêtre, mais seulement sur ton appareil. Ton opérateur, ton employeur et les sites voient toujours où tu vas.</p>
+        <div class="chips">
+          <span class="chip">Navigateur</span>
+          <span class="chip">Gratuit, déjà dans ton navigateur</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">La <b>navigation privée</b> (Incognito dans Chrome, Navigation privée dans Safari et Firefox, InPrivate dans Edge) ouvre une <b>fenêtre séparée qui oublie</b> : à sa fermeture, le navigateur efface ce qu'elle a enregistré <b>sur ton appareil</b>. Apparue dans <b>Safari en 2005</b>, popularisée par Chrome et son petit espion en <b>décembre 2008</b>.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Elle oublie l'historique</h3>
+        <p>Les sites visités n'apparaissent pas dans l'<b>historique</b> et ne sont pas proposés dans la barre d'adresse.</p>
+        <span class="pill ok">Effacé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Elle jette cookies et formulaires</h3>
+        <p>Les <b>cookies</b>, les données des sites et ce que tu as <b>tapé dans les formulaires</b> sont supprimés à la fermeture de la dernière fenêtre privée.</p>
+        <span class="pill ok">Effacé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Le réseau et les sites te voient</h3>
+        <p>Ton <b>opérateur</b>, l'<b>employeur</b> ou l'<b>école</b> qui gère le Wi-Fi et les <b>sites</b> visités (Google compris) peuvent toujours voir ton activité. Ton <b>adresse IP</b> ne change pas.</p>
+        <span class="pill no">Pas caché</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Certaines traces restent</h3>
+        <p>Les <b>fichiers téléchargés</b> et les <b>favoris</b> ajoutés restent sur l'ordinateur. Et si tu te <b>connectes</b> à un compte, le site sait que c'est toi.</p>
+        <span class="pill mid">Reste</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Elle ne protège pas des virus ni des faux sites.</b> Un site piégé ou un fichier infecté reste dangereux en navigation privée : ce mode ne bloque rien, il oublie seulement.</span></li>
+        <li><span class="dot y">!</span><span><b>Au travail ou à l'école, ils peuvent voir.</b> Sur un <b>Wi-Fi géré</b> ou un <b>ordinateur fourni</b> par l'employeur ou l'école, l'administrateur peut voir les sites consultés, en navigation privée aussi.</span></li>
+        <li><span class="dot y">!</span><span><b>Connecté, tu n'es plus incognito.</b> Si tu te connectes à Google, Facebook ou un site marchand dans la fenêtre privée, il te reconnaît le temps de la session.</span></li>
+        <li><span class="dot g">✓</span><span><b>Parfaite pour un ordinateur partagé.</b> Préparer un <b>cadeau</b>, consulter tes mails sur l'ordinateur d'un ami, ouvrir <b>deux comptes</b> du même site à la fois : c'est son vrai rôle.</span></li>
+        <li><span class="dot g">✓</span><span><b>Bloque les cookies tiers.</b> Chrome propose de <b>bloquer les cookies tiers</b> en navigation privée (option sur la page d'accueil de la fenêtre privée) : les publicitaires te suivent moins d'un site à l'autre.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Le principe en 4 étapes : ce que la fenêtre privée garde à l'écart, ce qu'elle efface, et ce qui continue de voyager sur le réseau.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Une fenêtre séparée</h3></div>
+        <div class="chemin">Ctrl+Maj+N (Chrome, Edge) › Ctrl+Maj+P (Firefox) › Cmd+Maj+N (Safari)</div>
+        <p>La fenêtre privée démarre <b>sans tes cookies habituels</b> : les sites ne te reconnaissent pas d'emblée (tant que tu ne te connectes pas).</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Elle garde tout en mémoire</h3></div>
+        <div class="chemin">Historique › Cookies › Formulaires</div>
+        <p>Pendant la session, le navigateur garde temporairement les cookies et données des sites pour que les pages marchent normalement.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Elle efface à la fermeture</h3></div>
+        <div class="chemin">Dernière fenêtre fermée › Tout effacé › Sur cet appareil</div>
+        <p>À la fermeture de la <b>dernière</b> fenêtre privée, tout est supprimé de <b>ton appareil</b>. Les téléchargements et favoris, eux, restent.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Le réseau voit toujours passer</h3></div>
+        <div class="chemin">Box / Wi-Fi › Opérateur › Sites et Google</div>
+        <p>Ta connexion, elle, ne change pas : même <b>adresse IP</b>, même trajet. Ceux qui gèrent le réseau et les sites visités voient ton activité comme d'habitude.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Préparer une surprise</h3></div>
+        <p>Chercher un cadeau sur l'ordinateur de la maison sans qu'il apparaisse dans l'historique ni dans les suggestions.</p>
+        <div class="flow"><span>Fenêtre privée</span><i>→</i><span>Cadeau</span><i>→</i><span>Historique vide</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ordinateur partagé ou emprunté</h3></div>
+        <p>Consulter tes mails chez un ami ou à la médiathèque : rien ne reste connecté une fois la fenêtre fermée.</p>
+        <div class="tools"><span class="tool">Rien ne reste</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Deux comptes à la fois</h3></div>
+        <p>Ouvrir ton compte perso dans une fenêtre normale et un compte pro dans une fenêtre privée, sur le même site.</p>
+        <div class="tools"><span class="tool">2 sessions</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Voir un site comme un inconnu</h3></div>
+        <p>Vérifier ton site ou tes résultats de recherche sans tes cookies ni tes préférences habituelles.</p>
+        <div class="flow"><span>Sans cookies</span><i>→</i><span>Page neuve</span><i>→</i><span>Vue d'inconnu</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Comparer des prix</h3></div>
+        <p>Repartir sans cookies pour comparer une offre (vols, hôtels) : cela ne garantit pas un meilleur prix, mais évite d'être reconnu.</p>
+        <div class="flow"><span>Sans cookies</span><i>→</i><span>Comparer</span><i>→</i><span>Choisir</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
+    <p class="lead">Pour être moins visible sur le réseau ou sur le web, la navigation privée ne suffit pas : voici ce qui va plus loin.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>VPN</h3><div class="cp"><b>Cache le trajet et ton IP</b><small>Gratuit à 5 €/mois</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux, Android, iOS</span></div>
+        <p>Bon pour : cacher les sites visités à ton opérateur ou au Wi-Fi public et ton adresse IP aux sites ; ne te rend pas anonyme (voir notre Décode VPN).</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Tor Browser</h3><div class="cp"><b>Navigation anonyme</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Windows, macOS, Linux, Android</span></div>
+        <p>Bon pour : passer par trois relais pour que personne ne voie à la fois qui tu es et où tu vas ; plus lent.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Firefox ou Brave</h3><div class="cp"><b>Navigateur anti-pistage</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Windows, macOS, Linux, Android, iOS</span></div>
+        <p>Bon pour : bloquer les traqueurs publicitaires par défaut, même en navigation normale.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Moteur sans suivi</h3><div class="cp"><b>Recherche sans profil</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Tous navigateurs</span></div>
+        <p>Bon pour : DuckDuckGo, Qwant ou Startpage ne relient pas tes recherches à un profil publicitaire.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>GOOGLE (2021)</b><span>Le 29 janvier 2021, Lorraine Twohill, directrice marketing de Google, écrit à Sundar Pichai qu'il faut rendre le mode Incognito « vraiment privé » : Google ne peut pas le vanter franchement parce qu'il ne l'est pas. Ce mail a été versé comme pièce au procès antitrust contre Google.</span></li>
+        <li><b>PROCÈS INCOGNITO (2024)</b><span>Lancé en juin 2020, le procès Brown contre Google accusait Google de suivre les internautes en navigation privée. Pour le clore, Google accepte en avril 2024 d'effacer ou d'anonymiser des milliards de données collectées en navigation privée, de mieux expliquer ce mode et de laisser bloquer les cookies tiers pendant 5 ans. Les plaignants réclamaient 5 milliards de dollars.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°28 · Navigation privée · informations vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://support.google.com/chrome/answer/95464?hl=fr">Aide Chrome : naviguer en mode navigation privée</a> · <a href="https://www.justice.gov/d9/2023-11/417790.pdf">Département de la Justice (pièce UPX0981) : mail de Lorraine Twohill, 29 janvier 2021</a> · <a href="https://www.bloomberg.com/news/articles/2022-10-11/google-s-incognito-inspires-staff-jokes-and-a-big-lawsuit">Bloomberg : le mode Incognito, objet de blagues internes et d'un procès (2022)</a> · <a href="https://www.bloomberg.com/news/articles/2024-04-01/google-agrees-to-delete-web-browsing-data-as-it-settles-incognito-lawsuit">Bloomberg : Google accepte d'effacer des données pour clore le procès Incognito (2024)</a> · <a href="https://www.theregister.com/2024/04/01/google_will_delete_data_incognito/">The Register : Google effacera les données de navigation privée</a> · <a href="https://selectra.info/telecom/actualites/marche/navigation-privee-ce-que-voit-l-operateur">Selectra : navigation privée, ce que voit l'opérateur</a> · <a href="https://en.wikipedia.org/wiki/Private_browsing">Wikipédia : navigation privée (Safari 2005, Chrome 2008)</a></span>
+  </footer>
+</main>
+</body>
+</html>

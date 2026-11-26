@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · Le DNS · RepoPop</title>
+<meta name="description" content="C'est quoi le DNS : l'annuaire qui traduit les noms de sites en adresses IP. Pourquoi tu utilises celui de ta box par défaut, comment passer à 1.1.1.1 (Cloudflare) sur Windows 11, Android ou iPhone, et comment bloquer les pubs avec un DNS filtrant ou AdGuard Home.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°25 · Le DNS">
+<meta property="og:description" content="C'est quoi le DNS ? L'annuaire d'Internet, comment le changer (1.1.1.1) et bloquer les pubs, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-dns.png">
+<meta property="og:url" content="https://repopop.github.io/decode/dns/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Le DNS">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°25</div>
+        <h1>Le <span>DNS</span></h1>
+        <p class="tag">Ton téléphone ne connaît pas les noms des sites, seulement des numéros. Le DNS, c'est l'annuaire d'Internet qui fait la traduction. Par défaut, c'est celui de ta box, mais tu peux le changer en deux minutes.</p>
+        <div class="chips">
+          <span class="chip">Windows 11 · Android · iPhone</span>
+          <span class="chip">Gratuit</span>
+          <span class="chip">2 captures annotées</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Le <b>DNS</b> (Domain Name System) est l'<b>annuaire d'Internet</b>. Quand tu tapes <span class="k">youtube.com</span>, ton appareil demande à un <b>serveur DNS</b> l'adresse IP (le numéro) du site, puis s'y connecte. Ça se joue en une fraction de seconde, à chaque site et à chaque appli.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Un nom devient un numéro</h3>
+        <p>Les ordinateurs se parlent avec des <b>adresses IP</b>. Le DNS garde la correspondance entre les noms qu'on retient et les numéros qu'ils utilisent.</p>
+        <span class="pill ok">Le principe</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 13l3-3 3 3M12 10v5"/></svg></span>
+        <h3>Par défaut : ta box</h3>
+        <p>Ta box donne à tes appareils le DNS de ton <b>fournisseur d'accès</b>. Il voit donc la liste des sites que tu demandes.</p>
+        <span class="pill mid">Par défaut</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Tu peux le changer</h3>
+        <p>Sur un appareil ou directement sur la box (si elle le permet) : il suffit d'entrer l'adresse d'un autre DNS, par exemple <b>1.1.1.1</b>.</p>
+        <span class="pill ok">2 minutes</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+        <h3>Il peut aussi filtrer</h3>
+        <p>Un DNS filtrant répond « inconnu » aux sites de pub, de pistage ou malveillants : ils ne se chargent plus, sur tout ce qui l'utilise.</p>
+        <span class="pill ok">Anti-pub</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot y">!</span><span><b>Pas de miracle sur YouTube.</b> Un DNS bloque les domaines de pub. Les pubs servies par le même domaine que la vidéo (YouTube, Twitch) ou les publications sponsorisées des réseaux sociaux passent quand même.</span></li>
+        <li><span class="dot y">↔</span><span><b>Changer de DNS ne cache pas tout.</b> Ton fournisseur d'accès voit toujours à quels serveurs tu te connectes. Pour chiffrer les questions DNS elles-mêmes, active <b>DNS sur HTTPS</b> (Windows 11, navigateurs) ou le <b>DNS privé</b> d'Android.</span></li>
+        <li><span class="dot g">⌂</span><span><b>Sur la box, c'est pour toute la maison.</b> Changé dans la box (ou avec AdGuard Home sur ton réseau), le DNS s'applique à tous les appareils, même la télé et les consoles. Certaines box ne permettent pas de le modifier.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Pas pour contourner la loi.</b> En France, des sites sont bloqués par décision de justice. Changer de DNS n'autorise pas l'accès à des contenus illégaux.</span></li>
+        <li><span class="dot g">€</span><span><b>Gratuit.</b> 1.1.1.1, Google Public DNS, Quad9 et les serveurs publics d'AdGuard DNS sont gratuits, sans compte.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Comment ça marche, puis comment changer de DNS sur Windows 11 (captures du 25/11/2026).</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Tu tapes un nom</h3></div>
+        <div class="chemin">youtube.com › Serveur DNS › Adresse IP</div>
+        <p>Ton appareil demande au serveur DNS : « quel est le numéro de youtube.com ? ». Le serveur répond par une <b>adresse IP</b>, ton navigateur s'y connecte. La réponse est gardée en mémoire un moment pour aller plus vite la fois suivante.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Ouvre l'attribution du serveur DNS</h3></div>
+        <div class="chemin">Paramètres › Réseau et Internet › Wi-Fi ou Ethernet › Propriétés</div>
+        <p>Touche <b>Windows + I</b>, puis <b>Réseau et Internet</b>, ta connexion (<b>Wi-Fi</b> ou <b>Ethernet</b>), <b>Propriétés</b>. À la ligne <b>Attribution du serveur DNS</b>, clique sur <b>Modifier</b>.</p>
+        <figure class="shot"><img src="captures/01_windows_attribution_dns.webp" alt="Windows 11 : Attribution du serveur DNS (Automatique = le DNS de ta box)." loading="lazy"><figcaption>Windows 11 : Attribution du serveur DNS (Automatique = le DNS de ta box).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Passe en Manuel et tape 1.1.1.1</h3></div>
+        <div class="chemin">Manuel › IPv4 : Activé › DNS préféré : 1.1.1.1 › Autre DNS : 1.0.0.1</div>
+        <p>Choisis <b>Manuel</b>, active <b>IPv4</b>, tape <b>1.1.1.1</b> en DNS préféré et <b>1.0.0.1</b> en autre DNS, puis <b>Enregistrer</b>. Pour bloquer les pubs, mets plutôt <b>94.140.14.14</b> et <b>94.140.15.15</b> (AdGuard DNS). Pour revenir en arrière : <b>Automatique (DHCP)</b>.</p>
+        <figure class="shot"><img src="captures/02_windows_dns_manuel.webp" alt="Windows 11 : Modifier les paramètres DNS, en Manuel (capture prise sans enregistrer)." loading="lazy"><figcaption>Windows 11 : Modifier les paramètres DNS, en Manuel (capture prise sans enregistrer).</figcaption></figure>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Sur téléphone</h3></div>
+        <div class="chemin">Android : DNS privé › iPhone : Wi-Fi › (i) › Configurer le DNS</div>
+        <p>Android : <b>DNS privé</b> (souvent dans Paramètres › Réseau et Internet, selon la marque), puis un nom d'hôte comme <b>one.one.one.one</b> ou <b>dns.adguard-dns.com</b>. iPhone : <b>Réglages › Wi-Fi › (i) › Configurer le DNS › Manuel</b> (réseau par réseau), ou l'appli <b>1.1.1.1</b> de Cloudflare.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Plus de vie privée</h3></div>
+        <p>Passer du DNS de ta box à 1.1.1.1, qui efface les adresses IP sous 25 heures (audit indépendant).</p>
+        <div class="flow"><span>DNS de la box</span><i>→</i><span>1.1.1.1</span><i>→</i><span>IP effacée en 25 h</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Bloquer les pubs</h3></div>
+        <p>Un DNS filtrant (AdGuard DNS) répond « inconnu » aux régies : moins de pubs, même dans les applis.</p>
+        <div class="flow"><span>Site de pub ?</span><i>→</i><span>« Inconnu »</span><i>→</i><span>Pas de pub</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Protéger les enfants</h3></div>
+        <p>1.1.1.3 (Cloudflare) ou le serveur Famille d'AdGuard bloquent aussi les contenus adultes.</p>
+        <div class="tools"><span class="tool">1.1.1.3</span><span class="tool">AdGuard Famille</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Éviter les sites piégés</h3></div>
+        <p>1.1.1.2 ou Quad9 (9.9.9.9) bloquent les domaines connus pour le phishing et les logiciels malveillants.</p>
+        <div class="tools"><span class="tool">1.1.1.2</span><span class="tool">9.9.9.9</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Toute la maison d'un coup</h3></div>
+        <p>AdGuard Home (ou Pi-hole) sur un Raspberry Pi, un NAS ou Docker : un seul DNS pour tous les appareils, avec un journal de ce que chacun contacte.</p>
+        <div class="flow"><span>AdGuard Home</span><i>→</i><span>Box</span><i>→</i><span>Tous tes appareils</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
+    <p class="lead">Les annuaires les plus connus. Tous gratuits ; la différence, c'est ce qu'ils filtrent et ce qu'ils gardent.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Cloudflare 1.1.1.1</h3><div class="cp"><b>1.1.1.1 · 1.0.0.1</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Tous</span></div>
+        <p>Bon pour : rapidité et vie privée : adresses IP effacées sous 25 h, audité par KPMG. Variantes 1.1.1.2 (sans malware) et 1.1.1.3 (+ contenus adultes).</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>AdGuard DNS</h3><div class="cp"><b>94.140.14.14 · 94.140.15.15</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Tous</span></div>
+        <p>Bon pour : bloquer pubs et pisteurs sans rien installer ; serveur Famille en plus.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>AdGuard Home</h3><div class="cp"><b>Ton propre serveur DNS</b><small>Gratuit, open source</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Raspberry Pi, NAS, Docker</span></div>
+        <p>Bon pour : toute la maison, tes propres règles et le journal de chaque appareil (voir notre vidéo RepoPop n°08).</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Quad9</h3><div class="cp"><b>9.9.9.9</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Tous</span></div>
+        <p>Bon pour : sécurité : bloque les domaines malveillants ; fondation basée en Suisse.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Google Public DNS</h3><div class="cp"><b>8.8.8.8 · 8.8.4.4</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">Tous</span></div>
+        <p>Bon pour : fiable, sans filtrage ; journaux avec IP effacés sous 24 à 48 h.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>DNS de ta box</h3><div class="cp"><b>Automatique (DHCP)</b><small>Inclus</small></div></div>
+        <div class="cm"><span class="lvl n">Par défaut</span><span class="on">Tous</span></div>
+        <p>Bon pour : ne rien régler ; ton fournisseur d'accès voit les sites demandés.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>TURQUIE, MARS 2014</b><span>Twitter est bloqué surtout par le DNS des opérateurs. Des habitants taguent 8.8.8.8 et 8.8.4.4, le DNS de Google, sur les murs et les affiches. Le gouvernement finit par bloquer aussi le DNS de Google, puis les adresses IP de Twitter.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°25 · Le DNS · informations et captures vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/">Cloudflare : engagement de confidentialité du résolveur 1.1.1.1</a> · <a href="https://blog.cloudflare.com/1111-privacy-examination-2026">Cloudflare : nouvel audit de confidentialité de 1.1.1.1 (avril 2026)</a> · <a href="https://developers.cloudflare.com/1.1.1.1/ip-addresses/">Cloudflare : adresses de 1.1.1.1, 1.1.1.2 et 1.1.1.3</a> · <a href="https://adguard-dns.io/fr/public-dns.html">AdGuard DNS : serveurs publics</a> · <a href="https://github.com/AdguardTeam/AdGuardHome">AdGuard Home sur GitHub</a> · <a href="https://developers.google.com/speed/public-dns/privacy">Google Public DNS : confidentialité</a> · <a href="https://rsf.org/actualites/blocage-de-twitter-une-censure-digne-des-etats-les-plus-repressifs-de-la-planete">RSF : blocage de Twitter en Turquie (2014)</a> · <a href="https://techcrunch.com/2014/03/21/twitter-says-it-is-standing-by-its-users-in-turkey-hopes-to-have-access-returned-soon">TechCrunch : graffitis DNS à Istanbul (mars 2014)</a> · <a href="https://thenextweb.com/news/turkey-blocks-google-dns-attempt-censor-twitter">The Next Web : la Turquie bloque le DNS de Google (mars 2014)</a></span>
+  </footer>
+</main>
+</body>
+</html>

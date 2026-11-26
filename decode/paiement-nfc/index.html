@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · Paiement NFC · RepoPop</title>
+<meta name="description" content="Paiement sans contact NFC : carte bancaire ou téléphone (Apple Pay, Google Pay, Samsung Pay) ? Comment marche le NFC, le plafond de 50 € sans code, le jeton (numéro de remplacement) et le code dynamique, le déverrouillage par visage ou empreinte, les chiffres de fraude de la Banque de France et que faire en cas de vol.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°33 · Paiement NFC">
+<meta property="og:description" content="Paiement sans contact : pourquoi ton téléphone est plus sûr que ta carte. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-paiement-nfc.png">
+<meta property="og:url" content="https://repopop.github.io/decode/paiement-nfc/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Paiement NFC">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°33</div>
+        <h1>Le paiement <span>NFC</span></h1>
+        <p class="tag">Ta carte et ton téléphone utilisent la même puce sans contact, mais ils n'envoient pas du tout la même chose. Pourquoi payer avec ton téléphone est plus sûr, et comment t'y mettre.</p>
+        <div class="chips">
+          <span class="chip">Apple Pay · Google Pay · Samsung Pay</span>
+          <span class="chip">Gratuit</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Carte ou téléphone : le match</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Le <b>NFC</b> (Near Field Communication, « communication en champ proche ») est une petite <b>antenne</b> qui échange des données à <b>4 cm au plus</b>. Ta <b>carte bancaire</b> sans contact et ton <b>téléphone</b> utilisent la même technologie pour parler au terminal. Ce qui change, c'est <b>ce qu'ils envoient</b> et <b>qui doit donner son accord</b>.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>La carte sans contact</h3>
+        <p>Elle transmet son <b>vrai numéro</b> (avec un code à usage unique). En France, elle paie jusqu'à <b>50 €</b> sans code, dans la limite d'un cumul fixé par ta banque. Personne ne vérifie que c'est bien toi.</p>
+        <span class="pill mid">Pratique, sans contrôle</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Le téléphone (Apple Pay, Google Pay…)</h3>
+        <p>Il transmet un <b>faux numéro</b>, le <b>jeton</b>, créé par ta banque pour cet appareil, avec un <b>code qui change à chaque achat</b>. Ton vrai numéro ne sort jamais.</p>
+        <span class="pill ok">Numéro protégé</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Ton accord à chaque paiement</h3>
+        <p>Le téléphone ne paie qu'après ton <b>visage</b>, ton <b>empreinte</b> ou ton <b>code</b>. C'est une authentification forte : il n'y a donc <b>pas de plafond de 50 €</b>, seulement celui de ta carte.</p>
+        <span class="pill ok">C'est bien toi</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>En cas de vol</h3>
+        <p>Une <b>carte</b> volée peut payer de petits montants sans code jusqu'au plafond cumulé. Un <b>téléphone</b> volé reste <b>verrouillé</b> : sans ton visage ou ton code, il ne paie pas.</p>
+        <span class="pill ok">Avantage téléphone</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">✓</span><span><b>Moins de fraude avec le téléphone.</b> Rapport 2025 de l'<b>Observatoire de la sécurité des moyens de paiement</b> (Banque de France) : <b>9 €</b> de fraude pour 100 000 € payés par mobile, contre <b>11 €</b> pour l'ensemble des paiements par carte en magasin (puce et code, sans contact et automates compris). En 2025, les paiements par mobile ont progressé de <b>38 %</b> et leur taux de fraude a baissé de <b>43 %</b>. Le rapport ne publie pas le taux de la carte sans contact seule.</span></li>
+        <li><span class="dot y">!</span><span><b>La fraude vise l'ajout de la carte.</b> Les escrocs ne piratent pas ton téléphone : ils essaient de <b>faire ajouter ta carte dans le leur</b>, en te demandant au téléphone ou par SMS le code reçu de ta banque. Ne donne <b>jamais</b> ce code, même à un « conseiller ».</span></li>
+        <li><span class="dot y">↔</span><span><b>La lecture « à distance », un mythe en grande partie.</b> Le NFC ne porte qu'à quelques centimètres. Une appli peut lire le <b>numéro et la date</b> d'une carte collée au téléphone, mais <b>ni le cryptogramme ni le code</b>. Un étui anti-NFC reste conseillé par Service-Public pour la carte.</span></li>
+        <li><span class="dot y">⌂</span><span><b>Les exceptions sans déverrouillage.</b> Pour les <b>transports</b> (mode Express d'Apple, valideurs compatibles avec Google Wallet), on peut payer téléphone verrouillé. Une <b>montre</b> au poignet déverrouillée paie aussi sans redemander : elle se verrouille dès qu'on l'enlève.</span></li>
+        <li><span class="dot r">⚠</span><span><b>Téléphone perdu ou volé ?</b> Préviens ta <b>banque</b> (qui peut couper le jeton sans bloquer ta carte) et ton opérateur. Sur iPhone, <b>Localiser › Marquer comme perdu</b> suspend Apple Pay ; sur Android, <b>Localiser mon appareil</b> permet de verrouiller ou d'effacer.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Ce qui se passe entre le moment où tu approches ton téléphone et le « bip » du terminal.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Tu ajoutes ta carte, une seule fois</h3></div>
+        <div class="chemin">Wallet › Ajouter une carte › Code de la banque</div>
+        <p>Ta banque vérifie que c'est bien toi (code par SMS ou dans son appli), puis crée un <b>jeton</b> : un numéro de remplacement, propre à ce téléphone, rangé dans une puce sécurisée.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Tu donnes ton accord</h3></div>
+        <div class="chemin">Visage › Empreinte › Code</div>
+        <p>Double-clic sur le bouton latéral (iPhone) ou téléphone déverrouillé (Android) : sans ton <b>visage</b>, ton <b>empreinte</b> ou ton <b>code</b>, rien ne part.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Le téléphone envoie le jeton</h3></div>
+        <div class="chemin">NFC 4 cm › Jeton › Code unique</div>
+        <p>Par l'antenne NFC, le terminal reçoit le <b>jeton</b> et un <b>code valable pour cet achat seulement</b>. Le commerçant ne voit jamais ton vrai numéro.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Ta banque fait la correspondance</h3></div>
+        <div class="chemin">Réseau CB / Visa / Mastercard › Ta banque › ✓ Payé</div>
+        <p>Le réseau de cartes remplace le jeton par ton vrai compte et vérifie le code. Un jeton volé ne sert à rien ailleurs : il est <b>lié à ton téléphone</b>.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Payer plus de 50 €</h3></div>
+        <p>Courses, restaurant : avec le téléphone, c'est le plafond de ta carte qui compte, pas les 50 € du sans contact.</p>
+        <div class="tools"><span class="tool">Apple Pay</span><span class="tool">Google Pay</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Ajouter sa carte</h3></div>
+        <p>Depuis l'appli Cartes (Wallet) ou depuis l'appli de ta banque, en deux minutes.</p>
+        <div class="flow"><span>Wallet</span><i>→</i><span>+</span><i>→</i><span>Code banque</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Bloquer à distance</h3></div>
+        <p>Téléphone perdu : on coupe le jeton sans faire opposition sur la carte.</p>
+        <div class="flow"><span>Localiser</span><i>→</i><span>Perdu</span><i>→</i><span>Paiement coupé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Payer avec sa montre</h3></div>
+        <p>Apple Watch, montres Wear OS, Garmin, Fitbit : même principe, verrouillage dès qu'on l'enlève.</p>
+        <div class="tools"><span class="tool">Montre</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Prendre les transports</h3></div>
+        <p>Sur les réseaux compatibles, on valide avec le téléphone comme avec une carte sans contact.</p>
+        <div class="tools"><span class="tool">Mode Express</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Carte ou téléphone : le match</h2></div>
+    <p class="lead">Même puce NFC, mais pas les mêmes protections.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>Téléphone (Apple Pay, Google Pay, Samsung Pay)</h3><div class="cp"><b>Jeton + visage, empreinte ou code</b><small>Gratuit</small></div></div>
+        <div class="cm"><span class="lvl y">Pas de plafond 50 €</span><span class="on">iPhone, Android, montres</span></div>
+        <p>Bon pour : payer tous les jours sans exposer ta carte.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Carte sans contact</h3><div class="cp"><b>Vrai numéro, sans code</b><small>Incluse</small></div></div>
+        <div class="cm"><span class="lvl m">50 € max sans code</span><span class="on">Partout</span></div>
+        <p>Bon pour : dépanner quand le téléphone n'a plus de batterie.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Carte insérée + code</h3><div class="cp"><b>Puce et code secret</b><small>Incluse</small></div></div>
+        <div class="cm"><span class="lvl m">Tous montants</span><span class="on">Partout</span></div>
+        <p>Bon pour : les gros montants sans téléphone, et remettre à zéro le plafond du sans contact.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>TÉLÉPHONE</b><span>pour payer au quotidien : ton vrai numéro reste caché et rien ne part sans ton accord.</span></li>
+        <li><b>CARTE</b><span>à garder en secours, de préférence insérée avec le code pour les gros montants.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°33 · Paiement NFC · informations vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://support.apple.com/fr-fr/101554">Apple : sécurité et confidentialité d'Apple Pay</a> · <a href="https://support.apple.com/fr-fr/guide/security/sec0f005981a/web">Apple : guide de sécurité des plateformes, ajout d'une carte (Device Account Number)</a> · <a href="https://www.economie.gouv.fr/particuliers/paiement-carte-bancaire-telephone-sans-contact">Bercy Infos : paiement sans contact par carte ou téléphone (plafond de 50 €)</a> · <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2910">Service-Public : qu'est-ce que le paiement sans contact ?</a> · <a href="https://www.banque-france.fr/fr/publications-et-statistiques/publications/rapport-de-lobservatoire-de-la-securite-des-moyens-de-paiement-2025">Banque de France : rapport 2025 de l'Observatoire de la sécurité des moyens de paiement</a> · <a href="https://www.banque-france.fr/system/files/2026-01/2026-01-27_OSMP-Note-statistiques-de-fraude-du-S1-2025.pdf">Banque de France : chiffres de fraude du 1er semestre 2025 (mobile 0,013 %)</a> · <a href="https://www.thalesgroup.com/en/node/2729834">Thales : les idées reçues sur les cartes sans contact</a> · <a href="https://developers.google.com/wallet/tickets/open-loop/mobile-features/skip-device-unlock?hl=fr">Google : paiements sans déverrouillage dans les transports</a></span>
+  </footer>
+</main>
+</body>
+</html>

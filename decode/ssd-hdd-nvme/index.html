@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · SSD, HDD ou NVMe · RepoPop</title>
+<meta name="description" content="SSD, HDD et NVMe expliqués simplement : pourquoi un disque dur ralentit le démarrage, ce qu'un SSD change, la différence entre SSD SATA et NVMe (PCIe), comment savoir quel disque tu as et comment choisir pour relancer un vieux PC.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°26 · SSD, HDD ou NVMe">
+<meta property="og:description" content="SSD, HDD ou NVMe ? Pourquoi un vieux PC revit avec un SSD, expliqué simplement, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-ssd-hdd-nvme.png">
+<meta property="og:url" content="https://repopop.github.io/decode/ssd-hdd-nvme/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de SSD, HDD ou NVMe">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°26</div>
+        <h1>SSD, HDD <span>ou NVMe</span></h1>
+        <p class="tag">Un vieux PC lent, c'est souvent la faute de son disque dur : un bras mécanique qui cherche chaque fichier. Un SSD n'a aucune pièce qui bouge, et le NVMe va encore plus vite par la voie PCIe.</p>
+        <div class="chips">
+          <span class="chip">Windows · SSD</span>
+          <span class="chip">Le meilleur coup de jeune</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead">Le <b>disque</b> est l'endroit où ton PC range Windows, tes applis et tes fichiers. Il en existe trois grandes familles : le <b>disque dur (HDD)</b>, mécanique, le <b>SSD SATA</b>, en mémoire flash, et le <b>SSD NVMe</b>, en mémoire flash lui aussi, mais branché sur la voie rapide <b>PCIe</b>.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>HDD : un bras qui cherche</h3>
+        <p>Des <b>plateaux</b> tournent (souvent 5 400 ou 7 200 tours/min) et un <b>bras</b> va lire chaque morceau de fichier. Chaque déplacement prend plusieurs <b>millisecondes</b> : c'est ce qui rend le démarrage si long.</p>
+        <span class="pill ok">Le plus lent</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>SSD : rien ne bouge</h3>
+        <p>De la <b>mémoire flash</b>, comme une clé USB, mais bien plus rapide. Il trouve une donnée en une fraction de milliseconde : environ <b>100 fois</b> moins d'attente qu'un disque dur.</p>
+        <span class="pill ok">Le gros changement</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>SATA : le vieux câble</h3>
+        <p>Un SSD <b>SATA</b> passe par la même connexion que les disques durs, limitée à <b>600 Mo/s</b> environ (SATA III). Il reste parfait pour un vieux PC.</p>
+        <span class="pill ok">Compatible partout</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>NVMe : l'autoroute PCIe</h3>
+        <p>Un SSD <b>NVMe</b> se branche sur une fente <b>M.2</b> reliée au <b>PCIe</b> : environ 7 000 Mo/s en PCIe 4.0 et jusqu'à près de <b>15 000 Mo/s</b> en PCIe 5.0, soit jusqu'à 25 fois le SATA.</p>
+        <span class="pill ok">Le plus rapide</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot r">⚠</span><span><b>Sauvegarde avant de changer de disque.</b> Copie tes fichiers importants sur un disque externe ou dans le cloud <b>avant</b> de cloner ou de réinstaller : une erreur de disque cible efface tout.</span></li>
+        <li><span class="dot y">!</span><span><b>Toutes les fentes M.2 ne font pas du NVMe.</b> Sur certains PC, la fente M.2 n'accepte que les SSD <b>M.2 SATA</b>, et les vieux PC n'ont souvent pas de M.2 du tout. Vérifie le manuel de ta carte mère ou de ton portable : en cas de doute, un <b>SSD SATA 2,5 pouces</b> rentre à la place du disque dur.</span></li>
+        <li><span class="dot y">!</span><span><b>Démarrer sur un NVMe : PC récents.</b> Certaines très vieilles cartes mères ne savent pas <b>démarrer</b> sur un SSD NVMe ajouté par une carte PCIe. Le SSD SATA est alors le choix sûr.</span></li>
+        <li><span class="dot g">✓</span><span><b>Pas de défragmentation à faire.</b> Windows reconnaît le SSD et lance tout seul l'<b>optimisation (TRIM)</b> au lieu d'une défragmentation : rien à régler.</span></li>
+        <li><span class="dot g">✓</span><span><b>Le disque dur garde un intérêt.</b> Pour <b>stocker beaucoup</b> (photos, vidéos, sauvegardes, NAS), le disque dur reste le moins cher au téraoctet. L'idéal : Windows sur SSD, archives sur disque dur.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Pourquoi le même PC démarre beaucoup plus vite avec un SSD, en quatre étapes.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>Windows lit des milliers de petits fichiers</h3></div>
+        <div class="chemin">Bouton marche › Windows › Milliers de fichiers</div>
+        <p>Au démarrage, Windows et tes applis chargent une foule de <b>petits fichiers</b> rangés un peu partout sur le disque. Ce n'est pas la vitesse maximale qui compte, c'est le <b>temps d'accès</b> à chacun.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Le disque dur attend son bras</h3></div>
+        <div class="chemin">Plateau qui tourne › Bras qui se déplace › Quelques ms par fichier</div>
+        <p>À chaque fichier, le bras doit se placer et attendre que le plateau tourne jusqu'au bon endroit : <b>quelques millisecondes</b> à chaque fois. Un disque dur ne lit que <b>quelques centaines</b> de petits blocs par seconde.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>Le SSD répond tout de suite</h3></div>
+        <div class="chemin">Mémoire flash › Accès électronique › ≈ 0,1 ms</div>
+        <p>Un SSD adresse ses puces <b>électroniquement</b>, sans rien déplacer : il lit des <b>dizaines de milliers</b> de petits blocs par seconde. C'est pour ça qu'un vieux PC « revit », même avec un SSD SATA.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Savoir quel disque tu as</h3></div>
+        <div class="chemin">Ctrl + Maj + Échap › Performances › Disque 0 (C:)</div>
+        <p>Ouvre le <b>Gestionnaire des tâches</b>, onglet <b>Performances</b>, puis clique sur <b>Disque 0 (C:)</b> : le type (<b>SSD</b> ou <b>HDD</b>) est écrit en haut à droite ou sous le graphique. Autre méthode : menu Démarrer › « <b>Défragmenter et optimiser les lecteurs</b> », colonne <b>Type de média</b>.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Relancer un vieux PC</h3></div>
+        <p>Remplacer le disque dur par un SSD SATA 2,5 pouces : démarrage et ouverture des applis bien plus rapides.</p>
+        <div class="flow"><span>Disque dur</span><i>→</i><span>SSD SATA</span><i>→</i><span>PC relancé</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Cloner sans tout réinstaller</h3></div>
+        <p>Copier Windows et tes fichiers du disque dur vers le SSD avec l'outil du fabricant du SSD ou Clonezilla (gratuit).</p>
+        <div class="tools"><span class="tool">Outil du fabricant</span><span class="tool">Clonezilla</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Charger les jeux plus vite</h3></div>
+        <p>Les jeux récents se chargent bien plus vite sur SSD, et certains sont conçus pour un SSD NVMe.</p>
+        <div class="flow"><span>HDD</span><i>→</i><span>SSD NVMe</span><i>→</i><span>Chargements courts</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Garder le disque dur pour stocker</h3></div>
+        <p>Windows et applis sur le SSD, photos, vidéos et sauvegardes sur l'ancien disque dur, devenu disque de stockage.</p>
+        <div class="tools"><span class="tool">SSD : système</span><span class="tool">HDD : archives</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Choisir le bon SSD</h3></div>
+        <p>Vieux PC sans M.2 : SSD SATA. PC avec fente M.2 NVMe : SSD NVMe PCIe 4.0, déjà largement assez rapide.</p>
+        <div class="flow"><span>Manuel du PC</span><i>→</i><span>SATA ou M.2 ?</span><i>→</i><span>Bon SSD</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
+    <p class="lead">Trois familles de disques pour un PC : à chacune son usage.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>SSD NVMe</h3><div class="cp"><b>Mémoire flash, voie PCIe</b><small>≈ 7 000 à 15 000 Mo/s</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">PC avec fente M.2 NVMe</span></div>
+        <p>Bon pour : Windows, jeux, montage vidéo : le plus rapide.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>SSD SATA</h3><div class="cp"><b>Mémoire flash, câble SATA</b><small>≈ 550 Mo/s</small></div></div>
+        <div class="cm"><span class="lvl y">Oui</span><span class="on">Presque tous les PC (2,5 pouces)</span></div>
+        <p>Bon pour : relancer un vieux PC : le meilleur rapport effort / gain.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Disque dur (HDD)</h3><div class="cp"><b>Plateaux et bras mécanique</b><small>≈ 150 à 280 Mo/s</small></div></div>
+        <div class="cm"><span class="lvl m">Proche</span><span class="on">PC fixes, NAS, disques externes</span></div>
+        <p>Bon pour : stocker beaucoup pour pas cher, pas pour Windows.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>IBM 350 (1956)</b><span>le tout premier disque dur (1956) : 50 disques de 61 cm à 1 200 tours/min dans une armoire de près d'une tonne (785 kg sans son compresseur, plus d'une tonne avec), un seul bras qui mettait environ 800 ms à atteindre une donnée, pour 5 millions de caractères (≈ 3,75 Mo).</span></li>
+        <li><b>SATA contre NVMe</b><span>un SSD SATA plafonne vers 600 Mo/s ; un SSD NVMe PCIe 5.0 haut de gamme annonce près de 15 000 Mo/s, presque 25 fois plus.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°26 · SSD, HDD ou NVMe · informations vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://www.ibm.com/topics/nvme-vs-sata">IBM : NVMe vs SATA, quelle différence ?</a> · <a href="https://www.ibm.com/think/topics/hard-disk-drive-vs-solid-state-drive">IBM : disque dur (HDD) ou SSD ?</a> · <a href="https://www.tomshardware.com/uk/features/ssd-vs-hdd-hard-drive-difference/2">Tom's Hardware : SSD vs HDD, tests</a> · <a href="https://www.computerhistory.org/revolution/memory-storage/8/233">Computer History Museum : le premier disque dur, RAMAC 350</a> · <a href="https://www.computerhistory.org/storageengine/first-commercial-hard-disk-drive-shipped/">Computer History Museum : 1956, premier disque dur commercial</a> · <a href="https://www.storagenewsletter.com/2018/03/08/myths-about-ibm-ramac-first-hdd/">StorageNewsletter : les mythes sur l'IBM RAMAC (poids, capacité)</a> · <a href="https://www.tomshardware.com/pc-components/hdds/ibm-announced-the-worlds-first-hdd-the-3-75mb-ramac-350-disk-storage-unit-69-years-ago-today-unit-weighed-more-than-a-ton-50-platters-ran-at-1-200-rpm">Tom's Hardware : l'IBM RAMAC 350, 69 ans après (poids, 50 plateaux, 1 200 tours/min)</a></span>
+  </footer>
+</main>
+</body>
+</html>
