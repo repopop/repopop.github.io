@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiche Décode · Câbles USB-C · RepoPop</title>
+<meta name="description" content="Câbles USB-C : pourquoi ils ne se valent pas tous. Vitesse (USB 2, USB 3.2, USB4, Thunderbolt), puissance de charge (60 ou 240 W, puce e-marker), vidéo, logos certifiés à lire sur l'emballage, et quel câble choisir pour quel usage.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Fiche RepoPop Décode n°27 · Câbles USB-C">
+<meta property="og:description" content="Tous les câbles USB-C ne se valent pas : vitesse, watts, vidéo, et les logos à lire avant d'acheter. En français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/decode-cables-usb-c.png">
+<meta property="og:url" content="https://repopop.github.io/decode/cables-usb-c/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+<style>
+/* Charte Décode : palette « Sarcelle », badge lime, mots-clés menthe */
+:root{--night:#042F2E;--dots:#0A3D3B;--violet:#0F5E5A;--cyan:#6EF2C2}
+.hero{background:#0F5E5A}
+.badge.dc{background:#C6F432}
+.lead{color:#D7FBEF}
+.hero .tag{color:#fff}
+.toc a b,.sh .n{background:#C6F432}
+.opt .ic{background:#6EF2C2}
+.steps{display:grid;gap:16px}
+.step{display:grid;gap:10px}
+.step .h{display:flex;gap:12px;align-items:center}
+.step .num{font-family:var(--display);font-size:20px;background:#C6F432;border:3px solid var(--ink);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;flex:none}
+.step h3{font-size:18px}
+.step p{margin:0;font-size:15px}
+.step .chemin{font-family:var(--display);font-size:14px;color:#0F5E5A}
+.shot{margin:0;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#F4F4F1}
+.shot img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto}
+.shot figcaption{font-size:13px;color:var(--muted);padding:6px 10px;border-top:2px solid var(--ink);background:#fff}
+.flow span{background:#E6FBF3}
+.crow.me{background:#E6FBF3}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge dc"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 6 L12 52 L24 41 L32 58 L41 54 L33 37 L49 37 Z" fill="#fff" stroke="#111" stroke-width="6" stroke-linejoin="round"/></svg>DÉCODE</span>
+      <img class="logo" src="logo.webp" alt="Logo de Câbles USB-C">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">FICHE DÉCODE N°27</div>
+        <h1>Les câbles <span>USB-C</span></h1>
+        <p class="tag">Même prise, mais pas le même câble : selon ce qu'il y a dedans, un câble USB-C copie à 480 Mb/s ou à 80 Gb/s, charge à 60 ou 240 W, et fait passer l'image… ou pas.</p>
+        <div class="chips">
+          <span class="chip">USB-C · USB4 · Thunderbolt</span>
+          <span class="chip">Rien à installer</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_chemise_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire de la fiche">
+    <a href="#quoi"><b>1</b>C'est quoi ?</a>
+    <a href="#ou"><b>2</b>Comment ça marche</a>
+    <a href="#usages"><b>3</b>5 usages concrets</a>
+    <a href="#ailleurs"><b>4</b>Les alternatives</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="quoi">
+    <div class="sh"><span class="n">1</span><h2>C'est quoi ?</h2></div>
+    <p class="lead"><b>USB-C</b>, c'est le nom de la <b>prise</b> : réversible, la même partout depuis la loi européenne. Mais ce qui passe dedans dépend du <b>câble</b> et de ce qu'il contient : nombre de fils, qualité, et parfois une <b>puce</b>. Deux câbles qui se ressemblent peuvent donc faire des choses très différentes.</p>
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>La vitesse</h3>
+        <p>De <b>480 Mb/s</b> (USB 2) à <b>5, 10, 20 Gb/s</b> (USB 3.2), <b>40 Gb/s</b> (USB4, Thunderbolt 4) et <b>80 Gb/s</b> (USB4 v2, Thunderbolt 5).</p>
+        <span class="pill ok">×80 d'écart</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>La puissance</h3>
+        <p>Sans puce, un câble est limité à <b>3 A, soit 60 W</b>. Au-delà (100 W, et jusqu'à <b>240 W</b> en USB PD 3.1), il faut une puce <b>e-marker</b> dans la prise.</p>
+        <span class="pill ok">60 ou 240 W</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>L'image</h3>
+        <p>Pour brancher un <b>écran</b> en USB-C (DisplayPort Alt Mode), il faut des fils rapides : un câble <b>USB 2</b> ne fait pas passer l'image.</p>
+        <span class="pill mid">Pas en USB 2</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+        <h3>Le plus faible décide</h3>
+        <p>Le chargeur, le câble et l'appareil se mettent d'accord (USB Power Delivery) : c'est le <b>maillon le plus faible</b> qui fixe la vitesse et la puissance.</p>
+        <span class="pill ok">À retenir</span>
+      </div>
+    </div>
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir</h3>
+      <ul>
+        <li><span class="dot y">!</span><span><b>Le câble fourni est souvent le plus simple.</b> Beaucoup de câbles livrés avec un téléphone sont des câbles de <b>charge en USB 2</b> : parfaits pour charger, lents pour copier, sans vidéo. Apple fournissait ainsi un câble USB 2 avec l'iPhone 15 Pro, compatible 10 Gb/s.</span></li>
+        <li><span class="dot y">↔</span><span><b>Les câbles rapides sont courts.</b> Les câbles passifs à 40 ou 80 Gb/s dépassent rarement <b>1 m</b> ; plus long, il faut un câble <b>actif</b> (plus cher). Un câble long et pas cher est presque toujours en USB 2.</span></li>
+        <li><span class="dot g">✓</span><span><b>Le logo certifié dit tout.</b> Les câbles certifiés par l'<b>USB-IF</b> affichent sur l'emballage (et parfois sur la prise) la vitesse en <b>Gbps</b> et la puissance : <b>60W</b> ou <b>240W</b>.</span></li>
+        <li><span class="dot y">!</span><span><b>Windows te prévient.</b> Sur Windows 11, une notification comme « <b>La connexion d'affichage peut être limitée</b> » ou « <b>Le PC ne se charge pas</b> » vient souvent d'un câble trop simple. Selon Microsoft, <b>27 %</b> des PC équipés d'USB4 ont déjà affiché ce genre d'alerte.</span></li>
+        <li><span class="dot g">€</span><span><b>Le chargeur universel est la loi.</b> Dans l'UE, la prise USB-C est obligatoire depuis le <b>28 décembre 2024</b> pour les téléphones, tablettes ou écouteurs, et depuis le <b>28 avril 2026</b> pour les <b>ordinateurs portables</b> (directive 2022/2380, avec USB Power Delivery).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Méfie-toi des câbles sans marque.</b> Un câble qui annonce 100 W sans puce e-marker ment : le chargeur restera à 60 W, au mieux. Préfère les câbles certifiés vendus par des marques connues.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="ou">
+    <div class="sh"><span class="n">2</span><h2>Comment ça marche</h2></div>
+    <p class="lead">Ce qui se passe quand tu branches un câble USB-C, et comment savoir ce qu'il sait faire <b>avant</b> de l'acheter.</p>
+    <div class="steps">
+      <article class="sticker step">
+        <div class="h"><span class="num">1</span><h3>La prise est la même pour tous</h3></div>
+        <div class="chemin">USB-C › 24 broches › Réversible</div>
+        <p>La prise USB-C a <b>24 broches</b> et se branche dans les deux sens. Mais un câble n'est pas obligé de les relier toutes : un câble USB 2 n'utilise que la paire de données lente.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">2</span><h3>Les appareils négocient</h3></div>
+        <div class="chemin">Chargeur › Câble › Appareil</div>
+        <p>En USB Power Delivery, le chargeur demande au câble ce qu'il supporte. <b>Sans puce e-marker</b>, il se limite à <b>3 A (60 W)</b>. Avec une puce 5 A, il peut monter à 100 W, et jusqu'à <b>240 W (48 V)</b> pour un câble EPR.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">3</span><h3>La vitesse dépend des fils</h3></div>
+        <div class="chemin">USB 2 : 480 Mb/s › USB 3.2 : 5 à 20 Gb/s › USB4 : 40 à 80 Gb/s</div>
+        <p>Les débits rapides (et la <b>vidéo</b>) passent par des paires de fils en plus. Sans elles, le câble reste à <b>480 Mb/s</b>, même branché sur un port USB4.</p>
+      </article>
+      <article class="sticker step">
+        <div class="h"><span class="num">4</span><h3>Lis le logo avant d'acheter</h3></div>
+        <div class="chemin">Emballage › Gbps › Watts</div>
+        <p>Cherche le logo certifié <b>USB</b> avec la vitesse (<b>USB 10Gbps</b>, <b>USB 40Gbps</b>, <b>USB 80Gbps</b>) et la puissance (<b>60W</b> ou <b>240W</b>). Thunderbolt 4 / 5 : l'éclair et le chiffre sont gravés sur la prise.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="usages">
+    <div class="sh"><span class="n">3</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Brancher un écran</h3></div>
+        <p>Un câble USB-C vers USB-C au moins 10 Gb/s (ou USB4 / Thunderbolt) pour l'image en 4K.</p>
+        <div class="flow"><span>PC</span><i>→</i><span>Câble 10 Gb/s +</span><i>→</i><span>Écran</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Charger un gros portable</h3></div>
+        <p>Au-delà de 60 W, un câble 5 A avec e-marker ; 240 W pour les portables les plus gourmands.</p>
+        <div class="tools"><span class="tool">100 W</span><span class="tool">240 W</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Copier vite sur un SSD externe</h3></div>
+        <p>Un SSD à 10 ou 20 Gb/s ne va pas plus vite que son câble : prends celui fourni avec le SSD.</p>
+        <div class="flow"><span>SSD</span><i>→</i><span>Câble 10 Gb/s</span><i>→</i><span>PC</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Une station d'accueil</h3></div>
+        <p>Un seul câble USB4 / Thunderbolt pour l'écran, la charge, le réseau et les clés USB.</p>
+        <div class="tools"><span class="tool">USB4</span><span class="tool">Thunderbolt</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Recharger son téléphone</h3></div>
+        <p>Un simple câble USB 2 de 60 W suffit : inutile de payer un câble 80 Gb/s pour ça.</p>
+        <div class="flow"><span>Chargeur</span><i>→</i><span>Câble 60 W</span><i>→</i><span>Téléphone</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="ailleurs">
+    <div class="sh"><span class="n">4</span><h2>Les alternatives</h2></div>
+    <p class="lead">Les grandes familles de câbles USB-C, du plus simple au plus complet.</p>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>USB4 / Thunderbolt</h3><div class="cp"><b>40 à 80 Gb/s, vidéo</b><small>Le plus cher</small></div></div>
+        <div class="cm"><span class="lvl y">Tout</span><span class="on">PC et Mac récents, docks</span></div>
+        <p>Bon pour : un seul câble pour écran, charge et données.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>USB 3.2 (10 / 20 Gb/s)</h3><div class="cp"><b>5 à 20 Gb/s, vidéo</b><small>Prix moyen</small></div></div>
+        <div class="cm"><span class="lvl m">Presque tout</span><span class="on">SSD externes, écrans</span></div>
+        <p>Bon pour : SSD externe, écran, téléphone Android rapide.</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>USB 2 Type-C</h3><div class="cp"><b>480 Mb/s, pas de vidéo</b><small>Le moins cher</small></div></div>
+        <div class="cm"><span class="lvl n">Charge</span><span class="on">Câbles fournis, chargeurs</span></div>
+        <p>Bon pour : charger un téléphone ou une manette.</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>APPLE</b><span>livrait l'iPhone 15 Pro, compatible 10 Gb/s, avec un câble de charge limité à l'USB 2 (480 Mb/s) : 20 fois plus lent.</span></li>
+        <li><b>MICROSOFT</b><span>indique que 27 % des PC équipés d'USB4 ont déjà affiché une alerte « fonctionnalité limitée » en USB-C.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop Décode t'explique un sujet IA ou tech en moins d'une minute, avec sa fiche complète comme celle-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#decode">← Tous les kits RepoPop</a>
+    <span>Fiche RepoPop Décode n°27 · Câbles USB-C · informations vérifiées le 25 novembre 2026. Les logiciels et les offres évoluent : vérifie sur les sites officiels.</span>
+    <span>Sources : <a href="https://www.businesswire.com/news/home/20210930005098/en">USB-IF : logos des câbles USB Type-C certifiés (60 W / 240 W)</a> · <a href="https://ul.com/insights/240w-usb-c-cable-performance-testing-and-safety-considerations">UL Solutions : câbles USB-C 240 W, e-marker obligatoire</a> · <a href="https://consomac.fr/news-18179-usb-c-l-iphone-15-pro-est-fourni-avec-un-cable-limite-a-l-usb-2.html">Consomac : l'iPhone 15 Pro fourni avec un câble limité à l'USB 2</a> · <a href="https://support.microsoft.com/kb/925196">Microsoft : notifications USB-C de Windows</a> · <a href="https://techcommunity.microsoft.com/blog/microsoftusbblog/ending-usb-c-port-confusion/4410479">Microsoft USB Blog : Ending USB-C port confusion (27 %)</a> · <a href="https://www.justice.fr/fiche/equipements-electroniques-doivent-utiliser-chargeur-universel-usb">Service-Public / Justice.fr : chargeur universel USB-C</a> · <a href="https://www.tomshardware.com/news/usb-4-version-2-spec-now-official">Tom's Hardware : logos USB4 80 Gbps</a></span>
+  </footer>
+</main>
+</body>
+</html>

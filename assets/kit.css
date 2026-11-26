@@ -68,7 +68,7 @@ section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:12px}
 .know li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15px}
 .know li .dot{width:28px;height:28px;border:2px solid var(--ink);border-radius:8px;display:grid;place-items:center;font-family:var(--display);font-size:14px}
 .know li .dot.y{background:var(--yellow)}.know li .dot.r{background:#FFD3D5}.know li .dot.g{background:#C9F6E2}
-.know li b{display:block}
+.know li > span > b:first-child{display:block}
 code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:#EFEAF8;border:1px solid #CFC6E6;border-radius:6px;padding:1px 6px;word-break:break-all}
 
 /* 2. Usages */
@@ -120,7 +120,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background
 .verdict h3{font-size:19px;margin-bottom:10px}
 .verdict ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
 .verdict li{font-size:15px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
-.verdict li b{font-family:var(--display);font-weight:400;font-size:13px;background:var(--cyan);border:2px solid var(--ink);border-radius:8px;padding:3px 8px;white-space:nowrap}
+.verdict li > b{font-family:var(--display);font-weight:400;font-size:13px;background:var(--cyan);border:2px solid var(--ink);border-radius:8px;padding:3px 8px;white-space:nowrap}
 .verdict .warnline{margin:12px 0 0;font-weight:700;background:#FFD3D5;border:2px solid var(--ink);border-radius:10px;padding:8px 10px;font-size:14px}
 
 /* 5. Abonnement */
