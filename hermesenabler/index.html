@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit RepoPop · HermesEnabler</title>
+<meta name="description" content="HermesEnabler expliqué simplement : comment il débloque les cadrans Hermès, comment l'installer depuis un Mac ou un PC, les précautions indispensables, 5 usages, note de confiance et comparatif avec l'Apple Watch Hermès et Clocky.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RepoPop">
+<meta property="og:title" content="Kit RepoPop n°56 · HermesEnabler">
+<meta property="og:description" content="Installation, précautions, 5 usages, note de confiance et comparatif avec l'Apple Watch Hermès et Clocky, en français.">
+<meta property="og:image" content="https://repopop.github.io/assets/og/hermesenabler.png">
+<meta property="og:url" content="https://repopop.github.io/hermesenabler/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.png">
+<link rel="stylesheet" href="/assets/kit.css">
+
+</head>
+<body>
+<main class="wrap">
+
+  <header class="sticker hero">
+    <div class="top">
+      <span class="badge"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="17" fill="#fff" stroke="#111" stroke-width="7"/><path d="M40 40 L56 56" stroke="#111" stroke-width="9" stroke-linecap="round"/></svg>DÉCOUVERTE</span>
+      <img class="logo" src="logo.webp" alt="Logo de HermesEnabler">
+    </div>
+    <div class="row">
+      <div class="txt">
+        <div class="kitno" style="margin-top:14px">KIT REPOPOP N°56</div>
+        <h1>Hermes<span>Enabler</span></h1>
+        <p class="tag">Une appli open source qui fait passer ton Apple Watch pour une Apple Watch Hermès et débloque ses cadrans exclusifs. Le mode d'emploi en français, avec tout ce qu'il faut savoir avant de toucher à ta montre.</p>
+        <div class="chips">
+          <span class="chip">★ 2 000+ étoiles</span>
+          <span class="chip">Version 1.6.3</span>
+          <span class="chip">Gratuit · licence MIT</span>
+        </div>
+      </div>
+      <img class="setei" src="/assets/img/setei_face.webp" alt="Setei, le présentateur de RepoPop">
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire du kit">
+    <a href="#avant"><b>1</b>Avant d'installer</a>
+    <a href="#usages"><b>2</b>5 usages concrets</a>
+    <a href="#confiance"><b>3</b>Note de confiance</a>
+    <a href="#comparatif"><b>4</b>Comparatif</a>
+    <a href="#repopotes"><b>5</b>Rejoins les Repo-Potes</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="avant">
+    <div class="sh"><span class="n">1</span><h2>Avant d'installer</h2></div>
+    <p class="lead">HermesEnabler est une <b>appli pour Apple Watch</b> (avec une petite appli compagnon sur iPhone). Elle modifie un fichier système de la montre (<span class="k">MobileGestalt</span>) pour qu'elle se déclare comme une Hermès, ce qui affiche les cadrans réservés à ces modèles. Elle ne s'installe pas depuis l'App Store : il faut passer par un ordinateur.</p>
+
+    <div class="where">
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Depuis un Mac</h3>
+        <p>Télécharge l'IPA dans les Releases du dépôt et installe-le avec Sideloadly (ton Apple ID, Bundle Identifier fixe), ou compile le projet dans Xcode en choisissant ta montre comme destination. Active ensuite le mode développeur sur l'iPhone puis sur la montre.</p>
+        <span class="pill ok">Le plus simple</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <h3>Depuis un PC Windows</h3>
+        <p>Passe par WatchBridge, un outil communautaire (non affilié au projet) qui prépare le mode développeur et installe l'IPA. Il faut iTunes ou l'app Apple Devices, un câble USB et une seule montre associée à l'iPhone. L'exécutable n'est pas signé : SmartScreen peut avertir.</p>
+        <span class="pill mid">Faisable</span>
+      </div>
+      <div class="sticker opt">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Directement sur la montre</h3>
+        <p>Impossible : aucune installation depuis l'App Store ni depuis la montre seule. Et la montre doit être sous watchOS 27.0 à 27.3 bêta 1 (watchOS 26 n'est pas pris en charge).</p>
+        <span class="pill no">Pas possible</span>
+      </div>
+    </div>
+
+    <div class="sticker know">
+      <h3>Ce qu'il faut savoir (lu pour toi dans la doc)</h3>
+      <ul>
+        <li><span class="dot g">€</span><span><b>Gratuit et open source.</b> Licence MIT, code public sur GitHub (développeur Jinwoo Kim, alias pookjw, avec une douzaine de contributeurs).</span></li>
+        <li><span class="dot r">⚠</span><span><b>Fichier système modifié :</b> l'appli réécrit des valeurs de MobileGestalt sur la montre. Le README dit de l'utiliser « à vos propres risques ». Évite-la sur une montre dont tu dépends au quotidien (santé, travail).</span></li>
+        <li><span class="dot y">!</span><span><b>Durée de vie limitée :</b> compatible watchOS 27.0 à 27.3 bêta 1 seulement. Un site spécialisé rapporte qu'elle ne marche plus sur la 27.3 bêta 2 : la prochaine mise à jour de watchOS peut faire disparaître l'astuce.</span></li>
+        <li><span class="dot y">↺</span><span><b>Sauvegarde obligatoire :</b> l'appli crée une sauvegarde avant toute modification. Avant de supprimer l'appli, restaure toujours ta sauvegarde MobileGestalt depuis HermesEnabler, puis redémarre la montre.</span></li>
+        <li><span class="dot y">↔</span><span><b>Limites connues :</b> les cadrans n'apparaissent pas dans l'app Watch de l'iPhone (réglage sur la montre uniquement), certains cadrans peuvent rester noirs, et activer les cadrans Ultra retire le cadran Faubourg Party. Les autres réglages (résolution, région…) ne créent pas de matériel absent.</span></li>
+        <li><span class="dot g">↔</span><span><b>Dans la vidéo :</b> « testée par WatchGeneration » = l'essai publié le 10/11/2026 (cadrans Hermès activés, quelques cadrans noirs). « Plus de 1 300 euros » = prix de l'Apple Watch Hermès la moins chère sur hermes.com (1 399 €). La photo des montres du bloc 1 est une photo Apple.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="usages">
+    <div class="sh"><span class="n">2</span><h2>5 usages concrets</h2></div>
+    <div class="uses">
+      <article class="sticker use">
+        <div class="h"><span class="num">01</span><h3>Avoir les cadrans Hermès</h3></div>
+        <p>Sur une Series ou une Ultra ordinaire sous watchOS 27 : l'interrupteur Hermès débloque Circulaire, Radial, Maritime et les autres cadrans exclusifs.</p>
+        <div class="flow"><span>Sauvegarde</span><i>→</i><span>Interrupteur Hermès</span><i>→</i><span>Redémarrer Carousel</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">02</span><h3>Essayer les cadrans Ultra</h3></div>
+        <p>L'interrupteur « Ultra Faces » affiche les cadrans de l'Apple Watch Ultra sur une autre montre, avec un risque d'affichage rogné sur les petits écrans.</p>
+        <div class="tools"><span class="tool">Ultra Faces</span><span class="tool">Disposition 29 ou 38</span><span class="tool">Restaurer</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">03</span><h3>Revenir en arrière</h3></div>
+        <p>La bibliothèque de sauvegardes (aussi copiée sur l'iPhone) remet les valeurs d'origine de la montre.</p>
+        <div class="flow"><span>Sauvegarde initiale</span><i>→</i><span>Restaurer MG</span><i>→</i><span>Redémarrage</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">04</span><h3>Montrer un cadran avant d'acheter</h3></div>
+        <p>Voir en vrai un cadran Hermès au poignet avant de décider si la version Hermès vaut son prix.</p>
+        <div class="tools"><span class="tool">Cadrans Hermès</span><span class="tool">Ton bracelet</span><span class="tool">Avis à froid</span></div>
+      </article>
+      <article class="sticker use">
+        <div class="h"><span class="num">05</span><h3>Plan B sans risque : Clocky</h3></div>
+        <p>Si ta version de watchOS n'est pas prise en charge, Clocky (même développeur) affiche n'importe quel cadran dans une appli, sans toucher à MobileGestalt.</p>
+        <div class="flow"><span>Clocky</span><i>→</i><span>Choisir un cadran</span><i>→</i><span>Affiché dans l'appli</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="confiance">
+    <div class="sh"><span class="n">3</span><h2>Note de confiance</h2></div>
+    <div class="sticker trust">
+      <div class="score">
+        <div class="gauge" role="img" aria-label="Note de confiance : 6,4 sur 10" style="background:conic-gradient(#FF9F1C 0 64%,#E7E2F2 64% 100%)"><div>6,4<small>/10</small></div></div>
+        <div>
+          <h3>Bluffant, mais risqué</h3>
+          <p>Un projet très suivi et transparent sur ses recherches, mais qui modifie un fichier système de la montre et dépend d'une faille qu'Apple peut fermer à tout moment.</p>
+        </div>
+      </div>
+      <div class="crit">
+        <div class="cr">
+          <div class="t">Activité du projet <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Version 1.6.3 publiée le 19 novembre 2026, plusieurs mises à jour par jour pendant la mi-novembre.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Communauté <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>2 509 étoiles et 207 copies (forks), une douzaine de contributeurs, README traduit en 10 langues.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Respect de tes données <span>4/5</span></div>
+          <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p>Tout se passe entre ta montre et ton iPhone ; rien n'est envoyé à un serveur du projet. Les sauvegardes restent chez toi.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Modèle économique <span>3/5</span></div>
+          <div class="bar mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p>Gratuit, licence MIT, projet bénévole d'un développeur indépendant : aucun modèle économique, donc aucune garantie de suivi.</p>
+        </div>
+        <div class="cr">
+          <div class="t">Maturité <span>1/5</span></div>
+          <div class="bar mid"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          <p>Réécriture du 10 novembre 2026, modifie MobileGestalt, compatible seulement jusqu'à watchOS 27.3 bêta 1 ; restauration jugée pas toujours fiable par certains utilisateurs.</p>
+        </div>
+      </div>
+      <p class="method">Comment on note : 5 critères notés sur 5, vérifiés sur GitHub, l'API GitHub, le README officiel et les notes de recherche du dépôt le 25 novembre 2026. La note sur 10 est la moyenne ramenée sur 10.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="comparatif">
+    <div class="sh"><span class="n">4</span><h2>Comparatif</h2></div>
+    <div class="cmp">
+      <div class="crow me">
+        <div class="ct"><h3>HermesEnabler</h3><div class="cp"><b>Gratuit</b><small>open source (MIT)</small></div></div>
+        <div class="cm"><span class="lvl y">Sur ta montre (fichier système modifié)</span><span class="on">Apple Watch sous watchOS 27.0 à 27.3 bêta 1</span></div>
+        <p>Bon pour : Les vrais cadrans Hermès dans la galerie de la montre</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Apple Watch Hermès Series 12</h3><div class="cp"><b>Dès 1 399 €</b><small>bracelet Hermès inclus</small></div></div>
+        <div class="cm"><span class="lvl m">Officiel Apple et Hermès</span><span class="on">Apple Watch Hermès</span></div>
+        <p>Bon pour : Les cadrans officiels, sans risque, avec le bracelet de luxe</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Clocky</h3><div class="cp"><b>Gratuit</b><small>open source, même développeur</small></div></div>
+        <div class="cm"><span class="lvl y">Dans une appli sur ta montre</span><span class="on">Toutes les versions de watchOS</span></div>
+        <p>Bon pour : Afficher un cadran sans modifier le système</p>
+      </div>
+      <div class="crow ">
+        <div class="ct"><h3>Cadrans Apple de base</h3><div class="cp"><b>Inclus</b><small>avec ta montre</small></div></div>
+        <div class="cm"><span class="lvl y">Officiel</span><span class="on">Toutes les Apple Watch</span></div>
+        <p>Bon pour : Zéro risque, mises à jour sans surprise</p>
+      </div>
+    </div>
+    <div class="sticker verdict">
+      <h3>Notre verdict</h3>
+      <ul>
+        <li><b>HERMESENABLER</b><span>si tu aimes bidouiller, que ta montre est sous watchOS 27 et que tu acceptes le risque d'un fichier système modifié.</span></li>
+        <li><b>CLOCKY</b><span>si tu veux juste voir un cadran Hermès sans toucher au système, quelle que soit ta version de watchOS.</span></li>
+        <li><b>APPLE WATCH HERMÈS</b><span>si tu veux les cadrans officiels, garantis, avec le bracelet qui va avec.</span></li>
+      </ul>
+      <p class="warnline">Ne l'installe pas sur une montre dont tu dépends au quotidien, et restaure toujours ta sauvegarde avant de supprimer l'appli.</p>
+    </div>
+  </section>
+
+  <!-- depot -->
+  <section id="depot">
+    <style>
+      .repo{display:grid;gap:12px;text-decoration:none;background:var(--violet,#7C3AED)}
+      .repo .rh{display:flex;align-items:center;gap:12px;color:#FFFFFF}
+      .repo .rl{font-family:var(--display);font-size:15px;letter-spacing:.04em}
+      .repo .rn{font-family:var(--display);font-size:24px;line-height:1.15;color:#FFFFFF;overflow-wrap:anywhere}
+      .repo p{margin:0;font-weight:600;color:#FFFFFF}
+      .repo .rb{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--ink,#111);color:var(--paper,#fff);border-radius:12px;padding:13px 15px;font-weight:700}
+      .repo .rb span:last-child{font-family:var(--display);font-weight:400;color:var(--yellow,#FFD23F)}
+      .repo:hover .rb{background:#2a2a2a}
+    </style>
+    <a class="sticker repo" href="https://github.com/pookjw/HermesEnabler">
+      <div class="rh"><svg viewBox="0 0 16 16" width="34" height="34" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span class="rl">LE DÉPÔT GITHUB</span></div>
+      <div class="rn">pookjw/<wbr>HermesEnabler</div>
+      <p>Code source, installation et documentation officielle : tout est là.</p>
+      <div class="rb"><span>Voir le dépôt sur GitHub</span><span>→</span></div>
+    </a>
+  </section>
+
+  <!-- 5 -->
+  <section id="repopotes">
+    <div class="sticker join">
+      <img src="/assets/img/setei_repopotes.webp" alt="Setei bras ouverts">
+      <h2>Rejoins les Repo-Potes</h2>
+      <p>Chaque vidéo RepoPop t'explique un dépôt GitHub utile en moins d'une minute, avec son kit comme celui-ci.</p>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/repo_pop/"><span>Instagram</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.tiktok.com/@repo_pop"><span>TikTok</span><span>@repo_pop</span></a>
+        <a class="soc" href="https://www.youtube.com/@repo_pop"><span>YouTube Shorts</span><span>@repo_pop</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/">← Tous les kits RepoPop</a>
+    <span>Kit RepoPop n°56 · HermesEnabler · informations vérifiées le 25 novembre 2026. Prix publics constatés à cette date, susceptibles de changer.</span>
+    <span>Sources : <a href="https://github.com/pookjw/HermesEnabler">dépôt GitHub pookjw/HermesEnabler (README, Releases)</a> · <a href="https://github.com/pookjw/HermesEnabler/tree/main/Research">Notes de recherche du dépôt (Research/WatchFaces)</a> · <a href="https://github.com/pookjw/HermesEnabler/blob/main/image.png">Photo de la montre du README (image.png)</a> · <a href="https://www.watchgeneration.fr/apple-watch/2026/11/un-hack-permet-dactiver-les-cadrans-hermes-sur-nimporte-quelle-apple-watch-20515">WatchGeneration : un hack permet d'activer les cadrans Hermès (10/11/2026)</a> · <a href="https://iphonesoft.fr/2026/11/10/developpeur-debloque-cadrans-hermes-importe-apple-watch">iPhoneSoft : un développeur débloque les cadrans Hermès (10/11/2026)</a> · <a href="https://www.ithinkdiff.com/hermesenabler-2-hermes-watch-faces-watchos-27/">iThinkDifferent : HermesEnabler 2 sur watchOS 27</a> · <a href="https://www.hermes.com/fr/fr/category/montres/apple-watch-hermes/">Apple Watch Hermès Series 12 : prix (hermes.com)</a> · <a href="https://github.com/pookjw/Clocky">Clocky (même développeur)</a></span>
+  </footer>
+</main>
+</body>
+</html>
